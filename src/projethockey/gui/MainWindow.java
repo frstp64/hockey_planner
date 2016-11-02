@@ -27,17 +27,109 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTabbedPaneGlobal = new javax.swing.JTabbedPane();
+        jPanelVisualize = new javax.swing.JPanel();
+        jPanelSport = new javax.swing.JPanel();
+        jPanelObject = new javax.swing.JPanel();
+        jPanelObstacle = new javax.swing.JPanel();
+        jPanelStrategyEditor = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout jPanelVisualizeLayout = new javax.swing.GroupLayout(jPanelVisualize);
+        jPanelVisualize.setLayout(jPanelVisualizeLayout);
+        jPanelVisualizeLayout.setHorizontalGroup(
+            jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1237, Short.MAX_VALUE)
+        );
+        jPanelVisualizeLayout.setVerticalGroup(
+            jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 579, Short.MAX_VALUE)
+        );
+
+        jTabbedPaneGlobal.addTab("Visionnement", jPanelVisualize);
+
+        javax.swing.GroupLayout jPanelSportLayout = new javax.swing.GroupLayout(jPanelSport);
+        jPanelSport.setLayout(jPanelSportLayout);
+        jPanelSportLayout.setHorizontalGroup(
+            jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1237, Short.MAX_VALUE)
+        );
+        jPanelSportLayout.setVerticalGroup(
+            jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 579, Short.MAX_VALUE)
+        );
+
+        jTabbedPaneGlobal.addTab("Sport", jPanelSport);
+
+        javax.swing.GroupLayout jPanelObjectLayout = new javax.swing.GroupLayout(jPanelObject);
+        jPanelObject.setLayout(jPanelObjectLayout);
+        jPanelObjectLayout.setHorizontalGroup(
+            jPanelObjectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1237, Short.MAX_VALUE)
+        );
+        jPanelObjectLayout.setVerticalGroup(
+            jPanelObjectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 579, Short.MAX_VALUE)
+        );
+
+        jTabbedPaneGlobal.addTab("Objet", jPanelObject);
+
+        javax.swing.GroupLayout jPanelObstacleLayout = new javax.swing.GroupLayout(jPanelObstacle);
+        jPanelObstacle.setLayout(jPanelObstacleLayout);
+        jPanelObstacleLayout.setHorizontalGroup(
+            jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1237, Short.MAX_VALUE)
+        );
+        jPanelObstacleLayout.setVerticalGroup(
+            jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 579, Short.MAX_VALUE)
+        );
+
+        jTabbedPaneGlobal.addTab("Obstacle", jPanelObstacle);
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        javax.swing.GroupLayout jPanelStrategyEditorLayout = new javax.swing.GroupLayout(jPanelStrategyEditor);
+        jPanelStrategyEditor.setLayout(jPanelStrategyEditorLayout);
+        jPanelStrategyEditorLayout.setHorizontalGroup(
+            jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1088, Short.MAX_VALUE))
+        );
+        jPanelStrategyEditorLayout.setVerticalGroup(
+            jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(428, Short.MAX_VALUE))
+        );
+
+        jTabbedPaneGlobal.addTab("Stratégie", jPanelStrategyEditor);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 872, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jTabbedPaneGlobal, javax.swing.GroupLayout.PREFERRED_SIZE, 1242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 477, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPaneGlobal, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -79,5 +171,13 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JPanel jPanelObject;
+    private javax.swing.JPanel jPanelObstacle;
+    private javax.swing.JPanel jPanelSport;
+    private javax.swing.JPanel jPanelStrategyEditor;
+    private javax.swing.JPanel jPanelVisualize;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPaneGlobal;
     // End of variables declaration//GEN-END:variables
 }
