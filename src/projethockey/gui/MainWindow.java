@@ -170,6 +170,11 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         jButtonNewSport.setText("Nouveau");
+        jButtonNewSport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNewSportActionPerformed(evt);
+            }
+        });
 
         jPanelSportFieldViewer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -193,6 +198,17 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         jButtonLoadFieldImage.setText("Charger une image...");
+        jButtonLoadFieldImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLoadFieldImageActionPerformed(evt);
+            }
+        });
+
+        jTextFieldVerticalSize.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldVerticalSizeActionPerformed(evt);
+            }
+        });
 
         jLabelSportName.setText("Nom:");
 
@@ -426,11 +442,21 @@ public class MainWindow extends javax.swing.JFrame {
         jSeparator9.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         jButtonNewCategory.setText("Nouveau");
+        jButtonNewCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNewCategoryActionPerformed(evt);
+            }
+        });
 
         jButtonSaveCategory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projethockey/gui/mySaveIcon.png"))); // NOI18N
         jButtonSaveCategory.setText("Enregistrer");
         jButtonSaveCategory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonSaveCategory.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonSaveCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSaveCategoryActionPerformed(evt);
+            }
+        });
 
         jLabelCategoryImage.setText("Image de catégorie choisie");
 
@@ -478,6 +504,18 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelCategorySize.setText("Taille:");
 
         jLabelCategoryUnits.setText("(unités):");
+
+        jTextFieldCategoryName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCategoryNameActionPerformed(evt);
+            }
+        });
+
+        jTextFieldCategorySizeHorizontal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCategorySizeHorizontalActionPerformed(evt);
+            }
+        });
 
         jListExistingCategories.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Frontier Pierrien", "Ailier Picardier", "Gardien Röckenfelleur", "Lutteur Avant-Gardissien" };
@@ -618,6 +656,11 @@ public class MainWindow extends javax.swing.JFrame {
         jButtonSaveGameObject.setText("Enregistrer");
         jButtonSaveGameObject.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonSaveGameObject.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonSaveGameObject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSaveGameObjectActionPerformed(evt);
+            }
+        });
 
         jLabelObstacleInformation.setText("Informations sur l'obstacle");
 
@@ -659,6 +702,12 @@ public class MainWindow extends javax.swing.JFrame {
             .addGap(0, 288, Short.MAX_VALUE)
         );
 
+        jTextFieldObjectName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldObjectNameActionPerformed(evt);
+            }
+        });
+
         jTextFieldObjectHorizontalSize.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldObjectHorizontalSizeActionPerformed(evt);
@@ -672,6 +721,11 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         jButtonChooseObjectPicture.setText("Choisir image...");
+        jButtonChooseObjectPicture.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonChooseObjectPictureActionPerformed(evt);
+            }
+        });
 
         jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -694,6 +748,11 @@ public class MainWindow extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jList1);
 
         jButtonDeleteGameObject.setText("Supprimer");
+        jButtonDeleteGameObject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteGameObjectActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelObstacleLayout = new javax.swing.GroupLayout(jPanelObstacle);
         jPanelObstacle.setLayout(jPanelObstacleLayout);
@@ -826,6 +885,11 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         jButtonLoadStrategy.setText("Charger une stratégie");
+        jButtonLoadStrategy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLoadStrategyActionPerformed(evt);
+            }
+        });
 
         jLabelChooseSport.setText("Sport:");
 
@@ -837,6 +901,17 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelStrategyCreationZoneTitle.setText("Création de stratégie");
 
         jComboBoxChooseStrategySport.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hockey", "Hockey Spécial", "Soccer" }));
+        jComboBoxChooseStrategySport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxChooseStrategySportActionPerformed(evt);
+            }
+        });
+
+        jTextFieldChooseStrategyName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldChooseStrategyNameActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelCreateLoadStrategyLayout = new javax.swing.GroupLayout(jPanelCreateLoadStrategy);
         jPanelCreateLoadStrategy.setLayout(jPanelCreateLoadStrategyLayout);
@@ -932,6 +1007,11 @@ public class MainWindow extends javax.swing.JFrame {
         jButtonSaveStrategy.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonSaveStrategy.setIconTextGap(2);
         jButtonSaveStrategy.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonSaveStrategy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSaveStrategyActionPerformed(evt);
+            }
+        });
 
         jSliderModificationGameTime.setValue(0);
 
@@ -999,6 +1079,11 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         jButtonExport.setText("Exporter");
+        jButtonExport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExportActionPerformed(evt);
+            }
+        });
 
         jListEditorStrategy.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Tour du chapeau", "Stratégie des Oursons" };
@@ -1220,6 +1305,11 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         jTextFieldStrategyViewerTime.setText("0");
+        jTextFieldStrategyViewerTime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldStrategyViewerTimeActionPerformed(evt);
+            }
+        });
 
         jLabelStrategyViewerTime.setText("Temps (s):");
 
@@ -1227,6 +1317,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         jButtonZoom.setText("Zoom");
         jButtonZoom.setToolTipText("Sélectionner la zone de zoom désirée avec deux points");
+        jButtonZoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonZoomActionPerformed(evt);
+            }
+        });
 
         jLabelMousePositionTitle.setText("Coordonnées:");
 
@@ -1412,6 +1507,78 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonCreateStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateStrategyActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonCreateStrategyActionPerformed
+
+    private void jButtonNewSportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewSportActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonNewSportActionPerformed
+
+    private void jButtonLoadFieldImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoadFieldImageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonLoadFieldImageActionPerformed
+
+    private void jTextFieldVerticalSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldVerticalSizeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldVerticalSizeActionPerformed
+
+    private void jButtonNewCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewCategoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonNewCategoryActionPerformed
+
+    private void jButtonSaveCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveCategoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSaveCategoryActionPerformed
+
+    private void jTextFieldCategoryNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCategoryNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCategoryNameActionPerformed
+
+    private void jTextFieldCategorySizeHorizontalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCategorySizeHorizontalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCategorySizeHorizontalActionPerformed
+
+    private void jButtonSaveGameObjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveGameObjectActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSaveGameObjectActionPerformed
+
+    private void jTextFieldObjectNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldObjectNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldObjectNameActionPerformed
+
+    private void jButtonChooseObjectPictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseObjectPictureActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonChooseObjectPictureActionPerformed
+
+    private void jButtonDeleteGameObjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteGameObjectActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonDeleteGameObjectActionPerformed
+
+    private void jButtonLoadStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoadStrategyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonLoadStrategyActionPerformed
+
+    private void jComboBoxChooseStrategySportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxChooseStrategySportActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxChooseStrategySportActionPerformed
+
+    private void jTextFieldChooseStrategyNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldChooseStrategyNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldChooseStrategyNameActionPerformed
+
+    private void jButtonSaveStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveStrategyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSaveStrategyActionPerformed
+
+    private void jButtonExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExportActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonExportActionPerformed
+
+    private void jTextFieldStrategyViewerTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStrategyViewerTimeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldStrategyViewerTimeActionPerformed
+
+    private void jButtonZoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZoomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonZoomActionPerformed
 
     /**
      * @param args the command line arguments
