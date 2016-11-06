@@ -139,7 +139,7 @@ public class MainWindow extends javax.swing.JFrame {
         jListEditorStrategy = new javax.swing.JList<>();
         jLabelAvailableStrategies = new javax.swing.JLabel();
         jButtonDeleteStrategy = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        jPanelStrategyEditorLocation = new javax.swing.JPanel();
         jPanelVisualize = new javax.swing.JPanel();
         jSeparator4 = new javax.swing.JSeparator();
         jPanelGameVisualization = new javax.swing.JPanel();
@@ -157,6 +157,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1280, 1024));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jButtonSaveSport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projethockey/gui/mySaveIcon.png"))); // NOI18N
         jButtonSaveSport.setText("Enregistrer");
@@ -177,6 +182,11 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         jPanelSportFieldViewer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelSportFieldViewer.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jPanelSportFieldViewerPropertyChange(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelSportFieldViewerLayout = new javax.swing.GroupLayout(jPanelSportFieldViewer);
         jPanelSportFieldViewer.setLayout(jPanelSportFieldViewerLayout);
@@ -486,6 +496,11 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelCategoryImage.setText("Image de catégorie choisie");
 
         jPanelCategoryPicture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelCategoryPicture.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jPanelCategoryPicturePropertyChange(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelCategoryPictureLayout = new javax.swing.GroupLayout(jPanelCategoryPicture);
         jPanelCategoryPicture.setLayout(jPanelCategoryPictureLayout);
@@ -510,6 +525,11 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelCategoryOnTerrain.setText("Image telle que vue sur le terrain");
 
         jPanelCategoryOnTerrain.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelCategoryOnTerrain.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jPanelCategoryOnTerrainPropertyChange(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelCategoryOnTerrainLayout = new javax.swing.GroupLayout(jPanelCategoryOnTerrain);
         jPanelCategoryOnTerrain.setLayout(jPanelCategoryOnTerrainLayout);
@@ -707,6 +727,11 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelObstacleOnTerrain.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jPanelObstacleOnTerrain.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelObstacleOnTerrain.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jPanelObstacleOnTerrainPropertyChange(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelObstacleOnTerrainLayout = new javax.swing.GroupLayout(jPanelObstacleOnTerrain);
         jPanelObstacleOnTerrain.setLayout(jPanelObstacleOnTerrainLayout);
@@ -720,6 +745,11 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         jPanelObstaclePicture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelObstaclePicture.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jPanelObstaclePicturePropertyChange(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelObstaclePictureLayout = new javax.swing.GroupLayout(jPanelObstaclePicture);
         jPanelObstaclePicture.setLayout(jPanelObstaclePictureLayout);
@@ -1166,16 +1196,21 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelStrategyEditorLocation.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelStrategyEditorLocation.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jPanelStrategyEditorLocationPropertyChange(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelStrategyEditorLocationLayout = new javax.swing.GroupLayout(jPanelStrategyEditorLocation);
+        jPanelStrategyEditorLocation.setLayout(jPanelStrategyEditorLocationLayout);
+        jPanelStrategyEditorLocationLayout.setHorizontalGroup(
+            jPanelStrategyEditorLocationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1219, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelStrategyEditorLocationLayout.setVerticalGroup(
+            jPanelStrategyEditorLocationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 365, Short.MAX_VALUE)
         );
 
@@ -1188,7 +1223,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanelStrategyEditorLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelStrategyEditorLayout.createSequentialGroup()
                         .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1300,7 +1335,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelStrategyEditorLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1333,6 +1368,11 @@ public class MainWindow extends javax.swing.JFrame {
         jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         jPanelGameVisualization.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelGameVisualization.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jPanelGameVisualizationPropertyChange(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelGameVisualizationLayout = new javax.swing.GroupLayout(jPanelGameVisualization);
         jPanelGameVisualization.setLayout(jPanelGameVisualizationLayout);
@@ -1724,6 +1764,38 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jSliderGameTimeVetoableChange
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowClosing
+
+    private void jPanelSportFieldViewerPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelSportFieldViewerPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelSportFieldViewerPropertyChange
+
+    private void jPanelCategoryPicturePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelCategoryPicturePropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelCategoryPicturePropertyChange
+
+    private void jPanelCategoryOnTerrainPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelCategoryOnTerrainPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelCategoryOnTerrainPropertyChange
+
+    private void jPanelObstaclePicturePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelObstaclePicturePropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelObstaclePicturePropertyChange
+
+    private void jPanelObstacleOnTerrainPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelObstacleOnTerrainPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelObstacleOnTerrainPropertyChange
+
+    private void jPanelStrategyEditorLocationPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelStrategyEditorLocationPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelStrategyEditorLocationPropertyChange
+
+    private void jPanelGameVisualizationPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelGameVisualizationPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelGameVisualizationPropertyChange
+
     /**
      * @param args the command line arguments
      */
@@ -1833,7 +1905,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JList<String> jListPlayers;
     private javax.swing.JList<String> jListStrategyViewerStrategy;
     private javax.swing.JList<String> jListTypeModificationType;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelCategories;
     private javax.swing.JPanel jPanelCategoryOnTerrain;
     private javax.swing.JPanel jPanelCategoryPicture;
@@ -1845,6 +1916,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelSport;
     private javax.swing.JPanel jPanelSportFieldViewer;
     private javax.swing.JPanel jPanelStrategyEditor;
+    private javax.swing.JPanel jPanelStrategyEditorLocation;
     private javax.swing.JPanel jPanelVisualize;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
