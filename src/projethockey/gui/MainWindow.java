@@ -51,9 +51,9 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelObjectTypeNumber = new javax.swing.JLabel();
         jLabelObjectTableTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        jListExistingSports = new javax.swing.JList<>();
         jButtonDestroySelectedSport = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelExistingSportTitle = new javax.swing.JLabel();
         jPanelCategories = new javax.swing.JPanel();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
@@ -97,7 +97,7 @@ public class MainWindow extends javax.swing.JFrame {
         jCheckBoxIsAGameObject = new javax.swing.JCheckBox();
         jLabelExistingObjects = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jListExistingObstacle = new javax.swing.JList<>();
         jButtonDeleteGameObject = new javax.swing.JButton();
         jPanelCreateLoadStrategy = new javax.swing.JPanel();
         jButtonCreateStrategy = new javax.swing.JButton();
@@ -150,7 +150,7 @@ public class MainWindow extends javax.swing.JFrame {
         jButtonPauseGame = new javax.swing.JButton();
         jTextFieldStrategyViewerTime = new javax.swing.JTextField();
         jLabelStrategyViewerTime = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelStrategyListTitle = new javax.swing.JLabel();
         jButtonZoom = new javax.swing.JButton();
         jLabelMousePositionTitle = new javax.swing.JLabel();
         jLabelMousePosition = new javax.swing.JLabel();
@@ -237,6 +237,11 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         tableSportPlayers.getTableHeader().setReorderingAllowed(false);
+        tableSportPlayers.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
+            public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
+                tableSportPlayersVetoableChange(evt);
+            }
+        });
         jScrollPanePlayers.setViewportView(tableSportPlayers);
         if (tableSportPlayers.getColumnModel().getColumnCount() > 0) {
             tableSportPlayers.getColumnModel().getColumn(0).setResizable(false);
@@ -257,6 +262,11 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelPlayersTableTitle.setText("Les joueurs");
 
         jSpinnerPlayerNumber.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        jSpinnerPlayerNumber.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jSpinnerPlayerNumberPropertyChange(evt);
+            }
+        });
 
         jTableSportsItems.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -272,6 +282,11 @@ public class MainWindow extends javax.swing.JFrame {
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+        });
+        jTableSportsItems.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
+            public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
+                jTableSportsItemsVetoableChange(evt);
             }
         });
         jScrollPaneSportObjects.setViewportView(jTableSportsItems);
@@ -291,17 +306,27 @@ public class MainWindow extends javax.swing.JFrame {
 
         jSpinnerObjectTypeNumber.setModel(new javax.swing.SpinnerNumberModel(1, 0, null, 1));
         jSpinnerObjectTypeNumber.setToolTipText("Nombre de types d'objets");
+        jSpinnerObjectTypeNumber.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jSpinnerObjectTypeNumberPropertyChange(evt);
+            }
+        });
 
         jLabelObjectTypeNumber.setText("Nombre de types d'objet:");
 
         jLabelObjectTableTitle.setText("Les objets");
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        jListExistingSports.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Hockey", "Hockey Spécial", "Soccer" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList2);
+        jListExistingSports.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jListExistingSportsPropertyChange(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jListExistingSports);
 
         jButtonDestroySelectedSport.setText("Supprimer");
         jButtonDestroySelectedSport.addActionListener(new java.awt.event.ActionListener() {
@@ -310,7 +335,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Les sports existants");
+        jLabelExistingSportTitle.setText("Les sports existants");
 
         javax.swing.GroupLayout jPanelSportLayout = new javax.swing.GroupLayout(jPanelSport);
         jPanelSport.setLayout(jPanelSportLayout);
@@ -334,7 +359,7 @@ public class MainWindow extends javax.swing.JFrame {
                                 .addComponent(jButtonDestroySelectedSport)
                                 .addGap(241, 241, 241))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSportLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(jLabelExistingSportTitle)
                                 .addGap(353, 353, 353))))
                     .addGroup(jPanelSportLayout.createSequentialGroup()
                         .addContainerGap()
@@ -396,7 +421,7 @@ public class MainWindow extends javax.swing.JFrame {
                             .addComponent(jButtonNewSport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(68, 68, 68))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSportLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(jLabelExistingSportTitle)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonDestroySelectedSport)
@@ -521,6 +546,11 @@ public class MainWindow extends javax.swing.JFrame {
             String[] strings = { "Frontier Pierrien", "Ailier Picardier", "Gardien Röckenfelleur", "Lutteur Avant-Gardissien" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
+        });
+        jListExistingCategories.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jListExistingCategoriesPropertyChange(evt);
+            }
         });
         jScrollPane4.setViewportView(jListExistingCategories);
 
@@ -740,12 +770,17 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabelExistingObjects.setText("Objets existants");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        jListExistingObstacle.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Gourde-ballon", "Lure", "Objet parfaitement générique", "Oblongoïde" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane3.setViewportView(jList1);
+        jListExistingObstacle.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jListExistingObstaclePropertyChange(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jListExistingObstacle);
 
         jButtonDeleteGameObject.setText("Supprimer");
         jButtonDeleteGameObject.addActionListener(new java.awt.event.ActionListener() {
@@ -972,6 +1007,11 @@ public class MainWindow extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jListTypeModificationType.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jListTypeModificationTypePropertyChange(evt);
+            }
+        });
         jScrollPaneModificationMode.setViewportView(jListTypeModificationType);
 
         jListPlayers.setModel(new javax.swing.AbstractListModel<String>() {
@@ -979,12 +1019,22 @@ public class MainWindow extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jListPlayers.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jListPlayersPropertyChange(evt);
+            }
+        });
         jScrollPanePlayerSelection.setViewportView(jListPlayers);
 
         jListObjects.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Plot", "Ballon" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
+        });
+        jListObjects.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jListObjectsPropertyChange(evt);
+            }
         });
         jScrollPaneObjectSelection.setViewportView(jListObjects);
 
@@ -1014,6 +1064,11 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         jSliderModificationGameTime.setValue(0);
+        jSliderModificationGameTime.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
+            public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
+                jSliderModificationGameTimeVetoableChange(evt);
+            }
+        });
 
         jButtonNextFrameForImageMode.setText("image suivante");
         jButtonNextFrameForImageMode.setDefaultCapable(false);
@@ -1026,6 +1081,11 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelCursorPosition.setText("position du curseur: ");
 
         jLabelCurrentPosition.setText("positionActuelle");
+        jLabelCurrentPosition.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jLabelCurrentPositionPropertyChange(evt);
+            }
+        });
 
         jTextFieldTimeInterval.setText("1s");
         jTextFieldTimeInterval.addActionListener(new java.awt.event.ActionListener() {
@@ -1089,6 +1149,11 @@ public class MainWindow extends javax.swing.JFrame {
             String[] strings = { "Tour du chapeau", "Stratégie des Oursons" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
+        });
+        jListEditorStrategy.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jListEditorStrategyPropertyChange(evt);
+            }
         });
         jScrollPane2.setViewportView(jListEditorStrategy);
 
@@ -1286,9 +1351,19 @@ public class MainWindow extends javax.swing.JFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         jListStrategyViewerStrategy.setToolTipText("");
+        jListStrategyViewerStrategy.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jListStrategyViewerStrategyPropertyChange(evt);
+            }
+        });
         jScrollWTF.setViewportView(jListStrategyViewerStrategy);
 
         jSliderGameTime.setValue(0);
+        jSliderGameTime.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
+            public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
+                jSliderGameTimeVetoableChange(evt);
+            }
+        });
 
         jButtonPlayGame.setText("Commencer");
         jButtonPlayGame.addActionListener(new java.awt.event.ActionListener() {
@@ -1313,7 +1388,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabelStrategyViewerTime.setText("Temps (s):");
 
-        jLabel2.setText("Stratégies");
+        jLabelStrategyListTitle.setText("Stratégies");
 
         jButtonZoom.setText("Zoom");
         jButtonZoom.setToolTipText("Sélectionner la zone de zoom désirée avec deux points");
@@ -1326,6 +1401,11 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelMousePositionTitle.setText("Coordonnées:");
 
         jLabelMousePosition.setText("CoordonnéesSouris");
+        jLabelMousePosition.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jLabelMousePositionPropertyChange(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelVisualizeLayout = new javax.swing.GroupLayout(jPanelVisualize);
         jPanelVisualize.setLayout(jPanelVisualizeLayout);
@@ -1338,7 +1418,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(jScrollWTF, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelVisualizeLayout.createSequentialGroup()
                         .addGap(34, 34, 34)
-                        .addComponent(jLabel2))
+                        .addComponent(jLabelStrategyListTitle))
                     .addGroup(jPanelVisualizeLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addGroup(jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -1383,7 +1463,7 @@ public class MainWindow extends javax.swing.JFrame {
                             .addComponent(jLabelStrategyViewerTime)))
                     .addGroup(jPanelVisualizeLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel2)
+                        .addComponent(jLabelStrategyListTitle)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollWTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1580,6 +1660,70 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonZoomActionPerformed
 
+    private void jTableSportsItemsVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jTableSportsItemsVetoableChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTableSportsItemsVetoableChange
+
+    private void tableSportPlayersVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_tableSportPlayersVetoableChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tableSportPlayersVetoableChange
+
+    private void jLabelCurrentPositionPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabelCurrentPositionPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelCurrentPositionPropertyChange
+
+    private void jLabelMousePositionPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabelMousePositionPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelMousePositionPropertyChange
+
+    private void jSpinnerPlayerNumberPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jSpinnerPlayerNumberPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSpinnerPlayerNumberPropertyChange
+
+    private void jSpinnerObjectTypeNumberPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jSpinnerObjectTypeNumberPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSpinnerObjectTypeNumberPropertyChange
+
+    private void jListExistingSportsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListExistingSportsPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jListExistingSportsPropertyChange
+
+    private void jListExistingCategoriesPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListExistingCategoriesPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jListExistingCategoriesPropertyChange
+
+    private void jListExistingObstaclePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListExistingObstaclePropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jListExistingObstaclePropertyChange
+
+    private void jListEditorStrategyPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListEditorStrategyPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jListEditorStrategyPropertyChange
+
+    private void jListTypeModificationTypePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListTypeModificationTypePropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jListTypeModificationTypePropertyChange
+
+    private void jListPlayersPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListPlayersPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jListPlayersPropertyChange
+
+    private void jListObjectsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListObjectsPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jListObjectsPropertyChange
+
+    private void jListStrategyViewerStrategyPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListStrategyViewerStrategyPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jListStrategyViewerStrategyPropertyChange
+
+    private void jSliderModificationGameTimeVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jSliderModificationGameTimeVetoableChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSliderModificationGameTimeVetoableChange
+
+    private void jSliderGameTimeVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jSliderGameTimeVetoableChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSliderGameTimeVetoableChange
+
     /**
      * @param args the command line arguments
      */
@@ -1644,8 +1788,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonZoom;
     private javax.swing.JCheckBox jCheckBoxIsAGameObject;
     private javax.swing.JComboBox<String> jComboBoxChooseStrategySport;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelAvailableStrategies;
     private javax.swing.JLabel jLabelCategoryImage;
@@ -1660,6 +1802,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelCursorPosition;
     private javax.swing.JLabel jLabelExistingCategories;
     private javax.swing.JLabel jLabelExistingObjects;
+    private javax.swing.JLabel jLabelExistingSportTitle;
     private javax.swing.JLabel jLabelFieldSize;
     private javax.swing.JLabel jLabelFieldText;
     private javax.swing.JLabel jLabelModificationModeToSelect;
@@ -1678,13 +1821,14 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPlayersTableTitle;
     private javax.swing.JLabel jLabelSportName;
     private javax.swing.JLabel jLabelStrategyCreationZoneTitle;
+    private javax.swing.JLabel jLabelStrategyListTitle;
     private javax.swing.JLabel jLabelStrategyName;
     private javax.swing.JLabel jLabelStrategyViewerTime;
     private javax.swing.JLabel jLabelTimeInterval;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
     private javax.swing.JList<String> jListEditorStrategy;
     private javax.swing.JList<String> jListExistingCategories;
+    private javax.swing.JList<String> jListExistingObstacle;
+    private javax.swing.JList<String> jListExistingSports;
     private javax.swing.JList<String> jListObjects;
     private javax.swing.JList<String> jListPlayers;
     private javax.swing.JList<String> jListStrategyViewerStrategy;
