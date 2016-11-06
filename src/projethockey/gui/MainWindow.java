@@ -99,6 +99,15 @@ public class MainWindow extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jButtonDeleteGameObject = new javax.swing.JButton();
+        jPanelCreateLoadStrategy = new javax.swing.JPanel();
+        jButtonCreateStrategy = new javax.swing.JButton();
+        jButtonLoadStrategy = new javax.swing.JButton();
+        jLabelChooseSport = new javax.swing.JLabel();
+        jLabelChooseNameStrategy = new javax.swing.JLabel();
+        jSeparator11 = new javax.swing.JSeparator();
+        jLabelStrategyCreationZoneTitle = new javax.swing.JLabel();
+        jComboBoxChooseStrategySport = new javax.swing.JComboBox<>();
+        jTextFieldChooseStrategyName = new javax.swing.JTextField();
         jPanelStrategyEditor = new javax.swing.JPanel();
         jScrollPaneModificationMode = new javax.swing.JScrollPane();
         jListTypeModificationType = new javax.swing.JList<>();
@@ -142,6 +151,7 @@ public class MainWindow extends javax.swing.JFrame {
         jTextFieldStrategyViewerTime = new javax.swing.JTextField();
         jLabelStrategyViewerTime = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jButtonZoom = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1280, 1024));
@@ -292,7 +302,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelSportLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, 1213, Short.MAX_VALUE))
+                        .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, 1578, Short.MAX_VALUE))
                     .addGroup(jPanelSportLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jButtonNewSport)
@@ -406,7 +416,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPaneSportObjects, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanelSportFieldViewer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(734, Short.MAX_VALUE))
         );
 
         jTabbedPanePlayerCategory.addTab("Sport", jPanelSport);
@@ -531,7 +541,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(jButtonChooseCategoryImage)))
                 .addGap(51, 51, 51)
                 .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 478, Short.MAX_VALUE)
                 .addGroup(jPanelCategoriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelCategoryOnTerrain, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanelCategoryOnTerrain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -590,7 +600,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(jPanelCategoryPicture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonChooseCategoryImage)
-                        .addContainerGap(84, Short.MAX_VALUE))))
+                        .addContainerGap(768, Short.MAX_VALUE))))
         );
 
         jTabbedPanePlayerCategory.addTab("Catégories", jPanelCategories);
@@ -805,6 +815,80 @@ public class MainWindow extends javax.swing.JFrame {
         jCheckBoxIsAGameObject.getAccessibleContext().setAccessibleDescription("");
 
         jTabbedPanePlayerCategory.addTab("Objets de jeu", jPanelObstacle);
+
+        jButtonCreateStrategy.setText("Créer une nouvelle stratégie");
+        jButtonCreateStrategy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCreateStrategyActionPerformed(evt);
+            }
+        });
+
+        jButtonLoadStrategy.setText("Charger une stratégie");
+
+        jLabelChooseSport.setText("Sport:");
+
+        jLabelChooseNameStrategy.setText("Nom:");
+
+        jSeparator11.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jLabelStrategyCreationZoneTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabelStrategyCreationZoneTitle.setText("Création de stratégie");
+
+        jComboBoxChooseStrategySport.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hockey", "Hockey Spécial", "Soccer" }));
+
+        javax.swing.GroupLayout jPanelCreateLoadStrategyLayout = new javax.swing.GroupLayout(jPanelCreateLoadStrategy);
+        jPanelCreateLoadStrategy.setLayout(jPanelCreateLoadStrategyLayout);
+        jPanelCreateLoadStrategyLayout.setHorizontalGroup(
+            jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jButtonLoadStrategy)
+                .addGap(36, 36, 36)
+                .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelStrategyCreationZoneTitle)
+                            .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
+                                .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelChooseNameStrategy)
+                                    .addComponent(jLabelChooseSport))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBoxChooseStrategySport, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldChooseStrategyName)))))
+                    .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(jButtonCreateStrategy)))
+                .addContainerGap(1055, Short.MAX_VALUE))
+        );
+        jPanelCreateLoadStrategyLayout.setVerticalGroup(
+            jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelCreateLoadStrategyLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabelStrategyCreationZoneTitle)
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelChooseNameStrategy)
+                            .addComponent(jTextFieldChooseStrategyName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelChooseSport)
+                            .addComponent(jComboBoxChooseStrategySport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonCreateStrategy))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelCreateLoadStrategyLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jButtonLoadStrategy)))
+                .addGap(0, 633, Short.MAX_VALUE))
+        );
+
+        jTabbedPanePlayerCategory.addTab("Créer/charger stratégie", jPanelCreateLoadStrategy);
 
         jListTypeModificationType.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Image par image", "Temps réel" };
@@ -1102,7 +1186,7 @@ public class MainWindow extends javax.swing.JFrame {
         jPanelGameVisualization.setLayout(jPanelGameVisualizationLayout);
         jPanelGameVisualizationLayout.setHorizontalGroup(
             jPanelGameVisualizationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1053, Short.MAX_VALUE)
+            .addGap(0, 1406, Short.MAX_VALUE)
         );
         jPanelGameVisualizationLayout.setVerticalGroup(
             jPanelGameVisualizationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1119,7 +1203,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         jSliderGameTime.setValue(0);
 
-        jButtonPlayGame.setText("Jouer");
+        jButtonPlayGame.setText("Commencer");
+        jButtonPlayGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPlayGameActionPerformed(evt);
+            }
+        });
 
         jButtonPauseGame.setText("Pause");
         jButtonPauseGame.addActionListener(new java.awt.event.ActionListener() {
@@ -1134,6 +1223,9 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel2.setText("Stratégies");
 
+        jButtonZoom.setText("Zoom");
+        jButtonZoom.setToolTipText("Sélectionner la zone de zoom désirée avec deux points");
+
         javax.swing.GroupLayout jPanelVisualizeLayout = new javax.swing.GroupLayout(jPanelVisualize);
         jPanelVisualize.setLayout(jPanelVisualizeLayout);
         jPanelVisualizeLayout.setHorizontalGroup(
@@ -1143,16 +1235,17 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(jPanelVisualizeLayout.createSequentialGroup()
                         .addGroup(jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelVisualizeLayout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addGroup(jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jButtonPauseGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButtonPlayGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(jPanelVisualizeLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jScrollWTF, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelVisualizeLayout.createSequentialGroup()
                                 .addGap(34, 34, 34)
-                                .addComponent(jLabel2)))
+                                .addComponent(jLabel2))
+                            .addGroup(jPanelVisualizeLayout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addGroup(jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jButtonPauseGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonPlayGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonZoom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1181,6 +1274,8 @@ public class MainWindow extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollWTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonZoom)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonPauseGame)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonPlayGame)
@@ -1201,16 +1296,16 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jTabbedPanePlayerCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 1242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPanePlayerCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 9, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 12, Short.MAX_VALUE)
+                .addComponent(jTabbedPanePlayerCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -1296,6 +1391,14 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonDeleteCategoryActionPerformed
 
+    private void jButtonPlayGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPlayGameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonPlayGameActionPerformed
+
+    private void jButtonCreateStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateStrategyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCreateStrategyActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1334,12 +1437,14 @@ public class MainWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonChooseCategoryImage;
     private javax.swing.JButton jButtonChooseObjectPicture;
+    private javax.swing.JButton jButtonCreateStrategy;
     private javax.swing.JButton jButtonDeleteCategory;
     private javax.swing.JButton jButtonDeleteGameObject;
     private javax.swing.JButton jButtonDeleteStrategy;
     private javax.swing.JButton jButtonDestroySelectedSport;
     private javax.swing.JButton jButtonExport;
     private javax.swing.JButton jButtonLoadFieldImage;
+    private javax.swing.JButton jButtonLoadStrategy;
     private javax.swing.JButton jButtonModificationVisualize;
     private javax.swing.JButton jButtonNewCategory;
     private javax.swing.JButton jButtonNewGameObject;
@@ -1355,7 +1460,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonStepBackTime;
     private javax.swing.JButton jButtonStepForwardTime;
     private javax.swing.JButton jButtonUndo;
+    private javax.swing.JButton jButtonZoom;
     private javax.swing.JCheckBox jCheckBoxIsAGameObject;
+    private javax.swing.JComboBox<String> jComboBoxChooseStrategySport;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1365,6 +1472,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelCategoryOnTerrain;
     private javax.swing.JLabel jLabelCategorySize;
     private javax.swing.JLabel jLabelCategoryUnits;
+    private javax.swing.JLabel jLabelChooseNameStrategy;
+    private javax.swing.JLabel jLabelChooseSport;
     private javax.swing.JLabel jLabelChosenObstacleImage;
     private javax.swing.JLabel jLabelCurrentPosition;
     private javax.swing.JLabel jLabelCursorPosition;
@@ -1385,6 +1494,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPlayerToSelect;
     private javax.swing.JLabel jLabelPlayersTableTitle;
     private javax.swing.JLabel jLabelSportName;
+    private javax.swing.JLabel jLabelStrategyCreationZoneTitle;
     private javax.swing.JLabel jLabelStrategyName;
     private javax.swing.JLabel jLabelStrategyViewerTime;
     private javax.swing.JLabel jLabelTimeInterval;
@@ -1400,6 +1510,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelCategories;
     private javax.swing.JPanel jPanelCategoryOnTerrain;
     private javax.swing.JPanel jPanelCategoryPicture;
+    private javax.swing.JPanel jPanelCreateLoadStrategy;
     private javax.swing.JPanel jPanelGameVisualization;
     private javax.swing.JPanel jPanelObstacle;
     private javax.swing.JPanel jPanelObstacleOnTerrain;
@@ -1420,6 +1531,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollWTF;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -1437,6 +1549,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldCategoryName;
     private javax.swing.JTextField jTextFieldCategorySizeHorizontal;
     private javax.swing.JTextField jTextFieldCategorySizeVertical;
+    private javax.swing.JTextField jTextFieldChooseStrategyName;
     private javax.swing.JTextField jTextFieldHorizontalSize;
     private javax.swing.JTextField jTextFieldObjectHorizontalSize;
     private javax.swing.JTextField jTextFieldObjectName;
