@@ -158,6 +158,8 @@ public class MainWindow extends javax.swing.JFrame {
         jButtonZoom = new javax.swing.JButton();
         jLabelMousePositionTitle = new javax.swing.JLabel();
         jLabelMousePosition = new javax.swing.JLabel();
+        jLabelPlayBackSpeedTitle = new javax.swing.JLabel();
+        jTextFieldPlaybackSpeed = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1280, 1024));
@@ -1480,12 +1482,16 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        jLabelPlayBackSpeedTitle.setText("Vitesse de jeu: ");
+
+        jTextFieldPlaybackSpeed.setToolTipText("Multiple de la vitessse normale, de 0.01 à 10");
+
         javax.swing.GroupLayout jPanelVisualizeLayout = new javax.swing.GroupLayout(jPanelVisualize);
         jPanelVisualize.setLayout(jPanelVisualizeLayout);
         jPanelVisualizeLayout.setHorizontalGroup(
             jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelVisualizeLayout.createSequentialGroup()
-                .addGroup(jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelVisualizeLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollWTF, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1503,7 +1509,12 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(jLabelMousePositionTitle))
                     .addGroup(jPanelVisualizeLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabelMousePosition)))
+                        .addComponent(jLabelMousePosition))
+                    .addGroup(jPanelVisualizeLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelPlayBackSpeedTitle)
+                            .addComponent(jTextFieldPlaybackSpeed))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelVisualizeLayout.createSequentialGroup()
@@ -1523,7 +1534,7 @@ public class MainWindow extends javax.swing.JFrame {
             jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelVisualizeLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jSliderGameTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelVisualizeLayout.createSequentialGroup()
                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1540,6 +1551,10 @@ public class MainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollWTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelPlayBackSpeedTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldPlaybackSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(63, 63, 63)
                         .addComponent(jButtonZoom)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonPauseGame)
@@ -1930,6 +1945,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelObstacleOnTerrain;
     private javax.swing.JLabel jLabelObstacleSize;
     private javax.swing.JLabel jLabelObstacleUnits;
+    private javax.swing.JLabel jLabelPlayBackSpeedTitle;
     private javax.swing.JLabel jLabelPlayerNumber;
     private javax.swing.JLabel jLabelPlayerToSelect;
     private javax.swing.JLabel jLabelPlayersTableTitle;
@@ -1997,6 +2013,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldObjectHorizontalSize;
     private javax.swing.JTextField jTextFieldObjectName;
     private javax.swing.JTextField jTextFieldObjectVerticalSize;
+    private javax.swing.JTextField jTextFieldPlaybackSpeed;
     private javax.swing.JTextField jTextFieldSportName;
     private javax.swing.JTextField jTextFieldStrategyName;
     private javax.swing.JTextField jTextFieldStrategyViewerTime;

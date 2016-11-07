@@ -1831,7 +1831,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollWTF" min="-2" pref="128" max="-2" attributes="0"/>
@@ -1855,6 +1855,13 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabelMousePosition" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabelPlayBackSpeedTitle" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldPlaybackSpeed" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1881,7 +1888,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="jSliderGameTime" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="jSeparator4" min="-2" pref="591" max="-2" attributes="0"/>
@@ -1901,6 +1908,10 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollWTF" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jLabelPlayBackSpeedTitle" min="-2" pref="25" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTextFieldPlaybackSpeed" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                               <Component id="jButtonZoom" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButtonPauseGame" min="-2" max="-2" attributes="0"/>
@@ -2037,6 +2048,16 @@
               <Events>
                 <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jLabelMousePositionPropertyChange"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelPlayBackSpeedTitle">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Vitesse de jeu: "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldPlaybackSpeed">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Multiple de la vitessse normale, de 0.01 &#xe0; 10"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
