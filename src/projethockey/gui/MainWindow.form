@@ -127,10 +127,14 @@
                                                               <EmptySpace max="-2" attributes="0"/>
                                                               <Group type="103" groupAlignment="0" attributes="0">
                                                                   <Component id="jTextFieldSportName" min="-2" pref="93" max="-2" attributes="0"/>
-                                                                  <Group type="102" attributes="0">
+                                                                  <Group type="102" alignment="0" attributes="0">
                                                                       <Component id="jTextFieldHorizontalSize" min="-2" pref="42" max="-2" attributes="0"/>
                                                                       <EmptySpace max="-2" attributes="0"/>
                                                                       <Component id="jTextFieldVerticalSize" min="-2" pref="45" max="-2" attributes="0"/>
+                                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                                                      <EmptySpace max="-2" attributes="0"/>
+                                                                      <Component id="jTextFieldFieldUnits" min="-2" pref="59" max="-2" attributes="0"/>
                                                                   </Group>
                                                               </Group>
                                                           </Group>
@@ -149,7 +153,7 @@
                                               <Component id="jLabelObjectTableTitle" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="84" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -196,14 +200,16 @@
                                       <Component id="jLabelFieldSize" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jTextFieldHorizontalSize" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jTextFieldVerticalSize" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldFieldUnits" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabelPlayerNumber" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jSpinnerPlayerNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabelPlayerNumber" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jSpinnerPlayerNumber" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabelPlayersTableTitle" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPanePlayers" min="-2" pref="89" max="-2" attributes="0"/>
@@ -219,7 +225,7 @@
                           </Group>
                           <Component id="jPanelSportFieldViewer" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="734" max="32767" attributes="0"/>
+                      <EmptySpace pref="51" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -276,7 +282,7 @@
             </Container>
             <Component class="javax.swing.JLabel" name="jLabelFieldSize">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Taille du terrain (m):"/>
+                <Property name="text" type="java.lang.String" value="Taille du terrain:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldHorizontalSize">
@@ -469,6 +475,16 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Les sports existants"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Unit&#xe9;s:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldFieldUnits">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldFieldUnitsActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

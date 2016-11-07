@@ -54,6 +54,8 @@ public class MainWindow extends javax.swing.JFrame {
         jListExistingSports = new javax.swing.JList<>();
         jButtonDestroySelectedSport = new javax.swing.JButton();
         jLabelExistingSportTitle = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextFieldFieldUnits = new javax.swing.JTextField();
         jPanelCategories = new javax.swing.JPanel();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
@@ -201,7 +203,7 @@ public class MainWindow extends javax.swing.JFrame {
             .addGap(0, 422, Short.MAX_VALUE)
         );
 
-        jLabelFieldSize.setText("Taille du terrain (m):");
+        jLabelFieldSize.setText("Taille du terrain:");
 
         jTextFieldHorizontalSize.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -349,6 +351,14 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabelExistingSportTitle.setText("Les sports existants");
 
+        jLabel1.setText("Unités:");
+
+        jTextFieldFieldUnits.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldFieldUnitsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelSportLayout = new javax.swing.GroupLayout(jPanelSport);
         jPanelSport.setLayout(jPanelSportLayout);
         jPanelSportLayout.setHorizontalGroup(
@@ -410,7 +420,11 @@ public class MainWindow extends javax.swing.JFrame {
                                                             .addGroup(jPanelSportLayout.createSequentialGroup()
                                                                 .addComponent(jTextFieldHorizontalSize, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jTextFieldVerticalSize, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                                                .addComponent(jTextFieldVerticalSize, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(jLabel1)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jTextFieldFieldUnits, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                                             .addGroup(jPanelSportLayout.createSequentialGroup()
                                                 .addGap(244, 244, 244)
                                                 .addComponent(jLabelObjectTypeNumber)
@@ -419,7 +433,7 @@ public class MainWindow extends javax.swing.JFrame {
                                     .addGroup(jPanelSportLayout.createSequentialGroup()
                                         .addGap(325, 325, 325)
                                         .addComponent(jLabelObjectTableTitle)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 84, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanelSportLayout.setVerticalGroup(
@@ -453,12 +467,14 @@ public class MainWindow extends javax.swing.JFrame {
                             .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabelFieldSize)
                                 .addComponent(jTextFieldHorizontalSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldVerticalSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextFieldVerticalSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1)
+                                .addComponent(jTextFieldFieldUnits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelPlayerNumber)
                             .addComponent(jSpinnerPlayerNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelPlayersTableTitle)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPanePlayers, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -471,7 +487,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPaneSportObjects, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanelSportFieldViewer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(734, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         jTabbedPanePlayerCategory.addTab("Sport", jPanelSport);
@@ -1817,6 +1833,10 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButtonRotationModeActionPerformed
 
+    private void jTextFieldFieldUnitsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFieldUnitsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldFieldUnitsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1881,6 +1901,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonZoom;
     private javax.swing.JCheckBox jCheckBoxIsAGameObject;
     private javax.swing.JComboBox<String> jComboBoxChooseStrategySport;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelAvailableStrategies;
     private javax.swing.JLabel jLabelCategoryImage;
@@ -1971,6 +1992,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldCategorySizeHorizontal;
     private javax.swing.JTextField jTextFieldCategorySizeVertical;
     private javax.swing.JTextField jTextFieldChooseStrategyName;
+    private javax.swing.JTextField jTextFieldFieldUnits;
     private javax.swing.JTextField jTextFieldHorizontalSize;
     private javax.swing.JTextField jTextFieldObjectHorizontalSize;
     private javax.swing.JTextField jTextFieldObjectName;
