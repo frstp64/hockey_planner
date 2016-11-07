@@ -1831,7 +1831,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollWTF" min="-2" pref="128" max="-2" attributes="0"/>
@@ -1858,10 +1858,11 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelPlayBackSpeedTitle" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldPlaybackSpeed" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="jLabelPlayBackSpeedTitle" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTextFieldPlaybackSpeed" min="-2" pref="130" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -2058,6 +2059,9 @@
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="Multiple de la vitessse normale, de 0.01 &#xe0; 10"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldPlaybackSpeedActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

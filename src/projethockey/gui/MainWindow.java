@@ -1485,13 +1485,18 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelPlayBackSpeedTitle.setText("Vitesse de jeu: ");
 
         jTextFieldPlaybackSpeed.setToolTipText("Multiple de la vitessse normale, de 0.01 à 10");
+        jTextFieldPlaybackSpeed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPlaybackSpeedActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelVisualizeLayout = new javax.swing.GroupLayout(jPanelVisualize);
         jPanelVisualize.setLayout(jPanelVisualizeLayout);
         jPanelVisualizeLayout.setHorizontalGroup(
             jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelVisualizeLayout.createSequentialGroup()
-                .addGroup(jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelVisualizeLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollWTF, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1512,9 +1517,10 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(jLabelMousePosition))
                     .addGroup(jPanelVisualizeLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addGroup(jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelPlayBackSpeedTitle)
-                            .addComponent(jTextFieldPlaybackSpeed))))
+                        .addComponent(jLabelPlayBackSpeedTitle))
+                    .addGroup(jPanelVisualizeLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTextFieldPlaybackSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelVisualizeLayout.createSequentialGroup()
@@ -1851,6 +1857,10 @@ public class MainWindow extends javax.swing.JFrame {
     private void jTextFieldFieldUnitsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFieldUnitsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldFieldUnitsActionPerformed
+
+    private void jTextFieldPlaybackSpeedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPlaybackSpeedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPlaybackSpeedActionPerformed
 
     /**
      * @param args the command line arguments
