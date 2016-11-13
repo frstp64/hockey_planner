@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projethockey;
+package projethockey.domain;
 
+import projethockey.domain.CategoryPlayer;
+import projethockey.domain.Position;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +18,9 @@ import static org.junit.Assert.*;
  *
  * @author Alexandre
  */
-public class CategoryObstacleTest {
+public class CategoryPlayerTest {
     
-    public CategoryObstacleTest() {
+    public CategoryPlayerTest() {
     }
     
     @BeforeClass
@@ -38,12 +40,12 @@ public class CategoryObstacleTest {
     }
 
     /**
-     * Test of getCategoryName method, of class CategoryObstacle.
+     * Test of getCategoryName method, of class CategoryPlayer.
      */
     @Test
     public void testGetCategoryName() {
         System.out.println("getCategoryName");
-        CategoryObstacle instance = new CategoryObstacle();
+        CategoryPlayer instance = new CategoryPlayer();
         String expResult = "";
         String result = instance.getCategoryName();
         assertEquals(expResult, result);
@@ -52,25 +54,25 @@ public class CategoryObstacleTest {
     }
 
     /**
-     * Test of setCategoryName method, of class CategoryObstacle.
+     * Test of setCategoryName method, of class CategoryPlayer.
      */
     @Test
     public void testSetCategoryName() {
         System.out.println("setCategoryName");
         String catName = "";
-        CategoryObstacle instance = new CategoryObstacle();
+        CategoryPlayer instance = new CategoryPlayer();
         instance.setCategoryName(catName);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getImgPath method, of class CategoryObstacle.
+     * Test of getImgPath method, of class CategoryPlayer.
      */
     @Test
     public void testGetImgPath() {
         System.out.println("getImgPath");
-        CategoryObstacle instance = new CategoryObstacle();
+        CategoryPlayer instance = new CategoryPlayer();
         String expResult = "";
         String result = instance.getImgPath();
         assertEquals(expResult, result);
@@ -79,25 +81,25 @@ public class CategoryObstacleTest {
     }
 
     /**
-     * Test of setImgPath method, of class CategoryObstacle.
+     * Test of setImgPath method, of class CategoryPlayer.
      */
     @Test
     public void testSetImgPath() {
         System.out.println("setImgPath");
         String imgPath = "";
-        CategoryObstacle instance = new CategoryObstacle();
+        CategoryPlayer instance = new CategoryPlayer();
         instance.setImgPath(imgPath);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getPositionDefault method, of class CategoryObstacle.
+     * Test of getPositionDefault method, of class CategoryPlayer.
      */
     @Test
     public void testGetPositionDefault() {
         System.out.println("getPositionDefault");
-        CategoryObstacle instance = new CategoryObstacle();
+        CategoryPlayer instance = new CategoryPlayer();
         Position expResult = null;
         Position result = instance.getPositionDefault();
         assertEquals(expResult, result);
@@ -106,25 +108,25 @@ public class CategoryObstacleTest {
     }
 
     /**
-     * Test of setPositionDefault method, of class CategoryObstacle.
+     * Test of setPositionDefault method, of class CategoryPlayer.
      */
     @Test
     public void testSetPositionDefault() {
         System.out.println("setPositionDefault");
         Position positionDefault = null;
-        CategoryObstacle instance = new CategoryObstacle();
+        CategoryPlayer instance = new CategoryPlayer();
         instance.setPositionDefault(positionDefault);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getScale method, of class CategoryObstacle.
+     * Test of getScale method, of class CategoryPlayer.
      */
     @Test
     public void testGetScale() {
         System.out.println("getScale");
-        CategoryObstacle instance = new CategoryObstacle();
+        CategoryPlayer instance = new CategoryPlayer();
         int expResult = 0;
         int result = instance.getScale();
         assertEquals(expResult, result);
@@ -133,13 +135,13 @@ public class CategoryObstacleTest {
     }
 
     /**
-     * Test of setScale method, of class CategoryObstacle.
+     * Test of setScale method, of class CategoryPlayer.
      */
     @Test
     public void testSetScale() {
         System.out.println("setScale");
         int scale = 0;
-        CategoryObstacle instance = new CategoryObstacle();
+        CategoryPlayer instance = new CategoryPlayer();
         instance.setScale(scale);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

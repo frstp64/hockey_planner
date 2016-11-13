@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projethockey;
+package projethockey.domain;
 
+import projethockey.domain.Obstacle;
+import projethockey.domain.Player;
+import projethockey.domain.Snapshot;
 import java.util.Date;
 import java.util.List;
 import org.junit.After;

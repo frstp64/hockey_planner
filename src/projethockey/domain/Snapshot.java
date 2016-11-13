@@ -1,4 +1,4 @@
-package projethockey;
+package projethockey.domain;
 
 import java.util.List;
 import java.util.Date;

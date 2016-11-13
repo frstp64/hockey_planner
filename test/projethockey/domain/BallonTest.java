@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projethockey;
+package projethockey.domain;
 
+import projethockey.domain.Ballon;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author Alexandre
  */
-public class OrientationTest {
+public class BallonTest {
     
-    public OrientationTest() {
+    public BallonTest() {
     }
     
     @BeforeClass
@@ -38,28 +39,28 @@ public class OrientationTest {
     }
 
     /**
-     * Test of getAngle method, of class Orientation.
+     * Test of getNomSport method, of class Ballon.
      */
     @Test
-    public void testGetAngle() {
-        System.out.println("getAngle");
-        Orientation instance = new Orientation();
-        int expResult = 0;
-        int result = instance.getAngle();
+    public void testGetNomSport() {
+        System.out.println("getNomSport");
+        Ballon instance = new Ballon();
+        String expResult = "";
+        String result = instance.getNomSport();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of setAngle method, of class Orientation.
+     * Test of setNomSport method, of class Ballon.
      */
     @Test
-    public void testSetAngle() {
-        System.out.println("setAngle");
-        int angle = 0;
-        Orientation instance = new Orientation();
-        instance.setAngle(angle);
+    public void testSetNomSport() {
+        System.out.println("setNomSport");
+        String nomSport = "";
+        Ballon instance = new Ballon();
+        instance.setNomSport(nomSport);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projethockey;
+package projethockey.domain;
 
+import projethockey.domain.CategoryPlayer;
+import projethockey.domain.Position;
+import projethockey.domain.Player;
+import projethockey.domain.Orientation;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

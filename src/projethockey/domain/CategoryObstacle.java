@@ -1,31 +1,32 @@
-package projethockey;
+package projethockey.domain;
 
 /**
  *
  * @author Alexandre
  */
-public class CategoryPlayer {
+public class CategoryObstacle {
     private String catName;
     private String imgPath;
-    private int scale;
     private Position positionDefault;
+    private int scale;
     
-    public CategoryPlayer(){
+    public CategoryObstacle(){
     }
     
-    public CategoryPlayer(String catName, String imgPath, Position positionDefault, int scale) {
+    public CategoryObstacle(String catName, String imgPath, Position positionDefault, int scale) {
         this.catName = catName;
         this.imgPath = imgPath;
         this.positionDefault = positionDefault;
         this.scale = scale;
     }
     
-    public CategoryPlayer(CategoryPlayer categoryPlayer) {
-        this.catName = categoryPlayer.catName;
-        this.imgPath = categoryPlayer.imgPath;
-        this.positionDefault = categoryPlayer.positionDefault;
-        this.scale = categoryPlayer.scale;
+    public CategoryObstacle(CategoryObstacle categoryObstacle) {
+        this.catName = categoryObstacle.catName;
+        this.imgPath = categoryObstacle.imgPath;
+        this.positionDefault = categoryObstacle.positionDefault;
+        this.scale = categoryObstacle.scale;
     }
+    
     
     /*    
             Get-Set    
@@ -61,5 +62,5 @@ public class CategoryPlayer {
             
     public void setScale(int scale) {
        this.scale = scale;
-    }
+    }    
 }

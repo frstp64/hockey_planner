@@ -1,4 +1,4 @@
-package projethockey;
+package projethockey.domain;
 
 /**
  *
