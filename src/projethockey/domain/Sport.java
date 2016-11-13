@@ -4,7 +4,7 @@ package projethockey.domain;
  *
  * @author Alexandre
  */
-public class Sport {
+public class Sport { 
     private String name;
     private String imgPath;
     private String dimentionUnit;
@@ -12,8 +12,8 @@ public class Sport {
     private Orientation fieldOrientation;
     private CategoryPlayer catPlayer;
     //private var objectAssocied;
-
-    public Sport() {
+    
+    Sport() {
     }
     
     public Sport(Sport sport) {

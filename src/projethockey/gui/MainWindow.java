@@ -4,18 +4,36 @@
  * and open the template in the editor.
  */
 package projethockey.gui;
-
+import projethockey.domain.Controller;
 /**
  *
  * @author znuxor
  */
 public class MainWindow extends javax.swing.JFrame {
-
     /**
      * Creates new form MainWindow
      */
+    
+    private Controller myController;
+    
     public MainWindow() {
         initComponents();
+        
+        // A reference to the controller is given.
+        
+        // subscription of every item that needs to be subscriber here.
+    }
+    
+    public void setController(Controller theController) {
+        this.myController = theController;
+    }
+    
+    // Subscribes every window item to the Controller, add what you need
+    public void subscribeAll() {
+        // Sport subscriptions
+        
+        this.myController.subscribeSport();
+        
     }
 
     /**

@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projethockey.domain;
-
-
+import projethockey.domain.Controller;
 /**
  *
  * @author znuxor
  */
 public class ProjetHockey {
+    
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         projethockey.gui.MainWindow mainWindow = new projethockey.gui.MainWindow();
+        Controller myController = new projethockey.domain.Controller();
+        mainWindow.setController(myController);
+        mainWindow.subscribeAll();
         mainWindow.setVisible(true);
+        
     }
     
 }
