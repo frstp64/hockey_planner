@@ -1702,7 +1702,7 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
     }//GEN-LAST:event_jButtonDestroySelectedSportActionPerformed
 
     private void jButtonSaveSportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveSportActionPerformed
-        // TODO add your handling code here:
+        this.myController.saveSport();
     }//GEN-LAST:event_jButtonSaveSportActionPerformed
 
     private void jButtonChooseCategoryImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseCategoryImageActionPerformed
@@ -1722,7 +1722,7 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
     }//GEN-LAST:event_jButtonCreateStrategyActionPerformed
 
     private void jButtonNewSportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewSportActionPerformed
-        // TODO add your handling code here:
+        myController.resetPlaceHolderSport();
     }//GEN-LAST:event_jButtonNewSportActionPerformed
 
     private void jButtonLoadFieldImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoadFieldImageActionPerformed
@@ -1806,7 +1806,7 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
     }//GEN-LAST:event_jLabelMousePositionPropertyChange
 
     private void jSpinnerPlayerNumberPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jSpinnerPlayerNumberPropertyChange
-        // TODO add your handling code here:
+        //this.myController.setSportPlayerNumber((int) this.jSpinnerPlayerNumber.getModel().getValue());
     }//GEN-LAST:event_jSpinnerPlayerNumberPropertyChange
 
     private void jSpinnerObjectTypeNumberPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jSpinnerObjectTypeNumberPropertyChange
