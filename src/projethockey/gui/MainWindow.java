@@ -385,6 +385,8 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
             public String getElementAt(int i) { return strings[i]; }
         });
         jListExistingSports.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jListExistingSports.setFixedCellHeight(10);
+        jListExistingSports.setFixedCellWidth(150);
         jListExistingSports.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jListExistingSportsPropertyChange(evt);

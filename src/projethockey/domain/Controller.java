@@ -18,11 +18,16 @@ public class Controller {
     private MainWindow mMainWindow; // A reference to the window
     
     // The constructor
-    public Controller() {
+    public Controller(MainWindow pMainWindow) {
+        this.mMainWindow = pMainWindow;
         mPlaceHolderSport = new Sport();
         sportArray = new ArrayList<Sport>();
         AppDataProxy.loadData(this);
         
+        // Update the array list
+        if (!sportArray.isEmpty()) {
+            publishSportsNames();
+        }
     }
     
     // A simple global subscriber to get a reference to the window
@@ -73,18 +78,29 @@ public class Controller {
         
         // If the sport exists, remove it from the list
         for (Sport aSport: sportArray) {
-            if (aSport.getName() == this.mPlaceHolderSport.getName()) {
+            if (aSport.getName().equals(this.mPlaceHolderSport.getName())) {
+                System.out.println(aSport.getName());
                 this.sportArray.remove(aSport);
                 break;
             }
-            break;
         }
         
         // Add the sport to the list
-        sportArray.add(this.mPlaceHolderSport);
+        sportArray.add(new Sport(this.mPlaceHolderSport));
         
         //Save to permanent memory
         projethockey.services.AppDataProxy.saveData(this);
+        if (!sportArray.isEmpty()) {
+            publishSportsNames();
+        }
+    }
+    
+    public void publishSportsNames() {
+        ArrayList<String> sportNameList = new ArrayList<String>();
+            for (Sport aSport: sportArray) {
+                sportNameList.add(aSport.getName());
+            }
+            this.mMainWindow.publishExistingSports(sportNameList.toArray(new String[sportNameList.size()]));
     }
     
     public ArrayList<Sport> getSportArray() {

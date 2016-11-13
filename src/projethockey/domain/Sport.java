@@ -1,10 +1,11 @@
 package projethockey.domain;
-
+import java.io.IOException;
+import java.io.ObjectStreamException;
 /**
  *
  * @author Alexandre
  */
-public class Sport { 
+public class Sport implements java.io.Serializable{ 
     private String name;
     private String imgPath;
     private String dimentionUnit;
@@ -92,4 +93,5 @@ public class Sport {
         this.nbPlayer = 1;
         
     }
+            
 }

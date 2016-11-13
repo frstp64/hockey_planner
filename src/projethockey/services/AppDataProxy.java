@@ -41,9 +41,12 @@ public class AppDataProxy{
             saveSportFile.close();
         }
         catch (IOException e) {
+            System.out.println("shit1");
+            System.out.println(e);
             // LOG INFO HERE
         }
         catch (ClassNotFoundException e) {
+            System.out.println("shit2");
             // LOG HERE
         }
         

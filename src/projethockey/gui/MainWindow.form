@@ -454,6 +454,8 @@
                       </StringArray>
                     </Property>
                     <Property name="selectionMode" type="int" value="0"/>
+                    <Property name="fixedCellHeight" type="int" value="10"/>
+                    <Property name="fixedCellWidth" type="int" value="150"/>
                   </Properties>
                   <Events>
                     <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jListExistingSportsPropertyChange"/>
