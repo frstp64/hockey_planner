@@ -8,6 +8,8 @@ public class Sport {
     private String name;
     private String imgPath;
     private String dimentionUnit;
+    private Float horizontalSize;
+    private Float verticalSize;
     private int nbPlayer;
     private Orientation fieldOrientation;
     private CategoryPlayer catPlayer;
@@ -64,5 +66,13 @@ public class Sport {
 
     public void setFieldOrientation(Orientation fieldOrientation) {
         this.fieldOrientation = fieldOrientation;
+    }
+    
+    public void setHorizontalSize(Float pHorizontalSize) {
+        this.horizontalSize = pHorizontalSize;
+    }
+    
+    public void setVerticalSize(Float pVerticalSize) {
+        this.verticalSize = pVerticalSize;
     }
 }

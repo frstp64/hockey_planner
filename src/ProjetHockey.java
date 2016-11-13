@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 import projethockey.domain.Controller;
+import projethockey.gui.MainWindow;
 /**
  *
  * @author znuxor
@@ -15,9 +16,10 @@ public class ProjetHockey {
         projethockey.gui.MainWindow mainWindow = new projethockey.gui.MainWindow();
         Controller myController = new projethockey.domain.Controller();
         mainWindow.setController(myController);
-        mainWindow.subscribeAll();
+        myController.subscribeWindow(mainWindow);
         mainWindow.setVisible(true);
         
+        // Test stuff
     }
     
 }

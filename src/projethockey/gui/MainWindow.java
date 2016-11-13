@@ -4,12 +4,17 @@
  * and open the template in the editor.
  */
 package projethockey.gui;
+import java.awt.Color;
 import projethockey.domain.Controller;
+import projethockey.domain.sportSubscribable;
+import java.util.List;
+import java.beans.PropertyVetoException;
+
 /**
  *
  * @author znuxor
  */
-public class MainWindow extends javax.swing.JFrame {
+public class MainWindow extends javax.swing.JFrame implements sportSubscribable {
     /**
      * Creates new form MainWindow
      */
@@ -28,12 +33,36 @@ public class MainWindow extends javax.swing.JFrame {
         this.myController = theController;
     }
     
-    // Subscribes every window item to the Controller, add what you need
-    public void subscribeAll() {
-        // Sport subscriptions
+    public void publishExistingSports(String[] plistSportsNames) {
+        this.jListExistingSports.setListData(plistSportsNames);
+    }
+    
+    public void publishSportName(String pSportName) {
+        this.jTextFieldSportName.setText(pSportName);
+    }
+    
+    public void publishDimensions(Float pdimX, Float pdimY){
+        this.jTextFieldHorizontalSize.setText(pdimX.toString());
+        this.jTextFieldVerticalSize.setText(pdimY.toString());
+    }
+    
+    public void publishUnits(String punits){
+        this.jTextFieldFieldUnits.setText(punits);
+    }
+    
+    public void publishPlayerNumber(int playerNumber){
+        this.jSpinnerPlayerNumber.setValue(playerNumber);
+    }
+    
+    public void publishPlayers() {
         
-        this.myController.subscribeSport();
+    }
+    
+    public void publishObjects() {
         
+    }
+    
+    public void publishFieldPicture(){
     }
 
     /**
@@ -225,9 +254,9 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabelFieldSize.setText("Taille du terrain:");
 
-        jTextFieldHorizontalSize.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldHorizontalSizeActionPerformed(evt);
+        jTextFieldHorizontalSize.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldHorizontalSizeFocusLost(evt);
             }
         });
 
@@ -238,17 +267,17 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldVerticalSize.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldVerticalSizeActionPerformed(evt);
+        jTextFieldVerticalSize.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldVerticalSizeFocusLost(evt);
             }
         });
 
         jLabelSportName.setText("Nom:");
 
-        jTextFieldSportName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSportNameActionPerformed(evt);
+        jTextFieldSportName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldSportNameFocusLost(evt);
             }
         });
 
@@ -373,9 +402,9 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel1.setText("Unités:");
 
-        jTextFieldFieldUnits.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldFieldUnitsActionPerformed(evt);
+        jTextFieldFieldUnits.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldFieldUnitsFocusLost(evt);
             }
         });
 
@@ -1672,14 +1701,6 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonDestroySelectedSportActionPerformed
 
-    private void jTextFieldSportNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSportNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSportNameActionPerformed
-
-    private void jTextFieldHorizontalSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldHorizontalSizeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldHorizontalSizeActionPerformed
-
     private void jButtonSaveSportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveSportActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonSaveSportActionPerformed
@@ -1707,10 +1728,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonLoadFieldImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoadFieldImageActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonLoadFieldImageActionPerformed
-
-    private void jTextFieldVerticalSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldVerticalSizeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldVerticalSizeActionPerformed
 
     private void jButtonNewCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewCategoryActionPerformed
         // TODO add your handling code here:
@@ -1872,13 +1889,37 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButtonRotationModeActionPerformed
 
-    private void jTextFieldFieldUnitsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFieldUnitsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldFieldUnitsActionPerformed
-
     private void jTextFieldPlaybackSpeedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPlaybackSpeedActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPlaybackSpeedActionPerformed
+
+    private void jTextFieldSportNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldSportNameFocusLost
+        myController.setSportName(this.jTextFieldSportName.getText());
+    }//GEN-LAST:event_jTextFieldSportNameFocusLost
+
+    private void jTextFieldHorizontalSizeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldHorizontalSizeFocusLost
+        try {
+            myController.setSportHorizontalSize(Float.parseFloat(this.jTextFieldHorizontalSize.getText()));
+            this.jTextFieldHorizontalSize.setBackground(Color.white);
+        }
+        catch (Exception Ex){
+            this.jTextFieldHorizontalSize.setBackground(Color.red);
+        }
+    }//GEN-LAST:event_jTextFieldHorizontalSizeFocusLost
+
+    private void jTextFieldFieldUnitsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldFieldUnitsFocusLost
+        myController.setSportUnits(this.jTextFieldFieldUnits.getText());
+    }//GEN-LAST:event_jTextFieldFieldUnitsFocusLost
+
+    private void jTextFieldVerticalSizeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldVerticalSizeFocusLost
+        try {
+            myController.setSportVerticalSize(Float.parseFloat(this.jTextFieldVerticalSize.getText()));
+            this.jTextFieldVerticalSize.setBackground(Color.white);
+        }
+        catch (Exception Ex){
+            this.jTextFieldVerticalSize.setBackground(Color.red);
+        }
+    }//GEN-LAST:event_jTextFieldVerticalSizeFocusLost
 
     /**
      * @param args the command line arguments

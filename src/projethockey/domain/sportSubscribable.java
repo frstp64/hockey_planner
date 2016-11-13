@@ -4,13 +4,22 @@
  * and open the template in the editor.
  */
 package projethockey.domain;
-
+import java.util.List;
 /**
  *
  * @author znuxor
  */
 public interface sportSubscribable {
 
-    //  wheel revolutions per minute
-    //void changeSport
+    // change sport name in interface
+    void publishExistingSports(String[] plistSportsNames); //??
+    void publishSportName(String pSportName);
+    void publishDimensions(Float pdimX, Float pdimY);
+    void publishUnits(String punits);
+    void publishPlayerNumber(int playerNumber);
+    void publishPlayers(); //??
+    void publishObjects(); //??
+    void publishFieldPicture();
+    
+    
 }

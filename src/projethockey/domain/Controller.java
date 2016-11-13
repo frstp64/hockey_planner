@@ -4,24 +4,46 @@
  * and open the template in the editor.
  */
 package projethockey.domain;
+
+import projethockey.gui.MainWindow;
+
 /**
  *
  * @author znuxor
  */
 public class Controller {
-    private Sport placeHolderSport; // Contains the parameters for the new sport
+    private Sport mPlaceHolderSport; // Contains the parameters for the new sport
+    private MainWindow mMainWindow; // A reference to the window
     
-    // Le constructeur
+    // The constructor
     public Controller() {
+        mPlaceHolderSport = new Sport();
         
     }
     
-    public void subscribeSport(
-        //SportSubscribable pSportSubscribers
-    )
+    // A simple global subscriber to get a reference to the window
+    public void subscribeWindow(MainWindow pMainWindow)
     {
-        
+        this.mMainWindow = pMainWindow;
     }
     
     
+    public void setSportName(String pSportName) {
+        this.mPlaceHolderSport.setName(pSportName);
+    }
+    
+    public void setSportUnits(String pUnits) {
+        this.mPlaceHolderSport.setDimentionUnit(pUnits);
+        
+    }
+    
+    public void setSportHorizontalSize(Float pHorizSize) {
+        this.mPlaceHolderSport.setHorizontalSize(pHorizSize);
+        
+    }
+    
+    public void setSportVerticalSize(Float pVertSize) {
+        this.mPlaceHolderSport.setVerticalSize(pVertSize);
+        
+    }
 }
