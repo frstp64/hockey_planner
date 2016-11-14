@@ -20,6 +20,6 @@ public interface sportSubscribable {
     void publishPlayers(); //??
     void publishObjects(); //??
     void publishFieldPicture();
-    
+    String requestFilePath();
     
 }

@@ -9,6 +9,8 @@ import projethockey.domain.Controller;
 import projethockey.domain.sportSubscribable;
 import java.util.List;
 import java.beans.PropertyVetoException;
+import java.io.File;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -65,6 +67,19 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
     public void publishFieldPicture(){
     }
 
+    public String requestFilePath() {
+        javax.swing.JFileChooser fc;
+        fc = new javax.swing.JFileChooser();
+        FileNameExtensionFilter imgFilter = new FileNameExtensionFilter("Images files", "png", "jpg", "PNG", "JPG", "jpeg", "JPEG");
+        fc.setFileFilter(imgFilter);
+        int fileChooserStatus = fc.showOpenDialog(this);
+        if (fileChooserStatus == javax.swing.JFileChooser.APPROVE_OPTION) {
+            File file = fc.getSelectedFile();
+            return file.getAbsolutePath();
+        }
+        else
+            return "";
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1729,7 +1744,7 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
     }//GEN-LAST:event_jButtonNewSportActionPerformed
 
     private void jButtonLoadFieldImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoadFieldImageActionPerformed
-        // TODO add your handling code here:
+        myController.getSportImage();
     }//GEN-LAST:event_jButtonLoadFieldImageActionPerformed
 
     private void jButtonNewCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewCategoryActionPerformed

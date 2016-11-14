@@ -135,4 +135,8 @@ public class Controller {
     public void setSportArray(ArrayList<Sport> pSportArray) {
         this.sportArray = pSportArray;
     }
+    
+    public void getSportImage() {
+        String sportImagePath = this.mMainWindow.requestFilePath();
+    }
 }
