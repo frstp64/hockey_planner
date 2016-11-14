@@ -387,9 +387,9 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
         jListExistingSports.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jListExistingSports.setFixedCellHeight(10);
         jListExistingSports.setFixedCellWidth(150);
-        jListExistingSports.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jListExistingSportsPropertyChange(evt);
+        jListExistingSports.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListExistingSportsMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jListExistingSports);
@@ -1701,7 +1701,7 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
     }//GEN-LAST:event_jButtonNextFrameForImageModeActionPerformed
 
     private void jButtonDestroySelectedSportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDestroySelectedSportActionPerformed
-        // TODO add your handling code here:
+        this.myController.removeSport();
     }//GEN-LAST:event_jButtonDestroySelectedSportActionPerformed
 
     private void jButtonSaveSportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveSportActionPerformed
@@ -1816,10 +1816,6 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
         // TODO add your handling code here:
     }//GEN-LAST:event_jSpinnerObjectTypeNumberPropertyChange
 
-    private void jListExistingSportsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListExistingSportsPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jListExistingSportsPropertyChange
-
     private void jListExistingCategoriesPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListExistingCategoriesPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jListExistingCategoriesPropertyChange
@@ -1923,6 +1919,20 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
             this.jTextFieldVerticalSize.setBackground(Color.red);
         }
     }//GEN-LAST:event_jTextFieldVerticalSizeFocusLost
+
+    private void jListExistingSportsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListExistingSportsMouseClicked
+    try {
+        if (jListExistingSports.getSelectedValue() != null & myController != null) {
+            myController.setSelectedSport(jListExistingSports.getSelectedValue());
+        }
+        else if (myController != null) {
+            String empty = "";
+            myController.setSelectedSport(empty);
+        }
+        } catch (Exception Ex) {
+            
+        }
+    }//GEN-LAST:event_jListExistingSportsMouseClicked
 
     /**
      * @param args the command line arguments

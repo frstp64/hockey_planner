@@ -16,6 +16,7 @@ public class Controller {
     private Sport mPlaceHolderSport; // Contains the parameters for the new sport
     private ArrayList<Sport> sportArray;
     private MainWindow mMainWindow; // A reference to the window
+    private String selectedSport;
     
     // The constructor
     public Controller(MainWindow pMainWindow) {
@@ -23,6 +24,8 @@ public class Controller {
         mPlaceHolderSport = new Sport();
         sportArray = new ArrayList<Sport>();
         AppDataProxy.loadData(this);
+        
+        this.selectedSport = "";
         
         // Update the array list
         if (!sportArray.isEmpty()) {
@@ -93,6 +96,29 @@ public class Controller {
         if (!sportArray.isEmpty()) {
             publishSportsNames();
         }
+    }
+    
+    public void setSelectedSport(String pSelectedSport) {
+        this.selectedSport = pSelectedSport;
+    }
+    
+    public void removeSport() {
+        // if one is selected, remove it
+        if (!this.selectedSport.equals("")) {
+            for (Sport aSport: sportArray) {
+                if (aSport.getName().equals(this.selectedSport)) {
+                    this.sportArray.remove(aSport);
+                    break;
+                }
+            }
+            this.selectedSport = "";
+        }
+        
+        // Save to permanent memory
+        projethockey.services.AppDataProxy.saveData(this);
+        
+        // Update display
+        publishSportsNames();
     }
     
     public void publishSportsNames() {
