@@ -1,6 +1,7 @@
 package projethockey.domain;
 import java.io.IOException;
 import java.io.ObjectStreamException;
+import java.util.ArrayList;
 /**
  *
  * @author Alexandre
@@ -93,5 +94,8 @@ public class Sport implements java.io.Serializable{
         this.nbPlayer = 1;
         
     }
-            
+    
+    public void setPlayers(ArrayList<String> typeArray, ArrayList<String> playerRoleArray) {
+        // TODO
+    }    
 }

@@ -5,6 +5,7 @@
  */
 package projethockey.domain;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.List;
 /**
  *
@@ -22,5 +23,8 @@ public interface sportSubscribable {
     void publishObjects(); //??
     void publishFieldPicture(BufferedImage thePicture);
     String requestFilePath();
+    void publishObjectTypeNumber(int objectTypeNumber);
+    void publishPlayerCategories(ArrayList<String> pPlayerCategoryList);
+
     
 }

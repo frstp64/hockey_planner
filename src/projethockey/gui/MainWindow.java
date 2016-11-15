@@ -11,10 +11,12 @@ import projethockey.domain.sportSubscribable;
 import java.util.List;
 import java.beans.PropertyVetoException;
 import java.io.File;
+import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -58,10 +60,30 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
     
     public void publishPlayerNumber(int playerNumber){
         this.jSpinnerPlayerNumber.setValue(playerNumber);
+        ((DefaultTableModel) this.tableSportPlayers.getModel()).setRowCount(playerNumber);
+    }
+    public void publishObjectTypeNumber(int objectTypeNumber){
+        this.jSpinnerObjectTypeNumber.setValue(objectTypeNumber);
+        ((DefaultTableModel) this.jTableSportsItems.getModel()).setRowCount(objectTypeNumber);
     }
     
     public void publishPlayers() {
         
+    }
+    
+    public void publishPlayerCategories(ArrayList<String> pPlayerCategoryList) {
+        javax.swing.JComboBox sportCellComboBox = new javax.swing.JComboBox();
+        javax.swing.table.TableColumn categoryColumn = tableSportPlayers.getColumnModel().getColumn(0);
+        // Dummy items, please remove later
+        for (String aCategory : pPlayerCategoryList) {
+            sportCellComboBox.addItem(aCategory);
+        }
+        sportCellComboBox.addItem("Frontier Pierrien");
+        sportCellComboBox.addItem("Ailier Picardier");
+        sportCellComboBox.addItem("Gardien Röckenfelleur");
+        sportCellComboBox.addItem("Lutteur Avant-gardissien");
+        categoryColumn.setCellEditor(new javax.swing.DefaultCellEditor(sportCellComboBox));
+
     }
     
     public void publishObjects() {
@@ -82,10 +104,10 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
         Icon fieldIcon;
         // image is large horizontally aspect-wise
         if (imAspectRatio < fieldAspectRatio) {
-            fieldIcon = new ImageIcon(thePicture.getScaledInstance(fieldWidth, -1, -1));
+            fieldIcon = new ImageIcon(thePicture.getScaledInstance(fieldWidth-2, -1, -1));
         }
         else {
-            fieldIcon = new ImageIcon(thePicture.getScaledInstance(-1, fieldHeight, -1));
+            fieldIcon = new ImageIcon(thePicture.getScaledInstance(-1, fieldHeight-2, -1));
 
         }
         this.jLabelSportField.setIcon(fieldIcon);
@@ -98,10 +120,6 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
         //this.jPanelSportFieldViewer.getGraphics().drawImage(thePicture, 0, 0, null);
         //this.jPanelSport.repaint();
         
-        System.out.println("Field picture published!");
-        System.out.println(imAspectRatio);
-        System.out.println(fieldAspectRatio);
-
 
     }
 
@@ -340,6 +358,7 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
 
         tableSportPlayers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null},
                 {null, null}
             },
             new String [] {
@@ -355,9 +374,9 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
             }
         });
         tableSportPlayers.getTableHeader().setReorderingAllowed(false);
-        tableSportPlayers.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
-            public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
-                tableSportPlayersVetoableChange(evt);
+        tableSportPlayers.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                tableSportPlayersPropertyChange(evt);
             }
         });
         jScrollPanePlayers.setViewportView(tableSportPlayers);
@@ -380,9 +399,9 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
         jLabelPlayersTableTitle.setText("Les joueurs");
 
         jSpinnerPlayerNumber.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        jSpinnerPlayerNumber.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jSpinnerPlayerNumberPropertyChange(evt);
+        jSpinnerPlayerNumber.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinnerPlayerNumberStateChanged(evt);
             }
         });
 
@@ -424,11 +443,6 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
 
         jSpinnerObjectTypeNumber.setModel(new javax.swing.SpinnerNumberModel(1, 0, null, 1));
         jSpinnerObjectTypeNumber.setToolTipText("Nombre de types d'objets");
-        jSpinnerObjectTypeNumber.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jSpinnerObjectTypeNumberPropertyChange(evt);
-            }
-        });
 
         jLabelObjectTypeNumber.setText("Nombre de types d'objet:");
 
@@ -1851,10 +1865,6 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
         // TODO add your handling code here:
     }//GEN-LAST:event_jTableSportsItemsVetoableChange
 
-    private void tableSportPlayersVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_tableSportPlayersVetoableChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tableSportPlayersVetoableChange
-
     private void jLabelCurrentPositionPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabelCurrentPositionPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabelCurrentPositionPropertyChange
@@ -1862,14 +1872,6 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
     private void jLabelMousePositionPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabelMousePositionPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabelMousePositionPropertyChange
-
-    private void jSpinnerPlayerNumberPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jSpinnerPlayerNumberPropertyChange
-        //this.myController.setSportPlayerNumber((int) this.jSpinnerPlayerNumber.getModel().getValue());
-    }//GEN-LAST:event_jSpinnerPlayerNumberPropertyChange
-
-    private void jSpinnerObjectTypeNumberPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jSpinnerObjectTypeNumberPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jSpinnerObjectTypeNumberPropertyChange
 
     private void jListExistingCategoriesPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListExistingCategoriesPropertyChange
         // TODO add your handling code here:
@@ -1988,6 +1990,51 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
             
         }
     }//GEN-LAST:event_jListExistingSportsMouseClicked
+
+    private void jSpinnerPlayerNumberStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerPlayerNumberStateChanged
+                                                    
+        if (this.myController != null) {
+            this.myController.setSportPlayerNumber((int) this.jSpinnerPlayerNumber.getModel().getValue());
+        }
+        //this.myController.setSportPlayerNumber(5);
+    }//GEN-LAST:event_jSpinnerPlayerNumberStateChanged
+
+    private void tableSportPlayersPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tableSportPlayersPropertyChange
+        ArrayList<String> typeArray = new ArrayList();
+        ArrayList<String> playerRoleArray = new ArrayList();
+        int rowNumber = tableSportPlayers.getModel().getRowCount();
+        Boolean allCorrect = true;
+        for (int i = 0; i < rowNumber; i++) {
+            Object theType = tableSportPlayers.getModel().getValueAt(i, 0);
+            Object theName = tableSportPlayers.getModel().getValueAt(i, 1);
+            if (theType != null & theName != null) {
+                
+                typeArray.add(theType.toString());
+                playerRoleArray.add(theName.toString());
+            }
+            
+            if (theType == null || theType.toString().equals("")) {
+                allCorrect = false;
+            }
+            if (theName == null || theName.toString().equals("")) {
+                allCorrect = false;
+            }
+            
+            //playerRoleArray.add(tableSportPlayers.getModel().getValueAt(i+1, 1).toString);
+            //typeArray.add(tableSportPlayers.getModel().getValueAt(i, 0).toString());
+
+        }
+        if (allCorrect == true) {
+            tableSportPlayers.getCellRenderer(0, 0).getTableCellRendererComponent(jTableSportsItems, null, false, true, 0, 0).setBackground(Color.WHITE);
+        } else {
+            tableSportPlayers.getCellRenderer(0, 0).getTableCellRendererComponent(jTableSportsItems, null, false, true, 0, 0).setBackground(Color.RED);
+        }
+            
+                
+        if (this.myController != null) {
+            this.myController.setSportPlayers(typeArray, playerRoleArray);
+        }
+    }//GEN-LAST:event_tableSportPlayersPropertyChange
 
     /**
      * @param args the command line arguments
