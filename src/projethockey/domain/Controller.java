@@ -5,9 +5,15 @@
  */
 package projethockey.domain;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import projethockey.gui.MainWindow;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import projethockey.services.AppDataProxy;
+import javax.imageio.*;
 /**
  *
  * @author znuxor
@@ -138,5 +144,19 @@ public class Controller {
     
     public void getSportImage() {
         String sportImagePath = this.mMainWindow.requestFilePath();
+        if (!sportImagePath.equals("")) {
+        try {
+            java.awt.image.BufferedImage myImg = ImageIO.read(new File(sportImagePath));
+            
+            setSportImage(myImg);
+            //this.mPlaceHolderSport.setImage();
+        } catch (IOException ex) {
+            System.out.println("Error happenedwhile reading image");
+        }
+        }
+    }
+    
+    public void setSportImage(BufferedImage theFieldPicture) {
+        this.mMainWindow.publishFieldPicture(theFieldPicture);
     }
 }

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package projethockey.domain;
+import java.awt.image.BufferedImage;
 import java.util.List;
 /**
  *
@@ -19,7 +20,7 @@ public interface sportSubscribable {
     void publishPlayerNumber(int playerNumber);
     void publishPlayers(); //??
     void publishObjects(); //??
-    void publishFieldPicture();
+    void publishFieldPicture(BufferedImage thePicture);
     String requestFilePath();
     
 }

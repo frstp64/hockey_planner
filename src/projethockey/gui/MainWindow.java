@@ -5,11 +5,15 @@
  */
 package projethockey.gui;
 import java.awt.Color;
+import java.awt.image.BufferedImage;
 import projethockey.domain.Controller;
 import projethockey.domain.sportSubscribable;
 import java.util.List;
 import java.beans.PropertyVetoException;
 import java.io.File;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -64,7 +68,19 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
         
     }
     
-    public void publishFieldPicture(){
+    public void publishFieldPicture(BufferedImage thePicture) {
+        Icon fieldIcon = new ImageIcon(thePicture);
+        this.jLabelSportField.setIcon(fieldIcon);
+        //JLabel myIconLabel = new JLabel(fieldIcon);
+        //System.out.println(thePicture.getHeight());
+        //System.out.println(thePicture.getWidth());
+        //myIconLabel.s
+        //this.jPanelSport.add(myIconLabel);
+        //this.jPanelSportFieldViewer.paintComponents(this.jPanelSportFieldViewer.getGraphics());
+        //this.jPanelSportFieldViewer.getGraphics().drawImage(thePicture, 0, 0, null);
+        //this.jPanelSport.repaint();
+        
+        System.out.println("Field picture published!");
     }
 
     public String requestFilePath() {
@@ -95,6 +111,7 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
         jButtonSaveSport = new javax.swing.JButton();
         jButtonNewSport = new javax.swing.JButton();
         jPanelSportFieldViewer = new javax.swing.JPanel();
+        jLabelSportField = new javax.swing.JLabel();
         jLabelFieldSize = new javax.swing.JLabel();
         jTextFieldHorizontalSize = new javax.swing.JTextField();
         jButtonLoadFieldImage = new javax.swing.JButton();
@@ -249,6 +266,7 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
             }
         });
 
+        jPanelSportFieldViewer.setBackground(new java.awt.Color(255, 255, 255));
         jPanelSportFieldViewer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelSportFieldViewer.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -260,11 +278,17 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
         jPanelSportFieldViewer.setLayout(jPanelSportFieldViewerLayout);
         jPanelSportFieldViewerLayout.setHorizontalGroup(
             jPanelSportFieldViewerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 516, Short.MAX_VALUE)
+            .addGroup(jPanelSportFieldViewerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelSportField, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelSportFieldViewerLayout.setVerticalGroup(
             jPanelSportFieldViewerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 422, Short.MAX_VALUE)
+            .addGroup(jPanelSportFieldViewerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelSportField, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabelFieldSize.setText("Taille du terrain:");
@@ -434,7 +458,7 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
                 .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelSportLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, 1578, Short.MAX_VALUE))
+                        .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, 1225, Short.MAX_VALUE))
                     .addGroup(jPanelSportLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jButtonNewSport)
@@ -454,7 +478,7 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
                         .addContainerGap()
                         .addComponent(jPanelSportFieldViewer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSportLayout.createSequentialGroup()
+                            .addGroup(jPanelSportLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPaneSportObjects, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -500,7 +524,7 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
                                     .addGroup(jPanelSportLayout.createSequentialGroup()
                                         .addGap(325, 325, 325)
                                         .addComponent(jLabelObjectTableTitle)))
-                                .addGap(0, 84, Short.MAX_VALUE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanelSportLayout.setVerticalGroup(
@@ -522,13 +546,13 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
                         .addGap(18, 18, 18)))
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelFieldText)
+                    .addComponent(jLabelSportName)
+                    .addComponent(jTextFieldSportName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
+                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelSportLayout.createSequentialGroup()
-                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelFieldText)
-                            .addComponent(jLabelSportName)
-                            .addComponent(jTextFieldSportName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(4, 4, 4)
                         .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonLoadFieldImage)
                             .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -551,10 +575,10 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
                             .addComponent(jSpinnerObjectTypeNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabelObjectTableTitle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPaneSportObjects, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanelSportFieldViewer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         jTabbedPanePlayerCategory.addTab("Sport", jPanelSport);
@@ -2046,6 +2070,7 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
     private javax.swing.JLabel jLabelPlayerNumber;
     private javax.swing.JLabel jLabelPlayerToSelect;
     private javax.swing.JLabel jLabelPlayersTableTitle;
+    private javax.swing.JLabel jLabelSportField;
     private javax.swing.JLabel jLabelSportName;
     private javax.swing.JLabel jLabelSportsUnit;
     private javax.swing.JLabel jLabelStrategyCreationZoneTitle;
