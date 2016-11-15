@@ -17,12 +17,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import projethockey.domain.projetHockeyInterface;
 
 /**
  *
  * @author znuxor
  */
-public class MainWindow extends javax.swing.JFrame implements sportSubscribable {
+public class MainWindow extends javax.swing.JFrame implements projetHockeyInterface {
     /**
      * Creates new form MainWindow
      */

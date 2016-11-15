@@ -21,7 +21,7 @@ import javax.imageio.*;
 public class Controller {
     private Sport mPlaceHolderSport; // Contains the parameters for the new sport
     private ArrayList<Sport> sportArray;
-    private MainWindow mMainWindow; // A reference to the window
+    private projetHockeyInterface mMainWindow; // A reference to the window
     private String selectedSport;
     
     // The constructor
