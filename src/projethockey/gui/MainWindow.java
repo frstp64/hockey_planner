@@ -69,7 +69,25 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
     }
     
     public void publishFieldPicture(BufferedImage thePicture) {
-        Icon fieldIcon = new ImageIcon(thePicture);
+        
+        // ideally we would extend a jpanel to accomodate all that image presentation spaghetti into a nice jlabel-inside-jframe class
+        int imHeight = thePicture.getHeight();
+        int imWidth = thePicture.getWidth();
+        int fieldHeight = this.jPanelSportFieldViewer.getHeight();
+        int fieldWidth = this.jPanelSportFieldViewer.getWidth();
+        
+        float imAspectRatio = ((float) imHeight)/imWidth;
+        float fieldAspectRatio = ((float) fieldHeight)/fieldWidth;
+
+        Icon fieldIcon;
+        // image is large horizontally aspect-wise
+        if (imAspectRatio < fieldAspectRatio) {
+            fieldIcon = new ImageIcon(thePicture.getScaledInstance(fieldWidth, -1, -1));
+        }
+        else {
+            fieldIcon = new ImageIcon(thePicture.getScaledInstance(-1, fieldHeight, -1));
+
+        }
         this.jLabelSportField.setIcon(fieldIcon);
         //JLabel myIconLabel = new JLabel(fieldIcon);
         //System.out.println(thePicture.getHeight());
@@ -81,6 +99,10 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
         //this.jPanelSport.repaint();
         
         System.out.println("Field picture published!");
+        System.out.println(imAspectRatio);
+        System.out.println(fieldAspectRatio);
+
+
     }
 
     public String requestFilePath() {
@@ -278,17 +300,11 @@ public class MainWindow extends javax.swing.JFrame implements sportSubscribable 
         jPanelSportFieldViewer.setLayout(jPanelSportFieldViewerLayout);
         jPanelSportFieldViewerLayout.setHorizontalGroup(
             jPanelSportFieldViewerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelSportFieldViewerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelSportField, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabelSportField, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
         );
         jPanelSportFieldViewerLayout.setVerticalGroup(
             jPanelSportFieldViewerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelSportFieldViewerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelSportField, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabelSportField, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
         );
 
         jLabelFieldSize.setText("Taille du terrain:");
