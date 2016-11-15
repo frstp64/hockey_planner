@@ -67,6 +67,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         this.jSpinnerObjectTypeNumber.setValue(objectTypeNumber);
         ((DefaultTableModel) this.jTableSportsItems.getModel()).setRowCount(objectTypeNumber);
     }
+
     
     public void publishPlayers() {
         
@@ -422,9 +423,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 return types [columnIndex];
             }
         });
-        jTableSportsItems.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
-            public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
-                jTableSportsItemsVetoableChange(evt);
+        jTableSportsItems.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jTableSportsItemsPropertyChange(evt);
             }
         });
         jScrollPaneSportObjects.setViewportView(jTableSportsItems);
@@ -444,6 +445,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         jSpinnerObjectTypeNumber.setModel(new javax.swing.SpinnerNumberModel(1, 0, null, 1));
         jSpinnerObjectTypeNumber.setToolTipText("Nombre de types d'objets");
+        jSpinnerObjectTypeNumber.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinnerObjectTypeNumberStateChanged(evt);
+            }
+        });
 
         jLabelObjectTypeNumber.setText("Nombre de types d'objet:");
 
@@ -1862,10 +1868,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonZoomActionPerformed
 
-    private void jTableSportsItemsVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jTableSportsItemsVetoableChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTableSportsItemsVetoableChange
-
     private void jLabelCurrentPositionPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabelCurrentPositionPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabelCurrentPositionPropertyChange
@@ -2026,9 +2028,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         }
         if (allCorrect == true) {
-            tableSportPlayers.getCellRenderer(0, 0).getTableCellRendererComponent(jTableSportsItems, null, false, true, 0, 0).setBackground(Color.WHITE);
+            tableSportPlayers.getCellRenderer(0, 0).getTableCellRendererComponent(tableSportPlayers, null, false, true, 0, 0).setBackground(Color.WHITE);
         } else {
-            tableSportPlayers.getCellRenderer(0, 0).getTableCellRendererComponent(jTableSportsItems, null, false, true, 0, 0).setBackground(Color.RED);
+            tableSportPlayers.getCellRenderer(0, 0).getTableCellRendererComponent(tableSportPlayers, null, false, true, 0, 0).setBackground(Color.RED);
         }
             
                 
@@ -2036,6 +2038,55 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             this.myController.setSportPlayers(typeArray, playerRoleArray);
         }
     }//GEN-LAST:event_tableSportPlayersPropertyChange
+
+    private void jTableSportsItemsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableSportsItemsPropertyChange
+        ArrayList<String> typeArray = new ArrayList();
+        ArrayList<Integer> numberArray = new ArrayList();
+        int rowNumber = jTableSportsItems.getModel().getRowCount();
+        Boolean allCorrect = true;
+        for (int i = 0; i < rowNumber; i++) {
+            Object theType = jTableSportsItems.getModel().getValueAt(i, 0);
+            Object theNumber = jTableSportsItems.getModel().getValueAt(i, 1);
+            if (theType != null & theNumber != null) {
+                
+                try {
+                    Integer theInteger = Integer.parseInt(theNumber.toString());
+                    typeArray.add(theType.toString());
+                    numberArray.add(theInteger);
+                }
+                catch (Exception Ex) {
+                    allCorrect = false;
+                }
+            }
+            
+            if (theType == null || theType.toString().equals("")) {
+                allCorrect = false;
+            }
+            if (theNumber == null || theNumber.toString().equals("")) {
+                allCorrect = false;
+            }
+            
+            //playerRoleArray.add(tableSportPlayers.getModel().getValueAt(i+1, 1).toString);
+            //typeArray.add(tableSportPlayers.getModel().getValueAt(i, 0).toString());
+
+        }
+        if (allCorrect == true) {
+            jTableSportsItems.getCellRenderer(0, 0).getTableCellRendererComponent(jTableSportsItems, null, false, true, 0, 0).setBackground(Color.WHITE);
+        } else {
+            jTableSportsItems.getCellRenderer(0, 0).getTableCellRendererComponent(jTableSportsItems, null, false, true, 0, 0).setBackground(Color.RED);
+        }
+            
+                
+        if (this.myController != null) {
+            this.myController.setSportObjects(typeArray, numberArray);
+        }
+    }//GEN-LAST:event_jTableSportsItemsPropertyChange
+
+    private void jSpinnerObjectTypeNumberStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerObjectTypeNumberStateChanged
+        if (this.myController != null) {
+            this.myController.setSportCategoryNumber((int) this.jSpinnerObjectTypeNumber.getModel().getValue());
+        }
+    }//GEN-LAST:event_jSpinnerObjectTypeNumberStateChanged
 
     /**
      * @param args the command line arguments

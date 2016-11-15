@@ -419,7 +419,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jTableSportsItemsVetoableChange"/>
+                    <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jTableSportsItemsPropertyChange"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -431,6 +431,9 @@
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value="Nombre de types d&apos;objets"/>
               </Properties>
+              <Events>
+                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSpinnerObjectTypeNumberStateChanged"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelObjectTypeNumber">
               <Properties>

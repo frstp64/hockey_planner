@@ -97,5 +97,8 @@ public class Sport implements java.io.Serializable{
     
     public void setPlayers(ArrayList<String> typeArray, ArrayList<String> playerRoleArray) {
         // TODO
-    }    
+    }
+    public void setObjects(ArrayList<String> typeArray, ArrayList<Integer> numberArray) {
+        //TODO
+    }
 }

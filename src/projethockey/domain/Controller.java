@@ -69,6 +69,9 @@ public class Controller {
         this.mPlaceHolderSport.setNbPlayer(pPlayerNumber);
         this.mMainWindow.publishPlayerNumber(pPlayerNumber);
     }
+    public void setSportCategoryNumber(int pCategoryNumber) {
+        this.mMainWindow.publishObjectTypeNumber(pCategoryNumber);
+    }
     
     public void setSportPlayers(ArrayList<String> typeArray, ArrayList<String> playerRoleArray) {
         this.mPlaceHolderSport.setPlayers(typeArray, playerRoleArray);
@@ -78,6 +81,10 @@ public class Controller {
     public void setSportObjectTypeNumber(int pObjectNumber) {
         this.mPlaceHolderSport.setNbPlayer(pObjectNumber);
         this.mMainWindow.publishObjectTypeNumber(pObjectNumber);
+    }
+    
+    public void setSportObjects(ArrayList<String> typeArray, ArrayList<Integer> numberArray) {
+        this.mPlaceHolderSport.setObjects(typeArray, numberArray);
     }
     
     public void resetPlaceHolderSport() {
@@ -174,5 +181,4 @@ public class Controller {
         this.mMainWindow.publishPlayerCategories(pCategoryList);
         
     }
-    
 }
