@@ -135,7 +135,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }
     
     public void publishExistingCategoryPlayer(String[] plistCategoryPlayer) {
-        this.jListExistingSports.setListData(plistCategoryPlayer);
+        this.jListExistingCategories.setListData(plistCategoryPlayer);
     }
     
 
@@ -1805,7 +1805,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jButtonDestroySelectedSportActionPerformed
 
     private void jButtonSaveSportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveSportActionPerformed
-        this.myController.saveSport();
+        this.myController.saveCategoryPlayer();
     }//GEN-LAST:event_jButtonSaveSportActionPerformed
 
     private void jButtonChooseCategoryImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseCategoryImageActionPerformed
