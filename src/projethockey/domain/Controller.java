@@ -19,23 +19,40 @@ import javax.imageio.*;
  * @author znuxor
  */
 public class Controller {
+    // Sport
     private Sport mPlaceHolderSport; // Contains the parameters for the new sport
     private ArrayList<Sport> sportArray;
-    private projetHockeyInterface mMainWindow; // A reference to the window
     private String selectedSport;
+    
+    // CategoryPlayer
+    private CategoryPlayer mPlaceHolderCategoryPlayer; // Contains the parameters for the new CategoryPlayer
+    private ArrayList<CategoryPlayer> categoryPlayerArray;
+    private String selectedCategoryPlayer;
+    
+    private projetHockeyInterface mMainWindow; // A reference to the window
     
     // The constructor
     public Controller(MainWindow pMainWindow) {
         this.mMainWindow = pMainWindow;
+        
+        // Sport
         mPlaceHolderSport = new Sport();
         sportArray = new ArrayList<Sport>();
+        // CategoryPlayer
+        mPlaceHolderCategoryPlayer = new CategoryPlayer();
+        categoryPlayerArray = new ArrayList<CategoryPlayer>();
+        
         AppDataProxy.loadData(this);
         
         this.selectedSport = "";
+        this.selectedCategoryPlayer = "";
         
         // Update the array list
         if (!sportArray.isEmpty()) {
             publishSportsNames();
+        }
+        if (!sportArray.isEmpty()) {
+            publishCategoryPlayerNames();
         }
     }
     
@@ -46,6 +63,7 @@ public class Controller {
     }
     
     
+    // -------------------- Sport --------------------
     public void setSportName(String pSportName) {
         this.mPlaceHolderSport.setName(pSportName);
     }
@@ -177,8 +195,104 @@ public class Controller {
         this.mMainWindow.publishFieldPicture(theFieldPicture);
     }
     
-    public void publishPlayerCategories(ArrayList<String> pCategoryList) {
-        this.mMainWindow.publishPlayerCategories(pCategoryList);
-        
+    // -------------------- CategoryPlayer --------------------
+    public void setCategoryPlayerName(String pCategoryPlayerName) {
+        this.mPlaceHolderCategoryPlayer.setCategoryName(pCategoryPlayerName);
+    }
+
+    public void setCategoryPlayerHorizontalSize(Float pHorizSize) {
+        this.mPlaceHolderCategoryPlayer.setHorizontalSize(pHorizSize);
+
+    }
+
+    public void setCategoryPlayerVerticalSize(Float pVertSize) {
+        this.mPlaceHolderCategoryPlayer.setVerticalSize(pVertSize);
+
+    }
+
+    public void resetPlaceHolderCategoryPlayer() {
+        this.mPlaceHolderCategoryPlayer.reset();
+        this.mMainWindow.publishCategoryPlayerDimensions(this.mPlaceHolderCategoryPlayer.getHorizontalSize(), this.mPlaceHolderCategoryPlayer.getVerticalSize());
+        this.mMainWindow.publishCategoryPlayerName(this.mPlaceHolderCategoryPlayer.getCategoryName());
+        //void publishCategoryPlayerPicture();
+        //void publishCategoryPlayerOnFieldPicture();
+    }
+
+    public void saveCategoryPlayer() {
+        // Ensure the categoryPlayer is valid here.
+
+        // If the categoryPlayer exists, remove it from the list
+        for (CategoryPlayer aCategoryPlayer: categoryPlayerArray) {
+            if (aCategoryPlayer.getCategoryName().equals(this.mPlaceHolderCategoryPlayer.getCategoryName())) {
+                System.out.println(aCategoryPlayer.getCategoryName());
+                this.categoryPlayerArray.remove(aCategoryPlayer);
+                break;
+            }
+        }
+
+        // Add the categoryPlayer to the list
+        categoryPlayerArray.add(new CategoryPlayer(this.mPlaceHolderCategoryPlayer));
+
+        //Save to permanent memory
+        projethockey.services.AppDataProxy.saveData(this);
+        if (!categoryPlayerArray.isEmpty()) {
+            publishCategoryPlayerNames();
+        }
+    }
+
+    public void setSelectedCategoryPlayer(String pSelectedCategoryPlayer) {
+        this.selectedCategoryPlayer = pSelectedCategoryPlayer;
+    }
+
+    public void removeCategoryPlayer() {
+        // if one is selected, remove it
+        if (!this.selectedCategoryPlayer.equals("")) {
+            for (CategoryPlayer aCategoryPlayer: categoryPlayerArray) {
+                if (aCategoryPlayer.getCategoryName().equals(this.selectedCategoryPlayer)) {
+                    this.categoryPlayerArray.remove(aCategoryPlayer);
+                    break;
+                }
+            }
+            this.selectedCategoryPlayer = "";
+        }
+
+        // Save to permanent memory
+        projethockey.services.AppDataProxy.saveData(this);
+
+        // Update display
+        publishCategoryPlayerNames();
+    }
+
+    public void publishCategoryPlayerNames() {
+        ArrayList<String> categoryPlayerNameList = new ArrayList<String>();
+            for (CategoryPlayer aCategoryPlayer: categoryPlayerArray) {
+                categoryPlayerNameList.add(aCategoryPlayer.getCategoryName());
+            }
+            this.mMainWindow.publishExistingCategoryPlayer(categoryPlayerNameList.toArray(new String[categoryPlayerNameList.size()]));
+    }
+
+    public ArrayList<CategoryPlayer> getCategoryPlayerArray() {
+        return categoryPlayerArray;
+    }
+    public void setCategoryPlayerArray(ArrayList<CategoryPlayer> pCategoryPlayerArray) {
+        this.categoryPlayerArray = pCategoryPlayerArray;
+    }
+
+    public void getCategoryPlayerImage() {
+        String categoryPlayerImagePath = this.mMainWindow.requestFilePath();
+        if (!categoryPlayerImagePath.equals("")) {
+        try {
+            java.awt.image.BufferedImage myImg = ImageIO.read(new File(categoryPlayerImagePath));
+
+            setCategoryPlayerImage(myImg);
+            //this.mPlaceHolderCategoryPlayer.setImage();
+        } catch (IOException ex) {
+            System.out.println("Error happenedwhile reading image");
+        }
+        }
+    }
+
+    public void setCategoryPlayerImage(BufferedImage theFieldPicture) {
+        this.mMainWindow.publishFieldPicture(theFieldPicture);
     }
 }

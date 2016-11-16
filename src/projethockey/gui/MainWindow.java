@@ -124,6 +124,20 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         
 
     }
+    
+    public void publishCategoryPlayerDimensions(Float pdimX, Float pdimY){
+        this.jTextFieldCategorySizeHorizontal.setText(pdimX.toString());
+        this.jTextFieldCategorySizeVertical.setText(pdimY.toString());
+    }
+    
+    public void publishCategoryPlayerName(String pCategoryPlayerName) {
+        this.jTextFieldCategoryName.setText(pCategoryPlayerName);
+    }
+    
+    public void publishExistingCategoryPlayer(String[] plistCategoryPlayer) {
+        this.jListExistingSports.setListData(plistCategoryPlayer);
+    }
+    
 
     public String requestFilePath() {
         javax.swing.JFileChooser fc;
@@ -334,6 +348,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jTextFieldHorizontalSizeFocusLost(evt);
             }
         });
+        jTextFieldHorizontalSize.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldHorizontalSizeActionPerformed(evt);
+            }
+        });
 
         jButtonLoadFieldImage.setText("Charger une image...");
         jButtonLoadFieldImage.addActionListener(new java.awt.event.ActionListener() {
@@ -353,6 +372,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jTextFieldSportName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTextFieldSportNameFocusLost(evt);
+            }
+        });
+        jTextFieldSportName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSportNameActionPerformed(evt);
             }
         });
 
@@ -1809,7 +1833,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jButtonLoadFieldImageActionPerformed
 
     private void jButtonNewCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewCategoryActionPerformed
-        // TODO add your handling code here:
+        myController.resetPlaceHolderCategoryPlayer();
     }//GEN-LAST:event_jButtonNewCategoryActionPerformed
 
     private void jButtonSaveCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveCategoryActionPerformed
@@ -2087,6 +2111,14 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             this.myController.setSportCategoryNumber((int) this.jSpinnerObjectTypeNumber.getModel().getValue());
         }
     }//GEN-LAST:event_jSpinnerObjectTypeNumberStateChanged
+
+    private void jTextFieldSportNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSportNameActionPerformed
+        // TODO add your andling code here:
+    }//GEN-LAST:event_jTextFieldSportNameActionPerformed
+
+    private void jTextFieldHorizontalSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldHorizontalSizeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldHorizontalSizeActionPerformed
 
     /**
      * @param args the command line arguments

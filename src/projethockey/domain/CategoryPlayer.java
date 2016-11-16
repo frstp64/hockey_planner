@@ -9,6 +9,8 @@ public class CategoryPlayer {
     private String imgPath;
     private int scale;
     private Position positionDefault;
+    private Float horizontalSize;
+    private Float verticalSize;
     
     public CategoryPlayer(){
     }
@@ -61,5 +63,27 @@ public class CategoryPlayer {
             
     public void setScale(int scale) {
        this.scale = scale;
+    }
+    
+    public void setHorizontalSize(Float pHorizontalSize) {
+        this.horizontalSize = pHorizontalSize;
+    }
+    public float getHorizontalSize() {
+        return this.horizontalSize;
+    }
+    
+    public void setVerticalSize(Float pVerticalSize) {
+        this.verticalSize = pVerticalSize;
+    }
+    
+    public float getVerticalSize() {
+        return this.verticalSize;
+    }
+    
+    public void reset() {
+        this.verticalSize = (float) 0;
+        this.horizontalSize = (float) 0;
+        this.catName = "";
+        this.imgPath = "";
     }
 }
