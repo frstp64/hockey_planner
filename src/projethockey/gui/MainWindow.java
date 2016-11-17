@@ -1805,7 +1805,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jButtonDestroySelectedSportActionPerformed
 
     private void jButtonSaveSportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveSportActionPerformed
-        this.myController.saveCategoryPlayer();
+        this.myController.saveSport();
     }//GEN-LAST:event_jButtonSaveSportActionPerformed
 
     private void jButtonChooseCategoryImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseCategoryImageActionPerformed
@@ -1813,7 +1813,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jButtonChooseCategoryImageActionPerformed
 
     private void jButtonDeleteCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteCategoryActionPerformed
-        // TODO add your handling code here:
+        this.myController.removeCategoryPlayer();
     }//GEN-LAST:event_jButtonDeleteCategoryActionPerformed
 
     private void jButtonPlayGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPlayGameActionPerformed
@@ -1837,7 +1837,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jButtonNewCategoryActionPerformed
 
     private void jButtonSaveCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveCategoryActionPerformed
-        // TODO add your handling code here:
+        this.myController.saveCategoryPlayer();
     }//GEN-LAST:event_jButtonSaveCategoryActionPerformed
 
     private void jTextFieldCategoryNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCategoryNameActionPerformed
