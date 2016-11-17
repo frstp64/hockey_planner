@@ -29,5 +29,6 @@ public interface sportSubscribable {
     void publishCategoryPlayerName(String pCategoryPlayerName);
     void publishCategoryPlayerDimensions(Float pdimX, Float pdimY);
     void publishExistingCategoryPlayer(String[] plistCategoryPlayerName); //??
+    void publishCategoryPlayerIcon(BufferedImage thePicture);
     
 }

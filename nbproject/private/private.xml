@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/louis/doc/glo/repo3/Projet/projetHockey/src/projethockey/domain/Sport.java</file>
+            <file>file:/home/louis/doc/glo/repo3/Projet/projetHockey/src/projethockey/domain/projetHockeyInterface.java</file>
+            <file>file:/home/louis/doc/glo/repo3/Projet/projetHockey/src/projethockey/domain/Controller.java</file>
+            <file>file:/home/louis/doc/glo/repo3/Projet/projetHockey/src/projethockey/services/AppDataProxy.java</file>
+            <file>file:/home/louis/doc/glo/repo3/Projet/projetHockey/src/projethockey/gui/MainWindow.java</file>
+            <file>file:/home/louis/doc/glo/repo3/Projet/projetHockey/src/ProjetHockey.java</file>
+            <file>file:/home/louis/doc/glo/repo3/Projet/projetHockey/src/projethockey/domain/CategoryPlayer.java</file>
+        </group>
     </open-files>
 </project-private>

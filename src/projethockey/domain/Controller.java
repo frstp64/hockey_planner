@@ -292,7 +292,7 @@ public class Controller {
         }
     }
 
-    public void setCategoryPlayerImage(BufferedImage theFieldPicture) {
-        this.mMainWindow.publishFieldPicture(theFieldPicture);
+    public void setCategoryPlayerImage(BufferedImage thePicture) {
+        this.mMainWindow.publishCategoryPlayerIcon(thePicture);
     }
 }

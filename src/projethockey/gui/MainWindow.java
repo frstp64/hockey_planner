@@ -125,6 +125,29 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     }
     
+    public void publishCategoryPlayerIcon(BufferedImage thePicture) {
+        
+        // ideally we would extend a jpanel to accomodate all that image presentation spaghetti into a nice jlabel-inside-jframe class
+        int imHeight = thePicture.getHeight();
+        int imWidth = thePicture.getWidth();
+        int fieldHeight = this.jLabelCategoryPlayerIcon.getHeight();
+        int fieldWidth = this.jLabelCategoryPlayerIcon.getWidth();
+        
+        float imAspectRatio = ((float) imHeight)/imWidth;
+        float fieldAspectRatio = ((float) fieldHeight)/fieldWidth;
+
+        Icon fieldIcon;
+        // image is large horizontally aspect-wise
+        if (imAspectRatio < fieldAspectRatio) {
+            fieldIcon = new ImageIcon(thePicture.getScaledInstance(fieldWidth-2, -1, -1));
+        }
+        else {
+            fieldIcon = new ImageIcon(thePicture.getScaledInstance(-1, fieldHeight-2, -1));
+        }
+        this.jLabelCategoryPlayerIcon.setIcon(fieldIcon);
+        
+    }
+    
     public void publishCategoryPlayerDimensions(Float pdimX, Float pdimY){
         this.jTextFieldCategorySizeHorizontal.setText(pdimX.toString());
         this.jTextFieldCategorySizeVertical.setText(pdimY.toString());
@@ -198,6 +221,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jButtonSaveCategory = new javax.swing.JButton();
         jLabelCategoryImage = new javax.swing.JLabel();
         jPanelCategoryPicture = new javax.swing.JPanel();
+        jLabelCategoryPlayerIcon = new javax.swing.JLabel();
         jSeparator10 = new javax.swing.JSeparator();
         jButtonChooseCategoryImage = new javax.swing.JButton();
         jLabelCategoryOnTerrain = new javax.swing.JLabel();
@@ -676,11 +700,16 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelCategoryPicture.setLayout(jPanelCategoryPictureLayout);
         jPanelCategoryPictureLayout.setHorizontalGroup(
             jPanelCategoryPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 287, Short.MAX_VALUE)
+            .addGroup(jPanelCategoryPictureLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelCategoryPlayerIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanelCategoryPictureLayout.setVerticalGroup(
             jPanelCategoryPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 283, Short.MAX_VALUE)
+            .addGroup(jPanelCategoryPictureLayout.createSequentialGroup()
+                .addComponent(jLabelCategoryPlayerIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -1843,7 +1872,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jButtonSaveSportActionPerformed
 
     private void jButtonChooseCategoryImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseCategoryImageActionPerformed
-        // TODO add your handling code here:
+        myController.getCategoryPlayerImage();
     }//GEN-LAST:event_jButtonChooseCategoryImageActionPerformed
 
     private void jButtonDeleteCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteCategoryActionPerformed
@@ -2270,6 +2299,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JLabel jLabelCategoryImage;
     private javax.swing.JLabel jLabelCategoryName;
     private javax.swing.JLabel jLabelCategoryOnTerrain;
+    private javax.swing.JLabel jLabelCategoryPlayerIcon;
     private javax.swing.JLabel jLabelCategorySize;
     private javax.swing.JLabel jLabelCategoryUnits;
     private javax.swing.JLabel jLabelChooseNameStrategy;
