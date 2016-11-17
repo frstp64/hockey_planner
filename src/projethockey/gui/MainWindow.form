@@ -521,13 +521,13 @@
                       <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jScrollPane4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                              <Component id="jScrollPane4" min="-2" pref="335" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               <Component id="jButtonDeleteCategory" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabelExistingCategories" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="395" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
@@ -566,7 +566,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Component id="jSeparator10" min="-2" pref="11" max="-2" attributes="0"/>
-                      <EmptySpace pref="478" max="32767" attributes="0"/>
+                      <EmptySpace pref="113" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabelCategoryOnTerrain" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jPanelCategoryOnTerrain" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -641,7 +641,7 @@
                               <Component id="jPanelCategoryPicture" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButtonChooseCategoryImage" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="768" max="32767" attributes="0"/>
+                              <EmptySpace pref="84" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -772,15 +772,21 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldCategoryName">
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldCategoryNameFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCategoryNameActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldCategorySizeHorizontal">
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldCategorySizeHorizontalFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCategorySizeHorizontalActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldCategorySizeVertical">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldCategorySizeVerticalFocusLost"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCategorySizeVerticalActionPerformed"/>
+              </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane4">
               <AuxValues>
@@ -799,8 +805,13 @@
                         <StringItem index="3" value="Lutteur Avant-Gardissien"/>
                       </StringArray>
                     </Property>
+                    <Property name="selectionMode" type="int" value="0"/>
+                    <Property name="fixedCellHeight" type="int" value="10"/>
+                    <Property name="fixedCellWidth" type="int" value="150"/>
                   </Properties>
                   <Events>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jListExistingCategoriesFocusLost"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jListExistingCategoriesMouseClicked"/>
                     <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jListExistingCategoriesPropertyChange"/>
                   </Events>
                   <AuxValues>

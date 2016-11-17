@@ -51,7 +51,7 @@ public class Controller {
         if (!sportArray.isEmpty()) {
             publishSportsNames();
         }
-        if (!sportArray.isEmpty()) {
+        if (!categoryPlayerArray.isEmpty()) {
             publishCategoryPlayerNames();
         }
     }

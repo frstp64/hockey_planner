@@ -720,15 +720,36 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         jLabelCategoryUnits.setText("(unités):");
 
+        jTextFieldCategoryName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldCategoryNameFocusLost(evt);
+            }
+        });
         jTextFieldCategoryName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCategoryNameActionPerformed(evt);
             }
         });
 
+        jTextFieldCategorySizeHorizontal.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldCategorySizeHorizontalFocusLost(evt);
+            }
+        });
         jTextFieldCategorySizeHorizontal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCategorySizeHorizontalActionPerformed(evt);
+            }
+        });
+
+        jTextFieldCategorySizeVertical.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldCategorySizeVerticalFocusLost(evt);
+            }
+        });
+        jTextFieldCategorySizeVertical.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCategorySizeVerticalActionPerformed(evt);
             }
         });
 
@@ -736,6 +757,19 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             String[] strings = { "Frontier Pierrien", "Ailier Picardier", "Gardien Röckenfelleur", "Lutteur Avant-Gardissien" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
+        });
+        jListExistingCategories.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jListExistingCategories.setFixedCellHeight(10);
+        jListExistingCategories.setFixedCellWidth(150);
+        jListExistingCategories.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jListExistingCategoriesFocusLost(evt);
+            }
+        });
+        jListExistingCategories.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListExistingCategoriesMouseClicked(evt);
+            }
         });
         jListExistingCategories.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -766,11 +800,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 .addGap(106, 106, 106)
                 .addGroup(jPanelCategoriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelCategoriesLayout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
                         .addComponent(jButtonDeleteCategory))
                     .addComponent(jLabelExistingCategories))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(395, Short.MAX_VALUE))
             .addGroup(jPanelCategoriesLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addGroup(jPanelCategoriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -801,7 +835,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                         .addComponent(jButtonChooseCategoryImage)))
                 .addGap(51, 51, 51)
                 .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 478, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
                 .addGroup(jPanelCategoriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelCategoryOnTerrain, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanelCategoryOnTerrain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -860,7 +894,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                         .addComponent(jPanelCategoryPicture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonChooseCategoryImage)
-                        .addContainerGap(768, Short.MAX_VALUE))))
+                        .addContainerGap(84, Short.MAX_VALUE))))
         );
 
         jTabbedPanePlayerCategory.addTab("Catégories", jPanelCategories);
@@ -2120,6 +2154,52 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldHorizontalSizeActionPerformed
 
+    private void jTextFieldCategoryNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldCategoryNameFocusLost
+        myController.setCategoryPlayerName(this.jTextFieldCategoryName.getText());
+    }//GEN-LAST:event_jTextFieldCategoryNameFocusLost
+
+    private void jTextFieldCategorySizeHorizontalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldCategorySizeHorizontalFocusLost
+        try {
+            myController.setCategoryPlayerHorizontalSize(Float.parseFloat(this.jTextFieldCategorySizeHorizontal.getText()));
+            this.jTextFieldCategorySizeHorizontal.setBackground(Color.white);
+        }
+        catch (Exception Ex){
+            this.jTextFieldCategorySizeHorizontal.setBackground(Color.red);
+        }
+    }//GEN-LAST:event_jTextFieldCategorySizeHorizontalFocusLost
+
+    private void jTextFieldCategorySizeVerticalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCategorySizeVerticalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCategorySizeVerticalActionPerformed
+
+    private void jTextFieldCategorySizeVerticalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldCategorySizeVerticalFocusLost
+        try {
+            myController.setCategoryPlayerVerticalSize(Float.parseFloat(this.jTextFieldCategorySizeVertical.getText()));
+            this.jTextFieldCategorySizeVertical.setBackground(Color.white);
+        }
+        catch (Exception Ex){
+            this.jTextFieldCategorySizeVertical.setBackground(Color.red);
+        }
+    }//GEN-LAST:event_jTextFieldCategorySizeVerticalFocusLost
+
+    private void jListExistingCategoriesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jListExistingCategoriesFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jListExistingCategoriesFocusLost
+
+    private void jListExistingCategoriesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListExistingCategoriesMouseClicked
+    try {
+        if (jListExistingCategories.getSelectedValue() != null & myController != null) {
+            myController.setSelectedCategoryPlayer(jListExistingCategories.getSelectedValue());
+        }
+        else if (myController != null) {
+            String empty = "";
+            myController.setSelectedCategoryPlayer(empty);
+        }
+        } catch (Exception Ex) {
+            
+        }
+    }//GEN-LAST:event_jListExistingCategoriesMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -2154,7 +2234,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonChooseCategoryImage;
     private javax.swing.JButton jButtonChooseObjectPicture;

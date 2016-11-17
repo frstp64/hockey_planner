@@ -4,7 +4,7 @@ package projethockey.domain;
  *
  * @author Alexandre
  */
-public class CategoryPlayer {
+public class CategoryPlayer implements java.io.Serializable{
     private String catName;
     private String imgPath;
     private int scale;

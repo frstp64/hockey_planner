@@ -26,8 +26,7 @@ public interface sportSubscribable {
     void publishObjectTypeNumber(int objectTypeNumber);
     void publishPlayerCategories(ArrayList<String> pPlayerCategoryList);
     
-    // change CategoryPlayer info in interface
-    void publishCategoryPlayerName(String pSportName);
+    void publishCategoryPlayerName(String pCategoryPlayerName);
     void publishCategoryPlayerDimensions(Float pdimX, Float pdimY);
     void publishExistingCategoryPlayer(String[] plistCategoryPlayerName); //??
     
