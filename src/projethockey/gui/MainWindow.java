@@ -137,8 +137,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             // ideally we would extend a jpanel to accomodate all that image presentation spaghetti into a nice jlabel-inside-jframe class
             int imHeight = thePicture.getHeight();
             int imWidth = thePicture.getWidth();
-            int fieldHeight = this.jLabelCategoryPlayerIcon.getHeight();
-            int fieldWidth = this.jLabelCategoryPlayerIcon.getWidth();
+            int fieldHeight = this.jPanelCategoryPicture.getHeight();
+            int fieldWidth = this.jPanelCategoryPicture.getWidth();
 
             float imAspectRatio = ((float) imHeight)/imWidth;
             float fieldAspectRatio = ((float) fieldHeight)/fieldWidth;
@@ -709,16 +709,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelCategoryPicture.setLayout(jPanelCategoryPictureLayout);
         jPanelCategoryPictureLayout.setHorizontalGroup(
             jPanelCategoryPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelCategoryPictureLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelCategoryPlayerIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLabelCategoryPlayerIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
         );
         jPanelCategoryPictureLayout.setVerticalGroup(
             jPanelCategoryPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelCategoryPictureLayout.createSequentialGroup()
-                .addComponent(jLabelCategoryPlayerIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLabelCategoryPlayerIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
         );
 
         jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
