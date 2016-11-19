@@ -27,6 +27,8 @@ public class CategoryPlayer implements java.io.Serializable{
         this.imgPath = categoryPlayer.imgPath;
         this.positionDefault = categoryPlayer.positionDefault;
         this.scale = categoryPlayer.scale;
+        this.horizontalSize = categoryPlayer.horizontalSize;
+        this.verticalSize = categoryPlayer.verticalSize;
     }
     
     /*    

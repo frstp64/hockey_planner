@@ -45,7 +45,7 @@ public class Controller {
         AppDataProxy.loadData(this);
         
         this.selectedSport = "";
-        this.selectedCategoryPlayer = "";
+        this.setSelectedCategoryPlayer("");
         
         // Update the array list
         if (!sportArray.isEmpty()) {
@@ -211,11 +211,14 @@ public class Controller {
     }
 
     public void resetPlaceHolderCategoryPlayer() {
+        
+        // empty data
         this.mPlaceHolderCategoryPlayer.reset();
+        // empty GUI values
         this.mMainWindow.publishCategoryPlayerDimensions(this.mPlaceHolderCategoryPlayer.getHorizontalSize(), this.mPlaceHolderCategoryPlayer.getVerticalSize());
         this.mMainWindow.publishCategoryPlayerName(this.mPlaceHolderCategoryPlayer.getCategoryName());
-        //void publishCategoryPlayerPicture();
-        //void publishCategoryPlayerOnFieldPicture();
+        // empty image label
+        this.mMainWindow.publishCategoryPlayerIcon(null);
     }
 
     public void saveCategoryPlayer() {
@@ -241,7 +244,40 @@ public class Controller {
     }
 
     public void setSelectedCategoryPlayer(String pSelectedCategoryPlayer) {
+        // Set categoryPlayer's data in GUI.
+        
         this.selectedCategoryPlayer = pSelectedCategoryPlayer;
+        // Clean gui first.
+        resetPlaceHolderCategoryPlayer();
+        
+        for (CategoryPlayer aCategoryPlayer: categoryPlayerArray) {
+            if (aCategoryPlayer.getCategoryName().equals(this.selectedCategoryPlayer)) {
+                
+                
+                // Change placeholder values
+                this.mPlaceHolderCategoryPlayer = new CategoryPlayer(aCategoryPlayer);
+                
+                // Publish placeholder's Data to GUI fields
+                this.mMainWindow.publishCategoryPlayerName(this.mPlaceHolderCategoryPlayer.getCategoryName());
+                this.mMainWindow.publishCategoryPlayerDimensions(this.mPlaceHolderCategoryPlayer.getHorizontalSize(), this.mPlaceHolderCategoryPlayer.getVerticalSize());
+                
+                // load image and publish  to GUI
+                String categoryPlayerImagePath = this.mPlaceHolderCategoryPlayer.getImgPath();
+                if (!categoryPlayerImagePath.equals("")) {
+                try {
+                    java.awt.image.BufferedImage myImg = ImageIO.read(new File(categoryPlayerImagePath));
+
+                    this.mMainWindow.publishCategoryPlayerIcon(myImg);
+                    //this.mPlaceHolderCategoryPlayer.setImage();
+                } catch (IOException ex) {
+                    System.out.println("Error happenedwhile reading image");
+                }
+                }
+
+
+                break;
+            }
+        }
     }
 
     public void removeCategoryPlayer() {
@@ -285,7 +321,7 @@ public class Controller {
             java.awt.image.BufferedImage myImg = ImageIO.read(new File(categoryPlayerImagePath));
 
             setCategoryPlayerImage(myImg);
-            //this.mPlaceHolderCategoryPlayer.setImage();
+            this.mPlaceHolderCategoryPlayer.setImgPath(categoryPlayerImagePath);
         } catch (IOException ex) {
             System.out.println("Error happenedwhile reading image");
         }

@@ -127,24 +127,33 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     
     public void publishCategoryPlayerIcon(BufferedImage thePicture) {
         
-        // ideally we would extend a jpanel to accomodate all that image presentation spaghetti into a nice jlabel-inside-jframe class
-        int imHeight = thePicture.getHeight();
-        int imWidth = thePicture.getWidth();
-        int fieldHeight = this.jLabelCategoryPlayerIcon.getHeight();
-        int fieldWidth = this.jLabelCategoryPlayerIcon.getWidth();
+        // first, reset image to empty 
+        this.jLabelCategoryPlayerIcon.setIcon(null);
+        this.jLabelCategoryPlayerIcon.revalidate();
         
-        float imAspectRatio = ((float) imHeight)/imWidth;
-        float fieldAspectRatio = ((float) fieldHeight)/fieldWidth;
+        // if passed img is not null, draw it.
+        if (thePicture != null) {
+            
+            // ideally we would extend a jpanel to accomodate all that image presentation spaghetti into a nice jlabel-inside-jframe class
+            int imHeight = thePicture.getHeight();
+            int imWidth = thePicture.getWidth();
+            int fieldHeight = this.jLabelCategoryPlayerIcon.getHeight();
+            int fieldWidth = this.jLabelCategoryPlayerIcon.getWidth();
 
-        Icon fieldIcon;
-        // image is large horizontally aspect-wise
-        if (imAspectRatio < fieldAspectRatio) {
-            fieldIcon = new ImageIcon(thePicture.getScaledInstance(fieldWidth-2, -1, -1));
+            float imAspectRatio = ((float) imHeight)/imWidth;
+            float fieldAspectRatio = ((float) fieldHeight)/fieldWidth;
+
+            Icon fieldIcon;
+            // image is large horizontally aspect-wise
+            if (imAspectRatio < fieldAspectRatio) {
+                fieldIcon = new ImageIcon(thePicture.getScaledInstance(fieldWidth-2, -1, -1));
+            }
+            else {
+                fieldIcon = new ImageIcon(thePicture.getScaledInstance(-1, fieldHeight-2, -1));
+            }
+            this.jLabelCategoryPlayerIcon.setIcon(fieldIcon);
+        
         }
-        else {
-            fieldIcon = new ImageIcon(thePicture.getScaledInstance(-1, fieldHeight-2, -1));
-        }
-        this.jLabelCategoryPlayerIcon.setIcon(fieldIcon);
         
     }
     
