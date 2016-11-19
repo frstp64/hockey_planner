@@ -271,12 +271,16 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jButtonDeleteGameObject = new javax.swing.JButton();
         jPanelCreateLoadStrategy = new javax.swing.JPanel();
         jButtonCreateStrategy = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jListEditorStrategy = new javax.swing.JList<>();
         jButtonLoadStrategy = new javax.swing.JButton();
         jLabelChooseSport = new javax.swing.JLabel();
         jLabelChooseNameStrategy = new javax.swing.JLabel();
         jSeparator11 = new javax.swing.JSeparator();
         jLabelStrategyCreationZoneTitle = new javax.swing.JLabel();
+        jLabelAvailableStrategies = new javax.swing.JLabel();
         jComboBoxChooseStrategySport = new javax.swing.JComboBox<>();
+        jButtonDeleteStrategy = new javax.swing.JButton();
         jTextFieldChooseStrategyName = new javax.swing.JTextField();
         jPanelStrategyEditor = new javax.swing.JPanel();
         jScrollPaneModificationMode = new javax.swing.JScrollPane();
@@ -293,6 +297,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jButtonSaveStrategy = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jSliderModificationGameTime = new javax.swing.JSlider();
+        jButtonZoom = new javax.swing.JButton();
         jButtonNextFrameForImageMode = new javax.swing.JButton();
         jLabelCursorPosition = new javax.swing.JLabel();
         jLabelCurrentPosition = new javax.swing.JLabel();
@@ -305,29 +310,13 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jButtonUndo = new javax.swing.JButton();
         jButtonRedo = new javax.swing.JButton();
         jButtonExport = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jListEditorStrategy = new javax.swing.JList<>();
-        jLabelAvailableStrategies = new javax.swing.JLabel();
-        jButtonDeleteStrategy = new javax.swing.JButton();
         jPanelStrategyEditorLocation = new javax.swing.JPanel();
         jLabelSportsUnit = new javax.swing.JLabel();
-        jToggleButtonRotationMode = new javax.swing.JToggleButton();
-        jPanelVisualize = new javax.swing.JPanel();
-        jSeparator4 = new javax.swing.JSeparator();
-        jPanelGameVisualization = new javax.swing.JPanel();
-        jScrollWTF = new javax.swing.JScrollPane();
-        jListStrategyViewerStrategy = new javax.swing.JList<>();
-        jSliderGameTime = new javax.swing.JSlider();
-        jButtonPlayGame = new javax.swing.JButton();
-        jButtonPauseGame = new javax.swing.JButton();
-        jTextFieldStrategyViewerTime = new javax.swing.JTextField();
-        jLabelStrategyViewerTime = new javax.swing.JLabel();
-        jLabelStrategyListTitle = new javax.swing.JLabel();
-        jButtonZoom = new javax.swing.JButton();
-        jLabelMousePositionTitle = new javax.swing.JLabel();
-        jLabelMousePosition = new javax.swing.JLabel();
         jLabelPlayBackSpeedTitle = new javax.swing.JLabel();
+        jToggleButtonRotationMode = new javax.swing.JToggleButton();
+        jTextFieldStrategyViewerTime = new javax.swing.JTextField();
         jTextFieldPlaybackSpeed = new javax.swing.JTextField();
+        jLabelStrategyViewerTime = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1280, 1024));
@@ -1186,6 +1175,18 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             }
         });
 
+        jListEditorStrategy.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Tour du chapeau", "Stratégie des Oursons" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jListEditorStrategy.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jListEditorStrategyPropertyChange(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jListEditorStrategy);
+
         jButtonLoadStrategy.setText("Charger une stratégie");
         jButtonLoadStrategy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1202,10 +1203,19 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jLabelStrategyCreationZoneTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelStrategyCreationZoneTitle.setText("Création de stratégie");
 
+        jLabelAvailableStrategies.setText("Stratégies disponibles");
+
         jComboBoxChooseStrategySport.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hockey", "Hockey Spécial", "Soccer" }));
         jComboBoxChooseStrategySport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxChooseStrategySportActionPerformed(evt);
+            }
+        });
+
+        jButtonDeleteStrategy.setText("Supprimer");
+        jButtonDeleteStrategy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteStrategyActionPerformed(evt);
             }
         });
 
@@ -1220,36 +1230,43 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelCreateLoadStrategyLayout.setHorizontalGroup(
             jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jButtonLoadStrategy)
-                .addGap(36, 36, 36)
-                .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(26, 26, 26)
+                .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonDeleteStrategy)
                     .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelStrategyCreationZoneTitle)
+                        .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButtonLoadStrategy)
+                                .addComponent(jLabelAvailableStrategies))
                             .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)))
+                        .addGap(27, 27, 27)
+                        .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
+                                .addGap(39, 39, 39)
                                 .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelChooseNameStrategy)
-                                    .addComponent(jLabelChooseSport))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBoxChooseStrategySport, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldChooseStrategyName)))))
-                    .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jButtonCreateStrategy)))
-                .addContainerGap(1055, Short.MAX_VALUE))
+                                    .addComponent(jLabelStrategyCreationZoneTitle)
+                                    .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
+                                        .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelChooseNameStrategy)
+                                            .addComponent(jLabelChooseSport))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jComboBoxChooseStrategySport, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jTextFieldChooseStrategyName)))))
+                            .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
+                                .addGap(56, 56, 56)
+                                .addComponent(jButtonCreateStrategy)))))
+                .addContainerGap(690, Short.MAX_VALUE))
         );
         jPanelCreateLoadStrategyLayout.setVerticalGroup(
             jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelCreateLoadStrategyLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
+                .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
                         .addComponent(jLabelStrategyCreationZoneTitle)
                         .addGap(37, 37, 37)
                         .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1261,10 +1278,20 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                             .addComponent(jComboBoxChooseStrategySport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jButtonCreateStrategy))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelCreateLoadStrategyLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jButtonLoadStrategy)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCreateLoadStrategyLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jButtonLoadStrategy)
+                .addGap(108, 108, 108)
+                .addComponent(jLabelAvailableStrategies)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonDeleteStrategy)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPanePlayerCategory.addTab("Créer/charger stratégie", jPanelCreateLoadStrategy);
@@ -1334,6 +1361,14 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jSliderModificationGameTime.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
             public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
                 jSliderModificationGameTimeVetoableChange(evt);
+            }
+        });
+
+        jButtonZoom.setText("Zoom");
+        jButtonZoom.setToolTipText("Sélectionner la zone de zoom désirée avec deux points");
+        jButtonZoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonZoomActionPerformed(evt);
             }
         });
 
@@ -1412,27 +1447,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             }
         });
 
-        jListEditorStrategy.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Tour du chapeau", "Stratégie des Oursons" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jListEditorStrategy.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jListEditorStrategyPropertyChange(evt);
-            }
-        });
-        jScrollPane2.setViewportView(jListEditorStrategy);
-
-        jLabelAvailableStrategies.setText("Stratégies disponibles");
-
-        jButtonDeleteStrategy.setText("Supprimer");
-        jButtonDeleteStrategy.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDeleteStrategyActionPerformed(evt);
-            }
-        });
-
         jPanelStrategyEditorLocation.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelStrategyEditorLocation.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -1448,10 +1462,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         );
         jPanelStrategyEditorLocationLayout.setVerticalGroup(
             jPanelStrategyEditorLocationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 365, Short.MAX_VALUE)
+            .addGap(0, 377, Short.MAX_VALUE)
         );
 
         jLabelSportsUnit.setText("Unités");
+
+        jLabelPlayBackSpeedTitle.setText("Vitesse de jeu: ");
 
         jToggleButtonRotationMode.setText("mode rotation");
         jToggleButtonRotationMode.addActionListener(new java.awt.event.ActionListener() {
@@ -1459,6 +1475,22 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jToggleButtonRotationModeActionPerformed(evt);
             }
         });
+
+        jTextFieldStrategyViewerTime.setText("0");
+        jTextFieldStrategyViewerTime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldStrategyViewerTimeActionPerformed(evt);
+            }
+        });
+
+        jTextFieldPlaybackSpeed.setToolTipText("Multiple de la vitessse normale, de 0.01 à 10");
+        jTextFieldPlaybackSpeed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPlaybackSpeedActionPerformed(evt);
+            }
+        });
+
+        jLabelStrategyViewerTime.setText("Temps (s):");
 
         javax.swing.GroupLayout jPanelStrategyEditorLayout = new javax.swing.GroupLayout(jPanelStrategyEditor);
         jPanelStrategyEditor.setLayout(jPanelStrategyEditorLayout);
@@ -1474,61 +1506,62 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelStrategyEditorLayout.createSequentialGroup()
                         .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                .addComponent(jLabelAvailableStrategies)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabelModificationModeToSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelPlayerToSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelStrategyEditorLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabelStrategyName)
-                                        .addGap(5, 5, 5))
-                                    .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButtonDeleteStrategy)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                        .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabelModificationModeToSelect, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                                    .addComponent(jScrollPaneModificationMode, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
-                                .addGap(12, 12, 12))
-                            .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                .addComponent(jTextFieldStrategyName)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPanePlayerSelection, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelPlayerToSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
+                                .addComponent(jScrollPaneModificationMode, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPanePlayerSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(29, 29, 29)
                         .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelObjectsToSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
                                 .addComponent(jScrollPaneObjectSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldStrategyName, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButtonUndo)
-                                    .addComponent(jButtonRedo, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButtonRedo, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
+                                .addComponent(jLabelObjectsToSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButtonSaveStrategy)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButtonExport, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(28, 28, 28))
+                                .addComponent(jLabelStrategyName)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonSaveStrategy)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonExport, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
                         .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabelCursorPosition)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabelCurrentPosition)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabelSportsUnit)
+                                .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
+                                        .addComponent(jLabelCursorPosition)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabelCurrentPosition)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabelSportsUnit))
+                                    .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
+                                        .addComponent(jButtonZoom, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(193, 193, 193)))
                                 .addGap(45, 45, 45)
-                                .addComponent(jLabelTimeInterval)
-                                .addGap(3, 3, 3)
-                                .addComponent(jTextFieldTimeInterval, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(83, 83, 83)
-                                .addComponent(jButtonNextFrameForImageMode)
-                                .addGap(40, 40, 40)
+                                .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
+                                        .addComponent(jLabelTimeInterval)
+                                        .addGap(3, 3, 3)
+                                        .addComponent(jTextFieldTimeInterval, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButtonNextFrameForImageMode)
+                                        .addGap(40, 40, 40))
+                                    .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
+                                        .addComponent(jLabelStrategyViewerTime)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jTextFieldStrategyViewerTime, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(4, 4, 4)
+                                        .addComponent(jLabelPlayBackSpeedTitle)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextFieldPlaybackSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(32, 32, 32)))
                                 .addComponent(jButtonStepBackTime)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButtonModificationVisualize, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1545,52 +1578,61 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelStrategyEditorLayout.setVerticalGroup(
             jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                            .addGap(6, 6, 6)
-                            .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabelObjectsToSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabelPlayerToSelect)
-                                .addComponent(jLabelModificationModeToSelect))
-                            .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jScrollPaneObjectSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jButtonExport, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                                .addComponent(jButtonUndo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jButtonRedo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jButtonSaveStrategy, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE))))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelStrategyEditorLayout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jScrollPaneModificationMode, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jScrollPanePlayerSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelStrategyEditorLayout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelModificationModeToSelect)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jScrollPaneModificationMode, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(28, 28, 28))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelStrategyEditorLayout.createSequentialGroup()
                             .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabelStrategyName)
-                                .addComponent(jTextFieldStrategyName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jLabelPlayerToSelect)
+                                .addComponent(jLabelObjectsToSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabelStrategyName))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jScrollPanePlayerSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPaneObjectSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                        .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
+                            .addGap(16, 16, 16)
+                            .addComponent(jTextFieldStrategyName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButtonUndo)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButtonRedo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelStrategyEditorLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabelAvailableStrategies)
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonDeleteStrategy))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonExport, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonSaveStrategy, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanelStrategyEditorLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSliderModificationGameTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonStepBackTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonModificationVisualize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonStepForwardTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
+                                .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonNextFrameForImageMode)
+                                    .addComponent(jToggleButtonRotationMode))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabelPlayBackSpeedTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldPlaybackSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
                     .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1598,199 +1640,19 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                             .addComponent(jTextFieldTimeInterval, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelCurrentPosition)
                             .addComponent(jLabelCursorPosition)
-                            .addComponent(jLabelSportsUnit)))
-                    .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonStepBackTime, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-                            .addComponent(jButtonNextFrameForImageMode)
-                            .addComponent(jButtonModificationVisualize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabelSportsUnit))
                         .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                .addComponent(jToggleButtonRotationMode)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jButtonStepForwardTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jButtonZoom))
+                            .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
+                                .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabelStrategyViewerTime)
+                                    .addComponent(jTextFieldStrategyViewerTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))))
         );
 
         jTabbedPanePlayerCategory.addTab("Édition de stratégie", jPanelStrategyEditor);
-
-        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        jPanelGameVisualization.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanelGameVisualization.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jPanelGameVisualizationPropertyChange(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanelGameVisualizationLayout = new javax.swing.GroupLayout(jPanelGameVisualization);
-        jPanelGameVisualization.setLayout(jPanelGameVisualizationLayout);
-        jPanelGameVisualizationLayout.setHorizontalGroup(
-            jPanelGameVisualizationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1406, Short.MAX_VALUE)
-        );
-        jPanelGameVisualizationLayout.setVerticalGroup(
-            jPanelGameVisualizationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 581, Short.MAX_VALUE)
-        );
-
-        jListStrategyViewerStrategy.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Tour du chapeau", "stratégie oursons" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jListStrategyViewerStrategy.setToolTipText("");
-        jListStrategyViewerStrategy.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jListStrategyViewerStrategyPropertyChange(evt);
-            }
-        });
-        jScrollWTF.setViewportView(jListStrategyViewerStrategy);
-
-        jSliderGameTime.setValue(0);
-        jSliderGameTime.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
-            public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
-                jSliderGameTimeVetoableChange(evt);
-            }
-        });
-
-        jButtonPlayGame.setText("Commencer");
-        jButtonPlayGame.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPlayGameActionPerformed(evt);
-            }
-        });
-
-        jButtonPauseGame.setText("Pause");
-        jButtonPauseGame.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPauseGameActionPerformed(evt);
-            }
-        });
-
-        jTextFieldStrategyViewerTime.setText("0");
-        jTextFieldStrategyViewerTime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldStrategyViewerTimeActionPerformed(evt);
-            }
-        });
-
-        jLabelStrategyViewerTime.setText("Temps (s):");
-
-        jLabelStrategyListTitle.setText("Stratégies");
-
-        jButtonZoom.setText("Zoom");
-        jButtonZoom.setToolTipText("Sélectionner la zone de zoom désirée avec deux points");
-        jButtonZoom.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonZoomActionPerformed(evt);
-            }
-        });
-
-        jLabelMousePositionTitle.setText("Coordonnées:");
-
-        jLabelMousePosition.setText("CoordonnéesSouris");
-        jLabelMousePosition.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabelMousePositionPropertyChange(evt);
-            }
-        });
-
-        jLabelPlayBackSpeedTitle.setText("Vitesse de jeu: ");
-
-        jTextFieldPlaybackSpeed.setToolTipText("Multiple de la vitessse normale, de 0.01 à 10");
-        jTextFieldPlaybackSpeed.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPlaybackSpeedActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanelVisualizeLayout = new javax.swing.GroupLayout(jPanelVisualize);
-        jPanelVisualize.setLayout(jPanelVisualizeLayout);
-        jPanelVisualizeLayout.setHorizontalGroup(
-            jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelVisualizeLayout.createSequentialGroup()
-                .addGroup(jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelVisualizeLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollWTF, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelVisualizeLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabelStrategyListTitle))
-                    .addGroup(jPanelVisualizeLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addGroup(jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButtonPauseGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonPlayGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonZoom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanelVisualizeLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabelMousePositionTitle))
-                    .addGroup(jPanelVisualizeLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabelMousePosition))
-                    .addGroup(jPanelVisualizeLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabelPlayBackSpeedTitle))
-                    .addGroup(jPanelVisualizeLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jTextFieldPlaybackSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelVisualizeLayout.createSequentialGroup()
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanelGameVisualization, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanelVisualizeLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 3, Short.MAX_VALUE)
-                        .addComponent(jLabelStrategyViewerTime)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldStrategyViewerTime, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSliderGameTime, javax.swing.GroupLayout.PREFERRED_SIZE, 936, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        jPanelVisualizeLayout.setVerticalGroup(
-            jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelVisualizeLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jSliderGameTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelVisualizeLayout.createSequentialGroup()
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelVisualizeLayout.createSequentialGroup()
-                        .addComponent(jPanelGameVisualization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelVisualizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldStrategyViewerTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelStrategyViewerTime)))
-                    .addGroup(jPanelVisualizeLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabelStrategyListTitle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollWTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelPlayBackSpeedTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldPlaybackSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63)
-                        .addComponent(jButtonZoom)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonPauseGame)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonPlayGame)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelMousePositionTitle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelMousePosition)))
-                .addContainerGap())
-        );
-
-        jTabbedPanePlayerCategory.addTab("Visionnement", jPanelVisualize);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1826,10 +1688,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jButtonNewGameObjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewGameObjectActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonNewGameObjectActionPerformed
-
-    private void jButtonPauseGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPauseGameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonPauseGameActionPerformed
 
     private void jButtonDeleteStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteStrategyActionPerformed
         // TODO add your handling code here:
@@ -1882,10 +1740,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jButtonDeleteCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteCategoryActionPerformed
         this.myController.removeCategoryPlayer();
     }//GEN-LAST:event_jButtonDeleteCategoryActionPerformed
-
-    private void jButtonPlayGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPlayGameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonPlayGameActionPerformed
 
     private void jButtonCreateStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateStrategyActionPerformed
         // TODO add your handling code here:
@@ -1963,10 +1817,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabelCurrentPositionPropertyChange
 
-    private void jLabelMousePositionPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabelMousePositionPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabelMousePositionPropertyChange
-
     private void jListExistingCategoriesPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListExistingCategoriesPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jListExistingCategoriesPropertyChange
@@ -1991,17 +1841,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         // TODO add your handling code here:
     }//GEN-LAST:event_jListObjectsPropertyChange
 
-    private void jListStrategyViewerStrategyPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListStrategyViewerStrategyPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jListStrategyViewerStrategyPropertyChange
-
     private void jSliderModificationGameTimeVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jSliderModificationGameTimeVetoableChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jSliderModificationGameTimeVetoableChange
-
-    private void jSliderGameTimeVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jSliderGameTimeVetoableChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jSliderGameTimeVetoableChange
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
@@ -2030,10 +1872,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jPanelStrategyEditorLocationPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelStrategyEditorLocationPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanelStrategyEditorLocationPropertyChange
-
-    private void jPanelGameVisualizationPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelGameVisualizationPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanelGameVisualizationPropertyChange
 
     private void jToggleButtonRotationModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonRotationModeActionPerformed
         // TODO add your handling code here:
@@ -2284,8 +2122,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JButton jButtonNewGameObject;
     private javax.swing.JButton jButtonNewSport;
     private javax.swing.JButton jButtonNextFrameForImageMode;
-    private javax.swing.JButton jButtonPauseGame;
-    private javax.swing.JButton jButtonPlayGame;
     private javax.swing.JButton jButtonRedo;
     private javax.swing.JButton jButtonSaveCategory;
     private javax.swing.JButton jButtonSaveGameObject;
@@ -2317,8 +2153,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JLabel jLabelFieldSize;
     private javax.swing.JLabel jLabelFieldText;
     private javax.swing.JLabel jLabelModificationModeToSelect;
-    private javax.swing.JLabel jLabelMousePosition;
-    private javax.swing.JLabel jLabelMousePositionTitle;
     private javax.swing.JLabel jLabelObjectTableTitle;
     private javax.swing.JLabel jLabelObjectTypeNumber;
     private javax.swing.JLabel jLabelObjectsToSelect;
@@ -2335,7 +2169,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JLabel jLabelSportName;
     private javax.swing.JLabel jLabelSportsUnit;
     private javax.swing.JLabel jLabelStrategyCreationZoneTitle;
-    private javax.swing.JLabel jLabelStrategyListTitle;
     private javax.swing.JLabel jLabelStrategyName;
     private javax.swing.JLabel jLabelStrategyViewerTime;
     private javax.swing.JLabel jLabelTimeInterval;
@@ -2345,13 +2178,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JList<String> jListExistingSports;
     private javax.swing.JList<String> jListObjects;
     private javax.swing.JList<String> jListPlayers;
-    private javax.swing.JList<String> jListStrategyViewerStrategy;
     private javax.swing.JList<String> jListTypeModificationType;
     private javax.swing.JPanel jPanelCategories;
     private javax.swing.JPanel jPanelCategoryOnTerrain;
     private javax.swing.JPanel jPanelCategoryPicture;
     private javax.swing.JPanel jPanelCreateLoadStrategy;
-    private javax.swing.JPanel jPanelGameVisualization;
     private javax.swing.JPanel jPanelObstacle;
     private javax.swing.JPanel jPanelObstacleOnTerrain;
     private javax.swing.JPanel jPanelObstaclePicture;
@@ -2359,7 +2190,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JPanel jPanelSportFieldViewer;
     private javax.swing.JPanel jPanelStrategyEditor;
     private javax.swing.JPanel jPanelStrategyEditorLocation;
-    private javax.swing.JPanel jPanelVisualize;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -2369,19 +2199,16 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JScrollPane jScrollPanePlayerSelection;
     private javax.swing.JScrollPane jScrollPanePlayers;
     private javax.swing.JScrollPane jScrollPaneSportObjects;
-    private javax.swing.JScrollPane jScrollWTF;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JSlider jSliderGameTime;
     private javax.swing.JSlider jSliderModificationGameTime;
     private javax.swing.JSpinner jSpinnerObjectTypeNumber;
     private javax.swing.JSpinner jSpinnerPlayerNumber;
