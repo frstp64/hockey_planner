@@ -50,456 +50,6 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanelSport">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Sport">
-                <Property name="tabTitle" type="java.lang.String" value="Sport"/>
-              </JTabbedPaneConstraints>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jSeparator7" pref="1225" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                              <Component id="jButtonNewSport" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButtonSaveSport" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jButtonDestroySelectedSport" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jLabelExistingSportTitle" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="353" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jPanelSportFieldViewer" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jScrollPaneSportObjects" min="-2" pref="660" max="-2" attributes="0"/>
-                                          <Component id="jScrollPanePlayers" min="-2" pref="660" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="jLabelFieldText" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jButtonLoadFieldImage" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Group type="102" alignment="0" attributes="0">
-                                                              <Component id="jLabelPlayerNumber" min="-2" max="-2" attributes="0"/>
-                                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                              <Component id="jSpinnerPlayerNumber" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <Group type="102" alignment="0" attributes="0">
-                                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                                  <Component id="jLabelPlayersTableTitle" min="-2" max="-2" attributes="0"/>
-                                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                                      <Component id="jLabelFieldSize" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                                      <Component id="jLabelSportName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                                  </Group>
-                                                              </Group>
-                                                              <EmptySpace max="-2" attributes="0"/>
-                                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                                  <Component id="jTextFieldSportName" min="-2" pref="93" max="-2" attributes="0"/>
-                                                                  <Group type="102" alignment="0" attributes="0">
-                                                                      <Component id="jTextFieldHorizontalSize" min="-2" pref="42" max="-2" attributes="0"/>
-                                                                      <EmptySpace max="-2" attributes="0"/>
-                                                                      <Component id="jTextFieldVerticalSize" min="-2" pref="45" max="-2" attributes="0"/>
-                                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                                                      <EmptySpace max="-2" attributes="0"/>
-                                                                      <Component id="jTextFieldFieldUnits" min="-2" pref="59" max="-2" attributes="0"/>
-                                                                  </Group>
-                                                              </Group>
-                                                          </Group>
-                                                      </Group>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <EmptySpace min="-2" pref="244" max="-2" attributes="0"/>
-                                                      <Component id="jLabelObjectTypeNumber" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jSpinnerObjectTypeNumber" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="325" max="-2" attributes="0"/>
-                                              <Component id="jLabelObjectTableTitle" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace pref="96" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jButtonSaveSport" pref="65" max="32767" attributes="0"/>
-                                  <Component id="jButtonNewSport" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabelExistingSportTitle" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButtonDestroySelectedSport" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" min="-2" pref="101" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Component id="jSeparator7" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelFieldText" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelSportName" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldSportName" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButtonLoadFieldImage" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabelFieldSize" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldHorizontalSize" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldVerticalSize" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldFieldUnits" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelPlayerNumber" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jSpinnerPlayerNumber" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabelPlayersTableTitle" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPanePlayers" min="-2" pref="89" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelObjectTypeNumber" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jSpinnerObjectTypeNumber" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabelObjectTableTitle" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="jScrollPaneSportObjects" min="-2" pref="116" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jPanelSportFieldViewer" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="28" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JSeparator" name="jSeparator7">
-            </Component>
-            <Component class="javax.swing.JButton" name="jButtonSaveSport">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/projethockey/gui/mySaveIcon.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Enregistrer"/>
-                <Property name="horizontalTextPosition" type="int" value="0"/>
-                <Property name="iconTextGap" type="int" value="2"/>
-                <Property name="verticalTextPosition" type="int" value="3"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSaveSportActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButtonNewSport">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Nouveau"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonNewSportActionPerformed"/>
-              </Events>
-            </Component>
-            <Container class="javax.swing.JPanel" name="jPanelSportFieldViewer">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jPanelSportFieldViewerPropertyChange"/>
-              </Events>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabelSportField" alignment="0" pref="516" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabelSportField" alignment="0" pref="422" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabelSportField">
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JLabel" name="jLabelFieldSize">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Taille du terrain:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldHorizontalSize">
-              <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldHorizontalSizeFocusLost"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldHorizontalSizeActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButtonLoadFieldImage">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Charger une image..."/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLoadFieldImageActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldVerticalSize">
-              <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldVerticalSizeFocusLost"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabelSportName">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Nom:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldSportName">
-              <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldSportNameFocusLost"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldSportNameActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabelFieldText">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Terrain"/>
-              </Properties>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPanePlayers">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTable" name="tableSportPlayers">
-                  <Properties>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="2" rowCount="2">
-                        <Column editable="true" title="Cat&#xe9;gorie" type="java.lang.Object"/>
-                        <Column editable="true" title="Nom/R&#xf4;le" type="java.lang.String"/>
-                      </Table>
-                    </Property>
-                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" postCode="// The following code is customized using http://docs.oracle.com/javase/tutorial/displayCode.html?code=http://docs.oracle.com/javase/tutorial/uiswing/examples/components/TableRenderDemoProject/src/components/TableRenderDemo.java&#xa;javax.swing.JComboBox sportCellComboBox = new javax.swing.JComboBox();&#xa;javax.swing.table.TableColumn categoryColumn = tableSportPlayers.getColumnModel().getColumn(0);&#xa;// Dummy items, please remove later&#xa;sportCellComboBox.addItem(&quot;Frontier Pierrien&quot;);&#xa;sportCellComboBox.addItem(&quot;Ailier Picardier&quot;);&#xa;sportCellComboBox.addItem(&quot;Gardien R&#xf6;ckenfelleur&quot;);&#xa;sportCellComboBox.addItem(&quot;Lutteur Avant-gardissien&quot;);&#xa;categoryColumn.setCellEditor(new javax.swing.DefaultCellEditor(sportCellComboBox));">
-                      <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                      </TableColumnModel>
-                    </Property>
-                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="tableSportPlayersPropertyChange"/>
-                  </Events>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JLabel" name="jLabelPlayerNumber">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Nombre de joueurs:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabelPlayersTableTitle">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Les joueurs"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinnerPlayerNumber">
-              <Properties>
-                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                  <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSpinnerPlayerNumberStateChanged"/>
-              </Events>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPaneSportObjects">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTable" name="jTableSportsItems">
-                  <Properties>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="2" rowCount="1">
-                        <Column editable="true" title="Objet" type="java.lang.Object"/>
-                        <Column editable="true" title="Nombre" type="java.lang.Short"/>
-                      </Table>
-                    </Property>
-                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" postCode="// The following code is customized using http://docs.oracle.com/javase/tutorial/displayCode.html?code=http://docs.oracle.com/javase/tutorial/uiswing/examples/components/TableRenderDemoProject/src/components/TableRenderDemo.java&#xa;javax.swing.JComboBox sportCellComboBoxItems = new javax.swing.JComboBox();&#xa;javax.swing.table.TableColumn categoryColumnItems = jTableSportsItems.getColumnModel().getColumn(0);&#xa;// Dummy items, please remove later&#xa;sportCellComboBoxItems.addItem(&quot;Gourde-ballon&quot;);&#xa;sportCellComboBoxItems.addItem(&quot;Lure&quot;);&#xa;sportCellComboBoxItems.addItem(&quot;Objet parfaitement g&#xe9;n&#xe9;rique&quot;);&#xa;sportCellComboBoxItems.addItem(&quot;Oblongo&#xef;de&quot;);&#xa;categoryColumnItems.setCellEditor(new javax.swing.DefaultCellEditor(sportCellComboBoxItems));">
-                      <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                      </TableColumnModel>
-                    </Property>
-                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jTableSportsItemsPropertyChange"/>
-                  </Events>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JSpinner" name="jSpinnerObjectTypeNumber">
-              <Properties>
-                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                  <SpinnerModel initial="1" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
-                </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Nombre de types d&apos;objets"/>
-              </Properties>
-              <Events>
-                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSpinnerObjectTypeNumberStateChanged"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabelObjectTypeNumber">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Nombre de types d&apos;objet:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabelObjectTableTitle">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Les objets"/>
-              </Properties>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JList" name="jListExistingSports">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="3">
-                        <StringItem index="0" value="Hockey"/>
-                        <StringItem index="1" value="Hockey Sp&#xe9;cial"/>
-                        <StringItem index="2" value="Soccer"/>
-                      </StringArray>
-                    </Property>
-                    <Property name="selectionMode" type="int" value="0"/>
-                    <Property name="fixedCellHeight" type="int" value="10"/>
-                    <Property name="fixedCellWidth" type="int" value="150"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jListExistingSportsMouseClicked"/>
-                  </Events>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JButton" name="jButtonDestroySelectedSport">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Supprimer"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDestroySelectedSportActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabelExistingSportTitle">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Les sports existants"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Unit&#xe9;s:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldFieldUnits">
-              <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldFieldUnitsFocusLost"/>
-              </Events>
-            </Component>
-          </SubComponents>
-        </Container>
         <Container class="javax.swing.JPanel" name="jPanelCategories">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
@@ -1198,6 +748,456 @@
             </Component>
           </SubComponents>
         </Container>
+        <Container class="javax.swing.JPanel" name="jPanelSport">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Sport">
+                <Property name="tabTitle" type="java.lang.String" value="Sport"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jSeparator7" pref="1225" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <Component id="jButtonNewSport" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButtonSaveSport" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jButtonDestroySelectedSport" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jLabelExistingSportTitle" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="353" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jPanelSportFieldViewer" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jScrollPaneSportObjects" min="-2" pref="660" max="-2" attributes="0"/>
+                                          <Component id="jScrollPanePlayers" min="-2" pref="660" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="jLabelFieldText" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jButtonLoadFieldImage" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <Component id="jLabelPlayerNumber" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                              <Component id="jSpinnerPlayerNumber" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                                  <Component id="jLabelPlayersTableTitle" min="-2" max="-2" attributes="0"/>
+                                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                                      <Component id="jLabelFieldSize" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                      <Component id="jLabelSportName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                  </Group>
+                                                              </Group>
+                                                              <EmptySpace max="-2" attributes="0"/>
+                                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                                  <Component id="jTextFieldSportName" min="-2" pref="93" max="-2" attributes="0"/>
+                                                                  <Group type="102" alignment="0" attributes="0">
+                                                                      <Component id="jTextFieldHorizontalSize" min="-2" pref="42" max="-2" attributes="0"/>
+                                                                      <EmptySpace max="-2" attributes="0"/>
+                                                                      <Component id="jTextFieldVerticalSize" min="-2" pref="45" max="-2" attributes="0"/>
+                                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                                                      <EmptySpace max="-2" attributes="0"/>
+                                                                      <Component id="jTextFieldFieldUnits" min="-2" pref="59" max="-2" attributes="0"/>
+                                                                  </Group>
+                                                              </Group>
+                                                          </Group>
+                                                      </Group>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="244" max="-2" attributes="0"/>
+                                                      <Component id="jLabelObjectTypeNumber" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="jSpinnerObjectTypeNumber" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="325" max="-2" attributes="0"/>
+                                              <Component id="jLabelObjectTableTitle" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace pref="96" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jButtonSaveSport" pref="65" max="32767" attributes="0"/>
+                                  <Component id="jButtonNewSport" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabelExistingSportTitle" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jButtonDestroySelectedSport" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane1" min="-2" pref="101" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Component id="jSeparator7" min="-2" pref="10" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelFieldText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelSportName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldSportName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jButtonLoadFieldImage" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabelFieldSize" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldHorizontalSize" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldVerticalSize" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldFieldUnits" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabelPlayerNumber" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jSpinnerPlayerNumber" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabelPlayersTableTitle" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPanePlayers" min="-2" pref="89" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabelObjectTypeNumber" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jSpinnerObjectTypeNumber" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jLabelObjectTableTitle" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPaneSportObjects" min="-2" pref="116" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jPanelSportFieldViewer" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="28" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JSeparator" name="jSeparator7">
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonSaveSport">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/projethockey/gui/mySaveIcon.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Enregistrer"/>
+                <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="iconTextGap" type="int" value="2"/>
+                <Property name="verticalTextPosition" type="int" value="3"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSaveSportActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonNewSport">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nouveau"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonNewSportActionPerformed"/>
+              </Events>
+            </Component>
+            <Container class="javax.swing.JPanel" name="jPanelSportFieldViewer">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder/>
+                  </Border>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jPanelSportFieldViewerPropertyChange"/>
+              </Events>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabelSportField" alignment="0" pref="516" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabelSportField" alignment="0" pref="422" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabelSportField">
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="jLabelFieldSize">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Taille du terrain:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldHorizontalSize">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldHorizontalSizeFocusLost"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldHorizontalSizeActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonLoadFieldImage">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Charger une image..."/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLoadFieldImageActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldVerticalSize">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldVerticalSizeFocusLost"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelSportName">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nom:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldSportName">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldSportNameFocusLost"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldSportNameActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelFieldText">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Terrain"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPanePlayers">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="tableSportPlayers">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="2" rowCount="2">
+                        <Column editable="true" title="Cat&#xe9;gorie" type="java.lang.Object"/>
+                        <Column editable="true" title="Nom/R&#xf4;le" type="java.lang.String"/>
+                      </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" postCode="// The following code is customized using http://docs.oracle.com/javase/tutorial/displayCode.html?code=http://docs.oracle.com/javase/tutorial/uiswing/examples/components/TableRenderDemoProject/src/components/TableRenderDemo.java&#xa;javax.swing.JComboBox sportCellComboBox = new javax.swing.JComboBox();&#xa;javax.swing.table.TableColumn categoryColumn = tableSportPlayers.getColumnModel().getColumn(0);&#xa;// Dummy items, please remove later&#xa;sportCellComboBox.addItem(&quot;Frontier Pierrien&quot;);&#xa;sportCellComboBox.addItem(&quot;Ailier Picardier&quot;);&#xa;sportCellComboBox.addItem(&quot;Gardien R&#xf6;ckenfelleur&quot;);&#xa;sportCellComboBox.addItem(&quot;Lutteur Avant-gardissien&quot;);&#xa;categoryColumn.setCellEditor(new javax.swing.DefaultCellEditor(sportCellComboBox));">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="tableSportPlayersPropertyChange"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="jLabelPlayerNumber">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nombre de joueurs:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelPlayersTableTitle">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Les joueurs"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinnerPlayerNumber">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSpinnerPlayerNumberStateChanged"/>
+              </Events>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPaneSportObjects">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="jTableSportsItems">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="2" rowCount="1">
+                        <Column editable="true" title="Objet" type="java.lang.Object"/>
+                        <Column editable="true" title="Nombre" type="java.lang.Short"/>
+                      </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" postCode="// The following code is customized using http://docs.oracle.com/javase/tutorial/displayCode.html?code=http://docs.oracle.com/javase/tutorial/uiswing/examples/components/TableRenderDemoProject/src/components/TableRenderDemo.java&#xa;javax.swing.JComboBox sportCellComboBoxItems = new javax.swing.JComboBox();&#xa;javax.swing.table.TableColumn categoryColumnItems = jTableSportsItems.getColumnModel().getColumn(0);&#xa;// Dummy items, please remove later&#xa;sportCellComboBoxItems.addItem(&quot;Gourde-ballon&quot;);&#xa;sportCellComboBoxItems.addItem(&quot;Lure&quot;);&#xa;sportCellComboBoxItems.addItem(&quot;Objet parfaitement g&#xe9;n&#xe9;rique&quot;);&#xa;sportCellComboBoxItems.addItem(&quot;Oblongo&#xef;de&quot;);&#xa;categoryColumnItems.setCellEditor(new javax.swing.DefaultCellEditor(sportCellComboBoxItems));">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jTableSportsItemsPropertyChange"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JSpinner" name="jSpinnerObjectTypeNumber">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Nombre de types d&apos;objets"/>
+              </Properties>
+              <Events>
+                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSpinnerObjectTypeNumberStateChanged"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelObjectTypeNumber">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nombre de types d&apos;objet:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelObjectTableTitle">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Les objets"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="jListExistingSports">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                      <StringArray count="3">
+                        <StringItem index="0" value="Hockey"/>
+                        <StringItem index="1" value="Hockey Sp&#xe9;cial"/>
+                        <StringItem index="2" value="Soccer"/>
+                      </StringArray>
+                    </Property>
+                    <Property name="selectionMode" type="int" value="0"/>
+                    <Property name="fixedCellHeight" type="int" value="10"/>
+                    <Property name="fixedCellWidth" type="int" value="150"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jListExistingSportsMouseClicked"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="jButtonDestroySelectedSport">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Supprimer"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDestroySelectedSportActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelExistingSportTitle">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Les sports existants"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Unit&#xe9;s:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldFieldUnits">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldFieldUnitsFocusLost"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
         <Container class="javax.swing.JPanel" name="jPanelCreateLoadStrategy">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
@@ -1402,8 +1402,8 @@
         <Container class="javax.swing.JPanel" name="jPanelStrategyEditor">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="&#xc9;dition de strat&#xe9;gie">
-                <Property name="tabTitle" type="java.lang.String" value="&#xc9;dition de strat&#xe9;gie"/>
+              <JTabbedPaneConstraints tabName="&#xc9;dition et visualisation de strat&#xe9;gie">
+                <Property name="tabTitle" type="java.lang.String" value="&#xc9;dition et visualisation de strat&#xe9;gie"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>

@@ -194,35 +194,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void initComponents() {
 
         jTabbedPanePlayerCategory = new javax.swing.JTabbedPane();
-        jPanelSport = new javax.swing.JPanel();
-        jSeparator7 = new javax.swing.JSeparator();
-        jButtonSaveSport = new javax.swing.JButton();
-        jButtonNewSport = new javax.swing.JButton();
-        jPanelSportFieldViewer = new javax.swing.JPanel();
-        jLabelSportField = new javax.swing.JLabel();
-        jLabelFieldSize = new javax.swing.JLabel();
-        jTextFieldHorizontalSize = new javax.swing.JTextField();
-        jButtonLoadFieldImage = new javax.swing.JButton();
-        jTextFieldVerticalSize = new javax.swing.JTextField();
-        jLabelSportName = new javax.swing.JLabel();
-        jTextFieldSportName = new javax.swing.JTextField();
-        jLabelFieldText = new javax.swing.JLabel();
-        jScrollPanePlayers = new javax.swing.JScrollPane();
-        tableSportPlayers = new javax.swing.JTable();
-        jLabelPlayerNumber = new javax.swing.JLabel();
-        jLabelPlayersTableTitle = new javax.swing.JLabel();
-        jSpinnerPlayerNumber = new javax.swing.JSpinner();
-        jScrollPaneSportObjects = new javax.swing.JScrollPane();
-        jTableSportsItems = new javax.swing.JTable();
-        jSpinnerObjectTypeNumber = new javax.swing.JSpinner();
-        jLabelObjectTypeNumber = new javax.swing.JLabel();
-        jLabelObjectTableTitle = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jListExistingSports = new javax.swing.JList<>();
-        jButtonDestroySelectedSport = new javax.swing.JButton();
-        jLabelExistingSportTitle = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextFieldFieldUnits = new javax.swing.JTextField();
         jPanelCategories = new javax.swing.JPanel();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
@@ -269,6 +240,35 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jScrollPane3 = new javax.swing.JScrollPane();
         jListExistingObstacle = new javax.swing.JList<>();
         jButtonDeleteGameObject = new javax.swing.JButton();
+        jPanelSport = new javax.swing.JPanel();
+        jSeparator7 = new javax.swing.JSeparator();
+        jButtonSaveSport = new javax.swing.JButton();
+        jButtonNewSport = new javax.swing.JButton();
+        jPanelSportFieldViewer = new javax.swing.JPanel();
+        jLabelSportField = new javax.swing.JLabel();
+        jLabelFieldSize = new javax.swing.JLabel();
+        jTextFieldHorizontalSize = new javax.swing.JTextField();
+        jButtonLoadFieldImage = new javax.swing.JButton();
+        jTextFieldVerticalSize = new javax.swing.JTextField();
+        jLabelSportName = new javax.swing.JLabel();
+        jTextFieldSportName = new javax.swing.JTextField();
+        jLabelFieldText = new javax.swing.JLabel();
+        jScrollPanePlayers = new javax.swing.JScrollPane();
+        tableSportPlayers = new javax.swing.JTable();
+        jLabelPlayerNumber = new javax.swing.JLabel();
+        jLabelPlayersTableTitle = new javax.swing.JLabel();
+        jSpinnerPlayerNumber = new javax.swing.JSpinner();
+        jScrollPaneSportObjects = new javax.swing.JScrollPane();
+        jTableSportsItems = new javax.swing.JTable();
+        jSpinnerObjectTypeNumber = new javax.swing.JSpinner();
+        jLabelObjectTypeNumber = new javax.swing.JLabel();
+        jLabelObjectTableTitle = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jListExistingSports = new javax.swing.JList<>();
+        jButtonDestroySelectedSport = new javax.swing.JButton();
+        jLabelExistingSportTitle = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextFieldFieldUnits = new javax.swing.JTextField();
         jPanelCreateLoadStrategy = new javax.swing.JPanel();
         jButtonCreateStrategy = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -325,346 +325,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 formWindowClosing(evt);
             }
         });
-
-        jButtonSaveSport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projethockey/gui/mySaveIcon.png"))); // NOI18N
-        jButtonSaveSport.setText("Enregistrer");
-        jButtonSaveSport.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonSaveSport.setIconTextGap(2);
-        jButtonSaveSport.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonSaveSport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSaveSportActionPerformed(evt);
-            }
-        });
-
-        jButtonNewSport.setText("Nouveau");
-        jButtonNewSport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNewSportActionPerformed(evt);
-            }
-        });
-
-        jPanelSportFieldViewer.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelSportFieldViewer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanelSportFieldViewer.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jPanelSportFieldViewerPropertyChange(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanelSportFieldViewerLayout = new javax.swing.GroupLayout(jPanelSportFieldViewer);
-        jPanelSportFieldViewer.setLayout(jPanelSportFieldViewerLayout);
-        jPanelSportFieldViewerLayout.setHorizontalGroup(
-            jPanelSportFieldViewerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelSportField, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
-        );
-        jPanelSportFieldViewerLayout.setVerticalGroup(
-            jPanelSportFieldViewerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelSportField, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
-        );
-
-        jLabelFieldSize.setText("Taille du terrain:");
-
-        jTextFieldHorizontalSize.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextFieldHorizontalSizeFocusLost(evt);
-            }
-        });
-        jTextFieldHorizontalSize.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldHorizontalSizeActionPerformed(evt);
-            }
-        });
-
-        jButtonLoadFieldImage.setText("Charger une image...");
-        jButtonLoadFieldImage.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLoadFieldImageActionPerformed(evt);
-            }
-        });
-
-        jTextFieldVerticalSize.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextFieldVerticalSizeFocusLost(evt);
-            }
-        });
-
-        jLabelSportName.setText("Nom:");
-
-        jTextFieldSportName.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextFieldSportNameFocusLost(evt);
-            }
-        });
-        jTextFieldSportName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSportNameActionPerformed(evt);
-            }
-        });
-
-        jLabelFieldText.setText("Terrain");
-
-        tableSportPlayers.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Catégorie", "Nom/Rôle"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        tableSportPlayers.getTableHeader().setReorderingAllowed(false);
-        tableSportPlayers.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                tableSportPlayersPropertyChange(evt);
-            }
-        });
-        jScrollPanePlayers.setViewportView(tableSportPlayers);
-        if (tableSportPlayers.getColumnModel().getColumnCount() > 0) {
-            tableSportPlayers.getColumnModel().getColumn(0).setResizable(false);
-            tableSportPlayers.getColumnModel().getColumn(1).setResizable(false);
-        }
-        // The following code is customized using http://docs.oracle.com/javase/tutorial/displayCode.html?code=http://docs.oracle.com/javase/tutorial/uiswing/examples/components/TableRenderDemoProject/src/components/TableRenderDemo.java
-        javax.swing.JComboBox sportCellComboBox = new javax.swing.JComboBox();
-        javax.swing.table.TableColumn categoryColumn = tableSportPlayers.getColumnModel().getColumn(0);
-        // Dummy items, please remove later
-        sportCellComboBox.addItem("Frontier Pierrien");
-        sportCellComboBox.addItem("Ailier Picardier");
-        sportCellComboBox.addItem("Gardien Röckenfelleur");
-        sportCellComboBox.addItem("Lutteur Avant-gardissien");
-        categoryColumn.setCellEditor(new javax.swing.DefaultCellEditor(sportCellComboBox));
-
-        jLabelPlayerNumber.setText("Nombre de joueurs:");
-
-        jLabelPlayersTableTitle.setText("Les joueurs");
-
-        jSpinnerPlayerNumber.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        jSpinnerPlayerNumber.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSpinnerPlayerNumberStateChanged(evt);
-            }
-        });
-
-        jTableSportsItems.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null}
-            },
-            new String [] {
-                "Objet", "Nombre"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Short.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jTableSportsItems.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jTableSportsItemsPropertyChange(evt);
-            }
-        });
-        jScrollPaneSportObjects.setViewportView(jTableSportsItems);
-        if (jTableSportsItems.getColumnModel().getColumnCount() > 0) {
-            jTableSportsItems.getColumnModel().getColumn(0).setResizable(false);
-            jTableSportsItems.getColumnModel().getColumn(1).setResizable(false);
-        }
-        // The following code is customized using http://docs.oracle.com/javase/tutorial/displayCode.html?code=http://docs.oracle.com/javase/tutorial/uiswing/examples/components/TableRenderDemoProject/src/components/TableRenderDemo.java
-        javax.swing.JComboBox sportCellComboBoxItems = new javax.swing.JComboBox();
-        javax.swing.table.TableColumn categoryColumnItems = jTableSportsItems.getColumnModel().getColumn(0);
-        // Dummy items, please remove later
-        sportCellComboBoxItems.addItem("Gourde-ballon");
-        sportCellComboBoxItems.addItem("Lure");
-        sportCellComboBoxItems.addItem("Objet parfaitement générique");
-        sportCellComboBoxItems.addItem("Oblongoïde");
-        categoryColumnItems.setCellEditor(new javax.swing.DefaultCellEditor(sportCellComboBoxItems));
-
-        jSpinnerObjectTypeNumber.setModel(new javax.swing.SpinnerNumberModel(1, 0, null, 1));
-        jSpinnerObjectTypeNumber.setToolTipText("Nombre de types d'objets");
-        jSpinnerObjectTypeNumber.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSpinnerObjectTypeNumberStateChanged(evt);
-            }
-        });
-
-        jLabelObjectTypeNumber.setText("Nombre de types d'objet:");
-
-        jLabelObjectTableTitle.setText("Les objets");
-
-        jListExistingSports.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Hockey", "Hockey Spécial", "Soccer" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jListExistingSports.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jListExistingSports.setFixedCellHeight(10);
-        jListExistingSports.setFixedCellWidth(150);
-        jListExistingSports.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jListExistingSportsMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jListExistingSports);
-
-        jButtonDestroySelectedSport.setText("Supprimer");
-        jButtonDestroySelectedSport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDestroySelectedSportActionPerformed(evt);
-            }
-        });
-
-        jLabelExistingSportTitle.setText("Les sports existants");
-
-        jLabel1.setText("Unités:");
-
-        jTextFieldFieldUnits.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextFieldFieldUnitsFocusLost(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanelSportLayout = new javax.swing.GroupLayout(jPanelSport);
-        jPanelSport.setLayout(jPanelSportLayout);
-        jPanelSportLayout.setHorizontalGroup(
-            jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelSportLayout.createSequentialGroup()
-                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelSportLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, 1225, Short.MAX_VALUE))
-                    .addGroup(jPanelSportLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jButtonNewSport)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonSaveSport)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSportLayout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButtonDestroySelectedSport)
-                                .addGap(241, 241, 241))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSportLayout.createSequentialGroup()
-                                .addComponent(jLabelExistingSportTitle)
-                                .addGap(353, 353, 353))))
-                    .addGroup(jPanelSportLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanelSportFieldViewer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelSportLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPaneSportObjects, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPanePlayers, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(25, 25, 25))
-                            .addGroup(jPanelSportLayout.createSequentialGroup()
-                                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelSportLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanelSportLayout.createSequentialGroup()
-                                                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabelFieldText)
-                                                    .addComponent(jButtonLoadFieldImage))
-                                                .addGap(62, 62, 62)
-                                                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(jPanelSportLayout.createSequentialGroup()
-                                                        .addComponent(jLabelPlayerNumber)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(jSpinnerPlayerNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGroup(jPanelSportLayout.createSequentialGroup()
-                                                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                            .addComponent(jLabelPlayersTableTitle)
-                                                            .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(jLabelFieldSize)
-                                                                .addComponent(jLabelSportName)))
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(jTextFieldSportName, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addGroup(jPanelSportLayout.createSequentialGroup()
-                                                                .addComponent(jTextFieldHorizontalSize, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jTextFieldVerticalSize, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addComponent(jLabel1)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jTextFieldFieldUnits, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                                            .addGroup(jPanelSportLayout.createSequentialGroup()
-                                                .addGap(244, 244, 244)
-                                                .addComponent(jLabelObjectTypeNumber)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jSpinnerObjectTypeNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(jPanelSportLayout.createSequentialGroup()
-                                        .addGap(325, 325, 325)
-                                        .addComponent(jLabelObjectTableTitle)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)))))
-                .addContainerGap())
-        );
-        jPanelSportLayout.setVerticalGroup(
-            jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelSportLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelSportLayout.createSequentialGroup()
-                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonSaveSport, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
-                            .addComponent(jButtonNewSport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(68, 68, 68))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSportLayout.createSequentialGroup()
-                        .addComponent(jLabelExistingSportTitle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonDestroySelectedSport)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)))
-                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelFieldText)
-                    .addComponent(jLabelSportName)
-                    .addComponent(jTextFieldSportName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4)
-                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelSportLayout.createSequentialGroup()
-                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonLoadFieldImage)
-                            .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabelFieldSize)
-                                .addComponent(jTextFieldHorizontalSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldVerticalSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel1)
-                                .addComponent(jTextFieldFieldUnits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelPlayerNumber)
-                            .addComponent(jSpinnerPlayerNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelPlayersTableTitle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPanePlayers, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelObjectTypeNumber)
-                            .addComponent(jSpinnerObjectTypeNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelObjectTableTitle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPaneSportObjects, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanelSportFieldViewer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
-
-        jTabbedPanePlayerCategory.addTab("Sport", jPanelSport);
 
         jSeparator9.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -1168,6 +828,346 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         jTabbedPanePlayerCategory.addTab("Objets de jeu", jPanelObstacle);
 
+        jButtonSaveSport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projethockey/gui/mySaveIcon.png"))); // NOI18N
+        jButtonSaveSport.setText("Enregistrer");
+        jButtonSaveSport.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonSaveSport.setIconTextGap(2);
+        jButtonSaveSport.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonSaveSport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSaveSportActionPerformed(evt);
+            }
+        });
+
+        jButtonNewSport.setText("Nouveau");
+        jButtonNewSport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNewSportActionPerformed(evt);
+            }
+        });
+
+        jPanelSportFieldViewer.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelSportFieldViewer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelSportFieldViewer.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jPanelSportFieldViewerPropertyChange(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelSportFieldViewerLayout = new javax.swing.GroupLayout(jPanelSportFieldViewer);
+        jPanelSportFieldViewer.setLayout(jPanelSportFieldViewerLayout);
+        jPanelSportFieldViewerLayout.setHorizontalGroup(
+            jPanelSportFieldViewerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelSportField, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
+        );
+        jPanelSportFieldViewerLayout.setVerticalGroup(
+            jPanelSportFieldViewerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelSportField, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
+        );
+
+        jLabelFieldSize.setText("Taille du terrain:");
+
+        jTextFieldHorizontalSize.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldHorizontalSizeFocusLost(evt);
+            }
+        });
+        jTextFieldHorizontalSize.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldHorizontalSizeActionPerformed(evt);
+            }
+        });
+
+        jButtonLoadFieldImage.setText("Charger une image...");
+        jButtonLoadFieldImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLoadFieldImageActionPerformed(evt);
+            }
+        });
+
+        jTextFieldVerticalSize.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldVerticalSizeFocusLost(evt);
+            }
+        });
+
+        jLabelSportName.setText("Nom:");
+
+        jTextFieldSportName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldSportNameFocusLost(evt);
+            }
+        });
+        jTextFieldSportName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSportNameActionPerformed(evt);
+            }
+        });
+
+        jLabelFieldText.setText("Terrain");
+
+        tableSportPlayers.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Catégorie", "Nom/Rôle"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        tableSportPlayers.getTableHeader().setReorderingAllowed(false);
+        tableSportPlayers.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                tableSportPlayersPropertyChange(evt);
+            }
+        });
+        jScrollPanePlayers.setViewportView(tableSportPlayers);
+        if (tableSportPlayers.getColumnModel().getColumnCount() > 0) {
+            tableSportPlayers.getColumnModel().getColumn(0).setResizable(false);
+            tableSportPlayers.getColumnModel().getColumn(1).setResizable(false);
+        }
+        // The following code is customized using http://docs.oracle.com/javase/tutorial/displayCode.html?code=http://docs.oracle.com/javase/tutorial/uiswing/examples/components/TableRenderDemoProject/src/components/TableRenderDemo.java
+        javax.swing.JComboBox sportCellComboBox = new javax.swing.JComboBox();
+        javax.swing.table.TableColumn categoryColumn = tableSportPlayers.getColumnModel().getColumn(0);
+        // Dummy items, please remove later
+        sportCellComboBox.addItem("Frontier Pierrien");
+        sportCellComboBox.addItem("Ailier Picardier");
+        sportCellComboBox.addItem("Gardien Röckenfelleur");
+        sportCellComboBox.addItem("Lutteur Avant-gardissien");
+        categoryColumn.setCellEditor(new javax.swing.DefaultCellEditor(sportCellComboBox));
+
+        jLabelPlayerNumber.setText("Nombre de joueurs:");
+
+        jLabelPlayersTableTitle.setText("Les joueurs");
+
+        jSpinnerPlayerNumber.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        jSpinnerPlayerNumber.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinnerPlayerNumberStateChanged(evt);
+            }
+        });
+
+        jTableSportsItems.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null}
+            },
+            new String [] {
+                "Objet", "Nombre"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Short.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTableSportsItems.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jTableSportsItemsPropertyChange(evt);
+            }
+        });
+        jScrollPaneSportObjects.setViewportView(jTableSportsItems);
+        if (jTableSportsItems.getColumnModel().getColumnCount() > 0) {
+            jTableSportsItems.getColumnModel().getColumn(0).setResizable(false);
+            jTableSportsItems.getColumnModel().getColumn(1).setResizable(false);
+        }
+        // The following code is customized using http://docs.oracle.com/javase/tutorial/displayCode.html?code=http://docs.oracle.com/javase/tutorial/uiswing/examples/components/TableRenderDemoProject/src/components/TableRenderDemo.java
+        javax.swing.JComboBox sportCellComboBoxItems = new javax.swing.JComboBox();
+        javax.swing.table.TableColumn categoryColumnItems = jTableSportsItems.getColumnModel().getColumn(0);
+        // Dummy items, please remove later
+        sportCellComboBoxItems.addItem("Gourde-ballon");
+        sportCellComboBoxItems.addItem("Lure");
+        sportCellComboBoxItems.addItem("Objet parfaitement générique");
+        sportCellComboBoxItems.addItem("Oblongoïde");
+        categoryColumnItems.setCellEditor(new javax.swing.DefaultCellEditor(sportCellComboBoxItems));
+
+        jSpinnerObjectTypeNumber.setModel(new javax.swing.SpinnerNumberModel(1, 0, null, 1));
+        jSpinnerObjectTypeNumber.setToolTipText("Nombre de types d'objets");
+        jSpinnerObjectTypeNumber.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinnerObjectTypeNumberStateChanged(evt);
+            }
+        });
+
+        jLabelObjectTypeNumber.setText("Nombre de types d'objet:");
+
+        jLabelObjectTableTitle.setText("Les objets");
+
+        jListExistingSports.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Hockey", "Hockey Spécial", "Soccer" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jListExistingSports.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jListExistingSports.setFixedCellHeight(10);
+        jListExistingSports.setFixedCellWidth(150);
+        jListExistingSports.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListExistingSportsMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jListExistingSports);
+
+        jButtonDestroySelectedSport.setText("Supprimer");
+        jButtonDestroySelectedSport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDestroySelectedSportActionPerformed(evt);
+            }
+        });
+
+        jLabelExistingSportTitle.setText("Les sports existants");
+
+        jLabel1.setText("Unités:");
+
+        jTextFieldFieldUnits.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldFieldUnitsFocusLost(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelSportLayout = new javax.swing.GroupLayout(jPanelSport);
+        jPanelSport.setLayout(jPanelSportLayout);
+        jPanelSportLayout.setHorizontalGroup(
+            jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelSportLayout.createSequentialGroup()
+                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelSportLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, 1225, Short.MAX_VALUE))
+                    .addGroup(jPanelSportLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jButtonNewSport)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonSaveSport)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSportLayout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonDestroySelectedSport)
+                                .addGap(241, 241, 241))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSportLayout.createSequentialGroup()
+                                .addComponent(jLabelExistingSportTitle)
+                                .addGap(353, 353, 353))))
+                    .addGroup(jPanelSportLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanelSportFieldViewer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelSportLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPaneSportObjects, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPanePlayers, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(25, 25, 25))
+                            .addGroup(jPanelSportLayout.createSequentialGroup()
+                                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelSportLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanelSportLayout.createSequentialGroup()
+                                                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabelFieldText)
+                                                    .addComponent(jButtonLoadFieldImage))
+                                                .addGap(62, 62, 62)
+                                                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(jPanelSportLayout.createSequentialGroup()
+                                                        .addComponent(jLabelPlayerNumber)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(jSpinnerPlayerNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGroup(jPanelSportLayout.createSequentialGroup()
+                                                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                            .addComponent(jLabelPlayersTableTitle)
+                                                            .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(jLabelFieldSize)
+                                                                .addComponent(jLabelSportName)))
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(jTextFieldSportName, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addGroup(jPanelSportLayout.createSequentialGroup()
+                                                                .addComponent(jTextFieldHorizontalSize, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jTextFieldVerticalSize, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(jLabel1)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jTextFieldFieldUnits, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                            .addGroup(jPanelSportLayout.createSequentialGroup()
+                                                .addGap(244, 244, 244)
+                                                .addComponent(jLabelObjectTypeNumber)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jSpinnerObjectTypeNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(jPanelSportLayout.createSequentialGroup()
+                                        .addGap(325, 325, 325)
+                                        .addComponent(jLabelObjectTableTitle)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)))))
+                .addContainerGap())
+        );
+        jPanelSportLayout.setVerticalGroup(
+            jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelSportLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelSportLayout.createSequentialGroup()
+                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonSaveSport, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
+                            .addComponent(jButtonNewSport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(68, 68, 68))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSportLayout.createSequentialGroup()
+                        .addComponent(jLabelExistingSportTitle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonDestroySelectedSport)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)))
+                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelFieldText)
+                    .addComponent(jLabelSportName)
+                    .addComponent(jTextFieldSportName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
+                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelSportLayout.createSequentialGroup()
+                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonLoadFieldImage)
+                            .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabelFieldSize)
+                                .addComponent(jTextFieldHorizontalSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldVerticalSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1)
+                                .addComponent(jTextFieldFieldUnits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelPlayerNumber)
+                            .addComponent(jSpinnerPlayerNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelPlayersTableTitle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPanePlayers, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelObjectTypeNumber)
+                            .addComponent(jSpinnerObjectTypeNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabelObjectTableTitle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPaneSportObjects, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanelSportFieldViewer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        jTabbedPanePlayerCategory.addTab("Sport", jPanelSport);
+
         jButtonCreateStrategy.setText("Créer une nouvelle stratégie");
         jButtonCreateStrategy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1652,7 +1652,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                                 .addGap(0, 0, Short.MAX_VALUE))))))
         );
 
-        jTabbedPanePlayerCategory.addTab("Édition de stratégie", jPanelStrategyEditor);
+        jTabbedPanePlayerCategory.addTab("Édition et visualisation de stratégie", jPanelStrategyEditor);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
