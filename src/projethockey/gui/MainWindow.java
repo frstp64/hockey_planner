@@ -326,6 +326,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             }
         });
 
+        jTabbedPanePlayerCategory.setFocusable(false);
+
         jSeparator9.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         jButtonNewCategory.setText("Nouveau");
@@ -1126,8 +1128,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                         .addComponent(jLabelExistingSportTitle)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonDestroySelectedSport)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelSportLayout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(jButtonDestroySelectedSport)))
                         .addGap(18, 18, 18)))
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1295,6 +1299,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         );
 
         jTabbedPanePlayerCategory.addTab("Créer/charger stratégie", jPanelCreateLoadStrategy);
+
+        jPanelStrategyEditor.setRequestFocusEnabled(false);
 
         jListTypeModificationType.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Image par image", "Temps réel" };
@@ -1669,6 +1675,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 .addGap(0, 12, Short.MAX_VALUE)
                 .addComponent(jTabbedPanePlayerCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        this.jTabbedPanePlayerCategory.setEnabledAt(4, false);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
