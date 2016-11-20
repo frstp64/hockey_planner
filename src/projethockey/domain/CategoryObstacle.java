@@ -68,10 +68,6 @@ public class CategoryObstacle {
        this.scale = scale;
     }
 
-    public void setScale(int scale) {
-       this.scale = scale;
-    }
-
     public void setHorizontalSize(Float pHorizontalSize) {
         this.horizontalSize = pHorizontalSize;
     }
