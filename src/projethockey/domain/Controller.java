@@ -23,30 +23,39 @@ public class Controller {
     private Sport mPlaceHolderSport; // Contains the parameters for the new sport
     private ArrayList<Sport> sportArray;
     private String selectedSport;
-    
+
     // CategoryPlayer
     private CategoryPlayer mPlaceHolderCategoryPlayer; // Contains the parameters for the new CategoryPlayer
     private ArrayList<CategoryPlayer> categoryPlayerArray;
     private String selectedCategoryPlayer;
-    
+
+    // CategoryObstacle
+    private CategoryObstacle mPlaceHolderCategoryObstacle; // Contains the parameters for the new CategoryObstacle
+    private ArrayList<CategoryObstacle> categoryObstacleArray;
+    private String selectedCategoryObstacle;
+
     private projetHockeyInterface mMainWindow; // A reference to the window
-    
+
     // The constructor
     public Controller(MainWindow pMainWindow) {
         this.mMainWindow = pMainWindow;
-        
+
         // Sport
         mPlaceHolderSport = new Sport();
         sportArray = new ArrayList<Sport>();
         // CategoryPlayer
         mPlaceHolderCategoryPlayer = new CategoryPlayer();
         categoryPlayerArray = new ArrayList<CategoryPlayer>();
-        
+        // CategoryObstacle
+        mPlaceHolderCategoryObstacle = new CategoryObstacle();
+        categoryObstacleArray = new ArrayList<CategoryObstacle>();
+
         AppDataProxy.loadData(this);
-        
+
         this.selectedSport = "";
         this.setSelectedCategoryPlayer("");
-        
+        this.setSelectedCategoryObstacle("");
+
         // Update the array list
         if (!sportArray.isEmpty()) {
             publishSportsNames();
@@ -54,35 +63,38 @@ public class Controller {
         if (!categoryPlayerArray.isEmpty()) {
             publishCategoryPlayerNames();
         }
+        if (!categoryObstacleArray.isEmpty()) {
+            publishCategoryObstacleNames();
+        }
     }
-    
+
     // A simple global subscriber to get a reference to the window
     public void subscribeWindow(MainWindow pMainWindow)
     {
         this.mMainWindow = pMainWindow;
     }
-    
-    
+
+
     // -------------------- Sport --------------------
     public void setSportName(String pSportName) {
         this.mPlaceHolderSport.setName(pSportName);
     }
-    
+
     public void setSportUnits(String pUnits) {
         this.mPlaceHolderSport.setDimentionUnit(pUnits);
-        
+
     }
-    
+
     public void setSportHorizontalSize(Float pHorizSize) {
         this.mPlaceHolderSport.setHorizontalSize(pHorizSize);
-        
+
     }
-    
+
     public void setSportVerticalSize(Float pVertSize) {
         this.mPlaceHolderSport.setVerticalSize(pVertSize);
-        
+
     }
-    
+
     public void setSportPlayerNumber(int pPlayerNumber) {
         this.mPlaceHolderSport.setNbPlayer(pPlayerNumber);
         this.mMainWindow.publishPlayerNumber(pPlayerNumber);
@@ -90,21 +102,21 @@ public class Controller {
     public void setSportCategoryNumber(int pCategoryNumber) {
         this.mMainWindow.publishObjectTypeNumber(pCategoryNumber);
     }
-    
+
     public void setSportPlayers(ArrayList<String> typeArray, ArrayList<String> playerRoleArray) {
         this.mPlaceHolderSport.setPlayers(typeArray, playerRoleArray);
     }
 
-    
+
     public void setSportObjectTypeNumber(int pObjectNumber) {
         this.mPlaceHolderSport.setNbPlayer(pObjectNumber);
         this.mMainWindow.publishObjectTypeNumber(pObjectNumber);
     }
-    
+
     public void setSportObjects(ArrayList<String> typeArray, ArrayList<Integer> numberArray) {
         this.mPlaceHolderSport.setObjects(typeArray, numberArray);
     }
-    
+
     public void resetPlaceHolderSport() {
         this.mPlaceHolderSport.reset();
         this.mMainWindow.publishDimensions(this.mPlaceHolderSport.getHorizontalSize(), this.mPlaceHolderSport.getVerticalSize());
@@ -116,10 +128,10 @@ public class Controller {
         //void publishObjects(); //??
         //void publishFieldPicture();
     }
-    
+
     public void saveSport() {
         // Ensure the sport is valid here.
-        
+
         // If the sport exists, remove it from the list
         for (Sport aSport: sportArray) {
             if (aSport.getName().equals(this.mPlaceHolderSport.getName())) {
@@ -128,21 +140,21 @@ public class Controller {
                 break;
             }
         }
-        
+
         // Add the sport to the list
         sportArray.add(new Sport(this.mPlaceHolderSport));
-        
+
         //Save to permanent memory
         projethockey.services.AppDataProxy.saveData(this);
         if (!sportArray.isEmpty()) {
             publishSportsNames();
         }
     }
-    
+
     public void setSelectedSport(String pSelectedSport) {
         this.selectedSport = pSelectedSport;
     }
-    
+
     public void removeSport() {
         // if one is selected, remove it
         if (!this.selectedSport.equals("")) {
@@ -154,14 +166,14 @@ public class Controller {
             }
             this.selectedSport = "";
         }
-        
+
         // Save to permanent memory
         projethockey.services.AppDataProxy.saveData(this);
-        
+
         // Update display
         publishSportsNames();
     }
-    
+
     public void publishSportsNames() {
         ArrayList<String> sportNameList = new ArrayList<String>();
             for (Sport aSport: sportArray) {
@@ -169,20 +181,20 @@ public class Controller {
             }
             this.mMainWindow.publishExistingSports(sportNameList.toArray(new String[sportNameList.size()]));
     }
-    
+
     public ArrayList<Sport> getSportArray() {
         return sportArray;
     }
     public void setSportArray(ArrayList<Sport> pSportArray) {
         this.sportArray = pSportArray;
     }
-    
+
     public void getSportImage() {
         String sportImagePath = this.mMainWindow.requestFilePath();
         if (!sportImagePath.equals("")) {
         try {
             java.awt.image.BufferedImage myImg = ImageIO.read(new File(sportImagePath));
-            
+
             setSportImage(myImg);
             //this.mPlaceHolderSport.setImage();
         } catch (IOException ex) {
@@ -190,11 +202,11 @@ public class Controller {
         }
         }
     }
-    
+
     public void setSportImage(BufferedImage theFieldPicture) {
         this.mMainWindow.publishFieldPicture(theFieldPicture);
     }
-    
+
     // -------------------- CategoryPlayer --------------------
     public void setCategoryPlayerName(String pCategoryPlayerName) {
         this.mPlaceHolderCategoryPlayer.setCategoryName(pCategoryPlayerName);
@@ -211,7 +223,7 @@ public class Controller {
     }
 
     public void resetPlaceHolderCategoryPlayer() {
-        
+
         // empty data
         this.mPlaceHolderCategoryPlayer.reset();
         // empty GUI values
@@ -245,22 +257,22 @@ public class Controller {
 
     public void setSelectedCategoryPlayer(String pSelectedCategoryPlayer) {
         // Set categoryPlayer's data in GUI.
-        
+
         this.selectedCategoryPlayer = pSelectedCategoryPlayer;
         // Clean gui first.
         resetPlaceHolderCategoryPlayer();
-        
+
         for (CategoryPlayer aCategoryPlayer: categoryPlayerArray) {
             if (aCategoryPlayer.getCategoryName().equals(this.selectedCategoryPlayer)) {
-                
-                
+
+
                 // Change placeholder values
                 this.mPlaceHolderCategoryPlayer = new CategoryPlayer(aCategoryPlayer);
-                
+
                 // Publish placeholder's Data to GUI fields
                 this.mMainWindow.publishCategoryPlayerName(this.mPlaceHolderCategoryPlayer.getCategoryName());
                 this.mMainWindow.publishCategoryPlayerDimensions(this.mPlaceHolderCategoryPlayer.getHorizontalSize(), this.mPlaceHolderCategoryPlayer.getVerticalSize());
-                
+
                 // load image and publish  to GUI
                 String categoryPlayerImagePath = this.mPlaceHolderCategoryPlayer.getImgPath();
                 if (!categoryPlayerImagePath.equals("")) {
@@ -330,5 +342,148 @@ public class Controller {
 
     public void setCategoryPlayerImage(BufferedImage thePicture) {
         this.mMainWindow.publishCategoryPlayerIcon(thePicture);
+    }
+
+    // -------------------- CategoryObstacle --------------------
+    public void setCategoryObstacleName(String pCategoryObstacleName) {
+        this.mPlaceHolderCategoryObstacle.setCategoryName(pCategoryObstacleName);
+    }
+
+    public void setCategoryObstacleHorizontalSize(Float pHorizSize) {
+        this.mPlaceHolderCategoryObstacle.setHorizontalSize(pHorizSize);
+
+    }
+
+    public void setCategoryObstacleVerticalSize(Float pVertSize) {
+        this.mPlaceHolderCategoryObstacle.setVerticalSize(pVertSize);
+
+    }
+
+    public void resetPlaceHolderCategoryObstacle() {
+
+        // empty data
+        this.mPlaceHolderCategoryObstacle.reset();
+        // empty GUI values
+        this.mMainWindow.publishCategoryObstacleDimensions(this.mPlaceHolderCategoryObstacle.getHorizontalSize(), this.mPlaceHolderCategoryObstacle.getVerticalSize());
+        this.mMainWindow.publishCategoryObstacleName(this.mPlaceHolderCategoryObstacle.getCategoryName());
+        this.mMainWindow.publishCategoryObstacleIsGameObject(this.mPlaceHolderCategoryObstacle.getIsGameObject());
+        // empty image label
+        this.mMainWindow.publishCategoryObstacleIcon(null);
+    }
+
+    public void saveCategoryObstacle() {
+        // Ensure the categoryObstacle is valid here.
+
+        // If the categoryObstacle exists, remove it from the list
+        for (CategoryObstacle aCategoryObstacle: categoryObstacleArray) {
+            if (aCategoryObstacle.getCategoryName().equals(this.mPlaceHolderCategoryObstacle.getCategoryName())) {
+                System.out.println(aCategoryObstacle.getCategoryName());
+                this.categoryObstacleArray.remove(aCategoryObstacle);
+                break;
+            }
+        }
+
+        // Add the categoryObstacle to the list
+        categoryObstacleArray.add(new CategoryObstacle(this.mPlaceHolderCategoryObstacle));
+
+        //Save to permanent memory
+        projethockey.services.AppDataProxy.saveData(this);
+        if (!categoryObstacleArray.isEmpty()) {
+            publishCategoryObstacleNames();
+        }
+    }
+
+    public void setSelectedCategoryObstacle(String pSelectedCategoryObstacle) {
+        // Set categoryObstacle's data in GUI.
+
+        this.selectedCategoryObstacle = pSelectedCategoryObstacle;
+        // Clean gui first.
+        resetPlaceHolderCategoryObstacle();
+
+        for (CategoryObstacle aCategoryObstacle: categoryObstacleArray) {
+            if (aCategoryObstacle.getCategoryName().equals(this.selectedCategoryObstacle)) {
+
+
+                // Change placeholder values
+                this.mPlaceHolderCategoryObstacle = new CategoryObstacle(aCategoryObstacle);
+
+                // Publish placeholder's Data to GUI fields
+                this.mMainWindow.publishCategoryObstacleName(this.mPlaceHolderCategoryObstacle.getCategoryName());
+                this.mMainWindow.publishCategoryObstacleDimensions(this.mPlaceHolderCategoryObstacle.getHorizontalSize(), this.mPlaceHolderCategoryObstacle.getVerticalSize());
+                this.mMainWindow.publishCategoryObstacleIsGameObject(this.mPlaceHolderCategoryObstacle.getIsGameObject());
+                
+                // load image and publish  to GUI
+                String categoryObstacleImagePath = this.mPlaceHolderCategoryObstacle.getImgPath();
+                if (!categoryObstacleImagePath.equals("")) {
+                try {
+                    java.awt.image.BufferedImage myImg = ImageIO.read(new File(categoryObstacleImagePath));
+
+                    this.mMainWindow.publishCategoryObstacleIcon(myImg);
+                    //this.mPlaceHolderCategoryObstacle.setImage();
+                } catch (IOException ex) {
+                    System.out.println("Error happenedwhile reading image");
+                }
+                }
+
+
+                break;
+            }
+        }
+    }
+
+    public void removeCategoryObstacle() {
+        // if one is selected, remove it
+        if (!this.selectedCategoryObstacle.equals("")) {
+            for (CategoryObstacle aCategoryObstacle: categoryObstacleArray) {
+                if (aCategoryObstacle.getCategoryName().equals(this.selectedCategoryObstacle)) {
+                    this.categoryObstacleArray.remove(aCategoryObstacle);
+                    break;
+                }
+            }
+            this.selectedCategoryObstacle = "";
+        }
+
+        // Save to permanent memory
+        projethockey.services.AppDataProxy.saveData(this);
+
+        // Update display
+        publishCategoryObstacleNames();
+    }
+
+    public void publishCategoryObstacleNames() {
+        ArrayList<String> categoryObstacleNameList = new ArrayList<String>();
+            for (CategoryObstacle aCategoryObstacle: categoryObstacleArray) {
+                categoryObstacleNameList.add(aCategoryObstacle.getCategoryName());
+            }
+            this.mMainWindow.publishExistingCategoryObstacle(categoryObstacleNameList.toArray(new String[categoryObstacleNameList.size()]));
+    }
+
+    public ArrayList<CategoryObstacle> getCategoryObstacleArray() {
+        return categoryObstacleArray;
+    }
+    public void setCategoryObstacleArray(ArrayList<CategoryObstacle> pCategoryObstacleArray) {
+        this.categoryObstacleArray = pCategoryObstacleArray;
+    }
+
+    public void getCategoryObstacleImage() {
+        String categoryObstacleImagePath = this.mMainWindow.requestFilePath();
+        if (!categoryObstacleImagePath.equals("")) {
+        try {
+            java.awt.image.BufferedImage myImg = ImageIO.read(new File(categoryObstacleImagePath));
+
+            setCategoryObstacleImage(myImg);
+            this.mPlaceHolderCategoryObstacle.setImgPath(categoryObstacleImagePath);
+        } catch (IOException ex) {
+            System.out.println("Error happenedwhile reading image");
+        }
+        }
+    }
+
+    public void setCategoryObstacleImage(BufferedImage thePicture) {
+        this.mMainWindow.publishCategoryObstacleIcon(thePicture);
+    }
+
+    public void setObstacleIsGameObject(Boolean gameObject) {
+        this.mPlaceHolderCategoryObstacle.setIsGameObject(gameObject);
     }
 }

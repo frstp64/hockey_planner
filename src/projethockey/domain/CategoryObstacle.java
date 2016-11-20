@@ -4,13 +4,14 @@ package projethockey.domain;
  *
  * @author Alexandre
  */
-public class CategoryObstacle {
+public class CategoryObstacle implements java.io.Serializable{
     private String catName;
     private String imgPath;
     private int scale;
     private Position positionDefault;
     private Float horizontalSize;
     private Float verticalSize;
+    private Boolean isGameObject;
 
     public CategoryObstacle(){
     }
@@ -29,6 +30,7 @@ public class CategoryObstacle {
         this.scale = categoryObstacle.scale;
         this.horizontalSize = categoryObstacle.horizontalSize;
         this.verticalSize = categoryObstacle.verticalSize;
+        this.isGameObject = categoryObstacle.isGameObject;
     }
 
 
@@ -82,11 +84,20 @@ public class CategoryObstacle {
     public float getVerticalSize() {
         return this.verticalSize;
     }
+    
+    public void setIsGameObject(Boolean isGame) {
+        this.isGameObject = isGame;
+    }
+    
+    public Boolean getIsGameObject() {
+        return this.isGameObject;
+    }
 
     public void reset() {
         this.verticalSize = (float) 0;
         this.horizontalSize = (float) 0;
         this.catName = "";
         this.imgPath = "";
+        this.isGameObject = false;
     }
 }

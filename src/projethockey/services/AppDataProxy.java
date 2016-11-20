@@ -7,6 +7,7 @@ package projethockey.services;
 import projethockey.domain.Controller;
 import projethockey.domain.Sport;
 import projethockey.domain.CategoryPlayer;
+import projethockey.domain.CategoryObstacle;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -20,13 +21,14 @@ public class AppDataProxy{
         try {
         ObjectOutputStream saveSportFile = new ObjectOutputStream(new FileOutputStream("sports.ser"));
         ObjectOutputStream saveCategoryPlayerFile = new ObjectOutputStream(new FileOutputStream("categoryPlayers.ser"));
+        ObjectOutputStream saveCategoryObstacleFile = new ObjectOutputStream(new FileOutputStream("categoryObstacles.ser"));
         
         // Save the sport
         saveSportFile.writeObject(pController.getSportArray());
         // Save the categories
         saveCategoryPlayerFile.writeObject(pController.getCategoryPlayerArray());
-        
         // Save the game objects
+        saveCategoryObstacleFile.writeObject(pController.getCategoryObstacleArray());
         
         saveSportFile.close();
         saveCategoryPlayerFile.close();
@@ -52,6 +54,13 @@ public class AppDataProxy{
             ObjectInputStream objectCategoryPlayerFile = new ObjectInputStream(saveCategoryPlayerFile);
             pController.setCategoryPlayerArray((ArrayList<CategoryPlayer>) objectCategoryPlayerFile.readObject());
             saveCategoryPlayerFile.close();
+            
+            //load categoryObstacles
+            FileInputStream saveCategoryObstacleFile = new FileInputStream("categoryObstacles.ser");
+            ObjectInputStream objectCategoryObstacleFile = new ObjectInputStream(saveCategoryObstacleFile);
+            pController.setCategoryObstacleArray((ArrayList<CategoryObstacle>) objectCategoryObstacleFile.readObject());
+            saveCategoryObstacleFile.close();
+            
         }
         catch (IOException e) {
             System.out.println("shit1");

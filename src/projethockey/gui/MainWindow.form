@@ -415,15 +415,15 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButtonNewGameObject" min="-2" pref="111" max="-2" attributes="0"/>
+                              <Component id="jButtonNewGameObstacle" min="-2" pref="111" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButtonSaveGameObject" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="jButtonSaveGameObstacle" min="-2" pref="120" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButtonDeleteGameObject" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonDeleteGameObstacle" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabelExistingObjects" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -441,18 +441,18 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jCheckBoxIsAGameObject" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxIsAGameObstacle" max="-2" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Component id="jLabelObstacleSize" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="jTextFieldObjectName" alignment="1" min="-2" pref="179" max="-2" attributes="0"/>
+                                                  <Component id="jTextFieldObstacleName" alignment="1" min="-2" pref="179" max="-2" attributes="0"/>
                                                   <Group type="102" attributes="0">
                                                       <Component id="jLabelObstacleUnits" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="jTextFieldObjectHorizontalSize" min="-2" pref="53" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldObstacleSizeHorizontal" min="-2" pref="53" max="-2" attributes="0"/>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Component id="jTextFieldObjectVerticalSize" min="-2" pref="53" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldObstacleSizeVertical" min="-2" pref="53" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -466,7 +466,7 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jPanelObstaclePicture" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jPanelObstacleIcon" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
@@ -477,7 +477,7 @@
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jButtonChooseObjectPicture" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonChooseObstaclePicture" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -503,14 +503,14 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButtonSaveGameObject" pref="101" max="32767" attributes="0"/>
-                          <Component id="jButtonNewGameObject" max="32767" attributes="0"/>
+                          <Component id="jButtonSaveGameObstacle" pref="101" max="32767" attributes="0"/>
+                          <Component id="jButtonNewGameObstacle" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabelExistingObjects" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jScrollPane3" min="-2" pref="78" max="-2" attributes="0"/>
-                                  <Component id="jButtonDeleteGameObject" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonDeleteGameObstacle" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -525,27 +525,27 @@
                                       <Component id="jLabelObstacleInformation" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jTextFieldObjectName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldObstacleName" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelObstacleName" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabelObstacleUnits" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelObstacleSize" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextFieldObjectHorizontalSize" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextFieldObjectVerticalSize" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldObstacleSizeHorizontal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldObstacleSizeVertical" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                      <Component id="jCheckBoxIsAGameObject" max="-2" attributes="0"/>
+                                      <Component id="jCheckBoxIsAGameObstacle" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jSeparator6" min="-2" pref="477" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                       <Component id="jLabelChosenObstacleImage" min="-2" pref="24" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jPanelObstaclePicture" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jPanelObstacleIcon" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jButtonChooseObjectPicture" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonChooseObstaclePicture" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jSeparator5" alignment="0" min="-2" pref="477" max="-2" attributes="0"/>
                               </Group>
@@ -565,15 +565,15 @@
           <SubComponents>
             <Component class="javax.swing.JSeparator" name="jSeparator3">
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonNewGameObject">
+            <Component class="javax.swing.JButton" name="jButtonNewGameObstacle">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nouveau"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonNewGameObjectActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonNewGameObstacleActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonSaveGameObject">
+            <Component class="javax.swing.JButton" name="jButtonSaveGameObstacle">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/projethockey/gui/mySaveIcon.png"/>
@@ -583,12 +583,12 @@
                 <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSaveGameObjectActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSaveGameObstacleActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelObstacleInformation">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Informations sur l&apos;obstacle"/>
+                <Property name="text" type="java.lang.String" value="Informations sur l&apos;objet"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelObstacleName">
@@ -608,13 +608,13 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelChosenObstacleImage">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Image d&apos;obstacle choisie"/>
+                <Property name="text" type="java.lang.String" value="Image d&apos;objet choisi"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelObstacleOnTerrain">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Obstacle tel que vu sur le terrain"/>
+                <Property name="text" type="java.lang.String" value="Objet tel que vu sur le terrain"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
             </Component>
@@ -643,7 +643,7 @@
                 </DimensionLayout>
               </Layout>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanelObstaclePicture">
+            <Container class="javax.swing.JPanel" name="jPanelObstacleIcon">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -652,43 +652,53 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jPanelObstaclePicturePropertyChange"/>
+                <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jPanelObstacleIconPropertyChange"/>
               </Events>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="272" max="32767" attributes="0"/>
+                      <Component id="jLabelCategoryObstacleIcon" alignment="0" pref="287" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="288" max="32767" attributes="0"/>
+                      <Component id="jLabelCategoryObstacleIcon" alignment="0" pref="283" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabelCategoryObstacleIcon">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="MainWindow_jLabelCategoryPlayerIcon"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="jTextFieldObjectName">
+            <Component class="javax.swing.JTextField" name="jTextFieldObstacleName">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldObjectNameActionPerformed"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldObstacleNameFocusLost"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldObstacleNameActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldObjectHorizontalSize">
+            <Component class="javax.swing.JTextField" name="jTextFieldObstacleSizeHorizontal">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldObjectHorizontalSizeActionPerformed"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldObstacleSizeHorizontalFocusLost"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldObstacleSizeHorizontalActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldObjectVerticalSize">
+            <Component class="javax.swing.JTextField" name="jTextFieldObstacleSizeVertical">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldObjectVerticalSizeActionPerformed"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldObstacleSizeVerticalFocusLost"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldObstacleSizeVerticalActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonChooseObjectPicture">
+            <Component class="javax.swing.JButton" name="jButtonChooseObstaclePicture">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Choisir image..."/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonChooseObjectPictureActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonChooseObstaclePictureActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator5">
@@ -701,7 +711,7 @@
                 <Property name="orientation" type="int" value="1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="jCheckBoxIsAGameObject">
+            <Component class="javax.swing.JCheckBox" name="jCheckBoxIsAGameObstacle">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Objet de jeu? (association &#xe0; un joueur possible)"/>
               </Properties>
@@ -709,7 +719,8 @@
                 <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
               </AccessibilityProperties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxIsAGameObjectActionPerformed"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jCheckBoxIsAGameObstacleFocusLost"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxIsAGameObstacleActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelExistingObjects">
@@ -736,6 +747,7 @@
                     </Property>
                   </Properties>
                   <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jListExistingObstacleMouseClicked"/>
                     <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jListExistingObstaclePropertyChange"/>
                   </Events>
                   <AuxValues>
@@ -744,12 +756,12 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="jButtonDeleteGameObject">
+            <Component class="javax.swing.JButton" name="jButtonDeleteGameObstacle">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Supprimer"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeleteGameObjectActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeleteGameObstacleActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -1556,7 +1568,6 @@
                                   <Component id="jButtonUndo" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Component id="jButtonRedo" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">

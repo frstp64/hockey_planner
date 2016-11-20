@@ -31,4 +31,10 @@ public interface sportSubscribable {
     void publishExistingCategoryPlayer(String[] plistCategoryPlayerName); //??
     void publishCategoryPlayerIcon(BufferedImage thePicture);
     
+    void publishCategoryObstacleName(String pCategoryPlayerName);
+    void publishCategoryObstacleDimensions(Float pdimX, Float pdimY);
+    void publishExistingCategoryObstacle(String[] plistCategoryPlayerName); //??
+    void publishCategoryObstacleIsGameObject(Boolean pGameObject);
+    void publishCategoryObstacleIcon(BufferedImage thePicture);
+    
 }

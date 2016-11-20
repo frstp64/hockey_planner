@@ -6,6 +6,7 @@
 package projethockey.gui;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.beans.PropertyChangeEvent;
 import projethockey.domain.Controller;
 import projethockey.domain.sportSubscribable;
 import java.util.List;
@@ -27,38 +28,38 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     /**
      * Creates new form MainWindow
      */
-    
+
     private Controller myController;
-    
+
     public MainWindow() {
         initComponents();
-        
+
         // A reference to the controller is given.
-        
+
         // subscription of every item that needs to be subscriber here.
     }
-    
+
     public void setController(Controller theController) {
         this.myController = theController;
     }
-    
+
     public void publishExistingSports(String[] plistSportsNames) {
         this.jListExistingSports.setListData(plistSportsNames);
     }
-    
+
     public void publishSportName(String pSportName) {
         this.jTextFieldSportName.setText(pSportName);
     }
-    
+
     public void publishDimensions(Float pdimX, Float pdimY){
         this.jTextFieldHorizontalSize.setText(pdimX.toString());
         this.jTextFieldVerticalSize.setText(pdimY.toString());
     }
-    
+
     public void publishUnits(String punits){
         this.jTextFieldFieldUnits.setText(punits);
     }
-    
+
     public void publishPlayerNumber(int playerNumber){
         this.jSpinnerPlayerNumber.setValue(playerNumber);
         ((DefaultTableModel) this.tableSportPlayers.getModel()).setRowCount(playerNumber);
@@ -68,11 +69,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         ((DefaultTableModel) this.jTableSportsItems.getModel()).setRowCount(objectTypeNumber);
     }
 
-    
+
     public void publishPlayers() {
-        
+
     }
-    
+
     public void publishPlayerCategories(ArrayList<String> pPlayerCategoryList) {
         javax.swing.JComboBox sportCellComboBox = new javax.swing.JComboBox();
         javax.swing.table.TableColumn categoryColumn = tableSportPlayers.getColumnModel().getColumn(0);
@@ -87,19 +88,19 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         categoryColumn.setCellEditor(new javax.swing.DefaultCellEditor(sportCellComboBox));
 
     }
-    
+
     public void publishObjects() {
-        
+
     }
-    
+
     public void publishFieldPicture(BufferedImage thePicture) {
-        
+
         // ideally we would extend a jpanel to accomodate all that image presentation spaghetti into a nice jlabel-inside-jframe class
         int imHeight = thePicture.getHeight();
         int imWidth = thePicture.getWidth();
         int fieldHeight = this.jPanelSportFieldViewer.getHeight();
         int fieldWidth = this.jPanelSportFieldViewer.getWidth();
-        
+
         float imAspectRatio = ((float) imHeight)/imWidth;
         float fieldAspectRatio = ((float) fieldHeight)/fieldWidth;
 
@@ -121,19 +122,19 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         //this.jPanelSportFieldViewer.paintComponents(this.jPanelSportFieldViewer.getGraphics());
         //this.jPanelSportFieldViewer.getGraphics().drawImage(thePicture, 0, 0, null);
         //this.jPanelSport.repaint();
-        
+
 
     }
-    
+
     public void publishCategoryPlayerIcon(BufferedImage thePicture) {
-        
-        // first, reset image to empty 
+
+        // first, reset image to empty
         this.jLabelCategoryPlayerIcon.setIcon(null);
         this.jLabelCategoryPlayerIcon.revalidate();
-        
+
         // if passed img is not null, draw it.
         if (thePicture != null) {
-            
+
             // ideally we would extend a jpanel to accomodate all that image presentation spaghetti into a nice jlabel-inside-jframe class
             int imHeight = thePicture.getHeight();
             int imWidth = thePicture.getWidth();
@@ -152,24 +153,75 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 fieldIcon = new ImageIcon(thePicture.getScaledInstance(-1, fieldHeight-2, -1));
             }
             this.jLabelCategoryPlayerIcon.setIcon(fieldIcon);
-        
+
         }
-        
+
     }
-    
+
     public void publishCategoryPlayerDimensions(Float pdimX, Float pdimY){
         this.jTextFieldCategorySizeHorizontal.setText(pdimX.toString());
         this.jTextFieldCategorySizeVertical.setText(pdimY.toString());
     }
-    
+
     public void publishCategoryPlayerName(String pCategoryPlayerName) {
         this.jTextFieldCategoryName.setText(pCategoryPlayerName);
     }
-    
+
     public void publishExistingCategoryPlayer(String[] plistCategoryPlayer) {
         this.jListExistingCategories.setListData(plistCategoryPlayer);
     }
+
+
+    // ---------------- categoryObstacle -----------------
+    public void publishCategoryObstacleIcon(BufferedImage thePicture) {
+
+        // first, reset image to empty
+        this.jLabelCategoryObstacleIcon.setIcon(null);
+        this.jLabelCategoryObstacleIcon.revalidate();
+
+        // if passed img is not null, draw it.
+        if (thePicture != null) {
+
+            // ideally we would extend a jpanel to accomodate all that image presentation spaghetti into a nice jlabel-inside-jframe class
+            int imHeight = thePicture.getHeight();
+            int imWidth = thePicture.getWidth();
+            int fieldHeight = this.jPanelObstacleIcon.getHeight();
+            int fieldWidth = this.jPanelObstacleIcon.getWidth();
+
+            float imAspectRatio = ((float) imHeight)/imWidth;
+            float fieldAspectRatio = ((float) fieldHeight)/fieldWidth;
+
+            Icon fieldIcon;
+            // image is large horizontally aspect-wise
+            if (imAspectRatio < fieldAspectRatio) {
+                fieldIcon = new ImageIcon(thePicture.getScaledInstance(fieldWidth-2, -1, -1));
+            }
+            else {
+                fieldIcon = new ImageIcon(thePicture.getScaledInstance(-1, fieldHeight-2, -1));
+            }
+            this.jLabelCategoryObstacleIcon.setIcon(fieldIcon);
+
+        }
+
+    }
+
+    public void publishCategoryObstacleDimensions(Float pdimX, Float pdimY){
+        this.jTextFieldObstacleSizeHorizontal.setText(pdimX.toString());
+        this.jTextFieldObstacleSizeVertical.setText(pdimY.toString());
+    }
+
+    public void publishCategoryObstacleName(String pCategoryObstacleName) {
+        this.jTextFieldObstacleName.setText(pCategoryObstacleName);
+    }
+
+    public void publishExistingCategoryObstacle(String[] plistCategoryObstacle) {
+        this.jListExistingObstacle.setListData(plistCategoryObstacle);
+    }
     
+    public void publishCategoryObstacleIsGameObject(Boolean pGameObject) {
+        this.jCheckBoxIsAGameObstacle.setSelected(pGameObject);
+    }
+
 
     public String requestFilePath() {
         javax.swing.JFileChooser fc;
@@ -219,8 +271,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jButtonDeleteCategory = new javax.swing.JButton();
         jPanelObstacle = new javax.swing.JPanel();
         jSeparator3 = new javax.swing.JSeparator();
-        jButtonNewGameObject = new javax.swing.JButton();
-        jButtonSaveGameObject = new javax.swing.JButton();
+        jButtonNewGameObstacle = new javax.swing.JButton();
+        jButtonSaveGameObstacle = new javax.swing.JButton();
         jLabelObstacleInformation = new javax.swing.JLabel();
         jLabelObstacleName = new javax.swing.JLabel();
         jLabelObstacleSize = new javax.swing.JLabel();
@@ -228,18 +280,19 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jLabelChosenObstacleImage = new javax.swing.JLabel();
         jLabelObstacleOnTerrain = new javax.swing.JLabel();
         jPanelObstacleOnTerrain = new javax.swing.JPanel();
-        jPanelObstaclePicture = new javax.swing.JPanel();
-        jTextFieldObjectName = new javax.swing.JTextField();
-        jTextFieldObjectHorizontalSize = new javax.swing.JTextField();
-        jTextFieldObjectVerticalSize = new javax.swing.JTextField();
-        jButtonChooseObjectPicture = new javax.swing.JButton();
+        jPanelObstacleIcon = new javax.swing.JPanel();
+        jLabelCategoryObstacleIcon = new javax.swing.JLabel();
+        jTextFieldObstacleName = new javax.swing.JTextField();
+        jTextFieldObstacleSizeHorizontal = new javax.swing.JTextField();
+        jTextFieldObstacleSizeVertical = new javax.swing.JTextField();
+        jButtonChooseObstaclePicture = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
-        jCheckBoxIsAGameObject = new javax.swing.JCheckBox();
+        jCheckBoxIsAGameObstacle = new javax.swing.JCheckBox();
         jLabelExistingObjects = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jListExistingObstacle = new javax.swing.JList<>();
-        jButtonDeleteGameObject = new javax.swing.JButton();
+        jButtonDeleteGameObstacle = new javax.swing.JButton();
         jPanelSport = new javax.swing.JPanel();
         jSeparator7 = new javax.swing.JSeparator();
         jButtonSaveSport = new javax.swing.JButton();
@@ -583,24 +636,24 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         jTabbedPanePlayerCategory.addTab("Catégories", jPanelCategories);
 
-        jButtonNewGameObject.setText("Nouveau");
-        jButtonNewGameObject.addActionListener(new java.awt.event.ActionListener() {
+        jButtonNewGameObstacle.setText("Nouveau");
+        jButtonNewGameObstacle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNewGameObjectActionPerformed(evt);
+                jButtonNewGameObstacleActionPerformed(evt);
             }
         });
 
-        jButtonSaveGameObject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projethockey/gui/mySaveIcon.png"))); // NOI18N
-        jButtonSaveGameObject.setText("Enregistrer");
-        jButtonSaveGameObject.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonSaveGameObject.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonSaveGameObject.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSaveGameObstacle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projethockey/gui/mySaveIcon.png"))); // NOI18N
+        jButtonSaveGameObstacle.setText("Enregistrer");
+        jButtonSaveGameObstacle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonSaveGameObstacle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonSaveGameObstacle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSaveGameObjectActionPerformed(evt);
+                jButtonSaveGameObstacleActionPerformed(evt);
             }
         });
 
-        jLabelObstacleInformation.setText("Informations sur l'obstacle");
+        jLabelObstacleInformation.setText("Informations sur l'objet");
 
         jLabelObstacleName.setText("Nom:");
 
@@ -608,10 +661,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         jLabelObstacleUnits.setText("(unités):");
 
-        jLabelChosenObstacleImage.setText("Image d'obstacle choisie");
+        jLabelChosenObstacleImage.setText("Image d'objet choisi");
 
         jLabelObstacleOnTerrain.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelObstacleOnTerrain.setText("Obstacle tel que vu sur le terrain");
+        jLabelObstacleOnTerrain.setText("Objet tel que vu sur le terrain");
         jLabelObstacleOnTerrain.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jPanelObstacleOnTerrain.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -632,46 +685,61 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             .addGap(0, 288, Short.MAX_VALUE)
         );
 
-        jPanelObstaclePicture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanelObstaclePicture.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        jPanelObstacleIcon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelObstacleIcon.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jPanelObstaclePicturePropertyChange(evt);
+                jPanelObstacleIconPropertyChange(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanelObstaclePictureLayout = new javax.swing.GroupLayout(jPanelObstaclePicture);
-        jPanelObstaclePicture.setLayout(jPanelObstaclePictureLayout);
-        jPanelObstaclePictureLayout.setHorizontalGroup(
-            jPanelObstaclePictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 272, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanelObstacleIconLayout = new javax.swing.GroupLayout(jPanelObstacleIcon);
+        jPanelObstacleIcon.setLayout(jPanelObstacleIconLayout);
+        jPanelObstacleIconLayout.setHorizontalGroup(
+            jPanelObstacleIconLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelCategoryObstacleIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
         );
-        jPanelObstaclePictureLayout.setVerticalGroup(
-            jPanelObstaclePictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 288, Short.MAX_VALUE)
+        jPanelObstacleIconLayout.setVerticalGroup(
+            jPanelObstacleIconLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelCategoryObstacleIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
         );
 
-        jTextFieldObjectName.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldObstacleName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldObstacleNameFocusLost(evt);
+            }
+        });
+        jTextFieldObstacleName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldObjectNameActionPerformed(evt);
+                jTextFieldObstacleNameActionPerformed(evt);
             }
         });
 
-        jTextFieldObjectHorizontalSize.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldObstacleSizeHorizontal.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldObstacleSizeHorizontalFocusLost(evt);
+            }
+        });
+        jTextFieldObstacleSizeHorizontal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldObjectHorizontalSizeActionPerformed(evt);
+                jTextFieldObstacleSizeHorizontalActionPerformed(evt);
             }
         });
 
-        jTextFieldObjectVerticalSize.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldObstacleSizeVertical.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldObstacleSizeVerticalFocusLost(evt);
+            }
+        });
+        jTextFieldObstacleSizeVertical.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldObjectVerticalSizeActionPerformed(evt);
+                jTextFieldObstacleSizeVerticalActionPerformed(evt);
             }
         });
 
-        jButtonChooseObjectPicture.setText("Choisir image...");
-        jButtonChooseObjectPicture.addActionListener(new java.awt.event.ActionListener() {
+        jButtonChooseObstaclePicture.setText("Choisir image...");
+        jButtonChooseObstaclePicture.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonChooseObjectPictureActionPerformed(evt);
+                jButtonChooseObstaclePictureActionPerformed(evt);
             }
         });
 
@@ -679,10 +747,15 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jCheckBoxIsAGameObject.setText("Objet de jeu? (association à un joueur possible)");
-        jCheckBoxIsAGameObject.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBoxIsAGameObstacle.setText("Objet de jeu? (association à un joueur possible)");
+        jCheckBoxIsAGameObstacle.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jCheckBoxIsAGameObstacleFocusLost(evt);
+            }
+        });
+        jCheckBoxIsAGameObstacle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxIsAGameObjectActionPerformed(evt);
+                jCheckBoxIsAGameObstacleActionPerformed(evt);
             }
         });
 
@@ -693,6 +766,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jListExistingObstacle.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListExistingObstacleMouseClicked(evt);
+            }
+        });
         jListExistingObstacle.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jListExistingObstaclePropertyChange(evt);
@@ -700,10 +778,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         jScrollPane3.setViewportView(jListExistingObstacle);
 
-        jButtonDeleteGameObject.setText("Supprimer");
-        jButtonDeleteGameObject.addActionListener(new java.awt.event.ActionListener() {
+        jButtonDeleteGameObstacle.setText("Supprimer");
+        jButtonDeleteGameObstacle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDeleteGameObjectActionPerformed(evt);
+                jButtonDeleteGameObstacleActionPerformed(evt);
             }
         });
 
@@ -716,15 +794,15 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 .addContainerGap()
                 .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelObstacleLayout.createSequentialGroup()
-                        .addComponent(jButtonNewGameObject, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonNewGameObstacle, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonSaveGameObject, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonSaveGameObstacle, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(110, 110, 110)
                         .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelObstacleLayout.createSequentialGroup()
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonDeleteGameObject))
+                                .addComponent(jButtonDeleteGameObstacle))
                             .addComponent(jLabelExistingObjects))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelObstacleLayout.createSequentialGroup()
@@ -737,18 +815,18 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                             .addGroup(jPanelObstacleLayout.createSequentialGroup()
                                 .addGap(48, 48, 48)
                                 .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBoxIsAGameObject)
+                                    .addComponent(jCheckBoxIsAGameObstacle)
                                     .addGroup(jPanelObstacleLayout.createSequentialGroup()
                                         .addComponent(jLabelObstacleSize)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jTextFieldObjectName, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldObstacleName, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanelObstacleLayout.createSequentialGroup()
                                                 .addComponent(jLabelObstacleUnits)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jTextFieldObjectHorizontalSize, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jTextFieldObstacleSizeHorizontal, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(jTextFieldObjectVerticalSize, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                                .addComponent(jTextFieldObstacleSizeVertical, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -756,14 +834,14 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                                 .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanelObstacleLayout.createSequentialGroup()
                                         .addGap(18, 18, 18)
-                                        .addComponent(jPanelObstaclePicture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jPanelObstacleIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanelObstacleLayout.createSequentialGroup()
                                         .addGap(71, 71, 71)
                                         .addComponent(jLabelChosenObstacleImage)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelObstacleLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonChooseObjectPicture)
+                                .addComponent(jButtonChooseObstaclePicture)
                                 .addGap(90, 90, 90)))
                         .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -780,14 +858,14 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             .addGroup(jPanelObstacleLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonSaveGameObject, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                    .addComponent(jButtonNewGameObject, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonSaveGameObstacle, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                    .addComponent(jButtonNewGameObstacle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelObstacleLayout.createSequentialGroup()
                         .addComponent(jLabelExistingObjects)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonDeleteGameObject))))
+                            .addComponent(jButtonDeleteGameObstacle))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
                 .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -799,24 +877,24 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                                 .addComponent(jLabelObstacleInformation)
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextFieldObjectName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldObstacleName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabelObstacleName))
                                 .addGap(8, 8, 8)
                                 .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabelObstacleUnits)
                                     .addComponent(jLabelObstacleSize)
-                                    .addComponent(jTextFieldObjectHorizontalSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldObjectVerticalSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextFieldObstacleSizeHorizontal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldObstacleSizeVertical, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(29, 29, 29)
-                                .addComponent(jCheckBoxIsAGameObject))
+                                .addComponent(jCheckBoxIsAGameObstacle))
                             .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelObstacleLayout.createSequentialGroup()
                                 .addGap(43, 43, 43)
                                 .addComponent(jLabelChosenObstacleImage, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanelObstaclePicture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jPanelObstacleIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButtonChooseObjectPicture))
+                                .addComponent(jButtonChooseObstaclePicture))
                             .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelObstacleLayout.createSequentialGroup()
                         .addGap(65, 65, 65)
@@ -826,7 +904,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 .addGap(700, 700, 700))
         );
 
-        jCheckBoxIsAGameObject.getAccessibleContext().setAccessibleDescription("");
+        jCheckBoxIsAGameObstacle.getAccessibleContext().setAccessibleDescription("");
 
         jTabbedPanePlayerCategory.addTab("Objets de jeu", jPanelObstacle);
 
@@ -1608,8 +1686,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jButtonUndo)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButtonRedo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)))
+                            .addComponent(jButtonRedo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelStrategyEditorLayout.createSequentialGroup()
                         .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButtonExport, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1681,21 +1758,21 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBoxIsAGameObjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxIsAGameObjectActionPerformed
+    private void jCheckBoxIsAGameObstacleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxIsAGameObstacleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBoxIsAGameObjectActionPerformed
+    }//GEN-LAST:event_jCheckBoxIsAGameObstacleActionPerformed
 
-    private void jTextFieldObjectVerticalSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldObjectVerticalSizeActionPerformed
+    private void jTextFieldObstacleSizeVerticalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldObstacleSizeVerticalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldObjectVerticalSizeActionPerformed
+    }//GEN-LAST:event_jTextFieldObstacleSizeVerticalActionPerformed
 
-    private void jTextFieldObjectHorizontalSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldObjectHorizontalSizeActionPerformed
+    private void jTextFieldObstacleSizeHorizontalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldObstacleSizeHorizontalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldObjectHorizontalSizeActionPerformed
+    }//GEN-LAST:event_jTextFieldObstacleSizeHorizontalActionPerformed
 
-    private void jButtonNewGameObjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewGameObjectActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonNewGameObjectActionPerformed
+    private void jButtonNewGameObstacleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewGameObstacleActionPerformed
+        myController.resetPlaceHolderCategoryObstacle();
+    }//GEN-LAST:event_jButtonNewGameObstacleActionPerformed
 
     private void jButtonDeleteStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteStrategyActionPerformed
         // TODO add your handling code here:
@@ -1777,21 +1854,21 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCategorySizeHorizontalActionPerformed
 
-    private void jButtonSaveGameObjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveGameObjectActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonSaveGameObjectActionPerformed
+    private void jButtonSaveGameObstacleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveGameObstacleActionPerformed
+        this.myController.saveCategoryObstacle();
+    }//GEN-LAST:event_jButtonSaveGameObstacleActionPerformed
 
-    private void jTextFieldObjectNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldObjectNameActionPerformed
+    private void jTextFieldObstacleNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldObstacleNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldObjectNameActionPerformed
+    }//GEN-LAST:event_jTextFieldObstacleNameActionPerformed
 
-    private void jButtonChooseObjectPictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseObjectPictureActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonChooseObjectPictureActionPerformed
+    private void jButtonChooseObstaclePictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseObstaclePictureActionPerformed
+        myController.getCategoryObstacleImage();
+    }//GEN-LAST:event_jButtonChooseObstaclePictureActionPerformed
 
-    private void jButtonDeleteGameObjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteGameObjectActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonDeleteGameObjectActionPerformed
+    private void jButtonDeleteGameObstacleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteGameObstacleActionPerformed
+        this.myController.removeCategoryObstacle();
+    }//GEN-LAST:event_jButtonDeleteGameObstacleActionPerformed
 
     private void jButtonLoadStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoadStrategyActionPerformed
         // TODO add your handling code here:
@@ -1927,12 +2004,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             myController.setSelectedSport(empty);
         }
         } catch (Exception Ex) {
-            
+
         }
     }//GEN-LAST:event_jListExistingSportsMouseClicked
 
     private void jSpinnerPlayerNumberStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerPlayerNumberStateChanged
-                                                    
+
         if (this.myController != null) {
             this.myController.setSportPlayerNumber((int) this.jSpinnerPlayerNumber.getModel().getValue());
         }
@@ -1948,18 +2025,18 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             Object theType = tableSportPlayers.getModel().getValueAt(i, 0);
             Object theName = tableSportPlayers.getModel().getValueAt(i, 1);
             if (theType != null & theName != null) {
-                
+
                 typeArray.add(theType.toString());
                 playerRoleArray.add(theName.toString());
             }
-            
+
             if (theType == null || theType.toString().equals("")) {
                 allCorrect = false;
             }
             if (theName == null || theName.toString().equals("")) {
                 allCorrect = false;
             }
-            
+
             //playerRoleArray.add(tableSportPlayers.getModel().getValueAt(i+1, 1).toString);
             //typeArray.add(tableSportPlayers.getModel().getValueAt(i, 0).toString());
 
@@ -1969,8 +2046,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         } else {
             tableSportPlayers.getCellRenderer(0, 0).getTableCellRendererComponent(tableSportPlayers, null, false, true, 0, 0).setBackground(Color.RED);
         }
-            
-                
+
+
         if (this.myController != null) {
             this.myController.setSportPlayers(typeArray, playerRoleArray);
         }
@@ -1985,7 +2062,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             Object theType = jTableSportsItems.getModel().getValueAt(i, 0);
             Object theNumber = jTableSportsItems.getModel().getValueAt(i, 1);
             if (theType != null & theNumber != null) {
-                
+
                 try {
                     Integer theInteger = Integer.parseInt(theNumber.toString());
                     typeArray.add(theType.toString());
@@ -1995,14 +2072,14 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                     allCorrect = false;
                 }
             }
-            
+
             if (theType == null || theType.toString().equals("")) {
                 allCorrect = false;
             }
             if (theNumber == null || theNumber.toString().equals("")) {
                 allCorrect = false;
             }
-            
+
             //playerRoleArray.add(tableSportPlayers.getModel().getValueAt(i+1, 1).toString);
             //typeArray.add(tableSportPlayers.getModel().getValueAt(i, 0).toString());
 
@@ -2012,8 +2089,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         } else {
             jTableSportsItems.getCellRenderer(0, 0).getTableCellRendererComponent(jTableSportsItems, null, false, true, 0, 0).setBackground(Color.RED);
         }
-            
-                
+
+
         if (this.myController != null) {
             this.myController.setSportObjects(typeArray, numberArray);
         }
@@ -2075,9 +2152,55 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             myController.setSelectedCategoryPlayer(empty);
         }
         } catch (Exception Ex) {
-            
+
         }
     }//GEN-LAST:event_jListExistingCategoriesMouseClicked
+
+    private void jTextFieldObstacleNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldObstacleNameFocusLost
+        myController.setCategoryObstacleName(this.jTextFieldObstacleName.getText());
+    }//GEN-LAST:event_jTextFieldObstacleNameFocusLost
+
+    private void jTextFieldObstacleSizeHorizontalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldObstacleSizeHorizontalFocusLost
+                try {
+            myController.setCategoryObstacleHorizontalSize(Float.parseFloat(this.jTextFieldObstacleSizeHorizontal.getText()));
+            this.jTextFieldObstacleSizeHorizontal.setBackground(Color.white);
+        }
+        catch (Exception Ex){
+            this.jTextFieldObstacleSizeHorizontal.setBackground(Color.red);
+        }
+    }//GEN-LAST:event_jTextFieldObstacleSizeHorizontalFocusLost
+
+    private void jTextFieldObstacleSizeVerticalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldObstacleSizeVerticalFocusLost
+                try {
+            myController.setCategoryObstacleVerticalSize(Float.parseFloat(this.jTextFieldCategorySizeVertical.getText()));
+            this.jTextFieldObstacleSizeVertical.setBackground(Color.white);
+        }
+        catch (Exception Ex){
+            this.jTextFieldObstacleSizeVertical.setBackground(Color.red);
+        }
+    }//GEN-LAST:event_jTextFieldObstacleSizeVerticalFocusLost
+
+    private void jPanelObstacleIconPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelObstacleIconPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelObstacleIconPropertyChange
+
+    private void jListExistingObstacleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListExistingObstacleMouseClicked
+        try {
+        if (jListExistingObstacle.getSelectedValue() != null & myController != null) {
+            myController.setSelectedCategoryObstacle(jListExistingObstacle.getSelectedValue());
+        }
+        else if (myController != null) {
+            String empty = "";
+            myController.setSelectedCategoryObstacle(empty);
+        }
+        } catch (Exception Ex) {
+
+        }
+    }//GEN-LAST:event_jListExistingObstacleMouseClicked
+
+    private void jCheckBoxIsAGameObstacleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jCheckBoxIsAGameObstacleFocusLost
+        this.myController.setObstacleIsGameObject(this.jCheckBoxIsAGameObstacle.isSelected());
+    }//GEN-LAST:event_jCheckBoxIsAGameObstacleFocusLost
 
     /**
      * @param args the command line arguments
@@ -2086,7 +2209,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -2113,13 +2236,13 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             }
         });
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonChooseCategoryImage;
-    private javax.swing.JButton jButtonChooseObjectPicture;
+    private javax.swing.JButton jButtonChooseObstaclePicture;
     private javax.swing.JButton jButtonCreateStrategy;
     private javax.swing.JButton jButtonDeleteCategory;
-    private javax.swing.JButton jButtonDeleteGameObject;
+    private javax.swing.JButton jButtonDeleteGameObstacle;
     private javax.swing.JButton jButtonDeleteStrategy;
     private javax.swing.JButton jButtonDestroySelectedSport;
     private javax.swing.JButton jButtonExport;
@@ -2127,25 +2250,26 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JButton jButtonLoadStrategy;
     private javax.swing.JButton jButtonModificationVisualize;
     private javax.swing.JButton jButtonNewCategory;
-    private javax.swing.JButton jButtonNewGameObject;
+    private javax.swing.JButton jButtonNewGameObstacle;
     private javax.swing.JButton jButtonNewSport;
     private javax.swing.JButton jButtonNextFrameForImageMode;
     private javax.swing.JButton jButtonRedo;
     private javax.swing.JButton jButtonSaveCategory;
-    private javax.swing.JButton jButtonSaveGameObject;
+    private javax.swing.JButton jButtonSaveGameObstacle;
     private javax.swing.JButton jButtonSaveSport;
     private javax.swing.JButton jButtonSaveStrategy;
     private javax.swing.JButton jButtonStepBackTime;
     private javax.swing.JButton jButtonStepForwardTime;
     private javax.swing.JButton jButtonUndo;
     private javax.swing.JButton jButtonZoom;
-    private javax.swing.JCheckBox jCheckBoxIsAGameObject;
+    private javax.swing.JCheckBox jCheckBoxIsAGameObstacle;
     private javax.swing.JComboBox<String> jComboBoxChooseStrategySport;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelAvailableStrategies;
     private javax.swing.JLabel jLabelCategoryImage;
     private javax.swing.JLabel jLabelCategoryName;
+    private javax.swing.JLabel jLabelCategoryObstacleIcon;
     private javax.swing.JLabel jLabelCategoryOnTerrain;
     private javax.swing.JLabel jLabelCategoryPlayerIcon;
     private javax.swing.JLabel jLabelCategorySize;
@@ -2192,8 +2316,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JPanel jPanelCategoryPicture;
     private javax.swing.JPanel jPanelCreateLoadStrategy;
     private javax.swing.JPanel jPanelObstacle;
+    private javax.swing.JPanel jPanelObstacleIcon;
     private javax.swing.JPanel jPanelObstacleOnTerrain;
-    private javax.swing.JPanel jPanelObstaclePicture;
     private javax.swing.JPanel jPanelSport;
     private javax.swing.JPanel jPanelSportFieldViewer;
     private javax.swing.JPanel jPanelStrategyEditor;
@@ -2228,9 +2352,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JTextField jTextFieldChooseStrategyName;
     private javax.swing.JTextField jTextFieldFieldUnits;
     private javax.swing.JTextField jTextFieldHorizontalSize;
-    private javax.swing.JTextField jTextFieldObjectHorizontalSize;
-    private javax.swing.JTextField jTextFieldObjectName;
-    private javax.swing.JTextField jTextFieldObjectVerticalSize;
+    private javax.swing.JTextField jTextFieldObstacleName;
+    private javax.swing.JTextField jTextFieldObstacleSizeHorizontal;
+    private javax.swing.JTextField jTextFieldObstacleSizeVertical;
     private javax.swing.JTextField jTextFieldPlaybackSpeed;
     private javax.swing.JTextField jTextFieldSportName;
     private javax.swing.JTextField jTextFieldStrategyName;
