@@ -8,17 +8,19 @@ import java.util.Date;
  *
  * @author Alexandre
  */
-public class Strategy {
+public class Strategy implements java.io.Serializable{
     //private var interfaceUser;
     private float playBackSpeed;
     private Date deltaTimeFrame;
     private String sportName;
     private List<Snapshot> listSnapshot;
+    private String name;
 
     public Strategy() {
     }
     
     public Strategy(Strategy strategy) {
+        this.name = strategy.name;
         this.playBackSpeed = strategy.playBackSpeed;
         this.deltaTimeFrame = strategy.deltaTimeFrame;
         this.sportName = strategy.sportName;
@@ -26,10 +28,19 @@ public class Strategy {
     }
 
     public Strategy(float playBackSpeed, Date deltaTimeFrame, String sportName, List<Snapshot> listSnapshot) {
+        //this.name = name
         this.playBackSpeed = playBackSpeed;
         this.deltaTimeFrame = deltaTimeFrame;
         this.sportName = sportName;
         this.listSnapshot = listSnapshot;
+    }
+    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public float getPlayBackSpeed() {

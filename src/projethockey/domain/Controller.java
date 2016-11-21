@@ -34,6 +34,11 @@ public class Controller {
     private ArrayList<CategoryObstacle> categoryObstacleArray;
     private String selectedCategoryObstacle;
 
+    // Strategy
+    private Strategy mPlaceHolderStrategy; // Contains the parameters for the new Strategy
+    private ArrayList<Strategy> strategyArray;
+    private String selectedStrategy;
+
     private projetHockeyInterface mMainWindow; // A reference to the window
 
     // The constructor
@@ -49,12 +54,16 @@ public class Controller {
         // CategoryObstacle
         mPlaceHolderCategoryObstacle = new CategoryObstacle();
         categoryObstacleArray = new ArrayList<CategoryObstacle>();
+        // Strategy
+        mPlaceHolderStrategy = new Strategy();
+        strategyArray = new ArrayList<Strategy>();
 
         AppDataProxy.loadData(this);
 
         this.selectedSport = "";
         this.setSelectedCategoryPlayer("");
         this.setSelectedCategoryObstacle("");
+        this.setSelectedStrategy("");
 
         // Update the array list
         if (!sportArray.isEmpty()) {
@@ -65,6 +74,9 @@ public class Controller {
         }
         if (!categoryObstacleArray.isEmpty()) {
             publishCategoryObstacleNames();
+        }
+        if (!strategyArray.isEmpty()) {
+            publishStrategyNames();
         }
     }
 
@@ -411,7 +423,7 @@ public class Controller {
                 this.mMainWindow.publishCategoryObstacleName(this.mPlaceHolderCategoryObstacle.getCategoryName());
                 this.mMainWindow.publishCategoryObstacleDimensions(this.mPlaceHolderCategoryObstacle.getHorizontalSize(), this.mPlaceHolderCategoryObstacle.getVerticalSize());
                 this.mMainWindow.publishCategoryObstacleIsGameObject(this.mPlaceHolderCategoryObstacle.getIsGameObject());
-                
+
                 // load image and publish  to GUI
                 String categoryObstacleImagePath = this.mPlaceHolderCategoryObstacle.getImgPath();
                 if (!categoryObstacleImagePath.equals("")) {
@@ -485,5 +497,112 @@ public class Controller {
 
     public void setObstacleIsGameObject(Boolean gameObject) {
         this.mPlaceHolderCategoryObstacle.setIsGameObject(gameObject);
+    }
+
+    // -------------------- Strategy --------------------
+    public void setStrategyName(String pStrategyName) {
+        this.mPlaceHolderStrategy.setName(pStrategyName);
+    }
+
+    public void resetPlaceHolderStrategy() {
+
+        // empty data
+        //this.mPlaceHolderStrategy.reset();
+        // empty GUI values
+        this.mMainWindow.publishStrategyName(this.mPlaceHolderStrategy.getName());
+        //TODO
+        //this.mMainWindow.publishStrategySport(this.mPlaceHolderStrategy.getCategoryName());
+
+    }
+
+    public void saveStrategy() {
+        // Ensure the Strategy is valid here.
+
+        // TODO fix this with saving in the strategy dir, one strategy per folder.
+        // If the Strategy exists, remove it from the list
+        for (Strategy aStrategy: strategyArray) {
+            if (aStrategy.getName().equals(this.mPlaceHolderStrategy.getName())) {
+                System.out.println(aStrategy.getName());
+                this.strategyArray.remove(aStrategy);
+                break;
+            }
+        }
+
+        // Add the Strategy to the list
+        strategyArray.add(new Strategy(this.mPlaceHolderStrategy));
+
+        //Save to permanent memory
+        projethockey.services.AppDataProxy.saveData(this);
+        if (!strategyArray.isEmpty()) {
+            publishStrategyName();
+        }
+    }
+
+    public void setSelectedStrategy(String pSelectedStrategy) {
+        // Set Strategy's data in GUI.
+
+        this.selectedStrategy = pSelectedStrategy;
+        // Clean gui first.
+        resetPlaceHolderStrategy();
+
+        for (Strategy aStrategy: strategyArray) {
+            if (aStrategy.getName().equals(this.selectedStrategy)) {
+
+
+                // Change placeholder values
+                this.mPlaceHolderStrategy = new Strategy(aStrategy);
+
+                // Publish placeholder's Data to GUI fields
+                this.mMainWindow.publishStrategyName(this.mPlaceHolderStrategy.getName());
+
+                
+                }
+
+
+                break;
+            }
+        }
+
+    public void removeStrategy() {
+        // if one is selected, remove it
+        if (!this.selectedStrategy.equals("")) {
+            for (Strategy aStrategy: strategyArray) {
+                if (aStrategy.getName().equals(this.selectedStrategy)) {
+                    this.strategyArray.remove(aStrategy);
+                    break;
+                }
+            }
+            this.selectedStrategy = "";
+        }
+
+        // Save to permanent memory
+        projethockey.services.AppDataProxy.saveData(this);
+
+        // Update display
+        publishStrategyNames();
+    }
+
+    public void publishStrategyNames() {
+        ArrayList<String> StrategyNameList = new ArrayList<String>();
+            for (Strategy aStrategy: strategyArray) {
+                StrategyNameList.add(aStrategy.getName());
+            }
+            this.mMainWindow.publishExistingStrategy(StrategyNameList.toArray(new String[StrategyNameList.size()]));
+    }
+
+    public ArrayList<Strategy> getStrategyArray() {
+        return strategyArray;
+    }
+    public void setStrategyArray(ArrayList<Strategy> pStrategyArray) {
+        this.strategyArray = pStrategyArray;
+    }
+    
+    public void setStrategySport(Sport pSport) {
+        // maybe keep a selectedStrategySport pointer?
+        setStrategySportName(pSport.getName());
+    }
+
+    public void setStrategySportName(String sportName) {
+        this.mPlaceHolderStrategy.setSportName(sportName);
     }
 }

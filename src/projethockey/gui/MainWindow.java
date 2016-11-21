@@ -325,7 +325,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelCreateLoadStrategy = new javax.swing.JPanel();
         jButtonCreateStrategy = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jListEditorStrategy = new javax.swing.JList<>();
+        jListExistingStrategy = new javax.swing.JList<>();
         jButtonLoadStrategy = new javax.swing.JButton();
         jLabelChooseSport = new javax.swing.JLabel();
         jLabelChooseNameStrategy = new javax.swing.JLabel();
@@ -406,6 +406,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelCategoryPicture.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jPanelCategoryPicturePropertyChange(evt);
+            }
+        });
+
+        jLabelCategoryPlayerIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelCategoryPlayerIconMouseClicked(evt);
             }
         });
 
@@ -1257,17 +1263,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             }
         });
 
-        jListEditorStrategy.setModel(new javax.swing.AbstractListModel<String>() {
+        jListExistingStrategy.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Tour du chapeau", "Stratégie des Oursons" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jListEditorStrategy.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jListEditorStrategyPropertyChange(evt);
-            }
-        });
-        jScrollPane2.setViewportView(jListEditorStrategy);
+        jScrollPane2.setViewportView(jListExistingStrategy);
 
         jButtonLoadStrategy.setText("Charger une stratégie");
         jButtonLoadStrategy.addActionListener(new java.awt.event.ActionListener() {
@@ -1288,6 +1289,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jLabelAvailableStrategies.setText("Stratégies disponibles");
 
         jComboBoxChooseStrategySport.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hockey", "Hockey Spécial", "Soccer" }));
+        jComboBoxChooseStrategySport.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jComboBoxChooseStrategySportFocusLost(evt);
+            }
+        });
         jComboBoxChooseStrategySport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxChooseStrategySportActionPerformed(evt);
@@ -1295,12 +1301,18 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
 
         jButtonDeleteStrategy.setText("Supprimer");
+        jButtonDeleteStrategy.setEnabled(false);
         jButtonDeleteStrategy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDeleteStrategyActionPerformed(evt);
             }
         });
 
+        jTextFieldChooseStrategyName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldChooseStrategyNameFocusLost(evt);
+            }
+        });
         jTextFieldChooseStrategyName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldChooseStrategyNameActionPerformed(evt);
@@ -1432,6 +1444,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jButtonSaveStrategy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projethockey/gui/mySaveIcon.png"))); // NOI18N
         jButtonSaveStrategy.setText("Enregistrer");
         jButtonSaveStrategy.setAlignmentY(5.0F);
+        jButtonSaveStrategy.setEnabled(false);
         jButtonSaveStrategy.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonSaveStrategy.setIconTextGap(2);
         jButtonSaveStrategy.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -1510,6 +1523,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
 
         jButtonUndo.setText("Annuler");
+        jButtonUndo.setEnabled(false);
         jButtonUndo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonUndoActionPerformed(evt);
@@ -1525,6 +1539,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
 
         jButtonExport.setText("Exporter");
+        jButtonExport.setEnabled(false);
         jButtonExport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonExportActionPerformed(evt);
@@ -1775,7 +1790,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jButtonNewGameObstacleActionPerformed
 
     private void jButtonDeleteStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteStrategyActionPerformed
-        // TODO add your handling code here:
+        this.myController.removeStrategy();
     }//GEN-LAST:event_jButtonDeleteStrategyActionPerformed
 
     private void jButtonRedoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRedoActionPerformed
@@ -1871,7 +1886,16 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jButtonDeleteGameObstacleActionPerformed
 
     private void jButtonLoadStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoadStrategyActionPerformed
-        // TODO add your handling code here:
+        try {
+        if (jListExistingStrategy.getSelectedValue() != null & myController != null) {
+            myController.setSelectedStrategy(jListExistingStrategy.getSelectedValue());
+        }
+        else if (myController != null) {
+            String empty = "";
+            myController.setSelectedStrategy(empty);
+        }
+        } catch (Exception Ex) {
+        }
     }//GEN-LAST:event_jButtonLoadStrategyActionPerformed
 
     private void jComboBoxChooseStrategySportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxChooseStrategySportActionPerformed
@@ -1909,10 +1933,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jListExistingObstaclePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListExistingObstaclePropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jListExistingObstaclePropertyChange
-
-    private void jListEditorStrategyPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListEditorStrategyPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jListEditorStrategyPropertyChange
 
     private void jListTypeModificationTypePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListTypeModificationTypePropertyChange
         // TODO add your handling code here:
@@ -2202,6 +2222,20 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         this.myController.setObstacleIsGameObject(this.jCheckBoxIsAGameObstacle.isSelected());
     }//GEN-LAST:event_jCheckBoxIsAGameObstacleFocusLost
 
+    private void jLabelCategoryPlayerIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCategoryPlayerIconMouseClicked
+        double X = evt.getX();
+        double Y = evt.getY();
+        System.out.println("X: " + X + "Y: " + Y);
+    }//GEN-LAST:event_jLabelCategoryPlayerIconMouseClicked
+
+    private void jTextFieldChooseStrategyNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldChooseStrategyNameFocusLost
+        myController.setStrategyName(this.jTextFieldStrategyName.getText());
+    }//GEN-LAST:event_jTextFieldChooseStrategyNameFocusLost
+
+    private void jComboBoxChooseStrategySportFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBoxChooseStrategySportFocusLost
+        myController.setStrategySport(this.jComboBoxChooseStrategySport.getSelectedItem());
+    }//GEN-LAST:event_jComboBoxChooseStrategySportFocusLost
+
     /**
      * @param args the command line arguments
      */
@@ -2304,10 +2338,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JLabel jLabelStrategyName;
     private javax.swing.JLabel jLabelStrategyViewerTime;
     private javax.swing.JLabel jLabelTimeInterval;
-    private javax.swing.JList<String> jListEditorStrategy;
     private javax.swing.JList<String> jListExistingCategories;
     private javax.swing.JList<String> jListExistingObstacle;
     private javax.swing.JList<String> jListExistingSports;
+    private javax.swing.JList<String> jListExistingStrategy;
     private javax.swing.JList<String> jListObjects;
     private javax.swing.JList<String> jListPlayers;
     private javax.swing.JList<String> jListTypeModificationType;
