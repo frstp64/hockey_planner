@@ -516,6 +516,7 @@ public class Controller {
     }
 
     public void saveStrategy() {
+        // save strategy to strategy array. This is not a save snapshot.
         // Ensure the Strategy is valid here.
 
         // TODO fix this with saving in the strategy dir, one strategy per folder.
@@ -534,7 +535,7 @@ public class Controller {
         //Save to permanent memory
         projethockey.services.AppDataProxy.saveData(this);
         if (!strategyArray.isEmpty()) {
-            publishStrategyName();
+            publishStrategyNames();
         }
     }
 
@@ -587,7 +588,7 @@ public class Controller {
             for (Strategy aStrategy: strategyArray) {
                 StrategyNameList.add(aStrategy.getName());
             }
-            this.mMainWindow.publishExistingStrategy(StrategyNameList.toArray(new String[StrategyNameList.size()]));
+            this.mMainWindow.publishExistingStrategies(StrategyNameList.toArray(new String[StrategyNameList.size()]));
     }
 
     public ArrayList<Strategy> getStrategyArray() {

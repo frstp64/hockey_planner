@@ -236,6 +236,17 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         else
             return "";
     }
+    
+    
+    public void publishStrategyName(String pStrategyName) {
+        this.jTextFieldChooseStrategyName.setText(pStrategyName);
+        this.jTextFieldStrategyName.setText(pStrategyName);
+    }
+    
+    public void publishExistingStrategies(String[] plistStrategy) {
+        this.jListExistingStrategy.setListData(plistStrategy);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1842,7 +1853,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jButtonDeleteCategoryActionPerformed
 
     private void jButtonCreateStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateStrategyActionPerformed
-        // TODO add your handling code here:
+        this.myController.saveStrategy();
     }//GEN-LAST:event_jButtonCreateStrategyActionPerformed
 
     private void jButtonNewSportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewSportActionPerformed
@@ -2229,11 +2240,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jLabelCategoryPlayerIconMouseClicked
 
     private void jTextFieldChooseStrategyNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldChooseStrategyNameFocusLost
-        myController.setStrategyName(this.jTextFieldStrategyName.getText());
+        myController.setStrategyName(this.jTextFieldChooseStrategyName.getText());
     }//GEN-LAST:event_jTextFieldChooseStrategyNameFocusLost
 
     private void jComboBoxChooseStrategySportFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBoxChooseStrategySportFocusLost
-        myController.setStrategySport(this.jComboBoxChooseStrategySport.getSelectedItem());
+    //TODO fix    
+    //myController.setStrategySport(this.jComboBoxChooseStrategySport.getSelectedItem());
     }//GEN-LAST:event_jComboBoxChooseStrategySportFocusLost
 
     /**

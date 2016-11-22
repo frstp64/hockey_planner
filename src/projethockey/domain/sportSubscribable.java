@@ -38,7 +38,7 @@ public interface sportSubscribable {
     void publishCategoryObstacleIcon(BufferedImage thePicture);
     
     void publishStrategyName(String pCategoryPlayerName);
-    void publishExistingStrategy(String[] plistStrategyName);
+    void publishExistingStrategies(String[] plistStrategyName);
     //TODO
     // void publishStrategySport
     // void publishStrategyPlayers

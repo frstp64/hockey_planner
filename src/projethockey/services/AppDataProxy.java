@@ -8,6 +8,7 @@ import projethockey.domain.Controller;
 import projethockey.domain.Sport;
 import projethockey.domain.CategoryPlayer;
 import projethockey.domain.CategoryObstacle;
+import projethockey.domain.Strategy;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -76,8 +77,8 @@ public class AppDataProxy{
             // On chargement strategy, load the strategy file.
             // see save above.
             FileInputStream saveStrategyFile = new FileInputStream("Strategy.ser");
-            ObjectInputStream objectFile = new ObjectInputStream(saveStrategyFile);
-            pController.setStrategyArray((ArrayList<Strategy>) objectFile.readObject());
+            ObjectInputStream objectStrategyFile = new ObjectInputStream(saveStrategyFile);
+            pController.setStrategyArray((ArrayList<Strategy>) objectStrategyFile.readObject());
             saveStrategyFile.close();
 
         }
