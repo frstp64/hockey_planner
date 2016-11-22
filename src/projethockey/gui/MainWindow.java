@@ -648,7 +648,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                         .addComponent(jPanelCategoryPicture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonChooseCategoryImage)
-                        .addContainerGap(84, Short.MAX_VALUE))))
+                        .addContainerGap(112, Short.MAX_VALUE))))
         );
 
         jTabbedPanePlayerCategory.addTab("Catégories", jPanelCategories);
@@ -875,7 +875,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             .addGroup(jPanelObstacleLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonSaveGameObstacle, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                    .addComponent(jButtonSaveGameObstacle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonNewGameObstacle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelObstacleLayout.createSequentialGroup()
                         .addComponent(jLabelExistingObjects)
@@ -1262,7 +1262,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPaneSportObjects, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanelSportFieldViewer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         jTabbedPanePlayerCategory.addTab("Sport", jPanelSport);
@@ -1688,7 +1688,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelStrategyEditorLayout.setVerticalGroup(
             jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelStrategyEditorLayout.createSequentialGroup()
@@ -1774,9 +1774,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 12, Short.MAX_VALUE)
-                .addComponent(jTabbedPanePlayerCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPanePlayerCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 705, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         this.jTabbedPanePlayerCategory.setEnabledAt(4, false);
