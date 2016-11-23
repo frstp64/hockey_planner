@@ -333,6 +333,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jLabelExistingSportTitle = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jTextFieldFieldUnits = new javax.swing.JTextField();
+        jCheckBox1 = new javax.swing.JCheckBox();
         jPanelCreateLoadStrategy = new javax.swing.JPanel();
         jButtonCreateStrategy = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -1132,6 +1133,13 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             }
         });
 
+        jCheckBox1.setLabel("Nombre de joueur illimité");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelSportLayout = new javax.swing.GroupLayout(jPanelSport);
         jPanelSport.setLayout(jPanelSportLayout);
         jPanelSportLayout.setHorizontalGroup(
@@ -1180,7 +1188,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                                                     .addGroup(jPanelSportLayout.createSequentialGroup()
                                                         .addComponent(jLabelPlayerNumber)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(jSpinnerPlayerNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(jSpinnerPlayerNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(jCheckBox1))
                                                     .addGroup(jPanelSportLayout.createSequentialGroup()
                                                         .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                             .addComponent(jLabelPlayersTableTitle)
@@ -1206,7 +1216,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                                     .addGroup(jPanelSportLayout.createSequentialGroup()
                                         .addGap(325, 325, 325)
                                         .addComponent(jLabelObjectTableTitle)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanelSportLayout.setVerticalGroup(
@@ -1245,10 +1255,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                                 .addComponent(jTextFieldVerticalSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel1)
                                 .addComponent(jTextFieldFieldUnits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(11, 11, 11)
+                        .addGap(10, 10, 10)
                         .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelPlayerNumber)
-                            .addComponent(jSpinnerPlayerNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jSpinnerPlayerNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jCheckBox1)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelPlayersTableTitle)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2249,6 +2261,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     //myController.setStrategySport(this.jComboBoxChooseStrategySport.getSelectedItem());
     }//GEN-LAST:event_jComboBoxChooseStrategySportFocusLost
 
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2309,6 +2325,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JButton jButtonStepForwardTime;
     private javax.swing.JButton jButtonUndo;
     private javax.swing.JButton jButtonZoom;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBoxIsAGameObstacle;
     private javax.swing.JComboBox<String> jComboBoxChooseStrategySport;
     private javax.swing.JLabel jLabel1;
