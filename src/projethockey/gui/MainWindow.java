@@ -69,6 +69,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         ((DefaultTableModel) this.jTableSportsItems.getModel()).setRowCount(objectTypeNumber);
     }
 
+    public void publishSportIsUnlimited(boolean isUnlimited){
+        this.jCheckBoxUnlimitedPlayer.setSelected(isUnlimited);
+    }
 
     public void publishPlayers() {
 
@@ -828,6 +831,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jTextFieldVerticalSize.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTextFieldVerticalSizeFocusLost(evt);
+            }
+        });
+        jTextFieldVerticalSize.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldVerticalSizeActionPerformed(evt);
             }
         });
         jPanelSport.add(jTextFieldVerticalSize, new org.netbeans.lib.awtextra.AbsoluteConstraints(958, 191, 45, -1));
@@ -2099,6 +2107,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jSliderModificationGameTimeVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jSliderModificationGameTimeVetoableChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jSliderModificationGameTimeVetoableChange
+
+    private void jTextFieldVerticalSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldVerticalSizeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldVerticalSizeActionPerformed
 
     /**
      * @param args the command line arguments

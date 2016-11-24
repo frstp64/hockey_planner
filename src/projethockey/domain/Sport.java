@@ -2,6 +2,7 @@ package projethockey.domain;
 import java.io.IOException;
 import java.io.ObjectStreamException;
 import java.util.ArrayList;
+
 /**
  *
  * @author Alexandre
@@ -87,6 +88,18 @@ public class Sport implements java.io.Serializable{
     
     public float getVerticalSize() {
         return this.verticalSize;
+    }
+    
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
+    }
+    
+    public boolean isUnlimitedPlayer() {
+        return unlimitedPlayer;
     }
     
     public void reset() {
