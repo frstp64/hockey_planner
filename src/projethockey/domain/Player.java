@@ -16,7 +16,7 @@ public class Player {
     private Position position;
     private String role;
     private boolean visible;
-    
+    private int idEquipe;
     
     
     
@@ -32,15 +32,17 @@ public class Player {
         this.position = player.position;
         this.role = player.role;
         this.visible = player.visible;
+        this.idEquipe = player.idEquipe;
     }
     
-    public Player(int objectAssocied, CategoryPlayer categoryPlayer, Orientation orientation, Position position, String role, boolean visible) {
+    public Player(int objectAssocied, CategoryPlayer categoryPlayer, Orientation orientation, Position position, String role, boolean visible, int idEquipe) {
         this.objectAssocied = objectAssocied;
         this.categoryPlayer = categoryPlayer;
         this.orientation = orientation;
         this.position = position;
         this.role = role;
         this.visible = visible;
+        this.idEquipe = idEquipe;
     }
 
     public int getObjectAssocied() {
@@ -90,4 +92,14 @@ public class Player {
     public void setVisible(boolean visible) {
         this.visible = visible;
     }
+
+    public int getIdEquipe() {
+        return idEquipe;
+    }
+
+    public void setIdEquipe(int idEquipe) {
+        this.idEquipe = idEquipe;
+    }
+    
+    
 }
