@@ -1,10 +1,11 @@
 package projethockey.domain;
-
+import java.awt.image.BufferedImage;
 /**
  *
  * @author Alexandre
  */
 public class CategoryPlayer implements java.io.Serializable{
+    public BufferedImage imgPlayer;
     private String catName;
     private String imgPath;
     private int scale;
