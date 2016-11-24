@@ -123,7 +123,7 @@ public class Controller {
         this.mPlaceHolderSport.setPlayers(typeArray, playerRoleArray);
     }
 
-
+    
     public void setSportObjectTypeNumber(int pObjectNumber) {
         this.mPlaceHolderSport.setNbPlayer(pObjectNumber);
         this.mMainWindow.publishObjectTypeNumber(pObjectNumber);
@@ -223,6 +223,9 @@ public class Controller {
         this.mMainWindow.publishFieldPicture(theFieldPicture);
     }
 
+    public void setPlayerLimit(boolean pUnlimitedPlayer){
+        this.mPlaceHolderSport.setPlayerLimit(pUnlimitedPlayer);
+    }
     // -------------------- CategoryPlayer --------------------
     public void setCategoryPlayerName(String pCategoryPlayerName) {
         this.mPlaceHolderCategoryPlayer.setCategoryName(pCategoryPlayerName);

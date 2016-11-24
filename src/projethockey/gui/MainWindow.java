@@ -338,7 +338,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jLabelExistingSportTitle = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jTextFieldFieldUnits = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBoxUnlimitedPlayer = new javax.swing.JCheckBox();
         jPanelCreateLoadStrategy = new javax.swing.JPanel();
         jButtonCreateStrategy = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -1139,10 +1139,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             }
         });
 
-        jCheckBox1.setLabel("Nombre de joueur illimité");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBoxUnlimitedPlayer.setLabel("Nombre de joueur illimité");
+        jCheckBoxUnlimitedPlayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                jCheckBoxUnlimitedPlayerActionPerformed(evt);
             }
         });
 
@@ -1196,7 +1196,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                         .addComponent(jSpinnerPlayerNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGap(18, 18, 18)
-                                                        .addComponent(jCheckBox1))
+                                                        .addComponent(jCheckBoxUnlimitedPlayer))
                                                     .addGroup(jPanelSportLayout.createSequentialGroup()
                                                         .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                             .addComponent(jLabelPlayersTableTitle)
@@ -1266,7 +1266,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                             .addComponent(jLabelPlayerNumber)
                             .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jSpinnerPlayerNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jCheckBox1)))
+                                .addComponent(jCheckBoxUnlimitedPlayer)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelPlayersTableTitle)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2267,9 +2267,15 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     //myController.setStrategySport(this.jComboBoxChooseStrategySport.getSelectedItem());
     }//GEN-LAST:event_jComboBoxChooseStrategySportFocusLost
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    private void jCheckBoxUnlimitedPlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxUnlimitedPlayerActionPerformed
+        // TODO add your handling code here
+        if(jCheckBoxUnlimitedPlayer.isSelected()){
+            this.myController.setPlayerLimit(true);
+        }
+        else{
+            this.myController.setPlayerLimit(false);
+        }
+    }//GEN-LAST:event_jCheckBoxUnlimitedPlayerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2331,8 +2337,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JButton jButtonStepForwardTime;
     private javax.swing.JButton jButtonUndo;
     private javax.swing.JButton jButtonZoom;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBoxIsAGameObstacle;
+    private javax.swing.JCheckBox jCheckBoxUnlimitedPlayer;
     private javax.swing.JComboBox<String> jComboBoxChooseStrategySport;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
