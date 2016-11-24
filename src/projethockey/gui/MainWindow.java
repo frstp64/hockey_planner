@@ -391,7 +391,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jLabelStrategyViewerTime = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setSize(new java.awt.Dimension(1280, 1024));
+        setTitle("Logiciel de stratégie");
+        setMinimumSize(new java.awt.Dimension(1024, 768));
+        setSize(new java.awt.Dimension(1024, 768));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -399,8 +401,13 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
 
         jTabbedPanePlayerCategory.setFocusable(false);
+        jTabbedPanePlayerCategory.setPreferredSize(new java.awt.Dimension(1024, 768));
+
+        jPanelCategories.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelCategories.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1019, 10));
 
         jSeparator9.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanelCategories.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 156, 12, 573));
 
         jButtonNewCategory.setText("Nouveau");
         jButtonNewCategory.addActionListener(new java.awt.event.ActionListener() {
@@ -408,6 +415,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonNewCategoryActionPerformed(evt);
             }
         });
+        jPanelCategories.add(jButtonNewCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 111, 110));
 
         jButtonSaveCategory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projethockey/gui/mySaveIcon.png"))); // NOI18N
         jButtonSaveCategory.setText("Enregistrer");
@@ -418,8 +426,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonSaveCategoryActionPerformed(evt);
             }
         });
+        jPanelCategories.add(jButtonSaveCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 12, 120, 110));
 
         jLabelCategoryImage.setText("Image de catégorie choisie");
+        jPanelCategories.add(jLabelCategoryImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(429, 198, -1, -1));
 
         jPanelCategoryPicture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelCategoryPicture.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -445,7 +455,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             .addComponent(jLabelCategoryPlayerIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
         );
 
+        jPanelCategories.add(jPanelCategoryPicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 231, -1, -1));
+
         jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanelCategories.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 156, 11, 573));
 
         jButtonChooseCategoryImage.setText("Choisir image...");
         jButtonChooseCategoryImage.addActionListener(new java.awt.event.ActionListener() {
@@ -453,8 +466,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonChooseCategoryImageActionPerformed(evt);
             }
         });
+        jPanelCategories.add(jButtonChooseCategoryImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(465, 534, -1, -1));
 
         jLabelCategoryOnTerrain.setText("Image telle que vue sur le terrain");
+        jPanelCategories.add(jLabelCategoryOnTerrain, new org.netbeans.lib.awtextra.AbsoluteConstraints(742, 168, -1, -1));
 
         jPanelCategoryOnTerrain.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelCategoryOnTerrain.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -467,20 +482,26 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelCategoryOnTerrain.setLayout(jPanelCategoryOnTerrainLayout);
         jPanelCategoryOnTerrainLayout.setHorizontalGroup(
             jPanelCategoryOnTerrainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 178, Short.MAX_VALUE)
         );
         jPanelCategoryOnTerrainLayout.setVerticalGroup(
             jPanelCategoryOnTerrainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 281, Short.MAX_VALUE)
         );
 
+        jPanelCategories.add(jPanelCategoryOnTerrain, new org.netbeans.lib.awtextra.AbsoluteConstraints(753, 231, -1, -1));
+
         jLabel3.setText("Informations sur la catégorie");
+        jPanelCategories.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 193, -1, -1));
 
         jLabelCategoryName.setText("Nom:");
+        jPanelCategories.add(jLabelCategoryName, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 228, -1, -1));
 
         jLabelCategorySize.setText("Taille:");
+        jPanelCategories.add(jLabelCategorySize, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 253, -1, -1));
 
         jLabelCategoryUnits.setText("(unités):");
+        jPanelCategories.add(jLabelCategoryUnits, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 253, -1, -1));
 
         jTextFieldCategoryName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -492,6 +513,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jTextFieldCategoryNameActionPerformed(evt);
             }
         });
+        jPanelCategories.add(jTextFieldCategoryName, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 226, 163, -1));
 
         jTextFieldCategorySizeHorizontal.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -503,6 +525,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jTextFieldCategorySizeHorizontalActionPerformed(evt);
             }
         });
+        jPanelCategories.add(jTextFieldCategorySizeHorizontal, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 251, 36, -1));
 
         jTextFieldCategorySizeVertical.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -514,6 +537,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jTextFieldCategorySizeVerticalActionPerformed(evt);
             }
         });
+        jPanelCategories.add(jTextFieldCategorySizeVertical, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 251, 40, -1));
 
         jListExistingCategories.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Frontier Pierrien", "Ailier Picardier", "Gardien Röckenfelleur", "Lutteur Avant-Gardissien" };
@@ -540,7 +564,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         jScrollPane4.setViewportView(jListExistingCategories);
 
+        jPanelCategories.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 33, 335, 89));
+
         jLabelExistingCategories.setText("Catégories existantes");
+        jPanelCategories.add(jLabelExistingCategories, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 12, -1, -1));
 
         jButtonDeleteCategory.setText("Supprimer");
         jButtonDeleteCategory.addActionListener(new java.awt.event.ActionListener() {
@@ -548,118 +575,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonDeleteCategoryActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanelCategoriesLayout = new javax.swing.GroupLayout(jPanelCategories);
-        jPanelCategories.setLayout(jPanelCategoriesLayout);
-        jPanelCategoriesLayout.setHorizontalGroup(
-            jPanelCategoriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator8)
-            .addGroup(jPanelCategoriesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonNewCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonSaveCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(106, 106, 106)
-                .addGroup(jPanelCategoriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelCategoriesLayout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(jButtonDeleteCategory))
-                    .addComponent(jLabelExistingCategories))
-                .addContainerGap(747, Short.MAX_VALUE))
-            .addGroup(jPanelCategoriesLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(jPanelCategoriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3)
-                    .addGroup(jPanelCategoriesLayout.createSequentialGroup()
-                        .addComponent(jLabelCategoryName)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldCategoryName))
-                    .addGroup(jPanelCategoriesLayout.createSequentialGroup()
-                        .addComponent(jLabelCategorySize)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelCategoryUnits)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldCategorySizeHorizontal, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldCategorySizeVertical, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(100, 100, 100)
-                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanelCategoriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelCategoriesLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanelCategoryPicture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelCategoriesLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jLabelCategoryImage))
-                    .addGroup(jPanelCategoriesLayout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(jButtonChooseCategoryImage)))
-                .addGap(51, 51, 51)
-                .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 470, Short.MAX_VALUE)
-                .addGroup(jPanelCategoriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelCategoryOnTerrain, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanelCategoryOnTerrain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(102, 102, 102))
-        );
-        jPanelCategoriesLayout.setVerticalGroup(
-            jPanelCategoriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelCategoriesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelCategoriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButtonNewCategory, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonSaveCategory, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanelCategoriesLayout.createSequentialGroup()
-                        .addComponent(jLabelExistingCategories)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelCategoriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonDeleteCategory))))
-                .addGroup(jPanelCategoriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelCategoriesLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanelCategoriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelCategoriesLayout.createSequentialGroup()
-                                .addGroup(jPanelCategoriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelCategoriesLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanelCategoriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jSeparator9)
-                                            .addComponent(jSeparator10)))
-                                    .addGroup(jPanelCategoriesLayout.createSequentialGroup()
-                                        .addGap(43, 43, 43)
-                                        .addComponent(jLabelCategoryOnTerrain)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jPanelCategoryOnTerrain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addContainerGap())
-                            .addGroup(jPanelCategoriesLayout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanelCategoriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabelCategoryName)
-                                    .addComponent(jTextFieldCategoryName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanelCategoriesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabelCategorySize)
-                                    .addComponent(jLabelCategoryUnits)
-                                    .addComponent(jTextFieldCategorySizeHorizontal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldCategorySizeVertical, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(jPanelCategoriesLayout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(jLabelCategoryImage)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanelCategoryPicture, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonChooseCategoryImage)
-                        .addContainerGap(765, Short.MAX_VALUE))))
-        );
+        jPanelCategories.add(jButtonDeleteCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(735, 33, -1, -1));
 
         jTabbedPanePlayerCategory.addTab("Catégories", jPanelCategories);
+
+        jPanelObstacle.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelObstacle.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 129, 1629, 1));
 
         jButtonNewGameObstacle.setText("Nouveau");
         jButtonNewGameObstacle.addActionListener(new java.awt.event.ActionListener() {
@@ -667,6 +588,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonNewGameObstacleActionPerformed(evt);
             }
         });
+        jPanelObstacle.add(jButtonNewGameObstacle, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 111, 99));
 
         jButtonSaveGameObstacle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projethockey/gui/mySaveIcon.png"))); // NOI18N
         jButtonSaveGameObstacle.setText("Enregistrer");
@@ -677,20 +599,27 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonSaveGameObstacleActionPerformed(evt);
             }
         });
+        jPanelObstacle.add(jButtonSaveGameObstacle, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 12, 120, 99));
 
         jLabelObstacleInformation.setText("Informations sur l'objet");
+        jPanelObstacle.add(jLabelObstacleInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 177, -1, -1));
 
         jLabelObstacleName.setText("Nom:");
+        jPanelObstacle.add(jLabelObstacleName, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 212, -1, -1));
 
         jLabelObstacleSize.setText("Taille");
+        jPanelObstacle.add(jLabelObstacleSize, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 239, -1, -1));
 
         jLabelObstacleUnits.setText("(unités):");
+        jPanelObstacle.add(jLabelObstacleUnits, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 239, -1, -1));
 
         jLabelChosenObstacleImage.setText("Image d'objet choisi");
+        jPanelObstacle.add(jLabelChosenObstacleImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(515, 191, -1, 24));
 
         jLabelObstacleOnTerrain.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelObstacleOnTerrain.setText("Objet tel que vu sur le terrain");
         jLabelObstacleOnTerrain.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelObstacle.add(jLabelObstacleOnTerrain, new org.netbeans.lib.awtextra.AbsoluteConstraints(863, 195, 278, -1));
 
         jPanelObstacleOnTerrain.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelObstacleOnTerrain.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -710,6 +639,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             .addGap(0, 288, Short.MAX_VALUE)
         );
 
+        jPanelObstacle.add(jPanelObstacleOnTerrain, new org.netbeans.lib.awtextra.AbsoluteConstraints(849, 222, -1, -1));
+
         jPanelObstacleIcon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelObstacleIcon.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -728,6 +659,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             .addComponent(jLabelCategoryObstacleIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
         );
 
+        jPanelObstacle.add(jPanelObstacleIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(462, 221, -1, -1));
+
         jTextFieldObstacleName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTextFieldObstacleNameFocusLost(evt);
@@ -738,6 +671,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jTextFieldObstacleNameActionPerformed(evt);
             }
         });
+        jPanelObstacle.add(jTextFieldObstacleName, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 210, 179, -1));
 
         jTextFieldObstacleSizeHorizontal.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -749,6 +683,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jTextFieldObstacleSizeHorizontalActionPerformed(evt);
             }
         });
+        jPanelObstacle.add(jTextFieldObstacleSizeHorizontal, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 237, 53, -1));
 
         jTextFieldObstacleSizeVertical.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -760,6 +695,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jTextFieldObstacleSizeVerticalActionPerformed(evt);
             }
         });
+        jPanelObstacle.add(jTextFieldObstacleSizeVertical, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 237, 53, -1));
 
         jButtonChooseObstaclePicture.setText("Choisir image...");
         jButtonChooseObstaclePicture.addActionListener(new java.awt.event.ActionListener() {
@@ -767,10 +703,13 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonChooseObstaclePictureActionPerformed(evt);
             }
         });
+        jPanelObstacle.add(jButtonChooseObstaclePicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(529, 518, -1, -1));
 
         jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanelObstacle.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(761, 148, 51, 477));
 
         jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanelObstacle.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(417, 148, 27, 477));
 
         jCheckBoxIsAGameObstacle.setText("Objet de jeu? (association à un joueur possible)");
         jCheckBoxIsAGameObstacle.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -783,8 +722,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jCheckBoxIsAGameObstacleActionPerformed(evt);
             }
         });
+        jPanelObstacle.add(jCheckBoxIsAGameObstacle, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 285, -1, -1));
+        jCheckBoxIsAGameObstacle.getAccessibleContext().setAccessibleDescription("");
 
         jLabelExistingObjects.setText("Objets existants");
+        jPanelObstacle.add(jLabelExistingObjects, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 12, -1, -1));
 
         jListExistingObstacle.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Gourde-ballon", "Lure", "Objet parfaitement générique", "Oblongoïde" };
@@ -803,135 +745,20 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         jScrollPane3.setViewportView(jListExistingObstacle);
 
+        jPanelObstacle.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 33, -1, 78));
+
         jButtonDeleteGameObstacle.setText("Supprimer");
         jButtonDeleteGameObstacle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDeleteGameObstacleActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanelObstacleLayout = new javax.swing.GroupLayout(jPanelObstacle);
-        jPanelObstacle.setLayout(jPanelObstacleLayout);
-        jPanelObstacleLayout.setHorizontalGroup(
-            jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator3)
-            .addGroup(jPanelObstacleLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelObstacleLayout.createSequentialGroup()
-                        .addComponent(jButtonNewGameObstacle, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonSaveGameObstacle, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(110, 110, 110)
-                        .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelObstacleLayout.createSequentialGroup()
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonDeleteGameObstacle))
-                            .addComponent(jLabelExistingObjects))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelObstacleLayout.createSequentialGroup()
-                        .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelObstacleLayout.createSequentialGroup()
-                                .addGap(47, 47, 47)
-                                .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabelObstacleName, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelObstacleInformation)))
-                            .addGroup(jPanelObstacleLayout.createSequentialGroup()
-                                .addGap(48, 48, 48)
-                                .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBoxIsAGameObstacle)
-                                    .addGroup(jPanelObstacleLayout.createSequentialGroup()
-                                        .addComponent(jLabelObstacleSize)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jTextFieldObstacleName, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanelObstacleLayout.createSequentialGroup()
-                                                .addComponent(jLabelObstacleUnits)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jTextFieldObstacleSizeHorizontal, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jTextFieldObstacleSizeVertical, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelObstacleLayout.createSequentialGroup()
-                                .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelObstacleLayout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jPanelObstacleIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanelObstacleLayout.createSequentialGroup()
-                                        .addGap(71, 71, 71)
-                                        .addComponent(jLabelChosenObstacleImage)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelObstacleLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonChooseObstaclePicture)
-                                .addGap(90, 90, 90)))
-                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelObstacleLayout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(jPanelObstacleOnTerrain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelObstacleLayout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addComponent(jLabelObstacleOnTerrain, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(477, 477, 477))))
-        );
-        jPanelObstacleLayout.setVerticalGroup(
-            jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelObstacleLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonSaveGameObstacle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonNewGameObstacle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelObstacleLayout.createSequentialGroup()
-                        .addComponent(jLabelExistingObjects)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonDeleteGameObstacle))))
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
-                .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelObstacleLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelObstacleLayout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(jLabelObstacleInformation)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextFieldObstacleName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelObstacleName))
-                                .addGap(8, 8, 8)
-                                .addGroup(jPanelObstacleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabelObstacleUnits)
-                                    .addComponent(jLabelObstacleSize)
-                                    .addComponent(jTextFieldObstacleSizeHorizontal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldObstacleSizeVertical, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(29, 29, 29)
-                                .addComponent(jCheckBoxIsAGameObstacle))
-                            .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanelObstacleLayout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addComponent(jLabelChosenObstacleImage, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanelObstacleIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButtonChooseObstaclePicture))
-                            .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelObstacleLayout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(jLabelObstacleOnTerrain)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanelObstacleOnTerrain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(700, 700, 700))
-        );
-
-        jCheckBoxIsAGameObstacle.getAccessibleContext().setAccessibleDescription("");
+        jPanelObstacle.add(jButtonDeleteGameObstacle, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 33, -1, -1));
 
         jTabbedPanePlayerCategory.addTab("Objets de jeu", jPanelObstacle);
+
+        jPanelSport.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelSport.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 152, 1617, 10));
 
         jButtonSaveSport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projethockey/gui/mySaveIcon.png"))); // NOI18N
         jButtonSaveSport.setText("Enregistrer");
@@ -943,6 +770,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonSaveSportActionPerformed(evt);
             }
         });
+        jPanelSport.add(jButtonSaveSport, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 12, -1, 65));
 
         jButtonNewSport.setText("Nouveau");
         jButtonNewSport.addActionListener(new java.awt.event.ActionListener() {
@@ -950,6 +778,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonNewSportActionPerformed(evt);
             }
         });
+        jPanelSport.add(jButtonNewSport, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 12, -1, 65));
 
         jPanelSportFieldViewer.setBackground(new java.awt.Color(255, 255, 255));
         jPanelSportFieldViewer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -970,7 +799,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             .addComponent(jLabelSportField, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
         );
 
+        jPanelSport.add(jPanelSportFieldViewer, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 191, -1, -1));
+
         jLabelFieldSize.setText("Taille du terrain:");
+        jPanelSport.add(jLabelFieldSize, new org.netbeans.lib.awtextra.AbsoluteConstraints(784, 193, -1, -1));
 
         jTextFieldHorizontalSize.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -982,6 +814,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jTextFieldHorizontalSizeActionPerformed(evt);
             }
         });
+        jPanelSport.add(jTextFieldHorizontalSize, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 191, 42, -1));
 
         jButtonLoadFieldImage.setText("Charger une image...");
         jButtonLoadFieldImage.addActionListener(new java.awt.event.ActionListener() {
@@ -989,14 +822,17 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonLoadFieldImageActionPerformed(evt);
             }
         });
+        jPanelSport.add(jButtonLoadFieldImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(542, 191, -1, -1));
 
         jTextFieldVerticalSize.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTextFieldVerticalSizeFocusLost(evt);
             }
         });
+        jPanelSport.add(jTextFieldVerticalSize, new org.netbeans.lib.awtextra.AbsoluteConstraints(958, 191, 45, -1));
 
         jLabelSportName.setText("Nom:");
+        jPanelSport.add(jLabelSportName, new org.netbeans.lib.awtextra.AbsoluteConstraints(784, 170, -1, -1));
 
         jTextFieldSportName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -1008,8 +844,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jTextFieldSportNameActionPerformed(evt);
             }
         });
+        jPanelSport.add(jTextFieldSportName, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 168, 93, -1));
 
         jLabelFieldText.setText("Terrain");
+        jPanelSport.add(jLabelFieldText, new org.netbeans.lib.awtextra.AbsoluteConstraints(542, 170, -1, -1));
 
         tableSportPlayers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1050,9 +888,13 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         sportCellComboBox.addItem("Lutteur Avant-gardissien");
         categoryColumn.setCellEditor(new javax.swing.DefaultCellEditor(sportCellComboBox));
 
+        jPanelSport.add(jScrollPanePlayers, new org.netbeans.lib.awtextra.AbsoluteConstraints(944, 275, 660, 89));
+
         jLabelPlayerNumber.setText("Nombre de joueurs:");
+        jPanelSport.add(jLabelPlayerNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(784, 226, -1, -1));
 
         jLabelPlayersTableTitle.setText("Les joueurs");
+        jPanelSport.add(jLabelPlayersTableTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 254, -1, -1));
 
         jSpinnerPlayerNumber.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
         jSpinnerPlayerNumber.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -1060,6 +902,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jSpinnerPlayerNumberStateChanged(evt);
             }
         });
+        jPanelSport.add(jSpinnerPlayerNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(937, 228, -1, -1));
 
         jTableSportsItems.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1097,6 +940,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         sportCellComboBoxItems.addItem("Oblongoïde");
         categoryColumnItems.setCellEditor(new javax.swing.DefaultCellEditor(sportCellComboBoxItems));
 
+        jPanelSport.add(jScrollPaneSportObjects, new org.netbeans.lib.awtextra.AbsoluteConstraints(944, 477, 660, 116));
+
         jSpinnerObjectTypeNumber.setModel(new javax.swing.SpinnerNumberModel(1, 0, null, 1));
         jSpinnerObjectTypeNumber.setToolTipText("Nombre de types d'objets");
         jSpinnerObjectTypeNumber.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -1104,10 +949,13 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jSpinnerObjectTypeNumberStateChanged(evt);
             }
         });
+        jPanelSport.add(jSpinnerObjectTypeNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(972, 424, -1, -1));
 
         jLabelObjectTypeNumber.setText("Nombre de types d'objet:");
+        jPanelSport.add(jLabelObjectTypeNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(786, 424, -1, -1));
 
         jLabelObjectTableTitle.setText("Les objets");
+        jPanelSport.add(jLabelObjectTableTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(855, 456, -1, -1));
 
         jListExistingSports.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Hockey", "Hockey Spécial", "Soccer" };
@@ -1124,22 +972,28 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         jScrollPane1.setViewportView(jListExistingSports);
 
+        jPanelSport.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 33, -1, 101));
+
         jButtonDestroySelectedSport.setText("Supprimer");
         jButtonDestroySelectedSport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDestroySelectedSportActionPerformed(evt);
             }
         });
+        jPanelSport.add(jButtonDestroySelectedSport, new org.netbeans.lib.awtextra.AbsoluteConstraints(1281, 90, -1, -1));
 
         jLabelExistingSportTitle.setText("Les sports existants");
+        jPanelSport.add(jLabelExistingSportTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(1139, 12, -1, -1));
 
         jLabel1.setText("Unités:");
+        jPanelSport.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1021, 193, -1, -1));
 
         jTextFieldFieldUnits.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTextFieldFieldUnitsFocusLost(evt);
             }
         });
+        jPanelSport.add(jTextFieldFieldUnits, new org.netbeans.lib.awtextra.AbsoluteConstraints(1082, 191, 59, -1));
 
         jCheckBoxUnlimitedPlayer.setLabel("Nombre de joueur illimité");
         jCheckBoxUnlimitedPlayer.addActionListener(new java.awt.event.ActionListener() {
@@ -1147,6 +1001,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jCheckBoxUnlimitedPlayerActionPerformed(evt);
             }
         });
+        jPanelSport.add(jCheckBoxUnlimitedPlayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(988, 226, -1, -1));
 
         jButtonRefreshSport.setText("Actualiser");
         jButtonRefreshSport.addActionListener(new java.awt.event.ActionListener() {
@@ -1154,150 +1009,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonRefreshSportActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanelSportLayout = new javax.swing.GroupLayout(jPanelSport);
-        jPanelSport.setLayout(jPanelSportLayout);
-        jPanelSportLayout.setHorizontalGroup(
-            jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelSportLayout.createSequentialGroup()
-                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelSportLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, 1563, Short.MAX_VALUE))
-                    .addGroup(jPanelSportLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jButtonNewSport)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonSaveSport)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSportLayout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButtonDestroySelectedSport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButtonRefreshSport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(241, 241, 241))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSportLayout.createSequentialGroup()
-                                .addComponent(jLabelExistingSportTitle)
-                                .addGap(353, 353, 353))))
-                    .addGroup(jPanelSportLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanelSportFieldViewer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelSportLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPaneSportObjects, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPanePlayers, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(25, 25, 25))
-                            .addGroup(jPanelSportLayout.createSequentialGroup()
-                                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelSportLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanelSportLayout.createSequentialGroup()
-                                                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabelFieldText)
-                                                    .addComponent(jButtonLoadFieldImage))
-                                                .addGap(62, 62, 62)
-                                                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(jPanelSportLayout.createSequentialGroup()
-                                                        .addComponent(jLabelPlayerNumber)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(jSpinnerPlayerNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(jCheckBoxUnlimitedPlayer))
-                                                    .addGroup(jPanelSportLayout.createSequentialGroup()
-                                                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                            .addComponent(jLabelPlayersTableTitle)
-                                                            .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(jLabelFieldSize)
-                                                                .addComponent(jLabelSportName)))
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(jTextFieldSportName, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addGroup(jPanelSportLayout.createSequentialGroup()
-                                                                .addComponent(jTextFieldHorizontalSize, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jTextFieldVerticalSize, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addComponent(jLabel1)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jTextFieldFieldUnits, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                                            .addGroup(jPanelSportLayout.createSequentialGroup()
-                                                .addGap(244, 244, 244)
-                                                .addComponent(jLabelObjectTypeNumber)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jSpinnerObjectTypeNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(jPanelSportLayout.createSequentialGroup()
-                                        .addGap(325, 325, 325)
-                                        .addComponent(jLabelObjectTableTitle)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 469, Short.MAX_VALUE)))))
-                .addContainerGap())
-        );
-        jPanelSportLayout.setVerticalGroup(
-            jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelSportLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelSportLayout.createSequentialGroup()
-                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonSaveSport, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
-                            .addComponent(jButtonNewSport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(68, 68, 68))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSportLayout.createSequentialGroup()
-                        .addComponent(jLabelExistingSportTitle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelSportLayout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSportLayout.createSequentialGroup()
-                                .addComponent(jButtonRefreshSport)
-                                .addGap(22, 22, 22)
-                                .addComponent(jButtonDestroySelectedSport)
-                                .addGap(37, 37, 37)))))
-                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelFieldText)
-                    .addComponent(jLabelSportName)
-                    .addComponent(jTextFieldSportName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4)
-                .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelSportLayout.createSequentialGroup()
-                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonLoadFieldImage)
-                            .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabelFieldSize)
-                                .addComponent(jTextFieldHorizontalSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldVerticalSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel1)
-                                .addComponent(jTextFieldFieldUnits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelPlayerNumber)
-                            .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jSpinnerPlayerNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jCheckBoxUnlimitedPlayer)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelPlayersTableTitle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPanePlayers, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addGroup(jPanelSportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelObjectTypeNumber)
-                            .addComponent(jSpinnerObjectTypeNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelObjectTableTitle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPaneSportObjects, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanelSportFieldViewer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(706, Short.MAX_VALUE))
-        );
+        jPanelSport.add(jButtonRefreshSport, new org.netbeans.lib.awtextra.AbsoluteConstraints(1281, 43, 107, -1));
 
         jTabbedPanePlayerCategory.addTab("Sport", jPanelSport);
+
+        jPanelCreateLoadStrategy.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonCreateStrategy.setText("Créer une nouvelle stratégie");
         jButtonCreateStrategy.addActionListener(new java.awt.event.ActionListener() {
@@ -1305,6 +1021,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonCreateStrategyActionPerformed(evt);
             }
         });
+        jPanelCreateLoadStrategy.add(jButtonCreateStrategy, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 166, -1, -1));
 
         jListExistingStrategy.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Tour du chapeau", "Stratégie des Oursons" };
@@ -1313,23 +1030,31 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         jScrollPane2.setViewportView(jListExistingStrategy);
 
+        jPanelCreateLoadStrategy.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, 210));
+
         jButtonLoadStrategy.setText("Charger une stratégie");
         jButtonLoadStrategy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLoadStrategyActionPerformed(evt);
             }
         });
+        jPanelCreateLoadStrategy.add(jButtonLoadStrategy, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jLabelChooseSport.setText("Sport:");
+        jPanelCreateLoadStrategy.add(jLabelChooseSport, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 129, -1, -1));
 
         jLabelChooseNameStrategy.setText("Nom:");
+        jPanelCreateLoadStrategy.add(jLabelChooseNameStrategy, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 95, -1, -1));
 
         jSeparator11.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanelCreateLoadStrategy.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 12, 20, 350));
 
         jLabelStrategyCreationZoneTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelStrategyCreationZoneTitle.setText("Création de stratégie");
+        jPanelCreateLoadStrategy.add(jLabelStrategyCreationZoneTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 34, -1, -1));
 
         jLabelAvailableStrategies.setText("Stratégies disponibles");
+        jPanelCreateLoadStrategy.add(jLabelAvailableStrategies, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
         jComboBoxChooseStrategySport.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hockey", "Hockey Spécial", "Soccer" }));
         jComboBoxChooseStrategySport.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -1342,6 +1067,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jComboBoxChooseStrategySportActionPerformed(evt);
             }
         });
+        jPanelCreateLoadStrategy.add(jComboBoxChooseStrategySport, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 124, 191, -1));
 
         jButtonDeleteStrategy.setText("Supprimer");
         jButtonDeleteStrategy.setEnabled(false);
@@ -1350,6 +1076,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonDeleteStrategyActionPerformed(evt);
             }
         });
+        jPanelCreateLoadStrategy.add(jButtonDeleteStrategy, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
         jTextFieldChooseStrategyName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -1361,79 +1088,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jTextFieldChooseStrategyNameActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanelCreateLoadStrategyLayout = new javax.swing.GroupLayout(jPanelCreateLoadStrategy);
-        jPanelCreateLoadStrategy.setLayout(jPanelCreateLoadStrategyLayout);
-        jPanelCreateLoadStrategyLayout.setHorizontalGroup(
-            jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonDeleteStrategy)
-                    .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
-                        .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButtonLoadStrategy)
-                                .addComponent(jLabelAvailableStrategies))
-                            .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)))
-                        .addGap(27, 27, 27)
-                        .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelStrategyCreationZoneTitle)
-                                    .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
-                                        .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabelChooseNameStrategy)
-                                            .addComponent(jLabelChooseSport))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jComboBoxChooseStrategySport, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jTextFieldChooseStrategyName)))))
-                            .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
-                                .addGap(56, 56, 56)
-                                .addComponent(jButtonCreateStrategy)))))
-                .addContainerGap(1088, Short.MAX_VALUE))
-        );
-        jPanelCreateLoadStrategyLayout.setVerticalGroup(
-            jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
-                .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabelStrategyCreationZoneTitle)
-                        .addGap(37, 37, 37)
-                        .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelChooseNameStrategy)
-                            .addComponent(jTextFieldChooseStrategyName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanelCreateLoadStrategyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelChooseSport)
-                            .addComponent(jComboBoxChooseStrategySport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonCreateStrategy))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCreateLoadStrategyLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanelCreateLoadStrategyLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jButtonLoadStrategy)
-                .addGap(108, 108, 108)
-                .addComponent(jLabelAvailableStrategies)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonDeleteStrategy)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanelCreateLoadStrategy.add(jTextFieldChooseStrategyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 93, 191, -1));
 
         jTabbedPanePlayerCategory.addTab("Créer/charger stratégie", jPanelCreateLoadStrategy);
 
         jPanelStrategyEditor.setRequestFocusEnabled(false);
+        jPanelStrategyEditor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jListTypeModificationType.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Image par image", "Temps réel" };
@@ -1447,6 +1107,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         jScrollPaneModificationMode.setViewportView(jListTypeModificationType);
 
+        jPanelStrategyEditor.add(jScrollPaneModificationMode, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 167, 137, 42));
+
         jListPlayers.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Joueur1", "Joueur2", "Joueur3", "Joueur4", "Joueur5" };
             public int getSize() { return strings.length; }
@@ -1458,6 +1120,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             }
         });
         jScrollPanePlayerSelection.setViewportView(jListPlayers);
+
+        jPanelStrategyEditor.add(jScrollPanePlayerSelection, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 128, 159, 103));
 
         jListObjects.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Plot", "Ballon" };
@@ -1471,18 +1135,25 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         jScrollPaneObjectSelection.setViewportView(jListObjects);
 
+        jPanelStrategyEditor.add(jScrollPaneObjectSelection, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 128, 146, 103));
+        jPanelStrategyEditor.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 237, 1269, -1));
+
         jLabelObjectsToSelect.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelObjectsToSelect.setText("Objets");
         jLabelObjectsToSelect.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelStrategyEditor.add(jLabelObjectsToSelect, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 101, 146, -1));
 
         jLabelStrategyName.setText("Nom de la stratégie:");
+        jPanelStrategyEditor.add(jLabelStrategyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(501, 101, -1, -1));
 
         jLabelPlayerToSelect.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelPlayerToSelect.setText("Joueurs");
+        jPanelStrategyEditor.add(jLabelPlayerToSelect, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 101, 159, -1));
 
         jLabelModificationModeToSelect.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelModificationModeToSelect.setText("Mode");
         jLabelModificationModeToSelect.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanelStrategyEditor.add(jLabelModificationModeToSelect, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 140, 137, -1));
 
         jButtonSaveStrategy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projethockey/gui/mySaveIcon.png"))); // NOI18N
         jButtonSaveStrategy.setText("Enregistrer");
@@ -1496,6 +1167,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonSaveStrategyActionPerformed(evt);
             }
         });
+        jPanelStrategyEditor.add(jButtonSaveStrategy, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 113, -1, 112));
+        jPanelStrategyEditor.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 636, 64, 10));
 
         jSliderModificationGameTime.setValue(0);
         jSliderModificationGameTime.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
@@ -1503,6 +1176,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jSliderModificationGameTimeVetoableChange(evt);
             }
         });
+        jPanelStrategyEditor.add(jSliderModificationGameTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 636, 1175, -1));
 
         jButtonZoom.setText("Zoom");
         jButtonZoom.setToolTipText("Sélectionner la zone de zoom désirée avec deux points");
@@ -1511,6 +1185,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonZoomActionPerformed(evt);
             }
         });
+        jPanelStrategyEditor.add(jButtonZoom, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 716, 115, -1));
 
         jButtonNextFrameForImageMode.setText("image suivante");
         jButtonNextFrameForImageMode.setDefaultCapable(false);
@@ -1519,8 +1194,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonNextFrameForImageModeActionPerformed(evt);
             }
         });
+        jPanelStrategyEditor.add(jButtonNextFrameForImageMode, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 658, -1, -1));
 
         jLabelCursorPosition.setText("position du curseur: ");
+        jPanelStrategyEditor.add(jLabelCursorPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 664, -1, -1));
 
         jLabelCurrentPosition.setText("positionActuelle");
         jLabelCurrentPosition.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -1528,6 +1205,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jLabelCurrentPositionPropertyChange(evt);
             }
         });
+        jPanelStrategyEditor.add(jLabelCurrentPosition, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 664, -1, -1));
 
         jTextFieldTimeInterval.setText("1s");
         jTextFieldTimeInterval.addActionListener(new java.awt.event.ActionListener() {
@@ -1535,8 +1213,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jTextFieldTimeIntervalActionPerformed(evt);
             }
         });
+        jPanelStrategyEditor.add(jTextFieldTimeInterval, new org.netbeans.lib.awtextra.AbsoluteConstraints(433, 662, 30, -1));
 
         jLabelTimeInterval.setText("Intervalle");
+        jPanelStrategyEditor.add(jLabelTimeInterval, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 664, -1, -1));
 
         jButtonModificationVisualize.setText("Visualiser");
         jButtonModificationVisualize.addActionListener(new java.awt.event.ActionListener() {
@@ -1544,6 +1224,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonModificationVisualizeActionPerformed(evt);
             }
         });
+        jPanelStrategyEditor.add(jButtonModificationVisualize, new org.netbeans.lib.awtextra.AbsoluteConstraints(872, 658, 108, 71));
 
         jButtonStepBackTime.setText("Reculer");
         jButtonStepBackTime.addActionListener(new java.awt.event.ActionListener() {
@@ -1551,6 +1232,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonStepBackTimeActionPerformed(evt);
             }
         });
+        jPanelStrategyEditor.add(jButtonStepBackTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(769, 658, -1, 71));
 
         jButtonStepForwardTime.setText("Avancer");
         jButtonStepForwardTime.addActionListener(new java.awt.event.ActionListener() {
@@ -1558,12 +1240,14 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonStepForwardTimeActionPerformed(evt);
             }
         });
+        jPanelStrategyEditor.add(jButtonStepForwardTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(986, 658, -1, 71));
 
         jTextFieldStrategyName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldStrategyNameActionPerformed(evt);
             }
         });
+        jPanelStrategyEditor.add(jTextFieldStrategyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(501, 117, 137, -1));
 
         jButtonUndo.setText("Annuler");
         jButtonUndo.setEnabled(false);
@@ -1572,6 +1256,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonUndoActionPerformed(evt);
             }
         });
+        jPanelStrategyEditor.add(jButtonUndo, new org.netbeans.lib.awtextra.AbsoluteConstraints(501, 142, -1, -1));
 
         jButtonRedo.setText("Refaire");
         jButtonRedo.setEnabled(false);
@@ -1580,6 +1265,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonRedoActionPerformed(evt);
             }
         });
+        jPanelStrategyEditor.add(jButtonRedo, new org.netbeans.lib.awtextra.AbsoluteConstraints(501, 173, 88, 40));
 
         jButtonExport.setText("Exporter");
         jButtonExport.setEnabled(false);
@@ -1588,6 +1274,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonExportActionPerformed(evt);
             }
         });
+        jPanelStrategyEditor.add(jButtonExport, new org.netbeans.lib.awtextra.AbsoluteConstraints(781, 113, 103, 112));
 
         jPanelStrategyEditorLocation.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelStrategyEditorLocation.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -1607,9 +1294,13 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             .addComponent(jLabelStrategyEditorPicture, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
         );
 
+        jPanelStrategyEditor.add(jPanelStrategyEditorLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 251, -1, -1));
+
         jLabelSportsUnit.setText("Unités");
+        jPanelStrategyEditor.add(jLabelSportsUnit, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 664, -1, -1));
 
         jLabelPlayBackSpeedTitle.setText("Vitesse de jeu: ");
+        jPanelStrategyEditor.add(jLabelPlayBackSpeedTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(491, 689, -1, 25));
 
         jToggleButtonRotationMode.setText("mode rotation");
         jToggleButtonRotationMode.addActionListener(new java.awt.event.ActionListener() {
@@ -1617,6 +1308,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jToggleButtonRotationModeActionPerformed(evt);
             }
         });
+        jPanelStrategyEditor.add(jToggleButtonRotationMode, new org.netbeans.lib.awtextra.AbsoluteConstraints(1126, 658, -1, -1));
 
         jTextFieldStrategyViewerTime.setText("0");
         jTextFieldStrategyViewerTime.addActionListener(new java.awt.event.ActionListener() {
@@ -1624,6 +1316,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jTextFieldStrategyViewerTimeActionPerformed(evt);
             }
         });
+        jPanelStrategyEditor.add(jTextFieldStrategyViewerTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(448, 681, 39, -1));
 
         jTextFieldPlaybackSpeed.setToolTipText("Multiple de la vitessse normale, de 0.01 à 10");
         jTextFieldPlaybackSpeed.addActionListener(new java.awt.event.ActionListener() {
@@ -1631,187 +1324,14 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jTextFieldPlaybackSpeedActionPerformed(evt);
             }
         });
+        jPanelStrategyEditor.add(jTextFieldPlaybackSpeed, new org.netbeans.lib.awtextra.AbsoluteConstraints(607, 692, 130, -1));
 
         jLabelStrategyViewerTime.setText("Temps (s):");
-
-        javax.swing.GroupLayout jPanelStrategyEditorLayout = new javax.swing.GroupLayout(jPanelStrategyEditor);
-        jPanelStrategyEditor.setLayout(jPanelStrategyEditorLayout);
-        jPanelStrategyEditorLayout.setHorizontalGroup(
-            jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1)
-            .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                        .addComponent(jPanelStrategyEditorLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelStrategyEditorLayout.createSequentialGroup()
-                        .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                .addComponent(jLabelModificationModeToSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabelPlayerToSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                .addComponent(jScrollPaneModificationMode, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPanePlayerSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                .addComponent(jScrollPaneObjectSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldStrategyName, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButtonUndo)
-                                    .addComponent(jButtonRedo, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                .addComponent(jLabelObjectsToSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabelStrategyName)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonSaveStrategy)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonExport, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                        .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                        .addComponent(jLabelCursorPosition)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabelCurrentPosition)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabelSportsUnit))
-                                    .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                        .addComponent(jButtonZoom, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(193, 193, 193)))
-                                .addGap(45, 45, 45)
-                                .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                        .addComponent(jLabelTimeInterval)
-                                        .addGap(3, 3, 3)
-                                        .addComponent(jTextFieldTimeInterval, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButtonNextFrameForImageMode)
-                                        .addGap(40, 40, 40))
-                                    .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                        .addComponent(jLabelStrategyViewerTime)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextFieldStrategyViewerTime, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(4, 4, 4)
-                                        .addComponent(jLabelPlayBackSpeedTitle)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextFieldPlaybackSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(32, 32, 32)))
-                                .addComponent(jButtonStepBackTime)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButtonModificationVisualize, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonStepForwardTime)
-                                .addGap(51, 51, 51)
-                                .addComponent(jToggleButtonRotationMode))
-                            .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                .addComponent(jSeparator2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSliderModificationGameTime, javax.swing.GroupLayout.PREFERRED_SIZE, 1175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        jPanelStrategyEditorLayout.setVerticalGroup(
-            jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelStrategyEditorLayout.createSequentialGroup()
-                            .addComponent(jLabelModificationModeToSelect)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jScrollPaneModificationMode, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(28, 28, 28))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelStrategyEditorLayout.createSequentialGroup()
-                            .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabelPlayerToSelect)
-                                .addComponent(jLabelObjectsToSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabelStrategyName))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jScrollPanePlayerSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPaneObjectSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                        .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                            .addGap(16, 16, 16)
-                            .addComponent(jTextFieldStrategyName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButtonUndo)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButtonRedo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelStrategyEditorLayout.createSequentialGroup()
-                        .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButtonExport, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonSaveStrategy, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanelStrategyEditorLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSliderModificationGameTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonStepBackTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonModificationVisualize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonStepForwardTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButtonNextFrameForImageMode)
-                                    .addComponent(jToggleButtonRotationMode))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabelPlayBackSpeedTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldPlaybackSpeed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelTimeInterval)
-                            .addComponent(jTextFieldTimeInterval, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelCurrentPosition)
-                            .addComponent(jLabelCursorPosition)
-                            .addComponent(jLabelSportsUnit))
-                        .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButtonZoom))
-                            .addGroup(jPanelStrategyEditorLayout.createSequentialGroup()
-                                .addGroup(jPanelStrategyEditorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabelStrategyViewerTime)
-                                    .addComponent(jTextFieldStrategyViewerTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))))))
-        );
+        jPanelStrategyEditor.add(jLabelStrategyViewerTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 683, -1, -1));
 
         jTabbedPanePlayerCategory.addTab("Édition et visualisation de stratégie", jPanelStrategyEditor);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPanePlayerCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 1242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPanePlayerCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 705, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
+        getContentPane().add(jTabbedPanePlayerCategory, java.awt.BorderLayout.CENTER);
         //this.jTabbedPanePlayerCategory.setEnabledAt(4, false);
 
         pack();
@@ -1837,38 +1357,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         this.myController.removeStrategy();
     }//GEN-LAST:event_jButtonDeleteStrategyActionPerformed
 
-    private void jButtonRedoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRedoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonRedoActionPerformed
-
-    private void jButtonUndoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUndoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonUndoActionPerformed
-
-    private void jTextFieldStrategyNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStrategyNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldStrategyNameActionPerformed
-
-    private void jButtonStepForwardTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStepForwardTimeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonStepForwardTimeActionPerformed
-
-    private void jButtonStepBackTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStepBackTimeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonStepBackTimeActionPerformed
-
-    private void jButtonModificationVisualizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificationVisualizeActionPerformed
-        this.myController.playStrategy();
-    }//GEN-LAST:event_jButtonModificationVisualizeActionPerformed
-
-    private void jTextFieldTimeIntervalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTimeIntervalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldTimeIntervalActionPerformed
-
-    private void jButtonNextFrameForImageModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextFrameForImageModeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonNextFrameForImageModeActionPerformed
-
     private void jButtonDestroySelectedSportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDestroySelectedSportActionPerformed
         this.myController.removeSport();
     }//GEN-LAST:event_jButtonDestroySelectedSportActionPerformed
@@ -1876,14 +1364,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jButtonSaveSportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveSportActionPerformed
         this.myController.saveSport();
     }//GEN-LAST:event_jButtonSaveSportActionPerformed
-
-    private void jButtonChooseCategoryImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseCategoryImageActionPerformed
-        myController.getCategoryPlayerImage();
-    }//GEN-LAST:event_jButtonChooseCategoryImageActionPerformed
-
-    private void jButtonDeleteCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteCategoryActionPerformed
-        this.myController.removeCategoryPlayer();
-    }//GEN-LAST:event_jButtonDeleteCategoryActionPerformed
 
     private void jButtonCreateStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateStrategyActionPerformed
         this.myController.saveStrategy();
@@ -1896,22 +1376,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jButtonLoadFieldImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoadFieldImageActionPerformed
         myController.getSportImage();
     }//GEN-LAST:event_jButtonLoadFieldImageActionPerformed
-
-    private void jButtonNewCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewCategoryActionPerformed
-        myController.resetPlaceHolderCategoryPlayer();
-    }//GEN-LAST:event_jButtonNewCategoryActionPerformed
-
-    private void jButtonSaveCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveCategoryActionPerformed
-        this.myController.saveCategoryPlayer();
-    }//GEN-LAST:event_jButtonSaveCategoryActionPerformed
-
-    private void jTextFieldCategoryNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCategoryNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCategoryNameActionPerformed
-
-    private void jTextFieldCategorySizeHorizontalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCategorySizeHorizontalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCategorySizeHorizontalActionPerformed
 
     private void jButtonSaveGameObstacleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveGameObstacleActionPerformed
         this.myController.saveCategoryObstacle();
@@ -1950,49 +1414,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldChooseStrategyNameActionPerformed
 
-    private void jButtonSaveStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveStrategyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonSaveStrategyActionPerformed
-
-    private void jButtonExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExportActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonExportActionPerformed
-
-    private void jTextFieldStrategyViewerTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStrategyViewerTimeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldStrategyViewerTimeActionPerformed
-
-    private void jButtonZoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZoomActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonZoomActionPerformed
-
-    private void jLabelCurrentPositionPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabelCurrentPositionPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabelCurrentPositionPropertyChange
-
-    private void jListExistingCategoriesPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListExistingCategoriesPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jListExistingCategoriesPropertyChange
-
     private void jListExistingObstaclePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListExistingObstaclePropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jListExistingObstaclePropertyChange
-
-    private void jListTypeModificationTypePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListTypeModificationTypePropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jListTypeModificationTypePropertyChange
-
-    private void jListPlayersPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListPlayersPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jListPlayersPropertyChange
-
-    private void jListObjectsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListObjectsPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jListObjectsPropertyChange
-
-    private void jSliderModificationGameTimeVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jSliderModificationGameTimeVetoableChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jSliderModificationGameTimeVetoableChange
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
@@ -2002,14 +1426,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanelSportFieldViewerPropertyChange
 
-    private void jPanelCategoryPicturePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelCategoryPicturePropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanelCategoryPicturePropertyChange
-
-    private void jPanelCategoryOnTerrainPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelCategoryOnTerrainPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanelCategoryOnTerrainPropertyChange
-
     private void jPanelObstaclePicturePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelObstaclePicturePropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanelObstaclePicturePropertyChange
@@ -2017,18 +1433,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jPanelObstacleOnTerrainPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelObstacleOnTerrainPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanelObstacleOnTerrainPropertyChange
-
-    private void jPanelStrategyEditorLocationPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelStrategyEditorLocationPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanelStrategyEditorLocationPropertyChange
-
-    private void jToggleButtonRotationModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonRotationModeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButtonRotationModeActionPerformed
-
-    private void jTextFieldPlaybackSpeedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPlaybackSpeedActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPlaybackSpeedActionPerformed
 
     private void jTextFieldSportNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldSportNameFocusLost
         myController.setSportName(this.jTextFieldSportName.getText());
@@ -2178,52 +1582,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldHorizontalSizeActionPerformed
 
-    private void jTextFieldCategoryNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldCategoryNameFocusLost
-        myController.setCategoryPlayerName(this.jTextFieldCategoryName.getText());
-    }//GEN-LAST:event_jTextFieldCategoryNameFocusLost
-
-    private void jTextFieldCategorySizeHorizontalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldCategorySizeHorizontalFocusLost
-        try {
-            myController.setCategoryPlayerHorizontalSize(Float.parseFloat(this.jTextFieldCategorySizeHorizontal.getText()));
-            this.jTextFieldCategorySizeHorizontal.setBackground(Color.white);
-        }
-        catch (Exception Ex){
-            this.jTextFieldCategorySizeHorizontal.setBackground(Color.red);
-        }
-    }//GEN-LAST:event_jTextFieldCategorySizeHorizontalFocusLost
-
-    private void jTextFieldCategorySizeVerticalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCategorySizeVerticalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCategorySizeVerticalActionPerformed
-
-    private void jTextFieldCategorySizeVerticalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldCategorySizeVerticalFocusLost
-        try {
-            myController.setCategoryPlayerVerticalSize(Float.parseFloat(this.jTextFieldCategorySizeVertical.getText()));
-            this.jTextFieldCategorySizeVertical.setBackground(Color.white);
-        }
-        catch (Exception Ex){
-            this.jTextFieldCategorySizeVertical.setBackground(Color.red);
-        }
-    }//GEN-LAST:event_jTextFieldCategorySizeVerticalFocusLost
-
-    private void jListExistingCategoriesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jListExistingCategoriesFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jListExistingCategoriesFocusLost
-
-    private void jListExistingCategoriesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListExistingCategoriesMouseClicked
-    try {
-        if (jListExistingCategories.getSelectedValue() != null & myController != null) {
-            myController.setSelectedCategoryPlayer(jListExistingCategories.getSelectedValue());
-        }
-        else if (myController != null) {
-            String empty = "";
-            myController.setSelectedCategoryPlayer(empty);
-        }
-        } catch (Exception Ex) {
-
-        }
-    }//GEN-LAST:event_jListExistingCategoriesMouseClicked
-
     private void jTextFieldObstacleNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldObstacleNameFocusLost
         myController.setCategoryObstacleName(this.jTextFieldObstacleName.getText());
     }//GEN-LAST:event_jTextFieldObstacleNameFocusLost
@@ -2270,12 +1628,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         this.myController.setObstacleIsGameObject(this.jCheckBoxIsAGameObstacle.isSelected());
     }//GEN-LAST:event_jCheckBoxIsAGameObstacleFocusLost
 
-    private void jLabelCategoryPlayerIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCategoryPlayerIconMouseClicked
-        double X = evt.getX();
-        double Y = evt.getY();
-        System.out.println("X: " + X + "Y: " + Y);
-    }//GEN-LAST:event_jLabelCategoryPlayerIconMouseClicked
-
     private void jTextFieldChooseStrategyNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldChooseStrategyNameFocusLost
         myController.setStrategyName(this.jTextFieldChooseStrategyName.getText());
     }//GEN-LAST:event_jTextFieldChooseStrategyNameFocusLost
@@ -2299,6 +1651,174 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         // TODO add your handling code here:
         this.myController.refreshSport();
     }//GEN-LAST:event_jButtonRefreshSportActionPerformed
+
+    private void jButtonDeleteCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteCategoryActionPerformed
+        this.myController.removeCategoryPlayer();
+    }//GEN-LAST:event_jButtonDeleteCategoryActionPerformed
+
+    private void jListExistingCategoriesPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListExistingCategoriesPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jListExistingCategoriesPropertyChange
+
+    private void jListExistingCategoriesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListExistingCategoriesMouseClicked
+        try {
+            if (jListExistingCategories.getSelectedValue() != null & myController != null) {
+                myController.setSelectedCategoryPlayer(jListExistingCategories.getSelectedValue());
+            }
+            else if (myController != null) {
+                String empty = "";
+                myController.setSelectedCategoryPlayer(empty);
+            }
+        } catch (Exception Ex) {
+
+        }
+    }//GEN-LAST:event_jListExistingCategoriesMouseClicked
+
+    private void jListExistingCategoriesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jListExistingCategoriesFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jListExistingCategoriesFocusLost
+
+    private void jTextFieldCategorySizeVerticalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCategorySizeVerticalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCategorySizeVerticalActionPerformed
+
+    private void jTextFieldCategorySizeVerticalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldCategorySizeVerticalFocusLost
+        try {
+            myController.setCategoryPlayerVerticalSize(Float.parseFloat(this.jTextFieldCategorySizeVertical.getText()));
+            this.jTextFieldCategorySizeVertical.setBackground(Color.white);
+        }
+        catch (Exception Ex){
+            this.jTextFieldCategorySizeVertical.setBackground(Color.red);
+        }
+    }//GEN-LAST:event_jTextFieldCategorySizeVerticalFocusLost
+
+    private void jTextFieldCategorySizeHorizontalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCategorySizeHorizontalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCategorySizeHorizontalActionPerformed
+
+    private void jTextFieldCategorySizeHorizontalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldCategorySizeHorizontalFocusLost
+        try {
+            myController.setCategoryPlayerHorizontalSize(Float.parseFloat(this.jTextFieldCategorySizeHorizontal.getText()));
+            this.jTextFieldCategorySizeHorizontal.setBackground(Color.white);
+        }
+        catch (Exception Ex){
+            this.jTextFieldCategorySizeHorizontal.setBackground(Color.red);
+        }
+    }//GEN-LAST:event_jTextFieldCategorySizeHorizontalFocusLost
+
+    private void jTextFieldCategoryNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCategoryNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCategoryNameActionPerformed
+
+    private void jTextFieldCategoryNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldCategoryNameFocusLost
+        myController.setCategoryPlayerName(this.jTextFieldCategoryName.getText());
+    }//GEN-LAST:event_jTextFieldCategoryNameFocusLost
+
+    private void jPanelCategoryOnTerrainPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelCategoryOnTerrainPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelCategoryOnTerrainPropertyChange
+
+    private void jButtonChooseCategoryImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseCategoryImageActionPerformed
+        myController.getCategoryPlayerImage();
+    }//GEN-LAST:event_jButtonChooseCategoryImageActionPerformed
+
+    private void jPanelCategoryPicturePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelCategoryPicturePropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelCategoryPicturePropertyChange
+
+    private void jLabelCategoryPlayerIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCategoryPlayerIconMouseClicked
+        double X = evt.getX();
+        double Y = evt.getY();
+        System.out.println("X: " + X + "Y: " + Y);
+    }//GEN-LAST:event_jLabelCategoryPlayerIconMouseClicked
+
+    private void jButtonSaveCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveCategoryActionPerformed
+        this.myController.saveCategoryPlayer();
+    }//GEN-LAST:event_jButtonSaveCategoryActionPerformed
+
+    private void jButtonNewCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewCategoryActionPerformed
+        myController.resetPlaceHolderCategoryPlayer();
+    }//GEN-LAST:event_jButtonNewCategoryActionPerformed
+
+    private void jTextFieldPlaybackSpeedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPlaybackSpeedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPlaybackSpeedActionPerformed
+
+    private void jTextFieldStrategyViewerTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStrategyViewerTimeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldStrategyViewerTimeActionPerformed
+
+    private void jToggleButtonRotationModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonRotationModeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButtonRotationModeActionPerformed
+
+    private void jPanelStrategyEditorLocationPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelStrategyEditorLocationPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelStrategyEditorLocationPropertyChange
+
+    private void jButtonExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExportActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonExportActionPerformed
+
+    private void jButtonRedoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRedoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonRedoActionPerformed
+
+    private void jButtonUndoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUndoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonUndoActionPerformed
+
+    private void jTextFieldStrategyNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStrategyNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldStrategyNameActionPerformed
+
+    private void jButtonStepForwardTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStepForwardTimeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonStepForwardTimeActionPerformed
+
+    private void jButtonStepBackTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStepBackTimeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonStepBackTimeActionPerformed
+
+    private void jButtonModificationVisualizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificationVisualizeActionPerformed
+        this.myController.playStrategy();
+    }//GEN-LAST:event_jButtonModificationVisualizeActionPerformed
+
+    private void jTextFieldTimeIntervalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTimeIntervalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldTimeIntervalActionPerformed
+
+    private void jLabelCurrentPositionPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabelCurrentPositionPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelCurrentPositionPropertyChange
+
+    private void jButtonNextFrameForImageModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextFrameForImageModeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonNextFrameForImageModeActionPerformed
+
+    private void jButtonZoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZoomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonZoomActionPerformed
+
+    private void jSliderModificationGameTimeVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jSliderModificationGameTimeVetoableChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSliderModificationGameTimeVetoableChange
+
+    private void jButtonSaveStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveStrategyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSaveStrategyActionPerformed
+
+    private void jListObjectsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListObjectsPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jListObjectsPropertyChange
+
+    private void jListPlayersPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListPlayersPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jListPlayersPropertyChange
+
+    private void jListTypeModificationTypePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListTypeModificationTypePropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jListTypeModificationTypePropertyChange
 
     /**
      * @param args the command line arguments
