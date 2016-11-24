@@ -2088,6 +2088,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         for (int i = 0; i < rowNumber; i++) {
             Object theType = tableSportPlayers.getModel().getValueAt(i, 0);
             Object theName = tableSportPlayers.getModel().getValueAt(i, 1);
+            Object theTeam = tableSportPlayers.getModel().getValueAt(i, 2);
             if (theType != null & theName != null) {
 
                 typeArray.add(theType.toString());
@@ -2098,6 +2099,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 allCorrect = false;
             }
             if (theName == null || theName.toString().equals("")) {
+                allCorrect = false;
+            }
+            if (theTeam == null || theTeam.toString().equals("")) {
                 allCorrect = false;
             }
 
