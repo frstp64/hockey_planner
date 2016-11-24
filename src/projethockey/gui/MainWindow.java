@@ -1013,15 +1013,15 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         tableSportPlayers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Catégorie", "Nom/Rôle"
+                "Catégorie", "Nom/Rôle", "Équipe"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1038,6 +1038,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         if (tableSportPlayers.getColumnModel().getColumnCount() > 0) {
             tableSportPlayers.getColumnModel().getColumn(0).setResizable(false);
             tableSportPlayers.getColumnModel().getColumn(1).setResizable(false);
+            tableSportPlayers.getColumnModel().getColumn(2).setResizable(false);
         }
         // The following code is customized using http://docs.oracle.com/javase/tutorial/displayCode.html?code=http://docs.oracle.com/javase/tutorial/uiswing/examples/components/TableRenderDemoProject/src/components/TableRenderDemo.java
         javax.swing.JComboBox sportCellComboBox = new javax.swing.JComboBox();

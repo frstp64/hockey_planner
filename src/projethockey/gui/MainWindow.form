@@ -1072,13 +1072,19 @@
                 <Component class="javax.swing.JTable" name="tableSportPlayers">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="2" rowCount="2">
+                      <Table columnCount="3" rowCount="2">
                         <Column editable="true" title="Cat&#xe9;gorie" type="java.lang.Object"/>
                         <Column editable="true" title="Nom/R&#xf4;le" type="java.lang.String"/>
+                        <Column editable="true" title="&#xc9;quipe" type="java.lang.Integer"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" postCode="// The following code is customized using http://docs.oracle.com/javase/tutorial/displayCode.html?code=http://docs.oracle.com/javase/tutorial/uiswing/examples/components/TableRenderDemoProject/src/components/TableRenderDemo.java&#xa;javax.swing.JComboBox sportCellComboBox = new javax.swing.JComboBox();&#xa;javax.swing.table.TableColumn categoryColumn = tableSportPlayers.getColumnModel().getColumn(0);&#xa;// Dummy items, please remove later&#xa;sportCellComboBox.addItem(&quot;Frontier Pierrien&quot;);&#xa;sportCellComboBox.addItem(&quot;Ailier Picardier&quot;);&#xa;sportCellComboBox.addItem(&quot;Gardien R&#xf6;ckenfelleur&quot;);&#xa;sportCellComboBox.addItem(&quot;Lutteur Avant-gardissien&quot;);&#xa;categoryColumn.setCellEditor(new javax.swing.DefaultCellEditor(sportCellComboBox));">
                       <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                           <Title/>
                           <Editor/>
