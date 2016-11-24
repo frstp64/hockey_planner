@@ -21,7 +21,7 @@ public class Scene {
     public Scene(int pSceneSizeX, int pSceneSizeY) {
         sceneSizeX = pSceneSizeX;
         sceneSizeY = pSceneSizeY;
-        sceneImage = new BufferedImage(sceneSizeX, sceneSizeY, BufferedImage.TYPE_INT_ARGB);
+        sceneImage = new BufferedImage(sceneSizeX, sceneSizeY, BufferedImage.TYPE_INT_RGB);
     }
     
     public void putBackground(BufferedImage backgroundPicture) {

@@ -15,7 +15,7 @@ public class ProjetHockey {
 
     public static void main(String[] args) {
         projethockey.gui.MainWindow mainWindow = new projethockey.gui.MainWindow();
-        Controller myController = new projethockey.domain.Controller(mainWindow);
+        Controller myController = new projethockey.domain.Controller();
         mainWindow.setController(myController);
         myController.subscribeWindow(mainWindow);
         mainWindow.setVisible(true);

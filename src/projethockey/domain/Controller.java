@@ -40,10 +40,11 @@ public class Controller {
     private String selectedStrategy;
 
     private projetHockeyInterface mMainWindow; // A reference to the window
-
+    
+    private Scene myScene;
+    
     // The constructor
-    public Controller(MainWindow pMainWindow) {
-        this.mMainWindow = pMainWindow;
+    public Controller() {
 
         // Sport
         mPlaceHolderSport = new Sport();
@@ -57,9 +58,18 @@ public class Controller {
         // Strategy
         mPlaceHolderStrategy = new Strategy();
         strategyArray = new ArrayList<Strategy>();
+        
+        myScene = new Scene(300, 300);
 
         AppDataProxy.loadData(this);
 
+        
+    }
+
+    // A simple global subscriber to get a reference to the window
+    public void subscribeWindow(MainWindow pMainWindow)
+    {
+        this.mMainWindow = pMainWindow;
         this.selectedSport = "";
         this.setSelectedCategoryPlayer("");
         this.setSelectedCategoryObstacle("");
@@ -78,12 +88,6 @@ public class Controller {
         if (!strategyArray.isEmpty()) {
             publishStrategyNames();
         }
-    }
-
-    // A simple global subscriber to get a reference to the window
-    public void subscribeWindow(MainWindow pMainWindow)
-    {
-        this.mMainWindow = pMainWindow;
     }
 
 
@@ -605,5 +609,18 @@ public class Controller {
 
     public void setStrategySportName(String sportName) {
         this.mPlaceHolderStrategy.setSportName(sportName);
+    }
+    
+    public void playStrategy() {
+        // test stuff
+        BufferedImage whitePic = new BufferedImage(10, 10, BufferedImage.TYPE_INT_RGB);
+        whitePic.setRGB(0, 0, 256*256*253 + 256*253 + 253);
+        whitePic.setRGB(9, 9, 256*256*253 + 256*253 + 253);
+                
+        for(int i = 0; i < 3000000; i++) {
+            
+        myScene.putPicture(whitePic, 150, 150);
+        this.mMainWindow.publishScene(myScene.getScenePicture());
+        }
     }
 }

@@ -25,6 +25,7 @@ public interface sportSubscribable {
     String requestFilePath();
     void publishObjectTypeNumber(int objectTypeNumber);
     void publishPlayerCategories(ArrayList<String> pPlayerCategoryList);
+    void publishScene(BufferedImage pSceneImage);
     
     void publishCategoryPlayerName(String pCategoryPlayerName);
     void publishCategoryPlayerDimensions(Float pdimX, Float pdimY);

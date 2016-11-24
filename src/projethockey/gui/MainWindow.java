@@ -247,6 +247,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         this.jListExistingStrategy.setListData(plistStrategy);
     }
     
+    public void publishScene(BufferedImage pSceneImage) {
+        this.jLabelStrategyEditorPicture.setIcon(new ImageIcon(pSceneImage));
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -376,6 +381,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jButtonRedo = new javax.swing.JButton();
         jButtonExport = new javax.swing.JButton();
         jPanelStrategyEditorLocation = new javax.swing.JPanel();
+        jLabelStrategyEditorPicture = new javax.swing.JLabel();
         jLabelSportsUnit = new javax.swing.JLabel();
         jLabelPlayBackSpeedTitle = new javax.swing.JLabel();
         jToggleButtonRotationMode = new javax.swing.JToggleButton();
@@ -1580,11 +1586,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelStrategyEditorLocation.setLayout(jPanelStrategyEditorLocationLayout);
         jPanelStrategyEditorLocationLayout.setHorizontalGroup(
             jPanelStrategyEditorLocationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1219, Short.MAX_VALUE)
+            .addComponent(jLabelStrategyEditorPicture, javax.swing.GroupLayout.DEFAULT_SIZE, 1219, Short.MAX_VALUE)
         );
         jPanelStrategyEditorLocationLayout.setVerticalGroup(
             jPanelStrategyEditorLocationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 377, Short.MAX_VALUE)
+            .addComponent(jLabelStrategyEditorPicture, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
         );
 
         jLabelSportsUnit.setText("Unités");
@@ -1792,7 +1798,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 .addContainerGap())
         );
 
-        this.jTabbedPanePlayerCategory.setEnabledAt(4, false);
+        //this.jTabbedPanePlayerCategory.setEnabledAt(4, false);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1838,7 +1844,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jButtonStepBackTimeActionPerformed
 
     private void jButtonModificationVisualizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificationVisualizeActionPerformed
-        // TODO add your handling code here:
+        this.myController.playStrategy();
     }//GEN-LAST:event_jButtonModificationVisualizeActionPerformed
 
     private void jTextFieldTimeIntervalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTimeIntervalActionPerformed
@@ -2365,6 +2371,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JLabel jLabelSportName;
     private javax.swing.JLabel jLabelSportsUnit;
     private javax.swing.JLabel jLabelStrategyCreationZoneTitle;
+    private javax.swing.JLabel jLabelStrategyEditorPicture;
     private javax.swing.JLabel jLabelStrategyName;
     private javax.swing.JLabel jLabelStrategyViewerTime;
     private javax.swing.JLabel jLabelTimeInterval;
