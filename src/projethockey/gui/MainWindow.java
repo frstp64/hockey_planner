@@ -260,6 +260,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jTabbedPanePlayerCategory = new javax.swing.JTabbedPane();
         jPanelCategories = new javax.swing.JPanel();
@@ -1013,7 +1014,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         jTabbedPanePlayerCategory.addTab("Sport", jPanelSport);
 
-        jPanelCreateLoadStrategy.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelCreateLoadStrategy.setLayout(new java.awt.GridBagLayout());
 
         jButtonCreateStrategy.setText("Créer une nouvelle stratégie");
         jButtonCreateStrategy.addActionListener(new java.awt.event.ActionListener() {
@@ -1021,7 +1022,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonCreateStrategyActionPerformed(evt);
             }
         });
-        jPanelCreateLoadStrategy.add(jButtonCreateStrategy, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 166, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanelCreateLoadStrategy.add(jButtonCreateStrategy, gridBagConstraints);
 
         jListExistingStrategy.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Tour du chapeau", "Stratégie des Oursons" };
@@ -1030,7 +1035,16 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         jScrollPane2.setViewportView(jListExistingStrategy);
 
-        jPanelCreateLoadStrategy.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, 210));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 135;
+        gridBagConstraints.ipady = 188;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jPanelCreateLoadStrategy.add(jScrollPane2, gridBagConstraints);
 
         jButtonLoadStrategy.setText("Charger une stratégie");
         jButtonLoadStrategy.addActionListener(new java.awt.event.ActionListener() {
@@ -1038,23 +1052,52 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonLoadStrategyActionPerformed(evt);
             }
         });
-        jPanelCreateLoadStrategy.add(jButtonLoadStrategy, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanelCreateLoadStrategy.add(jButtonLoadStrategy, gridBagConstraints);
 
         jLabelChooseSport.setText("Sport:");
-        jPanelCreateLoadStrategy.add(jLabelChooseSport, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 129, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanelCreateLoadStrategy.add(jLabelChooseSport, gridBagConstraints);
 
         jLabelChooseNameStrategy.setText("Nom:");
-        jPanelCreateLoadStrategy.add(jLabelChooseNameStrategy, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 95, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanelCreateLoadStrategy.add(jLabelChooseNameStrategy, gridBagConstraints);
 
         jSeparator11.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanelCreateLoadStrategy.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 12, 20, 350));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 5;
+        gridBagConstraints.ipadx = 19;
+        gridBagConstraints.ipady = 349;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanelCreateLoadStrategy.add(jSeparator11, gridBagConstraints);
 
         jLabelStrategyCreationZoneTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelStrategyCreationZoneTitle.setText("Création de stratégie");
-        jPanelCreateLoadStrategy.add(jLabelStrategyCreationZoneTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 34, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanelCreateLoadStrategy.add(jLabelStrategyCreationZoneTitle, gridBagConstraints);
 
         jLabelAvailableStrategies.setText("Stratégies disponibles");
-        jPanelCreateLoadStrategy.add(jLabelAvailableStrategies, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(24, 30, 0, 0);
+        jPanelCreateLoadStrategy.add(jLabelAvailableStrategies, gridBagConstraints);
 
         jComboBoxChooseStrategySport.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hockey", "Hockey Spécial", "Soccer" }));
         jComboBoxChooseStrategySport.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -1067,7 +1110,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jComboBoxChooseStrategySportActionPerformed(evt);
             }
         });
-        jPanelCreateLoadStrategy.add(jComboBoxChooseStrategySport, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 124, 191, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.ipadx = 61;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanelCreateLoadStrategy.add(jComboBoxChooseStrategySport, gridBagConstraints);
 
         jButtonDeleteStrategy.setText("Supprimer");
         jButtonDeleteStrategy.setEnabled(false);
@@ -1076,7 +1124,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jButtonDeleteStrategyActionPerformed(evt);
             }
         });
-        jPanelCreateLoadStrategy.add(jButtonDeleteStrategy, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 0, 0);
+        jPanelCreateLoadStrategy.add(jButtonDeleteStrategy, gridBagConstraints);
 
         jTextFieldChooseStrategyName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -1088,7 +1141,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jTextFieldChooseStrategyNameActionPerformed(evt);
             }
         });
-        jPanelCreateLoadStrategy.add(jTextFieldChooseStrategyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 93, 191, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 187;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanelCreateLoadStrategy.add(jTextFieldChooseStrategyName, gridBagConstraints);
 
         jTabbedPanePlayerCategory.addTab("Créer/charger stratégie", jPanelCreateLoadStrategy);
 
