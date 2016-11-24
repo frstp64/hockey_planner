@@ -14,6 +14,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import projethockey.services.AppDataProxy;
 import javax.imageio.*;
+import java.awt.image.BufferedImage;
+import java.net.URL;
 /**
  *
  * @author znuxor
@@ -345,10 +347,10 @@ public class Controller {
 
     public void publishCategoryPlayerNames() {
         ArrayList<String> categoryPlayerNameList = new ArrayList<String>();
-            for (CategoryPlayer aCategoryPlayer: categoryPlayerArray) {
-                categoryPlayerNameList.add(aCategoryPlayer.getCategoryName());
-            }
-            this.mMainWindow.publishExistingCategoryPlayer(categoryPlayerNameList.toArray(new String[categoryPlayerNameList.size()]));
+        for (CategoryPlayer aCategoryPlayer: categoryPlayerArray) {
+            categoryPlayerNameList.add(aCategoryPlayer.getCategoryName());
+        }
+        this.mMainWindow.publishExistingCategoryPlayer(categoryPlayerNameList.toArray(new String[categoryPlayerNameList.size()]));
     }
 
     public ArrayList<CategoryPlayer> getCategoryPlayerArray() {
@@ -360,14 +362,16 @@ public class Controller {
 
     public void getCategoryPlayerImage() {
         String categoryPlayerImagePath = this.mMainWindow.requestFilePath();
+
         if (!categoryPlayerImagePath.equals("")) {
         try {
-            java.awt.image.BufferedImage myImg = ImageIO.read(new File(categoryPlayerImagePath));
+            BufferedImage myImg = ImageIO.read(new File(categoryPlayerImagePath));
 
             setCategoryPlayerImage(myImg);
             this.mPlaceHolderCategoryPlayer.setImgPath(categoryPlayerImagePath);
         } catch (IOException ex) {
             System.out.println("Error happenedwhile reading image");
+            System.out.println(ex);
         }
         }
     }
