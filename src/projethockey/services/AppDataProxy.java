@@ -19,59 +19,45 @@ import java.util.ArrayList;
 // This class deals with the application's main data, excluding strategies
 public class AppDataProxy{
     public static void saveData(Controller pController) {
-        try {
-        ObjectOutputStream saveSportFile = new ObjectOutputStream(new FileOutputStream("sports.ser"));
-        ObjectOutputStream saveCategoryPlayerFile = new ObjectOutputStream(new FileOutputStream("categoryPlayers.ser"));
-        ObjectOutputStream saveCategoryObstacleFile = new ObjectOutputStream(new FileOutputStream("categoryObstacles.ser"));
+        try {        
+            ObjectOutputStream saveSportPlayerObjectFile = new ObjectOutputStream(new FileOutputStream("saveSportPlayerObjectFile.ser"));
 
-        // Save the sport
-        saveSportFile.writeObject(pController.getSportArray());
-        // Save the categories
-        saveCategoryPlayerFile.writeObject(pController.getCategoryPlayerArray());
-        // Save the game objects
-        saveCategoryObstacleFile.writeObject(pController.getCategoryObstacleArray());
+            // Save the sport
+            saveSportPlayerObjectFile.writeObject(pController.getSportArray());
+            // Save the categories
+            saveSportPlayerObjectFile.writeObject(pController.getCategoryPlayerArray());
+            // Save the game objects
+            saveSportPlayerObjectFile.writeObject(pController.getCategoryObstacleArray());
 
-        saveSportFile.close();
-        saveCategoryPlayerFile.close();
+            saveSportPlayerObjectFile.close();
 
-        // Save strategy. TODO
-        // pour l'instant, on sauve toutes les strategy dans un seul fichier.
-        // ca devrait se faire dans un dossier.
-        // Le arrayStrategy du controleur devrait seulement contenir des string et etre cree a partir des fichiers dans ce dossier.
-        ObjectOutputStream saveStrategyFile = new ObjectOutputStream(new FileOutputStream("Strategy.ser"));
-        // Save the Strategy array with strategy content
-        saveStrategyFile.writeObject(pController.getStrategyArray());
-        saveStrategyFile.close();
+            // Save strategy. TODO
+            // For now all strategy are save in the same file
+            // Should be in a folder with a new file for every sport
+            // Le arrayStrategy du controleur devrait seulement contenir des string et etre cree a partir des fichiers dans ce dossier.
+            ObjectOutputStream saveStrategyFile = new ObjectOutputStream(new FileOutputStream("Strategy.ser"));
+            // Save the Strategy array with strategy content
+            saveStrategyFile.writeObject(pController.getStrategyArray());
+            saveStrategyFile.close();
 
         }
         catch (IOException e) {
-            // LOG INFO HERE
+            System.out.println("IOException");
+            System.out.println(e);
         }
-
-        // Do the rest of the data too. Try catch for each.
-
     }
 
     public static void loadData(Controller pController) {
-        try {
-            // load sports
-            FileInputStream saveSportFile = new FileInputStream("sports.ser");
-            ObjectInputStream objectFile = new ObjectInputStream(saveSportFile);
-            pController.setSportArray((ArrayList<Sport>) objectFile.readObject());
-            saveSportFile.close();
-
-            //load categoryPlayers
-            FileInputStream saveCategoryPlayerFile = new FileInputStream("categoryPlayers.ser");
-            ObjectInputStream objectCategoryPlayerFile = new ObjectInputStream(saveCategoryPlayerFile);
-            pController.setCategoryPlayerArray((ArrayList<CategoryPlayer>) objectCategoryPlayerFile.readObject());
-            saveCategoryPlayerFile.close();
-
-            //load categoryObstacles
-            FileInputStream saveCategoryObstacleFile = new FileInputStream("categoryObstacles.ser");
-            ObjectInputStream objectCategoryObstacleFile = new ObjectInputStream(saveCategoryObstacleFile);
-            pController.setCategoryObstacleArray((ArrayList<CategoryObstacle>) objectCategoryObstacleFile.readObject());
-            saveCategoryObstacleFile.close();
-
+        try {            
+            // load sports, categoryPlayers, load categoryObstacles
+            FileInputStream saveSportPlayerObstacleFile = new FileInputStream("saveSportPlayerObjectFile.ser");
+            ObjectInputStream objectImputSportPlayerObstacle = new ObjectInputStream(saveSportPlayerObstacleFile);
+            pController.setSportArray((ArrayList<Sport>) objectImputSportPlayerObstacle.readObject());
+            pController.setCategoryPlayerArray((ArrayList<CategoryPlayer>) objectImputSportPlayerObstacle.readObject());
+            pController.setCategoryObstacleArray((ArrayList<CategoryObstacle>) objectImputSportPlayerObstacle.readObject());
+            objectImputSportPlayerObstacle.close();
+                        
+            
             // load Strategy
             //TODO, save every strategy in a folder. On load, construct array only.
             // On chargement strategy, load the strategy file.
@@ -83,12 +69,12 @@ public class AppDataProxy{
 
         }
         catch (IOException e) {
-            System.out.println("shit1");
+            System.out.println("IOException");
             System.out.println(e);
             // LOG INFO HERE
         }
         catch (ClassNotFoundException e) {
-            System.out.println("shit2");
+            System.out.println("ClassNotFoundException");
             // LOG HERE
         }
 
