@@ -189,6 +189,19 @@ public class Controller {
         // Update display
         publishSportsNames();
     }
+    
+    public void refreshSport() {
+        //if one is selected, refresh the text fields
+        for (Sport aSport: sportArray) {
+                if (aSport.getName().equals(this.selectedSport)) {
+                    //
+                    this.mMainWindow.publishSportName(aSport.getName());
+                    this.mMainWindow.publishPlayerNumber(aSport.getNbPlayer());
+                }
+            }
+            this.selectedSport = "";
+        }
+
 
     public void publishSportsNames() {
         ArrayList<String> sportNameList = new ArrayList<String>();
