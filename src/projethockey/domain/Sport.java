@@ -13,6 +13,7 @@ public class Sport implements java.io.Serializable{
     private Float horizontalSize;
     private Float verticalSize;
     private int nbPlayer;
+    private boolean unlimitedPlayer;
     private Orientation fieldOrientation;
     private CategoryPlayer catPlayer;
     //private var objectAssocied;
@@ -27,6 +28,7 @@ public class Sport implements java.io.Serializable{
         this.nbPlayer = sport.nbPlayer;
         this.fieldOrientation = sport.fieldOrientation;
         this.catPlayer = sport.catPlayer;
+        this.unlimitedPlayer = sport.unlimitedPlayer;
     }
 
     public Sport(String name, String imgPath, String dimentionUnit, int nbPlayer, Orientation fieldOrientation, CategoryPlayer catPlayer) {
@@ -36,6 +38,7 @@ public class Sport implements java.io.Serializable{
         this.nbPlayer = nbPlayer;
         this.fieldOrientation = fieldOrientation;
         this.catPlayer = catPlayer;
+        this.unlimitedPlayer = false;
     }
 
     public String getName() {
@@ -59,6 +62,7 @@ public class Sport implements java.io.Serializable{
     }
 
     public void setNbPlayer(int nbPlayer) {
+        this.unlimitedPlayer = true;
         this.nbPlayer = nbPlayer;
     }
 
@@ -100,5 +104,9 @@ public class Sport implements java.io.Serializable{
     }
     public void setObjects(ArrayList<String> typeArray, ArrayList<Integer> numberArray) {
         //TODO
+    }
+    
+    public void setPlayerLimit(boolean pUnlimitedPlayer){
+        this.unlimitedPlayer = pUnlimitedPlayer;
     }
 }
