@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projethockey.domain;
 
 /**
@@ -14,11 +9,10 @@ public class Player {
     private CategoryPlayer categoryPlayer;
     private Orientation orientation;
     private Position position;
+    private String name;
     private String role;
     private boolean visible;
     private int idEquipe;
-    
-    
     
     //private var gestion;
 
@@ -30,16 +24,18 @@ public class Player {
         this.categoryPlayer = player.categoryPlayer;
         this.orientation = player.orientation;
         this.position = player.position;
+        this.name = player.name;
         this.role = player.role;
         this.visible = player.visible;
-        this.idEquipe = player.idEquipe;
+        this.idEquipe = player.idEquipe;        
     }
     
-    public Player(int objectAssocied, CategoryPlayer categoryPlayer, Orientation orientation, Position position, String role, boolean visible, int idEquipe) {
+    public Player(int objectAssocied, CategoryPlayer categoryPlayer, Orientation orientation, Position position, String name, String role, boolean visible, int idEquipe) {
         this.objectAssocied = objectAssocied;
         this.categoryPlayer = categoryPlayer;
         this.orientation = orientation;
         this.position = position;
+        this.name = name;
         this.role = role;
         this.visible = visible;
         this.idEquipe = idEquipe;
@@ -100,6 +96,12 @@ public class Player {
     public void setIdEquipe(int idEquipe) {
         this.idEquipe = idEquipe;
     }
-    
-    
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }    
 }

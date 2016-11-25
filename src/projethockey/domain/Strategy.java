@@ -1,5 +1,6 @@
 package projethockey.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 
@@ -15,25 +16,32 @@ public class Strategy implements java.io.Serializable{
     private String sportName;
     private List<Snapshot> listSnapshot;
     private String name;
+    private Sport sport;
+    private ArrayList<Team> listTeam;
 
     public Strategy() {
     }
     
     public Strategy(Strategy strategy) {
-        this.name = strategy.name;
         this.playBackSpeed = strategy.playBackSpeed;
         this.deltaTimeFrame = strategy.deltaTimeFrame;
         this.sportName = strategy.sportName;
         this.listSnapshot = strategy.listSnapshot;
+        this.name = strategy.name;
+        this.sport = strategy.sport;
+        this.listTeam = strategy.listTeam;
     }
 
-    public Strategy(float playBackSpeed, Date deltaTimeFrame, String sportName, List<Snapshot> listSnapshot) {
-        //this.name = name
+    public Strategy(float playBackSpeed, Date deltaTimeFrame, String sportName, List<Snapshot> listSnapshot, String name, Sport sport, ArrayList<Team> listTeam) {
         this.playBackSpeed = playBackSpeed;
         this.deltaTimeFrame = deltaTimeFrame;
         this.sportName = sportName;
         this.listSnapshot = listSnapshot;
+        this.name = name;
+        this.sport = sport;
+        this.listTeam = listTeam;
     }
+    
     
     public String getName() {
         return name;
@@ -74,6 +82,24 @@ public class Strategy implements java.io.Serializable{
     public void setListSnapshot(List<Snapshot> listSnapshot) {
         this.listSnapshot = listSnapshot;
     }
+
+    public Sport getSport() {
+        return sport;
+    }
+
+    public void setSport(Sport sport) {
+        this.sport = sport;
+    }
+
+    public ArrayList<Team> getListTeam() {
+        return listTeam;
+    }
+
+    public void setListTeam(ArrayList<Team> listTeam) {
+        this.listTeam = listTeam;
+    }
+    
+    
             
     /*
                 Public methodes

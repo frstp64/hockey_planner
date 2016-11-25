@@ -1,21 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projethockey.gui;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
-import java.beans.PropertyChangeEvent;
 import projethockey.domain.Controller;
 import projethockey.domain.sportSubscribable;
-import java.util.List;
-import java.beans.PropertyVetoException;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import projethockey.domain.projetHockeyInterface;

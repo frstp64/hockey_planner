@@ -1,6 +1,4 @@
 package projethockey.domain;
-import java.io.IOException;
-import java.io.ObjectStreamException;
 import java.util.ArrayList;
 
 /**
@@ -16,7 +14,7 @@ public class Sport implements java.io.Serializable{
     private int nbPlayer;
     private boolean unlimitedPlayer;
     private Orientation fieldOrientation;
-    private CategoryPlayer catPlayer;
+    private ArrayList<CategoryPlayer> listCatPlayer;
     //private var objectAssocied;
     
     Sport() {
@@ -26,20 +24,24 @@ public class Sport implements java.io.Serializable{
         this.name = sport.name;
         this.imgPath = sport.imgPath;
         this.dimentionUnit = sport.dimentionUnit;
+        this.horizontalSize = sport.horizontalSize;
+        this.verticalSize = sport.verticalSize;
         this.nbPlayer = sport.nbPlayer;
-        this.fieldOrientation = sport.fieldOrientation;
-        this.catPlayer = sport.catPlayer;
         this.unlimitedPlayer = sport.unlimitedPlayer;
+        this.fieldOrientation = sport.fieldOrientation;
+        this.listCatPlayer = sport.listCatPlayer;
     }
 
-    public Sport(String name, String imgPath, String dimentionUnit, int nbPlayer, Orientation fieldOrientation, CategoryPlayer catPlayer) {
+    public Sport(String name, String imgPath, String dimentionUnit, Float horizontalSize, Float verticalSize, int nbPlayer, boolean unlimitedPlayer, Orientation fieldOrientation, ArrayList<CategoryPlayer> listCatPlayer) {
         this.name = name;
         this.imgPath = imgPath;
         this.dimentionUnit = dimentionUnit;
+        this.horizontalSize = horizontalSize;
+        this.verticalSize = verticalSize;
         this.nbPlayer = nbPlayer;
+        this.unlimitedPlayer = unlimitedPlayer;
         this.fieldOrientation = fieldOrientation;
-        this.catPlayer = catPlayer;
-        this.unlimitedPlayer = false;
+        this.listCatPlayer = listCatPlayer;
     }
 
     public String getName() {
@@ -100,8 +102,20 @@ public class Sport implements java.io.Serializable{
     
     public boolean isUnlimitedPlayer() {
         return unlimitedPlayer;
-    }
+    }    
     
+    public void setPlayerLimit(boolean pUnlimitedPlayer){
+        this.unlimitedPlayer = pUnlimitedPlayer;
+    }
+
+    public ArrayList<CategoryPlayer> getListCatPlayer() {
+        return listCatPlayer;
+    }
+
+    public void setListCatPlayer(ArrayList<CategoryPlayer> listCatPlayer) {
+        this.listCatPlayer = listCatPlayer;
+    }
+
     public void reset() {
         this.verticalSize = (float) 0;
         this.horizontalSize = (float) 0;
@@ -119,7 +133,24 @@ public class Sport implements java.io.Serializable{
         //TODO
     }
     
-    public void setPlayerLimit(boolean pUnlimitedPlayer){
-        this.unlimitedPlayer = pUnlimitedPlayer;
+    
+    public boolean isTeamListValid(ArrayList<Team> listTeam) {
+        boolean isValid = true;
+        
+        //Is the number of player and the category of player alright
+        if(this.nbPlayer < listTeam.size())
+            isValid = false;
+        else {
+            for(Team team : listTeam) {
+                for(Player player : team.getListPlayer()) {
+                    if(!listCatPlayer.contains(player.getCategoryPlayer())) {
+                        isValid = false;
+                    }
+                }                    
+            }
+        }     
+        
+        return isValid;
     }
+            
 }
