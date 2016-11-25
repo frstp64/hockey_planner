@@ -11,6 +11,7 @@ import projethockey.services.AppDataProxy;
 import javax.imageio.*;
 import java.awt.image.BufferedImage;
 import java.net.URL;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 /**
@@ -42,6 +43,7 @@ public class Controller {
     
     private Scene myScene;
     private Timer timer;
+    private int timeViewer;
     public enum StrategyViewerState { Stop, Play, Pause}
     StrategyViewerState viewerState;
     
@@ -690,13 +692,21 @@ public class Controller {
         viewerState = (!viewerState.equals(StrategyViewerState.Play)) ? StrategyViewerState.Play : StrategyViewerState.Pause;
     }
     
-    
     public void playStrategyNextFrame() {
         if(viewerState.equals(StrategyViewerState.Play))
         {
+            timeViewer++;
             //The animation here
             //this.mPlaceHolderStrategy.getFrame();
         }
     }
+      
+    public void playStepBackTimeFrame() {
+        timeViewer -=2;
+        playStrategyNextFrame();
+    }
     
+    public void playStepFowardTimeFrame() {
+        playStrategyNextFrame();
+    }
 }
