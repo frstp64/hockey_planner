@@ -13,7 +13,7 @@ public class CategoryPlayer implements java.io.Serializable{
     private Float horizontalSize;
     private Float verticalSize;
     
-    public CategoryPlayer(){
+    public CategoryPlayer() {
     }
     
     public CategoryPlayer(String catName, String imgPath, Position positionDefault, int scale) {
