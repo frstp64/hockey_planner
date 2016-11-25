@@ -313,37 +313,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jScrollPane3 = new javax.swing.JScrollPane();
         jListExistingObstacle = new javax.swing.JList<>();
         jButtonDeleteGameObstacle = new javax.swing.JButton();
-        jPanelSport = new javax.swing.JPanel();
-        jSeparator7 = new javax.swing.JSeparator();
-        jButtonSaveSport = new javax.swing.JButton();
-        jButtonNewSport = new javax.swing.JButton();
-        jPanelSportFieldViewer = new javax.swing.JPanel();
-        jLabelSportField = new javax.swing.JLabel();
-        jLabelFieldSize = new javax.swing.JLabel();
-        jTextFieldHorizontalSize = new javax.swing.JTextField();
-        jButtonLoadFieldImage = new javax.swing.JButton();
-        jTextFieldVerticalSize = new javax.swing.JTextField();
-        jLabelSportName = new javax.swing.JLabel();
-        jTextFieldSportName = new javax.swing.JTextField();
-        jLabelFieldText = new javax.swing.JLabel();
-        jScrollPanePlayers = new javax.swing.JScrollPane();
-        tableSportPlayers = new javax.swing.JTable();
-        jLabelPlayerNumber = new javax.swing.JLabel();
-        jLabelPlayersTableTitle = new javax.swing.JLabel();
-        jSpinnerPlayerNumber = new javax.swing.JSpinner();
-        jScrollPaneSportObjects = new javax.swing.JScrollPane();
-        jTableSportsItems = new javax.swing.JTable();
-        jSpinnerObjectTypeNumber = new javax.swing.JSpinner();
-        jLabelObjectTypeNumber = new javax.swing.JLabel();
-        jLabelObjectTableTitle = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jListExistingSports = new javax.swing.JList<>();
-        jButtonDestroySelectedSport = new javax.swing.JButton();
-        jLabelExistingSportTitle = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextFieldFieldUnits = new javax.swing.JTextField();
-        jCheckBoxUnlimitedPlayer = new javax.swing.JCheckBox();
-        jButtonRefreshSport = new javax.swing.JButton();
         jPanelCreateLoadStrategy = new javax.swing.JPanel();
         jButtonCreateStrategy = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -391,6 +360,52 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jTextFieldStrategyViewerTime = new javax.swing.JTextField();
         jTextFieldPlaybackSpeed = new javax.swing.JTextField();
         jLabelStrategyViewerTime = new javax.swing.JLabel();
+        jPanelPlayer = new javax.swing.JPanel();
+        jPanelSport = new javax.swing.JPanel();
+        jSeparator7 = new javax.swing.JSeparator();
+        jButtonSaveSport = new javax.swing.JButton();
+        jButtonNewSport = new javax.swing.JButton();
+        jPanelSportFieldViewer = new javax.swing.JPanel();
+        jLabelSportField = new javax.swing.JLabel();
+        jLabelFieldSize = new javax.swing.JLabel();
+        jTextFieldHorizontalSize = new javax.swing.JTextField();
+        jButtonLoadFieldImage = new javax.swing.JButton();
+        jTextFieldVerticalSize = new javax.swing.JTextField();
+        jLabelSportName = new javax.swing.JLabel();
+        jTextFieldSportName = new javax.swing.JTextField();
+        jLabelFieldText = new javax.swing.JLabel();
+        jScrollPanePlayers = new javax.swing.JScrollPane();
+        tableSportPlayers = new javax.swing.JTable();
+        jLabelPlayerNumber = new javax.swing.JLabel();
+        jLabelPlayersTableTitle = new javax.swing.JLabel();
+        jSpinnerPlayerNumber = new javax.swing.JSpinner();
+        jScrollPaneSportObjects = new javax.swing.JScrollPane();
+        jTableSportsItems = new javax.swing.JTable();
+        jSpinnerObjectTypeNumber = new javax.swing.JSpinner();
+        jLabelObjectTypeNumber = new javax.swing.JLabel();
+        jLabelObjectTableTitle = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jListExistingSports = new javax.swing.JList<>();
+        jButtonDestroySelectedSport = new javax.swing.JButton();
+        jLabelExistingSportTitle = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextFieldFieldUnits = new javax.swing.JTextField();
+        jCheckBoxUnlimitedPlayer = new javax.swing.JCheckBox();
+        jButtonRefreshSport = new javax.swing.JButton();
+        jPanelTeam = new javax.swing.JPanel();
+        jButtonNewTeam = new javax.swing.JButton();
+        jButtonSaveTeam = new javax.swing.JButton();
+        jTextFieldTeamName = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jListTeam = new java.awt.List();
+        jLabel5 = new javax.swing.JLabel();
+        jButtonTeamDelete = new javax.swing.JButton();
+        jLabelPlayerNumber1 = new javax.swing.JLabel();
+        jSpinnerPlayerNumber1 = new javax.swing.JSpinner();
+        jCheckBoxUnlimitedPlayer1 = new javax.swing.JCheckBox();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Logiciel de stratégie");
@@ -491,11 +506,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             jPanelCategoryPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCategoryPictureLayout.createSequentialGroup()
                 .addComponent(jLabelCategoryPlayerIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 570, Short.MAX_VALUE))
+                .addGap(0, 573, Short.MAX_VALUE))
         );
         jPanelCategoryPictureLayout.setVerticalGroup(
             jPanelCategoryPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelCategoryPlayerIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
+            .addComponent(jLabelCategoryPlayerIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -555,11 +570,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelCategoryOnTerrain.setLayout(jPanelCategoryOnTerrainLayout);
         jPanelCategoryOnTerrainLayout.setHorizontalGroup(
             jPanelCategoryOnTerrainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 744, Short.MAX_VALUE)
+            .addGap(0, 747, Short.MAX_VALUE)
         );
         jPanelCategoryOnTerrainLayout.setVerticalGroup(
             jPanelCategoryOnTerrainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
+            .addGap(0, 626, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -901,455 +916,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelObstacle.add(jButtonDeleteGameObstacle, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 33, -1, -1));
 
         jTabbedPanePlayerCategory.addTab("Objets de jeu", jPanelObstacle);
-
-        jPanelSport.setLayout(new java.awt.GridBagLayout());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 23;
-        gridBagConstraints.ipadx = 1616;
-        gridBagConstraints.ipady = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 12, 0, 0);
-        jPanelSport.add(jSeparator7, gridBagConstraints);
-
-        jButtonSaveSport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projethockey/gui/mySaveIcon.png"))); // NOI18N
-        jButtonSaveSport.setText("Enregistrer");
-        jButtonSaveSport.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonSaveSport.setIconTextGap(2);
-        jButtonSaveSport.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonSaveSport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSaveSportActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.ipady = 18;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 19, 0, 0);
-        jPanelSport.add(jButtonSaveSport, gridBagConstraints);
-
-        jButtonNewSport.setText("Nouveau");
-        jButtonNewSport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNewSportActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.ipady = 40;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 14, 0, 0);
-        jPanelSport.add(jButtonNewSport, gridBagConstraints);
-
-        jPanelSportFieldViewer.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelSportFieldViewer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanelSportFieldViewer.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jPanelSportFieldViewerPropertyChange(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanelSportFieldViewerLayout = new javax.swing.GroupLayout(jPanelSportFieldViewer);
-        jPanelSportFieldViewer.setLayout(jPanelSportFieldViewerLayout);
-        jPanelSportFieldViewerLayout.setHorizontalGroup(
-            jPanelSportFieldViewerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelSportField, javax.swing.GroupLayout.DEFAULT_SIZE, 876, Short.MAX_VALUE)
-        );
-        jPanelSportFieldViewerLayout.setVerticalGroup(
-            jPanelSportFieldViewerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelSportFieldViewerLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jLabelSportField, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 10;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 516;
-        gridBagConstraints.ipady = 422;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        jPanelSport.add(jPanelSportFieldViewer, gridBagConstraints);
-
-        jLabelFieldSize.setText("Taille du terrain:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 87, 0, 0);
-        jPanelSport.add(jLabelFieldSize, gridBagConstraints);
-
-        jTextFieldHorizontalSize.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextFieldHorizontalSizeFocusLost(evt);
-            }
-        });
-        jTextFieldHorizontalSize.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldHorizontalSizeActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 36;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(1, 11, 0, 0);
-        jPanelSport.add(jTextFieldHorizontalSize, gridBagConstraints);
-
-        jButtonLoadFieldImage.setText("Charger une image...");
-        jButtonLoadFieldImage.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLoadFieldImageActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(1, 12, 0, 0);
-        jPanelSport.add(jButtonLoadFieldImage, gridBagConstraints);
-
-        jTextFieldVerticalSize.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextFieldVerticalSizeFocusLost(evt);
-            }
-        });
-        jTextFieldVerticalSize.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldVerticalSizeActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 11;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 39;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(1, 0, 0, 0);
-        jPanelSport.add(jTextFieldVerticalSize, gridBagConstraints);
-
-        jLabelSportName.setText("Nom:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(8, 87, 0, 0);
-        jPanelSport.add(jLabelSportName, gridBagConstraints);
-
-        jTextFieldSportName.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextFieldSportNameFocusLost(evt);
-            }
-        });
-        jTextFieldSportName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSportNameActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 11;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 87;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 0);
-        jPanelSport.add(jTextFieldSportName, gridBagConstraints);
-
-        jLabelFieldText.setText("Terrain");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(8, 12, 0, 0);
-        jPanelSport.add(jLabelFieldText, gridBagConstraints);
-
-        tableSportPlayers.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Catégorie", "Nom/Rôle", "Équipe"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.Integer.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        tableSportPlayers.getTableHeader().setReorderingAllowed(false);
-        tableSportPlayers.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                tableSportPlayersPropertyChange(evt);
-            }
-        });
-        jScrollPanePlayers.setViewportView(tableSportPlayers);
-        if (tableSportPlayers.getColumnModel().getColumnCount() > 0) {
-            tableSportPlayers.getColumnModel().getColumn(0).setResizable(false);
-            tableSportPlayers.getColumnModel().getColumn(1).setResizable(false);
-            tableSportPlayers.getColumnModel().getColumn(2).setResizable(false);
-        }
-        // The following code is customized using http://docs.oracle.com/javase/tutorial/displayCode.html?code=http://docs.oracle.com/javase/tutorial/uiswing/examples/components/TableRenderDemoProject/src/components/TableRenderDemo.java
-        javax.swing.JComboBox sportCellComboBox = new javax.swing.JComboBox();
-        javax.swing.table.TableColumn categoryColumn = tableSportPlayers.getColumnModel().getColumn(0);
-        // Dummy items, please remove later
-        sportCellComboBox.addItem("Frontier Pierrien");
-        sportCellComboBox.addItem("Ailier Picardier");
-        sportCellComboBox.addItem("Gardien Röckenfelleur");
-        sportCellComboBox.addItem("Lutteur Avant-gardissien");
-        categoryColumn.setCellEditor(new javax.swing.DefaultCellEditor(sportCellComboBox));
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.gridwidth = 16;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 633;
-        gridBagConstraints.ipady = 45;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 13, 0, 0);
-        jPanelSport.add(jScrollPanePlayers, gridBagConstraints);
-
-        jLabelPlayerNumber.setText("Nombre de joueurs:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(1, 87, 0, 0);
-        jPanelSport.add(jLabelPlayerNumber, gridBagConstraints);
-
-        jLabelPlayersTableTitle.setText("Les joueurs");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(3, 5, 0, 0);
-        jPanelSport.add(jLabelPlayersTableTitle, gridBagConstraints);
-
-        jSpinnerPlayerNumber.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        jSpinnerPlayerNumber.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSpinnerPlayerNumberStateChanged(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 2, 0, 0);
-        jPanelSport.add(jSpinnerPlayerNumber, gridBagConstraints);
-
-        jTableSportsItems.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null}
-            },
-            new String [] {
-                "Objet", "Nombre"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Short.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jTableSportsItems.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jTableSportsItemsPropertyChange(evt);
-            }
-        });
-        jScrollPaneSportObjects.setViewportView(jTableSportsItems);
-        if (jTableSportsItems.getColumnModel().getColumnCount() > 0) {
-            jTableSportsItems.getColumnModel().getColumn(0).setResizable(false);
-            jTableSportsItems.getColumnModel().getColumn(1).setResizable(false);
-        }
-        // The following code is customized using http://docs.oracle.com/javase/tutorial/displayCode.html?code=http://docs.oracle.com/javase/tutorial/uiswing/examples/components/TableRenderDemoProject/src/components/TableRenderDemo.java
-        javax.swing.JComboBox sportCellComboBoxItems = new javax.swing.JComboBox();
-        javax.swing.table.TableColumn categoryColumnItems = jTableSportsItems.getColumnModel().getColumn(0);
-        // Dummy items, please remove later
-        sportCellComboBoxItems.addItem("Gourde-ballon");
-        sportCellComboBoxItems.addItem("Lure");
-        sportCellComboBoxItems.addItem("Objet parfaitement générique");
-        sportCellComboBoxItems.addItem("Oblongoïde");
-        categoryColumnItems.setCellEditor(new javax.swing.DefaultCellEditor(sportCellComboBoxItems));
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 19;
-        gridBagConstraints.gridwidth = 16;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 633;
-        gridBagConstraints.ipady = 85;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 13, 0, 0);
-        jPanelSport.add(jScrollPaneSportObjects, gridBagConstraints);
-
-        jSpinnerObjectTypeNumber.setModel(new javax.swing.SpinnerNumberModel(1, 0, null, 1));
-        jSpinnerObjectTypeNumber.setToolTipText("Nombre de types d'objets");
-        jSpinnerObjectTypeNumber.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSpinnerObjectTypeNumberStateChanged(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 12;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(40, 1, 0, 0);
-        jPanelSport.add(jSpinnerObjectTypeNumber, gridBagConstraints);
-
-        jLabelObjectTypeNumber.setText("Nombre de types d'objet:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(40, 89, 0, 0);
-        jPanelSport.add(jLabelObjectTypeNumber, gridBagConstraints);
-
-        jLabelObjectTableTitle.setText("Les objets");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 40, 0, 0);
-        jPanelSport.add(jLabelObjectTableTitle, gridBagConstraints);
-
-        jListExistingSports.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Hockey", "Hockey Spécial", "Soccer" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jListExistingSports.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jListExistingSports.setFixedCellHeight(10);
-        jListExistingSports.setFixedCellWidth(150);
-        jListExistingSports.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jListExistingSportsMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jListExistingSports);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 11;
-        gridBagConstraints.gridheight = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 125;
-        gridBagConstraints.ipady = 74;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 49, 0, 0);
-        jPanelSport.add(jScrollPane1, gridBagConstraints);
-
-        jButtonDestroySelectedSport.setText("Supprimer");
-        jButtonDestroySelectedSport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDestroySelectedSportActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 19;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(13, 19, 0, 0);
-        jPanelSport.add(jButtonDestroySelectedSport, gridBagConstraints);
-
-        jLabelExistingSportTitle.setText("Les sports existants");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 18;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 78, 0, 0);
-        jPanelSport.add(jLabelExistingSportTitle, gridBagConstraints);
-
-        jLabel1.setText("Unités:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 14;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(1, 11, 0, 0);
-        jPanelSport.add(jLabel1, gridBagConstraints);
-
-        jTextFieldFieldUnits.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextFieldFieldUnitsFocusLost(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 15;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 53;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelSport.add(jTextFieldFieldUnits, gridBagConstraints);
-
-        jCheckBoxUnlimitedPlayer.setLabel("Nombre de joueur illimité");
-        jCheckBoxUnlimitedPlayer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxUnlimitedPlayerActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 11;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelSport.add(jCheckBoxUnlimitedPlayer, gridBagConstraints);
-
-        jButtonRefreshSport.setText("Actualiser");
-        jButtonRefreshSport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRefreshSportActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 19;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 18;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(15, 19, 0, 0);
-        jPanelSport.add(jButtonRefreshSport, gridBagConstraints);
-
-        jTabbedPanePlayerCategory.addTab("Sport", jPanelSport);
 
         jPanelCreateLoadStrategy.setLayout(new java.awt.GridBagLayout());
 
@@ -1838,7 +1404,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelStrategyEditorLocation.setLayout(jPanelStrategyEditorLocationLayout);
         jPanelStrategyEditorLocationLayout.setHorizontalGroup(
             jPanelStrategyEditorLocationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelStrategyEditorPicture, javax.swing.GroupLayout.DEFAULT_SIZE, 2035, Short.MAX_VALUE)
+            .addComponent(jLabelStrategyEditorPicture, javax.swing.GroupLayout.DEFAULT_SIZE, 2041, Short.MAX_VALUE)
         );
         jPanelStrategyEditorLocationLayout.setVerticalGroup(
             jPanelStrategyEditorLocationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1923,6 +1489,645 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelStrategyEditor.add(jLabelStrategyViewerTime, gridBagConstraints);
 
         jTabbedPanePlayerCategory.addTab("Édition et visualisation de stratégie", jPanelStrategyEditor);
+
+        javax.swing.GroupLayout jPanelPlayerLayout = new javax.swing.GroupLayout(jPanelPlayer);
+        jPanelPlayer.setLayout(jPanelPlayerLayout);
+        jPanelPlayerLayout.setHorizontalGroup(
+            jPanelPlayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2044, Short.MAX_VALUE)
+        );
+        jPanelPlayerLayout.setVerticalGroup(
+            jPanelPlayerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 996, Short.MAX_VALUE)
+        );
+
+        jTabbedPanePlayerCategory.addTab("Joueur", jPanelPlayer);
+
+        jPanelSport.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 23;
+        gridBagConstraints.ipadx = 1616;
+        gridBagConstraints.ipady = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 12, 0, 0);
+        jPanelSport.add(jSeparator7, gridBagConstraints);
+
+        jButtonSaveSport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projethockey/gui/mySaveIcon.png"))); // NOI18N
+        jButtonSaveSport.setText("Enregistrer");
+        jButtonSaveSport.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonSaveSport.setIconTextGap(2);
+        jButtonSaveSport.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonSaveSport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSaveSportActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipady = 18;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 19, 0, 0);
+        jPanelSport.add(jButtonSaveSport, gridBagConstraints);
+
+        jButtonNewSport.setText("Nouveau");
+        jButtonNewSport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNewSportActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.ipady = 40;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 14, 0, 0);
+        jPanelSport.add(jButtonNewSport, gridBagConstraints);
+
+        jPanelSportFieldViewer.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelSportFieldViewer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelSportFieldViewer.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jPanelSportFieldViewerPropertyChange(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelSportFieldViewerLayout = new javax.swing.GroupLayout(jPanelSportFieldViewer);
+        jPanelSportFieldViewer.setLayout(jPanelSportFieldViewerLayout);
+        jPanelSportFieldViewerLayout.setHorizontalGroup(
+            jPanelSportFieldViewerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelSportField, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
+        );
+        jPanelSportFieldViewerLayout.setVerticalGroup(
+            jPanelSportFieldViewerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelSportFieldViewerLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jLabelSportField, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 516;
+        gridBagConstraints.ipady = 422;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jPanelSport.add(jPanelSportFieldViewer, gridBagConstraints);
+
+        jLabelFieldSize.setText("Taille du terrain:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 87, 0, 0);
+        jPanelSport.add(jLabelFieldSize, gridBagConstraints);
+
+        jTextFieldHorizontalSize.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldHorizontalSizeFocusLost(evt);
+            }
+        });
+        jTextFieldHorizontalSize.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldHorizontalSizeActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 36;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 11, 0, 0);
+        jPanelSport.add(jTextFieldHorizontalSize, gridBagConstraints);
+
+        jButtonLoadFieldImage.setText("Charger une image...");
+        jButtonLoadFieldImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLoadFieldImageActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 12, 0, 0);
+        jPanelSport.add(jButtonLoadFieldImage, gridBagConstraints);
+
+        jTextFieldVerticalSize.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldVerticalSizeFocusLost(evt);
+            }
+        });
+        jTextFieldVerticalSize.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldVerticalSizeActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 11;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 39;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 0, 0, 0);
+        jPanelSport.add(jTextFieldVerticalSize, gridBagConstraints);
+
+        jLabelSportName.setText("Nom:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(8, 87, 0, 0);
+        jPanelSport.add(jLabelSportName, gridBagConstraints);
+
+        jTextFieldSportName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldSportNameFocusLost(evt);
+            }
+        });
+        jTextFieldSportName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSportNameActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 11;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 87;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 0);
+        jPanelSport.add(jTextFieldSportName, gridBagConstraints);
+
+        jLabelFieldText.setText("Terrain");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(8, 12, 0, 0);
+        jPanelSport.add(jLabelFieldText, gridBagConstraints);
+
+        tableSportPlayers.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Catégorie", "Nom/Rôle", "Équipe"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        tableSportPlayers.getTableHeader().setReorderingAllowed(false);
+        tableSportPlayers.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                tableSportPlayersPropertyChange(evt);
+            }
+        });
+        jScrollPanePlayers.setViewportView(tableSportPlayers);
+        if (tableSportPlayers.getColumnModel().getColumnCount() > 0) {
+            tableSportPlayers.getColumnModel().getColumn(0).setResizable(false);
+            tableSportPlayers.getColumnModel().getColumn(1).setResizable(false);
+            tableSportPlayers.getColumnModel().getColumn(2).setResizable(false);
+        }
+        // The following code is customized using http://docs.oracle.com/javase/tutorial/displayCode.html?code=http://docs.oracle.com/javase/tutorial/uiswing/examples/components/TableRenderDemoProject/src/components/TableRenderDemo.java
+        javax.swing.JComboBox sportCellComboBox = new javax.swing.JComboBox();
+        javax.swing.table.TableColumn categoryColumn = tableSportPlayers.getColumnModel().getColumn(0);
+        // Dummy items, please remove later
+        sportCellComboBox.addItem("Frontier Pierrien");
+        sportCellComboBox.addItem("Ailier Picardier");
+        sportCellComboBox.addItem("Gardien Röckenfelleur");
+        sportCellComboBox.addItem("Lutteur Avant-gardissien");
+        categoryColumn.setCellEditor(new javax.swing.DefaultCellEditor(sportCellComboBox));
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridwidth = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 633;
+        gridBagConstraints.ipady = 45;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 13, 0, 0);
+        jPanelSport.add(jScrollPanePlayers, gridBagConstraints);
+
+        jLabelPlayerNumber.setText("Nombre de joueurs:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 87, 0, 0);
+        jPanelSport.add(jLabelPlayerNumber, gridBagConstraints);
+
+        jLabelPlayersTableTitle.setText("Les joueurs");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(3, 5, 0, 0);
+        jPanelSport.add(jLabelPlayersTableTitle, gridBagConstraints);
+
+        jSpinnerPlayerNumber.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        jSpinnerPlayerNumber.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinnerPlayerNumberStateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 2, 0, 0);
+        jPanelSport.add(jSpinnerPlayerNumber, gridBagConstraints);
+
+        jTableSportsItems.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null}
+            },
+            new String [] {
+                "Objet", "Nombre"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Short.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTableSportsItems.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jTableSportsItemsPropertyChange(evt);
+            }
+        });
+        jScrollPaneSportObjects.setViewportView(jTableSportsItems);
+        if (jTableSportsItems.getColumnModel().getColumnCount() > 0) {
+            jTableSportsItems.getColumnModel().getColumn(0).setResizable(false);
+            jTableSportsItems.getColumnModel().getColumn(1).setResizable(false);
+        }
+        // The following code is customized using http://docs.oracle.com/javase/tutorial/displayCode.html?code=http://docs.oracle.com/javase/tutorial/uiswing/examples/components/TableRenderDemoProject/src/components/TableRenderDemo.java
+        javax.swing.JComboBox sportCellComboBoxItems = new javax.swing.JComboBox();
+        javax.swing.table.TableColumn categoryColumnItems = jTableSportsItems.getColumnModel().getColumn(0);
+        // Dummy items, please remove later
+        sportCellComboBoxItems.addItem("Gourde-ballon");
+        sportCellComboBoxItems.addItem("Lure");
+        sportCellComboBoxItems.addItem("Objet parfaitement générique");
+        sportCellComboBoxItems.addItem("Oblongoïde");
+        categoryColumnItems.setCellEditor(new javax.swing.DefaultCellEditor(sportCellComboBoxItems));
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 19;
+        gridBagConstraints.gridwidth = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 633;
+        gridBagConstraints.ipady = 85;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 13, 0, 0);
+        jPanelSport.add(jScrollPaneSportObjects, gridBagConstraints);
+
+        jSpinnerObjectTypeNumber.setModel(new javax.swing.SpinnerNumberModel(1, 0, null, 1));
+        jSpinnerObjectTypeNumber.setToolTipText("Nombre de types d'objets");
+        jSpinnerObjectTypeNumber.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinnerObjectTypeNumberStateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(40, 1, 0, 0);
+        jPanelSport.add(jSpinnerObjectTypeNumber, gridBagConstraints);
+
+        jLabelObjectTypeNumber.setText("Nombre de types d'objet:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(40, 89, 0, 0);
+        jPanelSport.add(jLabelObjectTypeNumber, gridBagConstraints);
+
+        jLabelObjectTableTitle.setText("Les objets");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 40, 0, 0);
+        jPanelSport.add(jLabelObjectTableTitle, gridBagConstraints);
+
+        jListExistingSports.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Hockey", "Hockey Spécial", "Soccer" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jListExistingSports.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jListExistingSports.setFixedCellHeight(10);
+        jListExistingSports.setFixedCellWidth(150);
+        jListExistingSports.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListExistingSportsMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jListExistingSports);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 11;
+        gridBagConstraints.gridheight = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 125;
+        gridBagConstraints.ipady = 74;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 49, 0, 0);
+        jPanelSport.add(jScrollPane1, gridBagConstraints);
+
+        jButtonDestroySelectedSport.setText("Supprimer");
+        jButtonDestroySelectedSport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDestroySelectedSportActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 19;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(13, 19, 0, 0);
+        jPanelSport.add(jButtonDestroySelectedSport, gridBagConstraints);
+
+        jLabelExistingSportTitle.setText("Les sports existants");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 18;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 78, 0, 0);
+        jPanelSport.add(jLabelExistingSportTitle, gridBagConstraints);
+
+        jLabel1.setText("Unités:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 14;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(1, 11, 0, 0);
+        jPanelSport.add(jLabel1, gridBagConstraints);
+
+        jTextFieldFieldUnits.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldFieldUnitsFocusLost(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 15;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 53;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanelSport.add(jTextFieldFieldUnits, gridBagConstraints);
+
+        jCheckBoxUnlimitedPlayer.setLabel("Nombre de joueur illimité");
+        jCheckBoxUnlimitedPlayer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxUnlimitedPlayerActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 11;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanelSport.add(jCheckBoxUnlimitedPlayer, gridBagConstraints);
+
+        jButtonRefreshSport.setText("Actualiser");
+        jButtonRefreshSport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRefreshSportActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 19;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 18;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 19, 0, 0);
+        jPanelSport.add(jButtonRefreshSport, gridBagConstraints);
+
+        jTabbedPanePlayerCategory.addTab("Sport", jPanelSport);
+
+        jPanelTeam.setMaximumSize(new java.awt.Dimension(0, 0));
+        jPanelTeam.setMinimumSize(new java.awt.Dimension(0, 0));
+        jPanelTeam.setLayout(new java.awt.GridBagLayout());
+
+        jButtonNewTeam.setText("Nouveau");
+        jButtonNewTeam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNewTeamActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 4;
+        gridBagConstraints.ipadx = 30;
+        gridBagConstraints.ipady = 74;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 27, 0, 0);
+        jPanelTeam.add(jButtonNewTeam, gridBagConstraints);
+
+        jButtonSaveTeam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projethockey/gui/mySaveIcon.png"))); // NOI18N
+        jButtonSaveTeam.setText("Enregistrer");
+        jButtonSaveTeam.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonSaveTeam.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonSaveTeam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSaveTeamActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridheight = 4;
+        gridBagConstraints.ipadx = 25;
+        gridBagConstraints.ipady = 50;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 14, 0, 0);
+        jPanelTeam.add(jButtonSaveTeam, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 111;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(80, 17, 0, 0);
+        jPanelTeam.add(jTextFieldTeamName, gridBagConstraints);
+
+        jLabel2.setText("Nom de l'équipe:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(83, 27, 0, 0);
+        jPanelTeam.add(jLabel2, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 16;
+        gridBagConstraints.ipadx = 2043;
+        gridBagConstraints.ipady = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(25, 0, 0, 0);
+        jPanelTeam.add(jSeparator1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 9;
+        gridBagConstraints.ipadx = 271;
+        gridBagConstraints.ipady = 84;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 17, 0, 0);
+        jPanelTeam.add(jListTeam, gridBagConstraints);
+
+        jLabel5.setText("Équipes existantes");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(16, 10, 0, 0);
+        jPanelTeam.add(jLabel5, gridBagConstraints);
+
+        jButtonTeamDelete.setText("Supprimer");
+        jButtonTeamDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTeamDeleteActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 11;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 60, 0, 0);
+        jPanelTeam.add(jButtonTeamDelete, gridBagConstraints);
+
+        jLabelPlayerNumber1.setText("Nombre de joueurs:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 27, 0, 0);
+        jPanelTeam.add(jLabelPlayerNumber1, gridBagConstraints);
+
+        jSpinnerPlayerNumber1.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        jSpinnerPlayerNumber1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinnerPlayerNumber1StateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridheight = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 27, 0, 0);
+        jPanelTeam.add(jSpinnerPlayerNumber1, gridBagConstraints);
+
+        jCheckBoxUnlimitedPlayer1.setLabel("Nombre de joueur illimité");
+        jCheckBoxUnlimitedPlayer1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxUnlimitedPlayer1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridheight = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(15, 27, 0, 0);
+        jPanelTeam.add(jCheckBoxUnlimitedPlayer1, gridBagConstraints);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Catégorie", "Nom/Rôle"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTable1.setMaximumSize(new java.awt.Dimension(0, 0));
+        jTable1.setMinimumSize(new java.awt.Dimension(0, 0));
+        jTable1.setPreferredSize(new java.awt.Dimension(0, 0));
+        jScrollPane5.setViewportView(jTable1);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 400;
+        gridBagConstraints.ipady = 145;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jPanelTeam.add(jScrollPane5, gridBagConstraints);
+
+        jTabbedPanePlayerCategory.addTab("Équipe", jPanelTeam);
 
         getContentPane().add(jTabbedPanePlayerCategory, java.awt.BorderLayout.CENTER);
         //this.jTabbedPanePlayerCategory.setEnabledAt(4, false);
@@ -2413,6 +2618,26 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldVerticalSizeActionPerformed
 
+    private void jButtonNewTeamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewTeamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonNewTeamActionPerformed
+
+    private void jButtonSaveTeamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveTeamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSaveTeamActionPerformed
+
+    private void jButtonTeamDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTeamDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonTeamDeleteActionPerformed
+
+    private void jSpinnerPlayerNumber1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerPlayerNumber1StateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSpinnerPlayerNumber1StateChanged
+
+    private void jCheckBoxUnlimitedPlayer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxUnlimitedPlayer1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxUnlimitedPlayer1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2463,6 +2688,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JButton jButtonNewCategory;
     private javax.swing.JButton jButtonNewGameObstacle;
     private javax.swing.JButton jButtonNewSport;
+    private javax.swing.JButton jButtonNewTeam;
     private javax.swing.JButton jButtonNextFrameForImageMode;
     private javax.swing.JButton jButtonRedo;
     private javax.swing.JButton jButtonRefreshSport;
@@ -2470,15 +2696,20 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JButton jButtonSaveGameObstacle;
     private javax.swing.JButton jButtonSaveSport;
     private javax.swing.JButton jButtonSaveStrategy;
+    private javax.swing.JButton jButtonSaveTeam;
     private javax.swing.JButton jButtonStepBackTime;
     private javax.swing.JButton jButtonStepForwardTime;
+    private javax.swing.JButton jButtonTeamDelete;
     private javax.swing.JButton jButtonUndo;
     private javax.swing.JButton jButtonZoom;
     private javax.swing.JCheckBox jCheckBoxIsAGameObstacle;
     private javax.swing.JCheckBox jCheckBoxUnlimitedPlayer;
+    private javax.swing.JCheckBox jCheckBoxUnlimitedPlayer1;
     private javax.swing.JComboBox<String> jComboBoxChooseStrategySport;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelAvailableStrategies;
     private javax.swing.JLabel jLabelCategoryImage;
     private javax.swing.JLabel jLabelCategoryName;
@@ -2508,6 +2739,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JLabel jLabelObstacleUnits;
     private javax.swing.JLabel jLabelPlayBackSpeedTitle;
     private javax.swing.JLabel jLabelPlayerNumber;
+    private javax.swing.JLabel jLabelPlayerNumber1;
     private javax.swing.JLabel jLabelPlayerToSelect;
     private javax.swing.JLabel jLabelPlayersTableTitle;
     private javax.swing.JLabel jLabelSportField;
@@ -2524,6 +2756,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JList<String> jListExistingStrategy;
     private javax.swing.JList<String> jListObjects;
     private javax.swing.JList<String> jListPlayers;
+    private java.awt.List jListTeam;
     private javax.swing.JList<String> jListTypeModificationType;
     private javax.swing.JPanel jPanelCategories;
     private javax.swing.JPanel jPanelCategoryOnTerrain;
@@ -2532,19 +2765,23 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JPanel jPanelObstacle;
     private javax.swing.JPanel jPanelObstacleIcon;
     private javax.swing.JPanel jPanelObstacleOnTerrain;
+    private javax.swing.JPanel jPanelPlayer;
     private javax.swing.JPanel jPanelSport;
     private javax.swing.JPanel jPanelSportFieldViewer;
     private javax.swing.JPanel jPanelStrategyEditor;
     private javax.swing.JPanel jPanelStrategyEditorLocation;
+    private javax.swing.JPanel jPanelTeam;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPaneModificationMode;
     private javax.swing.JScrollPane jScrollPaneObjectSelection;
     private javax.swing.JScrollPane jScrollPanePlayerSelection;
     private javax.swing.JScrollPane jScrollPanePlayers;
     private javax.swing.JScrollPane jScrollPaneSportObjects;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
@@ -2556,7 +2793,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JSpinner jSpinnerObjectTypeNumber;
     private javax.swing.JSpinner jSpinnerPlayerNumber;
+    private javax.swing.JSpinner jSpinnerPlayerNumber1;
     private javax.swing.JTabbedPane jTabbedPanePlayerCategory;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTableSportsItems;
     private javax.swing.JTextField jTextFieldCategoryName;
     private javax.swing.JTextField jTextFieldCategorySizeHorizontal;
@@ -2571,6 +2810,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JTextField jTextFieldSportName;
     private javax.swing.JTextField jTextFieldStrategyName;
     private javax.swing.JTextField jTextFieldStrategyViewerTime;
+    private javax.swing.JTextField jTextFieldTeamName;
     private javax.swing.JTextField jTextFieldTimeInterval;
     private javax.swing.JTextField jTextFieldVerticalSize;
     private javax.swing.JToggleButton jToggleButtonRotationMode;
