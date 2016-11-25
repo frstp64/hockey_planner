@@ -97,9 +97,7 @@ public class Strategy implements java.io.Serializable{
 
     public void setListTeam(ArrayList<Team> listTeam) {
         this.listTeam = listTeam;
-    }
-    
-    
+    }    
             
     /*
                 Public methodes
