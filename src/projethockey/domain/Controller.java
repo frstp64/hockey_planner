@@ -11,6 +11,8 @@ import projethockey.services.AppDataProxy;
 import javax.imageio.*;
 import java.awt.image.BufferedImage;
 import java.net.URL;
+import java.util.Timer;
+import java.util.TimerTask;
 /**
  *
  * @author znuxor
@@ -39,6 +41,9 @@ public class Controller {
     private projetHockeyInterface mMainWindow; // A reference to the window
     
     private Scene myScene;
+    private Timer timer;
+    public enum StrategyViewerState { Stop, Play, Pause}
+    StrategyViewerState viewerState;
     
     // The constructor
     public Controller() {
@@ -60,7 +65,16 @@ public class Controller {
 
         AppDataProxy.loadData(this);
 
+        timer = new Timer();
+        viewerState = StrategyViewerState.Stop;
+        //timer.scheduleAtFixedRate(task, 1000, 0);
         
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+              playStrategyNextFrame();
+            }
+          }, 1000, 1000);
     }
 
     // A simple global subscriber to get a reference to the window
@@ -661,15 +675,28 @@ public class Controller {
     }
     
     public void playStrategy() {
+        
         // test stuff
         BufferedImage whitePic = new BufferedImage(10, 10, BufferedImage.TYPE_INT_RGB);
         whitePic.setRGB(0, 0, 256*256*253 + 256*253 + 253);
         whitePic.setRGB(9, 9, 256*256*253 + 256*253 + 253);
-                
+
         for(int i = 0; i < 3000000; i++) {
-            
+
         myScene.putPicture(whitePic, 150, 150);
         this.mMainWindow.publishScene(myScene.getScenePicture());
         }
+        
+        viewerState = (!viewerState.equals(StrategyViewerState.Play)) ? StrategyViewerState.Play : StrategyViewerState.Pause;
     }
+    
+    
+    public void playStrategyNextFrame() {
+        if(viewerState.equals(StrategyViewerState.Play))
+        {
+            //The animation here
+            //this.mPlaceHolderStrategy.getFrame();
+        }
+    }
+    
 }
