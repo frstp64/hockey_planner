@@ -409,11 +409,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 94;
+        gridBagConstraints.gridwidth = 85;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 1200;
         gridBagConstraints.ipady = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 0.5;
         jPanelCategories.add(jSeparator8, gridBagConstraints);
 
         jSeparator9.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -421,7 +422,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.gridx = 28;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.gridheight = 29;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.ipady = 572;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelCategories.add(jSeparator9, gridBagConstraints);
@@ -434,7 +435,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.gridheight = 6;
         gridBagConstraints.ipadx = 30;
@@ -453,7 +454,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 6;
         gridBagConstraints.ipadx = 25;
@@ -463,13 +464,15 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         jLabelCategoryImage.setText("Image de catégorie choisie");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 41;
+        gridBagConstraints.gridx = 31;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelCategories.add(jLabelCategoryImage, gridBagConstraints);
 
         jPanelCategoryPicture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelCategoryPicture.setMaximumSize(new java.awt.Dimension(0, 0));
+        jPanelCategoryPicture.setPreferredSize(new java.awt.Dimension(0, 0));
         jPanelCategoryPicture.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jPanelCategoryPicturePropertyChange(evt);
@@ -487,22 +490,23 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelCategoryPictureLayout.setHorizontalGroup(
             jPanelCategoryPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCategoryPictureLayout.createSequentialGroup()
-                .addComponent(jLabelCategoryPlayerIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 5645, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 271, Short.MAX_VALUE))
+                .addComponent(jLabelCategoryPlayerIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 365, Short.MAX_VALUE))
         );
         jPanelCategoryPictureLayout.setVerticalGroup(
             jPanelCategoryPictureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelCategoryPlayerIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
+            .addComponent(jLabelCategoryPlayerIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 34;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridwidth = 21;
-        gridBagConstraints.gridheight = 23;
+        gridBagConstraints.gridx = 32;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.gridheight = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 271;
-        gridBagConstraints.ipady = 271;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         jPanelCategories.add(jPanelCategoryPicture, gridBagConstraints);
 
         jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -511,7 +515,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.gridy = 8;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.gridheight = 30;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.ipadx = 10;
         gridBagConstraints.ipady = 572;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -524,21 +528,23 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 36;
-        gridBagConstraints.gridy = 36;
+        gridBagConstraints.gridx = 34;
+        gridBagConstraints.gridy = 26;
         gridBagConstraints.gridwidth = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         jPanelCategories.add(jButtonChooseCategoryImage, gridBagConstraints);
 
         jLabelCategoryOnTerrain.setText("Image telle que vue sur le terrain");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 65;
+        gridBagConstraints.gridx = 62;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelCategories.add(jLabelCategoryOnTerrain, gridBagConstraints);
 
         jPanelCategoryOnTerrain.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelCategoryOnTerrain.setMaximumSize(new java.awt.Dimension(0, 0));
+        jPanelCategoryOnTerrain.setPreferredSize(new java.awt.Dimension(0, 0));
         jPanelCategoryOnTerrain.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jPanelCategoryOnTerrainPropertyChange(evt);
@@ -549,22 +555,21 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelCategoryOnTerrain.setLayout(jPanelCategoryOnTerrainLayout);
         jPanelCategoryOnTerrainLayout.setHorizontalGroup(
             jPanelCategoryOnTerrainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
+            .addGap(0, 539, Short.MAX_VALUE)
         );
         jPanelCategoryOnTerrainLayout.setVerticalGroup(
             jPanelCategoryOnTerrainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 271, Short.MAX_VALUE)
+            .addGap(0, 522, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 63;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridwidth = 19;
-        gridBagConstraints.gridheight = 23;
+        gridBagConstraints.gridx = 61;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 14;
+        gridBagConstraints.gridheight = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 200;
-        gridBagConstraints.ipady = 200;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         jPanelCategories.add(jPanelCategoryOnTerrain, gridBagConstraints);
 
         jLabel3.setText("Informations sur la catégorie");
@@ -687,12 +692,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 30;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 16;
+        gridBagConstraints.gridwidth = 12;
         gridBagConstraints.gridheight = 5;
         gridBagConstraints.ipadx = 146;
         gridBagConstraints.ipady = 50;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.1;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         jPanelCategories.add(jScrollPane4, gridBagConstraints);
 
@@ -1645,7 +1650,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelStrategyEditorLocation.setLayout(jPanelStrategyEditorLocationLayout);
         jPanelStrategyEditorLocationLayout.setHorizontalGroup(
             jPanelStrategyEditorLocationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelStrategyEditorPicture, javax.swing.GroupLayout.DEFAULT_SIZE, 6460, Short.MAX_VALUE)
+            .addComponent(jLabelStrategyEditorPicture, javax.swing.GroupLayout.DEFAULT_SIZE, 1627, Short.MAX_VALUE)
         );
         jPanelStrategyEditorLocationLayout.setVerticalGroup(
             jPanelStrategyEditorLocationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
