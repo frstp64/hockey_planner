@@ -133,5 +133,7 @@ public class Strategy implements java.io.Serializable{
         throw new UnsupportedOperationException();
     }
             
-    
+    public boolean isStrategyValid() {
+        return sport.isTeamListValid(listTeam);
+    }    
 }
