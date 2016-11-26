@@ -635,6 +635,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jListExistingPlayers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListExistingPlayersMouseClicked(evt);
+            }
+        });
         jScrollPane7.setViewportView(jListExistingPlayers);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2273,6 +2278,20 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jTextFieldPlayerNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldPlayerNameFocusLost
         myController.setPlayerName(this.jTextFieldPlayerName.getText());
     }//GEN-LAST:event_jTextFieldPlayerNameFocusLost
+
+    private void jListExistingPlayersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListExistingPlayersMouseClicked
+        try {
+            if (jListExistingPlayers.getSelectedValue() != null & myController != null) {
+                myController.setSelectedPlayer(jListExistingPlayers.getSelectedValue());
+            }
+            else if (myController != null) {
+                String empty = "";
+                myController.setSelectedPlayer(empty);
+            }
+        } catch (Exception Ex) {
+
+        }
+    }//GEN-LAST:event_jListExistingPlayersMouseClicked
 
     /**
      * @param args the command line arguments

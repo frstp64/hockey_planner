@@ -4,7 +4,7 @@ package projethockey.domain;
  *
  * @author Alexandre
  */
-public class Player {
+public class Player implements java.io.Serializable {
     private int objectAssocied;
     private CategoryPlayer categoryPlayer;
     private Orientation orientation;
