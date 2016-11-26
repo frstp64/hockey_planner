@@ -226,6 +226,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         this.jTextFieldStrategyName.setText(pStrategyName);
     }
     
+    public void publishStrategyPlayers(String[] plistStrategyPlayers){
+        this.jListStrategyPlayers.setListData(plistStrategyPlayers);
+    }
+    
     public void publishExistingStrategies(String[] plistStrategy) {
         
         this.jListExistingStrategies.setListData(plistStrategy);
@@ -376,9 +380,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jScrollPaneModificationMode = new javax.swing.JScrollPane();
         jListTypeModificationType = new javax.swing.JList<>();
         jScrollPanePlayerSelection = new javax.swing.JScrollPane();
-        jListPlayers = new javax.swing.JList<>();
+        jListStrategyPlayers = new javax.swing.JList<>();
         jScrollPaneObjectSelection = new javax.swing.JScrollPane();
-        jListObjects = new javax.swing.JList<>();
+        jListStrategyObjects = new javax.swing.JList<>();
         jLabelObjectsToSelect = new javax.swing.JLabel();
         jLabelStrategyName = new javax.swing.JLabel();
         jLabelPlayerToSelect = new javax.swing.JLabel();
@@ -1580,20 +1584,20 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jScrollPanePlayerSelection.setMinimumSize(null);
         jScrollPanePlayerSelection.setName(""); // NOI18N
 
-        jListPlayers.setModel(new javax.swing.AbstractListModel<String>() {
+        jListStrategyPlayers.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Joueur1", "Joueur2", "Joueur3", "Joueur4", "Joueur5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jListPlayers.setMaximumSize(new java.awt.Dimension(0, 0));
-        jListPlayers.setMinimumSize(new java.awt.Dimension(0, 0));
-        jListPlayers.setPreferredSize(new java.awt.Dimension(0, 0));
-        jListPlayers.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        jListStrategyPlayers.setMaximumSize(new java.awt.Dimension(0, 0));
+        jListStrategyPlayers.setMinimumSize(new java.awt.Dimension(0, 0));
+        jListStrategyPlayers.setPreferredSize(new java.awt.Dimension(0, 0));
+        jListStrategyPlayers.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jListPlayersPropertyChange(evt);
+                jListStrategyPlayersPropertyChange(evt);
             }
         });
-        jScrollPanePlayerSelection.setViewportView(jListPlayers);
+        jScrollPanePlayerSelection.setViewportView(jListStrategyPlayers);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -1606,20 +1610,20 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jScrollPaneObjectSelection.setMinimumSize(new java.awt.Dimension(0, 0));
         jScrollPaneObjectSelection.setPreferredSize(new java.awt.Dimension(0, 0));
 
-        jListObjects.setModel(new javax.swing.AbstractListModel<String>() {
+        jListStrategyObjects.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Plot", "Ballon" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jListObjects.setMaximumSize(new java.awt.Dimension(0, 0));
-        jListObjects.setMinimumSize(new java.awt.Dimension(0, 0));
-        jListObjects.setPreferredSize(new java.awt.Dimension(0, 0));
-        jListObjects.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        jListStrategyObjects.setMaximumSize(new java.awt.Dimension(0, 0));
+        jListStrategyObjects.setMinimumSize(new java.awt.Dimension(0, 0));
+        jListStrategyObjects.setPreferredSize(new java.awt.Dimension(0, 0));
+        jListStrategyObjects.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jListObjectsPropertyChange(evt);
+                jListStrategyObjectsPropertyChange(evt);
             }
         });
-        jScrollPaneObjectSelection.setViewportView(jListObjects);
+        jScrollPaneObjectSelection.setViewportView(jListStrategyObjects);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -1999,6 +2003,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         try {
         if (jListExistingStrategies.getSelectedValue() != null & myController != null) {
             myController.setSelectedStrategy(jListExistingStrategies.getSelectedValue());
+            
+            this.jTabbedPanePlayerCategory.setEnabledAt(6, true);
+            
         }
         else if (myController != null) {
             String empty = "";
@@ -2238,13 +2245,13 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonSaveStrategyActionPerformed
 
-    private void jListObjectsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListObjectsPropertyChange
+    private void jListStrategyObjectsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListStrategyObjectsPropertyChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_jListObjectsPropertyChange
+    }//GEN-LAST:event_jListStrategyObjectsPropertyChange
 
-    private void jListPlayersPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListPlayersPropertyChange
+    private void jListStrategyPlayersPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListStrategyPlayersPropertyChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_jListPlayersPropertyChange
+    }//GEN-LAST:event_jListStrategyPlayersPropertyChange
 
     private void jListTypeModificationTypePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListTypeModificationTypePropertyChange
         // TODO add your handling code here:
@@ -2569,8 +2576,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JList<String> jListExistingSports;
     private javax.swing.JList<String> jListExistingStrategies;
     private javax.swing.JList<String> jListExistingTeams;
-    private javax.swing.JList<String> jListObjects;
-    private javax.swing.JList<String> jListPlayers;
+    private javax.swing.JList<String> jListStrategyObjects;
+    private javax.swing.JList<String> jListStrategyPlayers;
     private javax.swing.JList<String> jListTypeModificationType;
     private javax.swing.JPanel jPanelCategories;
     private javax.swing.JPanel jPanelCategoryPicture;

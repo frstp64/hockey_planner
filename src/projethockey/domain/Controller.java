@@ -633,6 +633,16 @@ public class Controller {
 
                 // Publish placeholder's Data to GUI fields
                 this.mMainWindow.publishStrategyName(this.mPlaceHolderStrategy.getName());
+                
+                
+                // publish all players in strategy to list.
+                ArrayList<Player> players = new ArrayList<Player>();
+                for(Team aTeam: this.mPlaceHolderStrategy.getListTeam()){
+                    for(Player aPlayer: aTeam.getListPlayer()){
+                        players.add(aPlayer);
+                    }
+                }
+                this.mMainWindow.publishStrategyPlayers(players.toArray(new String[players.size()]));
             }
             
             break;
