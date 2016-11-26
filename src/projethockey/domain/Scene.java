@@ -17,8 +17,9 @@ import java.util.ArrayList;
  * @author znuxor
  */
 
-
 public class Scene {
+    
+    float ratioIdealPlayer = (float) 0.05; // The target percentage of area
     private int sceneSizeX, sceneSizeY; // The size in pixels of the scene
     private boolean isZoomed;
     private int zoomX1, zoomX2, zoomY1, zoomY2; // the Coordinates in pixels of the zoom
@@ -94,5 +95,23 @@ public class Scene {
             }
     }
         return ""; // None intersecting
+    }
+    
+    private float absoluteToRelativeCoordX(int pCoordX) {
+        return ((float) pCoordX)/sceneSizeX;
+    }
+    
+    private float absoluteToRelativeCoordY(int pCoordY) {
+        return ((float) pCoordY)/sceneSizeY;
+    }
+    
+    public void putPlayer(int pCoordX, int pCoordY, Image playerImage) {
+        int imArea = playerImage.getWidth(null) * playerImage.getHeight(null);
+        int sceneArea = sceneSizeX * sceneSizeY;
+        float sideFactor = ratioIdealPlayer *sceneArea/imArea;
+        int wantedWidth = playerImage.getWidth(null) * (int) sideFactor;
+        
+        int wantedHeight = playerImage.getHeight(null) * (int) sideFactor;
+        playerImage.getScaledInstance(wantedWidth, wantedHeight, BufferedImage.SCALE_FAST);
     }
 }
