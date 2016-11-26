@@ -396,6 +396,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 formWindowClosing(evt);
             }
         });
+        getContentPane().setLayout(new java.awt.BorderLayout(0, 3));
 
         jTabbedPanePlayerCategory.setFocusable(false);
         jTabbedPanePlayerCategory.setMinimumSize(new java.awt.Dimension(0, 0));
