@@ -391,6 +391,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         setMinimumSize(new java.awt.Dimension(640, 480));
         setPreferredSize(null);
         setSize(new java.awt.Dimension(0, 0));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                formComponentResized(evt);
+            }
+        });
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -401,6 +406,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jTabbedPanePlayerCategory.setFocusable(false);
         jTabbedPanePlayerCategory.setMinimumSize(new java.awt.Dimension(0, 0));
         jTabbedPanePlayerCategory.setPreferredSize(new java.awt.Dimension(1024, 768));
+        jTabbedPanePlayerCategory.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPanePlayerCategoryStateChanged(evt);
+            }
+        });
 
         jPanelCategories.setMinimumSize(new java.awt.Dimension(0, 0));
         jPanelCategories.setLayout(new java.awt.GridBagLayout());
@@ -2228,6 +2238,15 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         double Y = evt.getY();
         System.out.println("X: " + X + "Y: " + Y);
     }//GEN-LAST:event_jLabelCategoryPlayerIconMouseClicked
+
+    private void jTabbedPanePlayerCategoryStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPanePlayerCategoryStateChanged
+        // TODO add your handling code here:
+        System.out.println("Changement de panel vers le numéro: " + jTabbedPanePlayerCategory.getSelectedIndex());
+    }//GEN-LAST:event_jTabbedPanePlayerCategoryStateChanged
+
+    private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
+        System.out.println("changement de taille!");
+    }//GEN-LAST:event_formComponentResized
 
     /**
      * @param args the command line arguments
