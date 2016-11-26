@@ -6,9 +6,12 @@ import java.util.ArrayList;
  *
  * @author Alexandre
  */
-public class Team {
+public class Team implements java.io.Serializable {
     private String name;
     private ArrayList<Player> listPlayer;
+    
+    public Team() {
+    }
 
     public Team(Team team){
         this.name = team.name;
@@ -36,6 +39,10 @@ public class Team {
         this.listPlayer = listPlayer;
     }
     
+    public void reset(){
+        this.name = "";
+        this.listPlayer = new ArrayList<Player>();
+    }
     
     
 }

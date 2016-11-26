@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import projethockey.domain.projetHockeyInterface;
+import javax.swing.DefaultCellEditor;
 
 /**
  *
@@ -245,6 +246,14 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         //TODO
     }
     
+    public void publishTeamName(String pTeamName) {
+        this.jTextFieldTeamName.setText(pTeamName);
+    }
+
+    public void publishExistingTeams(String[] plistTeam) {
+        this.jListExistingTeams.setListData(plistTeam);
+    }
+    
     public void publishScene(BufferedImage pSceneImage) {
         this.jLabelStrategyEditorPicture.setIcon(new ImageIcon(pSceneImage));
     }
@@ -260,6 +269,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jComboBoxTeamPlayer = new javax.swing.JComboBox<>();
         jTabbedPanePlayerCategory = new javax.swing.JTabbedPane();
         jPanelCategories = new javax.swing.JPanel();
         jSeparator8 = new javax.swing.JSeparator();
@@ -294,13 +304,14 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jTextFieldTeamName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jListTeam = new java.awt.List();
         jLabel5 = new javax.swing.JLabel();
-        jButtonTeamDelete = new javax.swing.JButton();
+        jButtonDeleteTeam = new javax.swing.JButton();
         jLabelPlayerNumber1 = new javax.swing.JLabel();
         jSpinnerPlayerNumber1 = new javax.swing.JSpinner();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableTeamPlayers = new javax.swing.JTable();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jListExistingTeams = new javax.swing.JList<>();
         jPanelSport = new javax.swing.JPanel();
         jSeparator7 = new javax.swing.JSeparator();
         jButtonSaveSport = new javax.swing.JButton();
@@ -389,6 +400,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jTextFieldStrategyViewerTime = new javax.swing.JTextField();
         jTextFieldPlaybackSpeed = new javax.swing.JTextField();
         jLabelStrategyViewerTime = new javax.swing.JLabel();
+
+        jComboBoxTeamPlayer.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Logiciel de stratégie");
@@ -747,6 +760,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelTeam.add(jButtonSaveTeam, gridBagConstraints);
+
+        jTextFieldTeamName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldTeamNameFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -767,13 +786,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         jPanelTeam.add(jSeparator1, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelTeam.add(jListTeam, gridBagConstraints);
 
         jLabel5.setText("Équipes existantes");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -781,10 +793,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.gridy = 0;
         jPanelTeam.add(jLabel5, gridBagConstraints);
 
-        jButtonTeamDelete.setText("Supprimer");
-        jButtonTeamDelete.addActionListener(new java.awt.event.ActionListener() {
+        jButtonDeleteTeam.setText("Supprimer");
+        jButtonDeleteTeam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonTeamDeleteActionPerformed(evt);
+                jButtonDeleteTeamActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -792,7 +804,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipady = 20;
-        jPanelTeam.add(jButtonTeamDelete, gridBagConstraints);
+        jPanelTeam.add(jButtonDeleteTeam, gridBagConstraints);
 
         jLabelPlayerNumber1.setText("Nombre de joueurs:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -814,21 +826,20 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         jPanelTeam.add(jSpinnerPlayerNumber1, gridBagConstraints);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableTeamPlayers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
                 {null}
             },
             new String [] {
                 "Joueur"
             }
         ));
-        jTable1.setMaximumSize(new java.awt.Dimension(0, 0));
-        jTable1.setMinimumSize(new java.awt.Dimension(0, 0));
-        jTable1.setPreferredSize(new java.awt.Dimension(0, 0));
-        jScrollPane5.setViewportView(jTable1);
+        jTableTeamPlayers.setCellEditor(new DefaultCellEditor(jComboBoxTeamPlayer));
+        jTableTeamPlayers.setRequestFocusEnabled(false);
+        jScrollPane5.setViewportView(jTableTeamPlayers);
+        if (jTableTeamPlayers.getColumnModel().getColumnCount() > 0) {
+            jTableTeamPlayers.getColumnModel().getColumn(0).setCellEditor(new DefaultCellEditor(jComboBoxTeamPlayer));
+        }
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -839,6 +850,28 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         jPanelTeam.add(jScrollPane5, gridBagConstraints);
+
+        jListExistingTeams.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jListExistingTeams.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListExistingTeamsMouseClicked(evt);
+            }
+        });
+        jScrollPane8.setViewportView(jListExistingTeams);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = java.awt.GridBagConstraints.REMAINDER;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jPanelTeam.add(jScrollPane8, gridBagConstraints);
 
         jTabbedPanePlayerCategory.addTab("Équipe", jPanelTeam);
 
@@ -2174,19 +2207,35 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jTextFieldVerticalSizeActionPerformed
 
     private void jButtonNewTeamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewTeamActionPerformed
-        // TODO add your handling code here:
+        myController.resetPlaceHolderTeam();
     }//GEN-LAST:event_jButtonNewTeamActionPerformed
 
     private void jButtonSaveTeamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveTeamActionPerformed
-        // TODO add your handling code here:
+        this.myController.saveTeam();
     }//GEN-LAST:event_jButtonSaveTeamActionPerformed
 
-    private void jButtonTeamDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTeamDeleteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonTeamDeleteActionPerformed
+    private void jButtonDeleteTeamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteTeamActionPerformed
+        this.myController.removeTeam();
+    }//GEN-LAST:event_jButtonDeleteTeamActionPerformed
 
     private void jSpinnerPlayerNumber1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerPlayerNumber1StateChanged
-        // TODO add your handling code here:
+
+        // if table too big, remove rows
+        if (this.jTableTeamPlayers.getRowCount() > (int)this.jSpinnerPlayerNumber1.getValue())
+        {
+            while (this.jTableTeamPlayers.getRowCount() > (int)this.jSpinnerPlayerNumber1.getValue())
+            {
+                
+            }
+            
+        }
+        // if table is too small, add rows
+        else if (this.jTableTeamPlayers.getRowCount() < (int)this.jSpinnerPlayerNumber1.getValue())
+        {
+            
+        }
+        
+        
     }//GEN-LAST:event_jSpinnerPlayerNumber1StateChanged
 
     private void jButtonSavePlayer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSavePlayer1ActionPerformed
@@ -2281,17 +2330,35 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     private void jListExistingPlayersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListExistingPlayersMouseClicked
         try {
-            if (jListExistingPlayers.getSelectedValue() != null & myController != null) {
-                myController.setSelectedPlayer(jListExistingPlayers.getSelectedValue());
+            if (jListExistingTeams.getSelectedValue() != null & myController != null) {
+                myController.setSelectedTeam(jListExistingTeams.getSelectedValue());
             }
             else if (myController != null) {
                 String empty = "";
-                myController.setSelectedPlayer(empty);
+                myController.setSelectedTeam(empty);
             }
         } catch (Exception Ex) {
 
         }
     }//GEN-LAST:event_jListExistingPlayersMouseClicked
+
+    private void jTextFieldTeamNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldTeamNameFocusLost
+        myController.setTeamName(this.jTextFieldTeamName.getText());
+    }//GEN-LAST:event_jTextFieldTeamNameFocusLost
+
+    private void jListExistingTeamsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListExistingTeamsMouseClicked
+        try {
+            if (jListExistingTeams.getSelectedValue() != null & myController != null) {
+                myController.setSelectedTeam(jListExistingTeams.getSelectedValue());
+            }
+            else if (myController != null) {
+                String empty = "";
+                myController.setSelectedTeam(empty);
+            }
+        } catch (Exception Ex) {
+
+        }
+    }//GEN-LAST:event_jListExistingTeamsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -2335,6 +2402,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JButton jButtonDeleteCategory;
     private javax.swing.JButton jButtonDeleteGameObstacle;
     private javax.swing.JButton jButtonDeleteStrategy;
+    private javax.swing.JButton jButtonDeleteTeam;
     private javax.swing.JButton jButtonDestroyPlayer1;
     private javax.swing.JButton jButtonDestroySelectedSport;
     private javax.swing.JButton jButtonExport;
@@ -2356,13 +2424,13 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JButton jButtonSaveTeam;
     private javax.swing.JButton jButtonStepBackTime;
     private javax.swing.JButton jButtonStepForwardTime;
-    private javax.swing.JButton jButtonTeamDelete;
     private javax.swing.JButton jButtonUndo;
     private javax.swing.JButton jButtonZoom;
     private javax.swing.JCheckBox jCheckBoxIsAGameObstacle;
     private javax.swing.JCheckBox jCheckBoxUnlimitedPlayer;
     private javax.swing.JComboBox<String> jComboBoxChooseStrategySport;
     private javax.swing.JComboBox<String> jComboBoxPlayerCategory;
+    private javax.swing.JComboBox<String> jComboBoxTeamPlayer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -2407,9 +2475,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JList<String> jListExistingPlayers;
     private javax.swing.JList<String> jListExistingSports;
     private javax.swing.JList<String> jListExistingStrategy;
+    private javax.swing.JList<String> jListExistingTeams;
     private javax.swing.JList<String> jListObjects;
     private javax.swing.JList<String> jListPlayers;
-    private java.awt.List jListTeam;
     private javax.swing.JList<String> jListTypeModificationType;
     private javax.swing.JPanel jPanelCategories;
     private javax.swing.JPanel jPanelCategoryPicture;
@@ -2428,6 +2496,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPaneModificationMode;
     private javax.swing.JScrollPane jScrollPaneObjectSelection;
     private javax.swing.JScrollPane jScrollPanePlayerSelection;
@@ -2443,7 +2512,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JSpinner jSpinnerPlayerNumber;
     private javax.swing.JSpinner jSpinnerPlayerNumber1;
     private javax.swing.JTabbedPane jTabbedPanePlayerCategory;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableTeamPlayers;
     private javax.swing.JTextField jTextFieldCategoryName;
     private javax.swing.JTextField jTextFieldChooseStrategyName;
     private javax.swing.JTextField jTextFieldFieldUnits;

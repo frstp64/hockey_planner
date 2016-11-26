@@ -43,6 +43,11 @@ public class Controller {
     private Player mPlaceHolderPlayer; // Contains the parameters for the new Player
     private ArrayList<Player> playerArray;
     private String selectedPlayer;
+    
+    // Team (unique team)
+    private Team mPlaceHolderTeam; // Contains the parameters for the new Team
+    private ArrayList<Team> teamArray;
+    private String selectedTeam;
 
 
     private projetHockeyInterface mMainWindow; // A reference to the window
@@ -72,6 +77,10 @@ public class Controller {
         mPlaceHolderPlayer = new Player();
         playerArray = new ArrayList<Player>();
         
+        // Team
+        mPlaceHolderTeam = new Team();
+        teamArray = new ArrayList<Team>();
+        
         myScene = new Scene(300, 300);
 
         AppDataProxy.loadData(this);
@@ -97,6 +106,7 @@ public class Controller {
         this.setSelectedCategoryObstacle("");
         this.setSelectedStrategy("");
         this.setSelectedPlayer("");
+        this.setSelectedTeam("");
 
         // Update the array list
         if (!sportArray.isEmpty()) {
@@ -113,6 +123,9 @@ public class Controller {
         }
         if (!playerArray.isEmpty()) {
             publishPlayerNames();
+        }
+        if (!teamArray.isEmpty()) {
+            publishTeamNames();
         }
     }
 
@@ -780,6 +793,98 @@ public class Controller {
 
     public void setPlayerArray(ArrayList<Player> pPlayerArray) {
         this.playerArray = pPlayerArray;
+    }
+    
+    // -------------------- Team --------------------
+    public void setTeamName(String pTeamName) {
+        this.mPlaceHolderTeam.setName(pTeamName);
+    }
+
+    public void resetPlaceHolderTeam() {
+
+        // empty data
+        this.mPlaceHolderTeam.reset();
+        // empty GUI values
+        this.mMainWindow.publishTeamName(this.mPlaceHolderTeam.getName());
+    }
+
+    public void removeTeam() {
+        // if one is selected, remove it
+        if (!this.selectedTeam.equals("")) {
+            for (Team aTeam: teamArray) {
+                if (aTeam.getName().equals(this.selectedTeam)) {
+                    this.teamArray.remove(aTeam);
+                    break;
+                }
+            }
+            this.selectedTeam = "";
+        }
+
+        // Save to permanent memory
+        projethockey.services.AppDataProxy.saveData(this);
+
+        // Update display
+        publishTeamNames();
+    }
+
+    public void saveTeam() {
+        // Ensure the team is valid here.
+
+        // If the team exists, remove it from the list
+        for (Team aTeam: teamArray) {
+            if (aTeam.getName().equals(this.mPlaceHolderTeam.getName())) {
+                System.out.println(aTeam.getName());
+                this.teamArray.remove(aTeam);
+                break;
+            }
+        }
+
+        // Add the team to the list
+        teamArray.add(new Team(this.mPlaceHolderTeam));
+
+        //Save to permanent memory
+        projethockey.services.AppDataProxy.saveData(this);
+        if (!teamArray.isEmpty()) {
+            publishTeamNames();
+        }
+    }
+
+    public void setSelectedTeam(String pSelectedTeam) {
+        //this.selectedTeam = pSelectedTeam;
+
+        // Set team's data in GUI.
+
+        this.selectedTeam = pSelectedTeam;
+        // Clean gui first.
+        resetPlaceHolderTeam();
+
+        for (Team aTeam: teamArray) {
+            if (aTeam.getName().equals(this.selectedTeam)) {
+                // Change placeholder values
+                this.mPlaceHolderTeam = new Team(aTeam);
+
+                // Publish placeholder's Data to GUI fields
+                this.mMainWindow.publishTeamName(this.mPlaceHolderTeam.getName());
+
+                break;
+            }
+        }
+    }
+
+    public void publishTeamNames() {
+        ArrayList<String> TeamNameList = new ArrayList<String>();
+            for (Team aTeam: teamArray) {
+                TeamNameList.add(aTeam.getName());
+            }
+            this.mMainWindow.publishExistingTeams(TeamNameList.toArray(new String[TeamNameList.size()]));
+    }
+
+    public ArrayList<Team> getTeamArray() {
+        return teamArray;
+    }
+
+    public void setTeamArray(ArrayList<Team> pTeamArray) {
+        this.teamArray = pTeamArray;
     }
     
     

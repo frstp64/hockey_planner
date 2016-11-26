@@ -5,6 +5,7 @@ import projethockey.domain.CategoryPlayer;
 import projethockey.domain.CategoryObstacle;
 import projethockey.domain.Strategy;
 import projethockey.domain.Player;
+import projethockey.domain.Team;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -22,6 +23,7 @@ public class AppDataProxy{
             saveObjectFile.writeObject(pController.getCategoryObstacleArray());
             saveObjectFile.writeObject(pController.getStrategyArray());
             saveObjectFile.writeObject(pController.getPlayerArray());
+            saveObjectFile.writeObject(pController.getTeamArray());
             
             saveObjectFile.close();
         }
@@ -40,6 +42,7 @@ public class AppDataProxy{
             pController.setCategoryObstacleArray((ArrayList<CategoryObstacle>) loadImputObjectFile.readObject());
             pController.setStrategyArray((ArrayList<Strategy>) loadImputObjectFile.readObject());
             pController.setPlayerArray((ArrayList<Player>) loadImputObjectFile.readObject());
+            pController.setTeamArray((ArrayList<Team>) loadImputObjectFile.readObject());
             
             loadImputObjectFile.close();
         }        

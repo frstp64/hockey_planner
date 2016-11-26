@@ -44,6 +44,10 @@ public interface sportSubscribable {
     void publishExistingPlayers(String[] plistPlayerName);
     void publishPlayerCategoryName(String pPlayerCategoryName);
     
+    void publishTeamName(String pTeamName);
+    void publishExistingTeams(String[] plistTeamName);
+    //TODO publish Existing Team Players
+    
     //TODO
     // void publishStrategySport
     // void publishStrategyPlayers
