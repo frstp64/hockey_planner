@@ -53,7 +53,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }
 
     public void publishPlayerNumber(int playerNumber){
-        this.jSpinnerPlayerNumber.setValue(playerNumber);
+        this.jSpinnerSportPlayerMax.setValue(playerNumber);
         ((DefaultTableModel) this.tableSportPlayers.getModel()).setRowCount(playerNumber);
     }
     public void publishObjectTypeNumber(int objectTypeNumber){
@@ -329,7 +329,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jTextFieldSportName = new javax.swing.JTextField();
         jLabelFieldText = new javax.swing.JLabel();
         jLabelPlayerNumber = new javax.swing.JLabel();
-        jSpinnerPlayerNumber = new javax.swing.JSpinner();
+        jSpinnerSportPlayerMax = new javax.swing.JSpinner();
         jScrollPane1 = new javax.swing.JScrollPane();
         jListExistingSports = new javax.swing.JList<>();
         jButtonDestroySelectedSport = new javax.swing.JButton();
@@ -338,7 +338,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jTextFieldFieldUnits = new javax.swing.JTextField();
         jCheckBoxUnlimitedPlayer = new javax.swing.JCheckBox();
         jLabel7 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        jSpinnerSportEquipes = new javax.swing.JSpinner();
         jPanelObstacle = new javax.swing.JPanel();
         jSeparator3 = new javax.swing.JSeparator();
         jButtonNewGameObstacle = new javax.swing.JButton();
@@ -1042,18 +1042,18 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelSport.add(jLabelPlayerNumber, gridBagConstraints);
 
-        jSpinnerPlayerNumber.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        jSpinnerPlayerNumber.setMinimumSize(new java.awt.Dimension(0, 0));
-        jSpinnerPlayerNumber.addChangeListener(new javax.swing.event.ChangeListener() {
+        jSpinnerSportPlayerMax.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        jSpinnerSportPlayerMax.setMinimumSize(new java.awt.Dimension(0, 0));
+        jSpinnerSportPlayerMax.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSpinnerPlayerNumberStateChanged(evt);
+                jSpinnerSportPlayerMaxStateChanged(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        jPanelSport.add(jSpinnerPlayerNumber, gridBagConstraints);
+        jPanelSport.add(jSpinnerSportPlayerMax, gridBagConstraints);
 
         jListExistingSports.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Hockey", "Hockey Spécial", "Soccer" };
@@ -1147,7 +1147,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        jPanelSport.add(jSpinner1, gridBagConstraints);
+        jPanelSport.add(jSpinnerSportEquipes, gridBagConstraints);
 
         jTabbedPanePlayerCategory.addTab("Sport", jPanelSport);
 
@@ -2034,13 +2034,13 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         }
     }//GEN-LAST:event_jListExistingSportsMouseClicked
 
-    private void jSpinnerPlayerNumberStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerPlayerNumberStateChanged
+    private void jSpinnerSportPlayerMaxStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerSportPlayerMaxStateChanged
 
         if (this.myController != null) {
-            this.myController.setSportPlayerNumber((int) this.jSpinnerPlayerNumber.getModel().getValue());
+            this.myController.setSportPlayerNumber((int) this.jSpinnerSportPlayerMax.getModel().getValue());
         }
         //this.myController.setSportPlayerNumber(5);
-    }//GEN-LAST:event_jSpinnerPlayerNumberStateChanged
+    }//GEN-LAST:event_jSpinnerSportPlayerMaxStateChanged
 
     private void tableSportPlayersPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tableSportPlayersPropertyChange
         /*
@@ -2530,9 +2530,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinnerPlayerNumber;
     private javax.swing.JSpinner jSpinnerPlayerNumber1;
+    private javax.swing.JSpinner jSpinnerSportEquipes;
+    private javax.swing.JSpinner jSpinnerSportPlayerMax;
     private javax.swing.JTabbedPane jTabbedPanePlayerCategory;
     private javax.swing.JTable jTableTeamPlayers;
     private javax.swing.JTextField jTextFieldCategoryName;
