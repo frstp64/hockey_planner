@@ -1779,6 +1779,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jLabelStrategyEditorPicture.setMinimumSize(null);
         jLabelStrategyEditorPicture.setName(""); // NOI18N
         jLabelStrategyEditorPicture.setOpaque(true);
+        jLabelStrategyEditorPicture.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabelStrategyEditorPictureMouseMoved(evt);
+            }
+        });
         jPanelStrategyEditorLocation.add(jLabelStrategyEditorPicture, java.awt.BorderLayout.CENTER);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1846,8 +1851,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jTabbedPanePlayerCategory.addTab("Édition et visualisation de stratégie", jPanelStrategyEditor);
 
         getContentPane().add(jTabbedPanePlayerCategory, java.awt.BorderLayout.CENTER);
-        this.jTabbedPanePlayerCategory.setEnabledAt(4, false);
-        this.jTabbedPanePlayerCategory.setEnabledAt(6, false);
+        //this.jTabbedPanePlayerCategory.setEnabledAt(4, false);
+        //this.jTabbedPanePlayerCategory.setEnabledAt(6, false);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -2247,6 +2252,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
         System.out.println("changement de taille!");
     }//GEN-LAST:event_formComponentResized
+
+    private void jLabelStrategyEditorPictureMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelStrategyEditorPictureMouseMoved
+        double X = evt.getX();
+        double Y = evt.getY();
+        System.out.println("X: " + X + "Y: " + Y);    }//GEN-LAST:event_jLabelStrategyEditorPictureMouseMoved
 
     /**
      * @param args the command line arguments
