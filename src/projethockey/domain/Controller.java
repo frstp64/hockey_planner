@@ -887,6 +887,25 @@ public class Controller {
         this.teamArray = pTeamArray;
     }
     
+    public void setTeamPlayerArray(String[] pPlayerNameArray) {
+        
+        ArrayList<Player> playerList = new ArrayList<Player>();
+        // get playername from list and add him to our new list
+        for (String aPlayerName: pPlayerNameArray) {
+            for (Player aPlayer: playerArray) {
+                if (aPlayer.getName().equals(aPlayerName)) {
+                    // Change placeholder values
+                    playerList.add( new Player(aPlayer) );
+
+                    break;
+                }
+            }
+        }
+        
+        this.mPlaceHolderTeam.setListPlayer(playerList);
+        
+    }
+    
     
     
     public void playStrategy() {

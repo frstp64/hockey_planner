@@ -599,7 +599,7 @@
                 <Component class="javax.swing.JTable" name="jTableTeamPlayers">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="1" rowCount="1">
+                      <Table columnCount="1" rowCount="6">
                         <Column editable="true" title="Joueur" type="java.lang.Object"/>
                       </Table>
                     </Property>

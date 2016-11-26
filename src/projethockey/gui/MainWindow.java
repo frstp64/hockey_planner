@@ -240,6 +240,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     public void publishExistingPlayers(String[] plistPlayer) {
         this.jListExistingPlayers.setListData(plistPlayer);
+        
+        // edit comboBox list (team selection)
+        this.jComboBoxTeamPlayer.setModel(new javax.swing.DefaultComboBoxModel(plistPlayer));
     }
 
     public void publishPlayerCategoryName(String pPlayerCategoryName) {
@@ -828,6 +831,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         jTableTeamPlayers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
                 {null}
             },
             new String [] {
@@ -2211,6 +2219,18 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jButtonNewTeamActionPerformed
 
     private void jButtonSaveTeamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveTeamActionPerformed
+        // save table data to placeHolder
+        int nRow = this.jTableTeamPlayers.getRowCount();
+        
+        String[] tableData = new String[nRow];
+        for (int i = 0; i < nRow; i++) {
+            // TODO, check if already selected?
+            tableData[i] = (String)this.jTableTeamPlayers.getValueAt(i, 0);
+        }
+        
+        this.myController.setTeamPlayerArray(tableData);
+        
+        
         this.myController.saveTeam();
     }//GEN-LAST:event_jButtonSaveTeamActionPerformed
 
@@ -2220,6 +2240,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     private void jSpinnerPlayerNumber1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerPlayerNumber1StateChanged
 
+        //TODO finish this
+        
         // if table too big, remove rows
         if (this.jTableTeamPlayers.getRowCount() > (int)this.jSpinnerPlayerNumber1.getValue())
         {
