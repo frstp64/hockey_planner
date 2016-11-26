@@ -774,6 +774,13 @@ public class Controller {
             this.mMainWindow.publishExistingPlayers(PlayerNameList.toArray(new String[PlayerNameList.size()]));
     }
     
+    public ArrayList<Player> getPlayerArray() {
+        return playerArray;
+    }
+
+    public void setPlayerArray(ArrayList<Player> pPlayerArray) {
+        this.playerArray = pPlayerArray;
+    }
     
     
     

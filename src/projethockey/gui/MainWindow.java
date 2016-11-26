@@ -238,7 +238,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }
 
     public void publishExistingPlayers(String[] plistPlayer) {
-        this.jListExistingCategories.setListData(plistPlayer);
+        this.jListExistingPlayers.setListData(plistPlayer);
     }
 
     public void publishPlayerCategoryName(String pPlayerCategoryName) {
@@ -281,7 +281,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jButtonNewPlayer1 = new javax.swing.JButton();
         jButtonSavePlayer1 = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jListExistingPlayers = new javax.swing.JList<>();
         jTextFieldPlayerName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -630,12 +630,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         jPanelPlayer.add(jButtonSavePlayer1, gridBagConstraints);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        jListExistingPlayers.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane7.setViewportView(jList1);
+        jScrollPane7.setViewportView(jListExistingPlayers);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -2383,9 +2383,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JLabel jLabelStrategyName;
     private javax.swing.JLabel jLabelStrategyViewerTime;
     private javax.swing.JLabel jLabelTimeInterval;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jListExistingCategories;
     private javax.swing.JList<String> jListExistingObstacle;
+    private javax.swing.JList<String> jListExistingPlayers;
     private javax.swing.JList<String> jListExistingSports;
     private javax.swing.JList<String> jListExistingStrategy;
     private javax.swing.JList<String> jListObjects;
