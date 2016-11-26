@@ -759,7 +759,7 @@ public class Controller {
 
                 // Publish placeholder's Data to GUI fields
                 this.mMainWindow.publishPlayerName(this.mPlaceHolderPlayer.getName());
-                this.mMainWindow.publishPlayerCategory(aPlayer.getCategoryPlayerName());
+                this.mMainWindow.publishPlayerCategoryName(aPlayer.getCategoryPlayerName());
 
                 break;
             }

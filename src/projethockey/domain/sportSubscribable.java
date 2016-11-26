@@ -40,7 +40,7 @@ public interface sportSubscribable {
     void publishStrategyName(String pCategoryPlayerName);
     void publishExistingStrategies(String[] plistStrategyName);
     
-    void publishPlayeName(String pPlayerName);
+    void publishPlayerName(String pPlayerName);
     void publishExistingPlayers(String[] plistPlayerName);
     void publishPlayerCategoryName(String pPlayerCategoryName);
     
