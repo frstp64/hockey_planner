@@ -225,6 +225,15 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     public void publishStrategyName(String pStrategyName) {
         this.jTextFieldChooseStrategyName.setText(pStrategyName);
         this.jTextFieldStrategyName.setText(pStrategyName);
+        
+        // set tab viewer disabled or not
+        if (pStrategyName != null) {
+            this.jTabbedPanePlayerCategory.setEnabledAt(6, true);
+        }
+        else
+        {
+            this.jTabbedPanePlayerCategory.setEnabledAt(6, false);
+        }
     }
     
     public void publishStrategyPlayers(String[] plistStrategyPlayers){
@@ -885,7 +894,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelTeam.add(jScrollPane5, gridBagConstraints);
 
         jListExistingTeams.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "Créer une équipe avant" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -2004,8 +2013,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         try {
         if (jListExistingStrategies.getSelectedValue() != null & myController != null) {
             myController.setSelectedStrategy(jListExistingStrategies.getSelectedValue());
-            
-            this.jTabbedPanePlayerCategory.setEnabledAt(6, true);
             
         }
         else if (myController != null) {

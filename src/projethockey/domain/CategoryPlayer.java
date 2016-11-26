@@ -92,7 +92,7 @@ public class CategoryPlayer implements java.io.Serializable{
         this.verticalSize = (float) 0;
         this.horizontalSize = (float) 0;
         this.catName = "";
-        this.imgPlayer = null;
+        this.imgPlayer = new BufferedImage(1,1,BufferedImage.TYPE_INT_ARGB);
     }
     
     private void writeObject(ObjectOutputStream out) throws IOException {

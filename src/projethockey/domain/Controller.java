@@ -636,13 +636,18 @@ public class Controller {
                 
                 
                 // publish all players in strategy to list.
-                ArrayList<Player> players = new ArrayList<Player>();
+                ArrayList<String> playerNames = new ArrayList<String>();
                 for(Team aTeam: this.mPlaceHolderStrategy.getListTeam()){
                     for(Player aPlayer: aTeam.getListPlayer()){
-                        players.add(aPlayer);
+                        playerNames.add(aPlayer.getName());
                     }
                 }
-                this.mMainWindow.publishStrategyPlayers(players.toArray(new String[players.size()]));
+                try{
+                    this.mMainWindow.publishStrategyPlayers(playerNames.toArray(new String[playerNames.size()]));
+                } catch (Exception Ex) {
+                    this.selectedStrategy = "";
+                }
+
             }
             
             break;

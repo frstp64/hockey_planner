@@ -127,7 +127,7 @@ public class Sport implements java.io.Serializable{
         this.verticalSize = (float) 0;
         this.horizontalSize = (float) 0;
         this.name = "";
-        this.imgField = null;
+        this.imgField = new BufferedImage(1,1,BufferedImage.TYPE_INT_ARGB);
         this.dimentionUnit = "";
         this.nbPlayer = 1;
         
