@@ -16,16 +16,15 @@ public class CategoryPlayer implements java.io.Serializable{
     public CategoryPlayer() {
     }
     
-    public CategoryPlayer(String catName, String imgPath, Position positionDefault, int scale) {
+    public CategoryPlayer(String catName, Position positionDefault, int scale) {
         this.catName = catName;
-        this.imgPath = imgPath;
         this.positionDefault = positionDefault;
         this.scale = scale;
     }
     
     public CategoryPlayer(CategoryPlayer categoryPlayer) {
         this.catName = categoryPlayer.catName;
-        this.imgPath = categoryPlayer.imgPath;
+        this.imgPlayer = categoryPlayer.imgPlayer;
         this.positionDefault = categoryPlayer.positionDefault;
         this.scale = categoryPlayer.scale;
         this.horizontalSize = categoryPlayer.horizontalSize;
@@ -51,6 +50,15 @@ public class CategoryPlayer implements java.io.Serializable{
     public void setImgPath(String imgPath) {
         this.imgPath = imgPath;
     }
+    
+    public BufferedImage getImg() {
+        return this.imgPlayer;
+    }
+    
+    public void setImg(BufferedImage playerImage) {
+        this.imgPlayer = playerImage;
+    }
+    
     
     public Position getPositionDefault() {
         return this.positionDefault;
@@ -87,6 +95,6 @@ public class CategoryPlayer implements java.io.Serializable{
         this.verticalSize = (float) 0;
         this.horizontalSize = (float) 0;
         this.catName = "";
-        this.imgPath = "";
+        this.imgPlayer = null;
     }
 }

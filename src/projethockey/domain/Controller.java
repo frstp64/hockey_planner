@@ -383,17 +383,7 @@ public class Controller {
                 this.mMainWindow.publishCategoryPlayerDimensions(this.mPlaceHolderCategoryPlayer.getHorizontalSize(), this.mPlaceHolderCategoryPlayer.getVerticalSize());
 
                 // load image and publish  to GUI
-                String categoryPlayerImagePath = this.mPlaceHolderCategoryPlayer.getImgPath();
-                if (!categoryPlayerImagePath.equals("")) {
-                    try {
-                        java.awt.image.BufferedImage myImg = ImageIO.read(new File(categoryPlayerImagePath));
-
-                        this.mMainWindow.publishCategoryPlayerIcon(myImg);
-                        //this.mPlaceHolderCategoryPlayer.setImage();
-                    } catch (IOException ex) {
-                        System.out.println("Error happenedwhile reading image");
-                    }
-                }
+                this.mMainWindow.publishCategoryPlayerIcon(this.mPlaceHolderCategoryPlayer.getImg());
 
                 break;
             }
@@ -442,7 +432,7 @@ public class Controller {
             BufferedImage myImg = ImageIO.read(new File(categoryPlayerImagePath));
 
             setCategoryPlayerImage(myImg);
-            this.mPlaceHolderCategoryPlayer.setImgPath(categoryPlayerImagePath);
+            
         } catch (IOException ex) {
             System.out.println("Error happenedwhile reading image");
             System.out.println(ex);
@@ -451,6 +441,7 @@ public class Controller {
     }
 
     public void setCategoryPlayerImage(BufferedImage thePicture) {
+        this.mPlaceHolderCategoryPlayer.setImg(thePicture);
         this.mMainWindow.publishCategoryPlayerIcon(thePicture);
     }
 
