@@ -178,13 +178,10 @@ public class Controller {
     public void resetPlaceHolderSport() {
         this.mPlaceHolderSport.reset();
         this.mMainWindow.publishDimensions(this.mPlaceHolderSport.getHorizontalSize(), this.mPlaceHolderSport.getVerticalSize());
-        //this.mMainWindow.publishExistingSports(); //??
         this.mMainWindow.publishSportName(this.mPlaceHolderSport.getName());
         this.mMainWindow.publishUnits(this.mPlaceHolderSport.getDimentionUnit());
         this.mMainWindow.publishPlayerNumber(this.mPlaceHolderSport.getNbPlayer());
-        //void publishPlayers(); //??
-        //void publishObjects(); //??
-        //void publishFieldPicture();
+        this.mMainWindow.publishFieldPicture(this.mPlaceHolderSport.getImg()); 
     }
 
     public void saveSport() {

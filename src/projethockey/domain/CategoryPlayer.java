@@ -1,17 +1,22 @@
 package projethockey.domain;
 import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import java.io.ObjectOutputStream;
+import java.io.ObjectInputStream;
+import java.io.IOException;
 /**
  *
  * @author Alexandre
  */
 public class CategoryPlayer implements java.io.Serializable{
-    public BufferedImage imgPlayer;
     private String catName;
-    private String imgPath;
     private int scale;
     private Position positionDefault;
     private Float horizontalSize;
     private Float verticalSize;
+    
+    //make buffered image serializable
+    transient BufferedImage imgPlayer;
     
     public CategoryPlayer() {
     }
@@ -41,14 +46,6 @@ public class CategoryPlayer implements java.io.Serializable{
     
     public void setCategoryName(String catName) {
         this.catName = catName;
-    }
-    
-    public String getImgPath() {
-        return this.imgPath;
-    }
-    
-    public void setImgPath(String imgPath) {
-        this.imgPath = imgPath;
     }
     
     public BufferedImage getImg() {
@@ -97,4 +94,15 @@ public class CategoryPlayer implements java.io.Serializable{
         this.catName = "";
         this.imgPlayer = null;
     }
+    
+    private void writeObject(ObjectOutputStream out) throws IOException {
+        out.defaultWriteObject();
+        ImageIO.write(imgPlayer, "png", out);
+    }
+    
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+        in.defaultReadObject();
+        imgPlayer = ImageIO.read(in);
+    }
+            
 }

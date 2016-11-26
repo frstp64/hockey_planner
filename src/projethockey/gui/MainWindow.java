@@ -70,33 +70,39 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     public void publishFieldPicture(BufferedImage thePicture) {
 
-        // ideally we would extend a jpanel to accomodate all that image presentation spaghetti into a nice jlabel-inside-jframe class
-        int imHeight = thePicture.getHeight();
-        int imWidth = thePicture.getWidth();
-        int fieldHeight = this.jPanelSportFieldViewer.getHeight();
-        int fieldWidth = this.jPanelSportFieldViewer.getWidth();
+                // first, reset image to empty
+        this.jLabelSportField.setIcon(null);
+        this.jLabelSportField.revalidate();
 
-        float imAspectRatio = ((float) imHeight)/imWidth;
-        float fieldAspectRatio = ((float) fieldHeight)/fieldWidth;
+        // if passed img is not null, draw it.
+        if (thePicture != null) {
+            // ideally we would extend a jpanel to accomodate all that image presentation spaghetti into a nice jlabel-inside-jframe class
+            int imHeight = thePicture.getHeight();
+            int imWidth = thePicture.getWidth();
+            int fieldHeight = this.jPanelSportFieldViewer.getHeight();
+            int fieldWidth = this.jPanelSportFieldViewer.getWidth();
 
-        Icon fieldIcon;
-        // image is large horizontally aspect-wise
-        if (imAspectRatio < fieldAspectRatio) {
-            fieldIcon = new ImageIcon(thePicture.getScaledInstance(fieldWidth-2, -1, -1));
+            float imAspectRatio = ((float) imHeight)/imWidth;
+            float fieldAspectRatio = ((float) fieldHeight)/fieldWidth;
+
+            Icon fieldIcon;
+            // image is large horizontally aspect-wise
+            if (imAspectRatio < fieldAspectRatio) {
+                fieldIcon = new ImageIcon(thePicture.getScaledInstance(fieldWidth-2, -1, -1));
+            }
+            else {
+                fieldIcon = new ImageIcon(thePicture.getScaledInstance(-1, fieldHeight-2, -1));
+            }
+            this.jLabelSportField.setIcon(fieldIcon);
+            //JLabel myIconLabel = new JLabel(fieldIcon);
+            //System.out.println(thePicture.getHeight());
+            //System.out.println(thePicture.getWidth());
+            //myIconLabel.s
+            //this.jPanelSport.add(myIconLabel);
+            //this.jPanelSportFieldViewer.paintComponents(this.jPanelSportFieldViewer.getGraphics());
+            //this.jPanelSportFieldViewer.getGraphics().drawImage(thePicture, 0, 0, null);
+            //this.jPanelSport.repaint();
         }
-        else {
-            fieldIcon = new ImageIcon(thePicture.getScaledInstance(-1, fieldHeight-2, -1));
-
-        }
-        this.jLabelSportField.setIcon(fieldIcon);
-        //JLabel myIconLabel = new JLabel(fieldIcon);
-        //System.out.println(thePicture.getHeight());
-        //System.out.println(thePicture.getWidth());
-        //myIconLabel.s
-        //this.jPanelSport.add(myIconLabel);
-        //this.jPanelSportFieldViewer.paintComponents(this.jPanelSportFieldViewer.getGraphics());
-        //this.jPanelSportFieldViewer.getGraphics().drawImage(thePicture, 0, 0, null);
-        //this.jPanelSport.repaint();
 
 
     }
@@ -976,9 +982,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.05;
@@ -1009,8 +1015,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;

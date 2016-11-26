@@ -1,6 +1,10 @@
 package projethockey.domain;
 import java.util.ArrayList;
 import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import java.io.ObjectOutputStream;
+import java.io.ObjectInputStream;
+import java.io.IOException;
 
 /**
  *
@@ -8,7 +12,6 @@ import java.awt.image.BufferedImage;
  */
 public class Sport implements java.io.Serializable{ 
     private String name;
-    private BufferedImage imgField;
     private String dimentionUnit;
     private Float horizontalSize;
     private Float verticalSize;
@@ -17,6 +20,9 @@ public class Sport implements java.io.Serializable{
     private Orientation fieldOrientation;
     private ArrayList<CategoryPlayer> listCatPlayer;
     //private var objectAssocied;
+    
+    //make buffered image serializable
+    transient BufferedImage imgField;
     
     Sport() {
     }
@@ -152,6 +158,16 @@ public class Sport implements java.io.Serializable{
         }     
         
         return isValid;
+    }
+    
+    private void writeObject(ObjectOutputStream out) throws IOException {
+        out.defaultWriteObject();
+        ImageIO.write(imgField, "png", out);
+    }
+    
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+        in.defaultReadObject();
+        imgField = ImageIO.read(in);
     }
             
 }
