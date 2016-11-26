@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package projethockey.domain;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public interface sportSubscribable {
     
     String requestFilePath();
     void publishObjectTypeNumber(int objectTypeNumber);
-    void publishScene(BufferedImage pSceneImage);
+    void publishScene(Image pSceneImage);
     
     void publishCategoryPlayerName(String pCategoryPlayerName);
     void publishCategoryPlayerDimensions(Float pdimX, Float pdimY);

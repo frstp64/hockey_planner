@@ -1,5 +1,6 @@
 package projethockey.gui;
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import projethockey.domain.Controller;
 import projethockey.domain.sportSubscribable;
@@ -262,7 +263,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         this.jComboBoxStrategyTeam.setModel(new javax.swing.DefaultComboBoxModel(plistTeam));
     }
     
-    public void publishScene(BufferedImage pSceneImage) {
+    public void publishScene(Image pSceneImage) {
         this.jLabelStrategyEditorPicture.setIcon(new ImageIcon(pSceneImage));
     }
 
