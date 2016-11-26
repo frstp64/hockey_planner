@@ -233,16 +233,7 @@ public class Controller {
                 
 
                 // load image and publish  to GUI
-                String sportImagePath = this.mPlaceHolderSport.getImgPath();
-                if (!sportImagePath.equals("")) {
-                    try {
-                        java.awt.image.BufferedImage myImg = ImageIO.read(new File(sportImagePath));
-
-                        this.mMainWindow.publishFieldPicture(myImg); 
-                    } catch (IOException ex) {
-                        System.out.println("Error happenedwhile reading image");
-                    }
-                }
+                this.mMainWindow.publishFieldPicture(this.mPlaceHolderSport.getImg()); 
 
                 break;
             }
@@ -304,7 +295,7 @@ public class Controller {
             java.awt.image.BufferedImage myImg = ImageIO.read(new File(sportImagePath));
 
             setSportImage(myImg);
-            //this.mPlaceHolderSport.setImage();
+
         } catch (IOException ex) {
             System.out.println("Error happenedwhile reading image");
         }
@@ -312,6 +303,7 @@ public class Controller {
     }
 
     public void setSportImage(BufferedImage theFieldPicture) {
+        this.mPlaceHolderSport.setImg(theFieldPicture);
         this.mMainWindow.publishFieldPicture(theFieldPicture);
     }
 

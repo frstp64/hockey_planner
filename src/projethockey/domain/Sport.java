@@ -1,5 +1,6 @@
 package projethockey.domain;
 import java.util.ArrayList;
+import java.awt.image.BufferedImage;
 
 /**
  *
@@ -7,7 +8,7 @@ import java.util.ArrayList;
  */
 public class Sport implements java.io.Serializable{ 
     private String name;
-    private String imgPath;
+    private BufferedImage imgField;
     private String dimentionUnit;
     private Float horizontalSize;
     private Float verticalSize;
@@ -22,7 +23,7 @@ public class Sport implements java.io.Serializable{
     
     public Sport(Sport sport) {
         this.name = sport.name;
-        this.imgPath = sport.imgPath;
+        this.imgField = sport.imgField;
         this.dimentionUnit = sport.dimentionUnit;
         this.horizontalSize = sport.horizontalSize;
         this.verticalSize = sport.verticalSize;
@@ -32,9 +33,9 @@ public class Sport implements java.io.Serializable{
         this.listCatPlayer = sport.listCatPlayer;
     }
 
-    public Sport(String name, String imgPath, String dimentionUnit, Float horizontalSize, Float verticalSize, int nbPlayer, boolean unlimitedPlayer, Orientation fieldOrientation, ArrayList<CategoryPlayer> listCatPlayer) {
+    public Sport(String name, BufferedImage imgField, String dimentionUnit, Float horizontalSize, Float verticalSize, int nbPlayer, boolean unlimitedPlayer, Orientation fieldOrientation, ArrayList<CategoryPlayer> listCatPlayer) {
         this.name = name;
-        this.imgPath = imgPath;
+        this.imgField = imgField;
         this.dimentionUnit = dimentionUnit;
         this.horizontalSize = horizontalSize;
         this.verticalSize = verticalSize;
@@ -92,12 +93,12 @@ public class Sport implements java.io.Serializable{
         return this.verticalSize;
     }
     
-    public String getImgPath() {
-        return imgPath;
+    public BufferedImage getImg() {
+        return this.imgField;
     }
 
-    public void setImgPath(String imgPath) {
-        this.imgPath = imgPath;
+    public void setImg(BufferedImage imgField) {
+        this.imgField = imgField;
     }
     
     public boolean isUnlimitedPlayer() {
