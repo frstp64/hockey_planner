@@ -1931,8 +1931,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jTabbedPanePlayerCategory.addTab("Édition et visualisation de stratégie", jPanelStrategyEditor);
 
         getContentPane().add(jTabbedPanePlayerCategory, java.awt.BorderLayout.CENTER);
-        //this.jTabbedPanePlayerCategory.setEnabledAt(4, false);
-        //this.jTabbedPanePlayerCategory.setEnabledAt(6, false);
+        this.jTabbedPanePlayerCategory.setEnabledAt(4, false);
+        this.jTabbedPanePlayerCategory.setEnabledAt(6, false);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

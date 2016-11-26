@@ -79,7 +79,7 @@
         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jTabbedPanePlayerCategoryStateChanged"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="//this.jTabbedPanePlayerCategory.setEnabledAt(4, false);&#xa;//this.jTabbedPanePlayerCategory.setEnabledAt(6, false); "/>
+        <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="this.jTabbedPanePlayerCategory.setEnabledAt(4, false);&#xa;this.jTabbedPanePlayerCategory.setEnabledAt(6, false); "/>
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
