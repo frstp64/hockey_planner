@@ -20,8 +20,6 @@ public interface sportSubscribable {
     void publishUnits(String punits);
     void publishPlayerNumber(int playerNumber);
     void publishSportIsUnlimited(boolean isUnlimited);
-    void publishPlayers(); //??
-    void publishObjects(); //??
     void publishFieldPicture(BufferedImage thePicture);
     String requestFilePath();
     void publishObjectTypeNumber(int objectTypeNumber);
@@ -41,6 +39,11 @@ public interface sportSubscribable {
     
     void publishStrategyName(String pCategoryPlayerName);
     void publishExistingStrategies(String[] plistStrategyName);
+    
+    void publishPlayeName(String pPlayerName);
+    void publishExistingPlayers(String[] plistPlayerName);
+    void publishPlayerCategoryName(String pPlayerCategoryName);
+    
     //TODO
     // void publishStrategySport
     // void publishStrategyPlayers

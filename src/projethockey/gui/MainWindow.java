@@ -64,10 +64,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         this.jCheckBoxUnlimitedPlayer.setSelected(isUnlimited);
     }
 
-    public void publishPlayers() {
-
-    }
-
     public void publishPlayerCategories(ArrayList<String> pPlayerCategoryList) {
         javax.swing.JComboBox sportCellComboBox = new javax.swing.JComboBox();
         javax.swing.table.TableColumn categoryColumn = tableSportPlayers.getColumnModel().getColumn(0);
@@ -80,10 +76,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         sportCellComboBox.addItem("Gardien Röckenfelleur");
         sportCellComboBox.addItem("Lutteur Avant-gardissien");
         categoryColumn.setCellEditor(new javax.swing.DefaultCellEditor(sportCellComboBox));
-
-    }
-
-    public void publishObjects() {
 
     }
 
@@ -239,6 +231,18 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     
     public void publishExistingStrategies(String[] plistStrategy) {
         this.jListExistingStrategy.setListData(plistStrategy);
+    }
+    
+    public void publishPlayerName(String pPlayerName) {
+        this.jTextFieldPlayerName.setText(pPlayerName);
+    }
+
+    public void publishExistingPlayers(String[] plistPlayer) {
+        this.jListExistingCategories.setListData(plistPlayer);
+    }
+
+    public void publishPlayerCategoryName(String pPlayerCategoryName) {
+        //TODO
     }
     
     public void publishScene(BufferedImage pSceneImage) {
@@ -580,6 +584,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelCategories.add(jButtonDeleteCategory, gridBagConstraints);
 
         jButtonChooseCategoryPicture.setText("Charger une image...");
+        jButtonChooseCategoryPicture.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonChooseCategoryPictureActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -638,6 +647,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.weighty = 1.0;
         jPanelPlayer.add(jScrollPane7, gridBagConstraints);
 
+        jTextFieldPlayerName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldPlayerNameFocusLost(evt);
+            }
+        });
         jTextFieldPlayerName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPlayerNameActionPerformed(evt);
@@ -1404,8 +1418,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.insets = new java.awt.Insets(1, 1, 0, 0);
         jPanelCreateLoadStrategy.add(jLabelPlayersTableTitle, gridBagConstraints);
 
-        jScrollPanePlayers.setPreferredSize(null);
-
         tableSportPlayers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -1489,7 +1501,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         jScrollPanePlayerSelection.setMinimumSize(null);
         jScrollPanePlayerSelection.setName(""); // NOI18N
-        jScrollPanePlayerSelection.setPreferredSize(null);
 
         jListPlayers.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Joueur1", "Joueur2", "Joueur3", "Joueur4", "Joueur5" };
@@ -1578,9 +1589,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jButtonSaveStrategy.setEnabled(false);
         jButtonSaveStrategy.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonSaveStrategy.setIconTextGap(2);
-        jButtonSaveStrategy.setMaximumSize(null);
-        jButtonSaveStrategy.setMinimumSize(null);
-        jButtonSaveStrategy.setPreferredSize(null);
         jButtonSaveStrategy.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButtonSaveStrategy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2177,11 +2185,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jSpinnerPlayerNumber1StateChanged
 
     private void jButtonSavePlayer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSavePlayer1ActionPerformed
-        // TODO add your handling code here:
+        this.myController.savePlayer();
     }//GEN-LAST:event_jButtonSavePlayer1ActionPerformed
 
     private void jButtonNewPlayer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewPlayer1ActionPerformed
-        // TODO add your handling code here:
+        myController.resetPlaceHolderPlayer();
     }//GEN-LAST:event_jButtonNewPlayer1ActionPerformed
 
     private void jTextFieldPlayerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPlayerNameActionPerformed
@@ -2189,7 +2197,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jTextFieldPlayerNameActionPerformed
 
     private void jButtonDestroyPlayer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDestroyPlayer1ActionPerformed
-        // TODO add your handling code here:
+        this.myController.removePlayer();
     }//GEN-LAST:event_jButtonDestroyPlayer1ActionPerformed
 
     private void jButtonDeleteCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteCategoryActionPerformed
@@ -2257,6 +2265,14 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         double X = evt.getX();
         double Y = evt.getY();
         System.out.println("X: " + X + "Y: " + Y);    }//GEN-LAST:event_jLabelStrategyEditorPictureMouseMoved
+
+    private void jButtonChooseCategoryPictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseCategoryPictureActionPerformed
+        myController.getCategoryPlayerImage();
+    }//GEN-LAST:event_jButtonChooseCategoryPictureActionPerformed
+
+    private void jTextFieldPlayerNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldPlayerNameFocusLost
+        myController.setPlayerName(this.jTextFieldPlayerName.getText());
+    }//GEN-LAST:event_jTextFieldPlayerNameFocusLost
 
     /**
      * @param args the command line arguments

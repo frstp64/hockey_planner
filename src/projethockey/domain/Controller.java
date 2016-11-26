@@ -38,6 +38,12 @@ public class Controller {
     private Strategy mPlaceHolderStrategy; // Contains the parameters for the new Strategy
     private ArrayList<Strategy> strategyArray;
     private String selectedStrategy;
+    
+    // Player (unique player)
+    private Player mPlaceHolderPlayer; // Contains the parameters for the new Player
+    private ArrayList<Player> playerArray;
+    private String selectedPlayer;
+
 
     private projetHockeyInterface mMainWindow; // A reference to the window
     
@@ -62,6 +68,9 @@ public class Controller {
         // Strategy
         mPlaceHolderStrategy = new Strategy();
         strategyArray = new ArrayList<Strategy>();
+        // Player
+        mPlaceHolderPlayer = new Player();
+        playerArray = new ArrayList<Player>();
         
         myScene = new Scene(300, 300);
 
@@ -87,6 +96,7 @@ public class Controller {
         this.setSelectedCategoryPlayer("");
         this.setSelectedCategoryObstacle("");
         this.setSelectedStrategy("");
+        this.setSelectedPlayer("");
 
         // Update the array list
         if (!sportArray.isEmpty()) {
@@ -100,6 +110,9 @@ public class Controller {
         }
         if (!strategyArray.isEmpty()) {
             publishStrategyNames();
+        }
+        if (!playerArray.isEmpty()) {
+            publishPlayerNames();
         }
     }
 
@@ -675,6 +688,94 @@ public class Controller {
     public void setStrategySportName(String sportName) {
         this.mPlaceHolderStrategy.setSportName(sportName);
     }
+    
+    // -------------------- Player --------------------
+    public void setPlayerName(String pPlayerName) {
+        this.mPlaceHolderPlayer.setName(pPlayerName);
+    }
+    
+    public void resetPlaceHolderPlayer() {
+
+        // empty data
+        this.mPlaceHolderPlayer.reset();
+        // empty GUI values
+        this.mMainWindow.publishPlayerName(this.mPlaceHolderPlayer.getName());
+    }
+    
+    public void removePlayer() {
+        // if one is selected, remove it
+        if (!this.selectedPlayer.equals("")) {
+            for (Player aPlayer: playerArray) {
+                if (aPlayer.getName().equals(this.selectedPlayer)) {
+                    this.playerArray.remove(aPlayer);
+                    break;
+                }
+            }
+            this.selectedPlayer = "";
+        }
+
+        // Save to permanent memory
+        projethockey.services.AppDataProxy.saveData(this);
+
+        // Update display
+        publishPlayerNames();
+    }
+    
+    public void savePlayer() {
+        // Ensure the player is valid here.
+
+        // If the player exists, remove it from the list
+        for (Player aPlayer: playerArray) {
+            if (aPlayer.getName().equals(this.mPlaceHolderPlayer.getName())) {
+                System.out.println(aPlayer.getName());
+                this.playerArray.remove(aPlayer);
+                break;
+            }
+        }
+
+        // Add the player to the list
+        playerArray.add(new Player(this.mPlaceHolderPlayer));
+
+        //Save to permanent memory
+        projethockey.services.AppDataProxy.saveData(this);
+        if (!playerArray.isEmpty()) {
+            publishPlayerNames();
+        }
+    }
+    
+    public void setSelectedPlayer(String pSelectedPlayer) {
+        //this.selectedPlayer = pSelectedPlayer;
+
+        // Set player's data in GUI.
+
+        this.selectedPlayer = pSelectedPlayer;
+        // Clean gui first.
+        resetPlaceHolderPlayer();
+
+        for (Player aPlayer: playerArray) {
+            if (aPlayer.getName().equals(this.selectedPlayer)) {
+                // Change placeholder values
+                this.mPlaceHolderPlayer = new Player(aPlayer);
+
+                // Publish placeholder's Data to GUI fields
+                this.mMainWindow.publishPlayerName(this.mPlaceHolderPlayer.getName());
+                this.mMainWindow.publishPlayerCategory(aPlayer.getCategoryPlayerName());
+
+                break;
+            }
+        }
+    }
+    
+    public void publishPlayerNames() {
+        ArrayList<String> PlayerNameList = new ArrayList<String>();
+            for (Player aPlayer: playerArray) {
+                PlayerNameList.add(aPlayer.getName());
+            }
+            this.mMainWindow.publishExistingPlayers(PlayerNameList.toArray(new String[PlayerNameList.size()]));
+    }
+    
+    
+    
     
     public void playStrategy() {
         

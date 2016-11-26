@@ -52,6 +52,10 @@ public class Player {
     public CategoryPlayer getCategoryPlayer() {
         return categoryPlayer;
     }
+    
+    public String getCategoryPlayerName() {
+        return categoryPlayer.getCategoryName();
+    }
 
     public void setCategoryPlayer(CategoryPlayer categoryPlayer) {
         this.categoryPlayer = categoryPlayer;
@@ -103,5 +107,10 @@ public class Player {
 
     public void setName(String name) {
         this.name = name;
-    }    
+    }
+
+    public void reset() {
+        this.categoryPlayer = null;
+        this.name = "";
+    }
 }
