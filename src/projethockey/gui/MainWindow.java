@@ -37,6 +37,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     public void publishExistingSports(String[] plistSportsNames) {
         this.jListExistingSports.setListData(plistSportsNames);
+        
+        // change strategy tab values
+        this.jComboBoxChooseStrategySport.setModel(new javax.swing.DefaultComboBoxModel(plistSportsNames));
     }
 
     public void publishSportName(String pSportName) {
@@ -54,7 +57,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     public void publishPlayerNumber(int playerNumber){
         this.jSpinnerSportPlayerMax.setValue(playerNumber);
-        ((DefaultTableModel) this.tableSportPlayers.getModel()).setRowCount(playerNumber);
+        ((DefaultTableModel) this.jTableStrategyTeams.getModel()).setRowCount(playerNumber);
     }
     public void publishObjectTypeNumber(int objectTypeNumber){
         //this.jSpinnerObjectTypeNumber.setValue(objectTypeNumber);
@@ -63,21 +66,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     public void publishSportIsUnlimited(boolean isUnlimited){
         this.jCheckBoxUnlimitedPlayer.setSelected(isUnlimited);
-    }
-
-    public void publishPlayerCategories(ArrayList<String> pPlayerCategoryList) {
-        javax.swing.JComboBox sportCellComboBox = new javax.swing.JComboBox();
-        javax.swing.table.TableColumn categoryColumn = tableSportPlayers.getColumnModel().getColumn(0);
-        // Dummy items, please remove later
-        for (String aCategory : pPlayerCategoryList) {
-            sportCellComboBox.addItem(aCategory);
-        }
-        sportCellComboBox.addItem("Frontier Pierrien");
-        sportCellComboBox.addItem("Ailier Picardier");
-        sportCellComboBox.addItem("Gardien Röckenfelleur");
-        sportCellComboBox.addItem("Lutteur Avant-gardissien");
-        categoryColumn.setCellEditor(new javax.swing.DefaultCellEditor(sportCellComboBox));
-
     }
 
     public void publishFieldPicture(BufferedImage thePicture) {
@@ -156,6 +144,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     public void publishExistingCategoryPlayer(String[] plistCategoryPlayer) {
         this.jListExistingCategories.setListData(plistCategoryPlayer);
+        
+        this.jComboBoxPlayerCategory.setModel(new javax.swing.DefaultComboBoxModel(plistCategoryPlayer));
     }
 
 
@@ -231,7 +221,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }
     
     public void publishExistingStrategies(String[] plistStrategy) {
-        this.jListExistingStrategy.setListData(plistStrategy);
+        
+        this.jListExistingStrategies.setListData(plistStrategy);
     }
     
     public void publishPlayerName(String pPlayerName) {
@@ -246,7 +237,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }
 
     public void publishPlayerCategoryName(String pPlayerCategoryName) {
-        //TODO
+        this.jComboBoxPlayerCategory.setSelectedItem(pPlayerCategoryName);
+
     }
     
     public void publishTeamName(String pTeamName) {
@@ -255,6 +247,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     public void publishExistingTeams(String[] plistTeam) {
         this.jListExistingTeams.setListData(plistTeam);
+        
+                // edit comboBox list (team selection)
+        this.jComboBoxStrategyTeam.setModel(new javax.swing.DefaultComboBoxModel(plistTeam));
     }
     
     public void publishScene(BufferedImage pSceneImage) {
@@ -273,6 +268,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         java.awt.GridBagConstraints gridBagConstraints;
 
         jComboBoxTeamPlayer = new javax.swing.JComboBox<>();
+        jComboBoxStrategyTeam = new javax.swing.JComboBox<>();
         jTabbedPanePlayerCategory = new javax.swing.JTabbedPane();
         jPanelCategories = new javax.swing.JPanel();
         jSeparator8 = new javax.swing.JSeparator();
@@ -357,7 +353,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelCreateLoadStrategy = new javax.swing.JPanel();
         jButtonCreateStrategy = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jListExistingStrategy = new javax.swing.JList<>();
+        jListExistingStrategies = new javax.swing.JList<>();
         jButtonLoadStrategy = new javax.swing.JButton();
         jLabelChooseSport = new javax.swing.JLabel();
         jLabelChooseNameStrategy = new javax.swing.JLabel();
@@ -369,7 +365,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jTextFieldChooseStrategyName = new javax.swing.JTextField();
         jLabelPlayersTableTitle = new javax.swing.JLabel();
         jScrollPanePlayers = new javax.swing.JScrollPane();
-        tableSportPlayers = new javax.swing.JTable();
+        jTableStrategyTeams = new javax.swing.JTable();
         jPanelStrategyEditor = new javax.swing.JPanel();
         jScrollPaneModificationMode = new javax.swing.JScrollPane();
         jListTypeModificationType = new javax.swing.JList<>();
@@ -404,7 +400,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jTextFieldPlaybackSpeed = new javax.swing.JTextField();
         jLabelStrategyViewerTime = new javax.swing.JLabel();
 
-        jComboBoxTeamPlayer.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxTeamPlayer.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Créer joueur avant!" }));
+
+        jComboBoxStrategyTeam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Créer équipe avant" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Logiciel de stratégie");
@@ -647,7 +645,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelPlayer.add(jButtonSavePlayer1, gridBagConstraints);
 
         jListExistingPlayers.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "Aucun joueur existant" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -713,7 +711,22 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.ipady = 20;
         jPanelPlayer.add(jButtonDestroyPlayer1, gridBagConstraints);
 
-        jComboBoxPlayerCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxPlayerCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Créer Catégorie avant" }));
+        jComboBoxPlayerCategory.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxPlayerCategoryItemStateChanged(evt);
+            }
+        });
+        jComboBoxPlayerCategory.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jComboBoxPlayerCategoryFocusLost(evt);
+            }
+        });
+        jComboBoxPlayerCategory.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jComboBoxPlayerCategoryPropertyChange(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -817,6 +830,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelTeam.add(jLabelPlayerNumber1, gridBagConstraints);
 
         jSpinnerPlayerNumber1.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        jSpinnerPlayerNumber1.setEnabled(false);
         jSpinnerPlayerNumber1.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinnerPlayerNumber1StateChanged(evt);
@@ -1043,6 +1057,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelSport.add(jLabelPlayerNumber, gridBagConstraints);
 
         jSpinnerSportPlayerMax.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        jSpinnerSportPlayerMax.setEnabled(false);
         jSpinnerSportPlayerMax.setMinimumSize(new java.awt.Dimension(0, 0));
         jSpinnerSportPlayerMax.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -1125,6 +1140,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelSport.add(jTextFieldFieldUnits, gridBagConstraints);
 
         jCheckBoxUnlimitedPlayer.setText("Nombre de joueurs illimité");
+        jCheckBoxUnlimitedPlayer.setEnabled(false);
         jCheckBoxUnlimitedPlayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBoxUnlimitedPlayerActionPerformed(evt);
@@ -1143,6 +1159,13 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
         jPanelSport.add(jLabel7, gridBagConstraints);
+
+        jSpinnerSportEquipes.setEnabled(false);
+        jSpinnerSportEquipes.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSpinnerSportEquipesStateChanged(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
@@ -1333,12 +1356,17 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelCreateLoadStrategy.add(jButtonCreateStrategy, gridBagConstraints);
 
-        jListExistingStrategy.setModel(new javax.swing.AbstractListModel<String>() {
+        jListExistingStrategies.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Tour du chapeau", "Stratégie des Oursons" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jListExistingStrategy);
+        jListExistingStrategies.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListExistingStrategiesMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jListExistingStrategies);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1464,8 +1492,14 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.insets = new java.awt.Insets(1, 1, 0, 0);
         jPanelCreateLoadStrategy.add(jLabelPlayersTableTitle, gridBagConstraints);
 
-        tableSportPlayers.setModel(new javax.swing.table.DefaultTableModel(
+        jTableStrategyTeams.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
                 {null},
                 {null}
             },
@@ -1481,25 +1515,17 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 return types [columnIndex];
             }
         });
-        tableSportPlayers.getTableHeader().setReorderingAllowed(false);
-        tableSportPlayers.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        jTableStrategyTeams.getTableHeader().setReorderingAllowed(false);
+        jTableStrategyTeams.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                tableSportPlayersPropertyChange(evt);
+                jTableStrategyTeamsPropertyChange(evt);
             }
         });
-        jScrollPanePlayers.setViewportView(tableSportPlayers);
-        if (tableSportPlayers.getColumnModel().getColumnCount() > 0) {
-            tableSportPlayers.getColumnModel().getColumn(0).setResizable(false);
+        jScrollPanePlayers.setViewportView(jTableStrategyTeams);
+        if (jTableStrategyTeams.getColumnModel().getColumnCount() > 0) {
+            jTableStrategyTeams.getColumnModel().getColumn(0).setResizable(false);
+            jTableStrategyTeams.getColumnModel().getColumn(0).setCellEditor(new DefaultCellEditor(jComboBoxStrategyTeam));
         }
-        // The following code is customized using http://docs.oracle.com/javase/tutorial/displayCode.html?code=http://docs.oracle.com/javase/tutorial/uiswing/examples/components/TableRenderDemoProject/src/components/TableRenderDemo.java
-        javax.swing.JComboBox sportCellComboBox = new javax.swing.JComboBox();
-        javax.swing.table.TableColumn categoryColumn = tableSportPlayers.getColumnModel().getColumn(0);
-        // Dummy items, please remove later
-        sportCellComboBox.addItem("Frontier Pierrien");
-        sportCellComboBox.addItem("Ailier Picardier");
-        sportCellComboBox.addItem("Gardien Röckenfelleur");
-        sportCellComboBox.addItem("Lutteur Avant-gardissien");
-        categoryColumn.setCellEditor(new javax.swing.DefaultCellEditor(sportCellComboBox));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -1932,6 +1958,14 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jButtonSaveSportActionPerformed
 
     private void jButtonCreateStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateStrategyActionPerformed
+        // save table data to placeHolder
+        int nRow = this.jTableStrategyTeams.getRowCount();
+        String[] tableData = new String[nRow];
+        for (int i = 0; i < nRow; i++) {
+            tableData[i] = (String)this.jTableStrategyTeams.getValueAt(i, 0);
+        }
+        this.myController.setStrategyTeam(tableData);
+        
         this.myController.saveStrategy();
     }//GEN-LAST:event_jButtonCreateStrategyActionPerformed
 
@@ -1957,8 +1991,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     private void jButtonLoadStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoadStrategyActionPerformed
         try {
-        if (jListExistingStrategy.getSelectedValue() != null & myController != null) {
-            myController.setSelectedStrategy(jListExistingStrategy.getSelectedValue());
+        if (jListExistingStrategies.getSelectedValue() != null & myController != null) {
+            myController.setSelectedStrategy(jListExistingStrategies.getSelectedValue());
         }
         else if (myController != null) {
             String empty = "";
@@ -2042,7 +2076,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         //this.myController.setSportPlayerNumber(5);
     }//GEN-LAST:event_jSpinnerSportPlayerMaxStateChanged
 
-    private void tableSportPlayersPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tableSportPlayersPropertyChange
+    private void jTableStrategyTeamsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableStrategyTeamsPropertyChange
         /*
         ArrayList<String> typeArray = new ArrayList();
         ArrayList<String> playerRoleArray = new ArrayList();
@@ -2083,7 +2117,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             this.myController.setSportPlayers(typeArray, playerRoleArray);
         }
         */
-    }//GEN-LAST:event_tableSportPlayersPropertyChange
+    }//GEN-LAST:event_jTableStrategyTeamsPropertyChange
 
     private void jTextFieldSportNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSportNameActionPerformed
         // TODO add your andling code here:
@@ -2352,12 +2386,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     private void jListExistingPlayersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListExistingPlayersMouseClicked
         try {
-            if (jListExistingTeams.getSelectedValue() != null & myController != null) {
-                myController.setSelectedTeam(jListExistingTeams.getSelectedValue());
+            if (jListExistingPlayers.getSelectedValue() != null & myController != null) {
+                myController.setSelectedPlayer(jListExistingPlayers.getSelectedValue());
             }
             else if (myController != null) {
                 String empty = "";
-                myController.setSelectedTeam(empty);
+                myController.setSelectedPlayer(empty);
             }
         } catch (Exception Ex) {
 
@@ -2381,6 +2415,36 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         }
     }//GEN-LAST:event_jListExistingTeamsMouseClicked
+
+    private void jSpinnerSportEquipesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerSportEquipesStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSpinnerSportEquipesStateChanged
+
+    private void jListExistingStrategiesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListExistingStrategiesMouseClicked
+        try {
+            if (jListExistingStrategies.getSelectedValue() != null & myController != null) {
+                myController.setSelectedStrategy(jListExistingStrategies.getSelectedValue());
+            }
+            else if (myController != null) {
+                String empty = "";
+                myController.setSelectedStrategy(empty);
+            }
+        } catch (Exception Ex) {
+
+        }
+    }//GEN-LAST:event_jListExistingStrategiesMouseClicked
+
+    private void jComboBoxPlayerCategoryPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jComboBoxPlayerCategoryPropertyChange
+
+    }//GEN-LAST:event_jComboBoxPlayerCategoryPropertyChange
+
+    private void jComboBoxPlayerCategoryItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxPlayerCategoryItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxPlayerCategoryItemStateChanged
+
+    private void jComboBoxPlayerCategoryFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBoxPlayerCategoryFocusLost
+        this.myController.setPlayerCategory( (String)this.jComboBoxPlayerCategory.getSelectedItem());
+    }//GEN-LAST:event_jComboBoxPlayerCategoryFocusLost
 
     /**
      * @param args the command line arguments
@@ -2452,6 +2516,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JCheckBox jCheckBoxUnlimitedPlayer;
     private javax.swing.JComboBox<String> jComboBoxChooseStrategySport;
     private javax.swing.JComboBox<String> jComboBoxPlayerCategory;
+    private javax.swing.JComboBox<String> jComboBoxStrategyTeam;
     private javax.swing.JComboBox<String> jComboBoxTeamPlayer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -2496,7 +2561,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JList<String> jListExistingObstacle;
     private javax.swing.JList<String> jListExistingPlayers;
     private javax.swing.JList<String> jListExistingSports;
-    private javax.swing.JList<String> jListExistingStrategy;
+    private javax.swing.JList<String> jListExistingStrategies;
     private javax.swing.JList<String> jListExistingTeams;
     private javax.swing.JList<String> jListObjects;
     private javax.swing.JList<String> jListPlayers;
@@ -2534,6 +2599,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JSpinner jSpinnerSportEquipes;
     private javax.swing.JSpinner jSpinnerSportPlayerMax;
     private javax.swing.JTabbedPane jTabbedPanePlayerCategory;
+    private javax.swing.JTable jTableStrategyTeams;
     private javax.swing.JTable jTableTeamPlayers;
     private javax.swing.JTextField jTextFieldCategoryName;
     private javax.swing.JTextField jTextFieldChooseStrategyName;
@@ -2548,6 +2614,5 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JTextField jTextFieldTimeInterval;
     private javax.swing.JTextField jTextFieldVerticalSize;
     private javax.swing.JToggleButton jToggleButtonRotationMode;
-    private javax.swing.JTable tableSportPlayers;
     // End of variables declaration//GEN-END:variables
 }

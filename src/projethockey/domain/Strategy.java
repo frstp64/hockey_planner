@@ -13,7 +13,6 @@ public class Strategy implements java.io.Serializable{
     //private var interfaceUser;
     private float playBackSpeed;
     private Date deltaTimeFrame;
-    private String sportName;
     private List<Snapshot> listSnapshot;
     private String name;
     private Sport sport;
@@ -25,7 +24,6 @@ public class Strategy implements java.io.Serializable{
     public Strategy(Strategy strategy) {
         this.playBackSpeed = strategy.playBackSpeed;
         this.deltaTimeFrame = strategy.deltaTimeFrame;
-        this.sportName = strategy.sportName;
         this.listSnapshot = strategy.listSnapshot;
         this.name = strategy.name;
         this.sport = strategy.sport;
@@ -35,7 +33,6 @@ public class Strategy implements java.io.Serializable{
     public Strategy(float playBackSpeed, Date deltaTimeFrame, String sportName, List<Snapshot> listSnapshot, String name, Sport sport, ArrayList<Team> listTeam) {
         this.playBackSpeed = playBackSpeed;
         this.deltaTimeFrame = deltaTimeFrame;
-        this.sportName = sportName;
         this.listSnapshot = listSnapshot;
         this.name = name;
         this.sport = sport;
@@ -68,11 +65,7 @@ public class Strategy implements java.io.Serializable{
     }
 
     public String getSportName() {
-        return sportName;
-    }
-
-    public void setSportName(String sportName) {
-        this.sportName = sportName;
+        return this.sport.getName();
     }
 
     public List<Snapshot> getListSnapshot() {

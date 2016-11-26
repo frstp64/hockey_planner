@@ -39,6 +39,9 @@ public class Controller {
     private ArrayList<Strategy> strategyArray;
     private String selectedStrategy;
     
+    //viewer strategy (currently loaded strategy)
+    private Strategy loadedStrategy;
+    
     // Player (unique player)
     private Player mPlaceHolderPlayer; // Contains the parameters for the new Player
     private ArrayList<Player> playerArray;
@@ -650,14 +653,11 @@ public class Controller {
 
                 // Publish placeholder's Data to GUI fields
                 this.mMainWindow.publishStrategyName(this.mPlaceHolderStrategy.getName());
-
-                
-                }
-
-
-                break;
             }
+            
+            break;
         }
+    }
 
     public void removeStrategy() {
         // if one is selected, remove it
@@ -695,11 +695,38 @@ public class Controller {
     
     public void setStrategySport(Sport pSport) {
         // maybe keep a selectedStrategySport pointer?
-        setStrategySportName(pSport.getName());
+        this.mPlaceHolderStrategy.setSport(pSport);
     }
 
     public void setStrategySportName(String sportName) {
-        this.mPlaceHolderStrategy.setSportName(sportName);
+        
+        for (Sport aSport: sportArray) {
+            if (aSport.getName().equals(sportName)) {
+                setStrategySport(aSport);
+                
+                break;
+            }
+        }
+
+    }
+    
+    public void setStrategyTeam(String[] pTeamList){
+        // takes list of team names and adds Team list to placeHolderStrategy.
+        
+        ArrayList<Team> teamList = new ArrayList<Team>();
+        
+        for(String aTeamName: pTeamList){
+            for (Team aTeam: teamArray) {
+                if (aTeam.getName().equals(aTeamName)) {
+                    // Change placeholder values
+                    teamList.add( new Team(aTeam) );
+                    
+                    break;
+                }
+            }
+        }
+        
+        this.mPlaceHolderStrategy.setListTeam(teamList);
     }
     
     // -------------------- Player --------------------
@@ -765,18 +792,21 @@ public class Controller {
         // Clean gui first.
         resetPlaceHolderPlayer();
 
-        for (Player aPlayer: playerArray) {
-            if (aPlayer.getName().equals(this.selectedPlayer)) {
-                // Change placeholder values
-                this.mPlaceHolderPlayer = new Player(aPlayer);
+        if (!this.selectedPlayer.equals("")) {
+            for (Player aPlayer: playerArray) {
+                if (aPlayer.getName().equals(this.selectedPlayer)) {
+                    // Change placeholder values
+                    this.mPlaceHolderPlayer = new Player(aPlayer);
 
-                // Publish placeholder's Data to GUI fields
-                this.mMainWindow.publishPlayerName(this.mPlaceHolderPlayer.getName());
-                this.mMainWindow.publishPlayerCategoryName(aPlayer.getCategoryPlayerName());
+                    // Publish placeholder's Data to GUI fields
+                    this.mMainWindow.publishPlayerName(this.mPlaceHolderPlayer.getName());
+                    this.mMainWindow.publishPlayerCategoryName(aPlayer.getCategoryPlayerName());
 
-                break;
+                    break;
+                }
             }
         }
+        else {this.mMainWindow.publishPlayerName("");}
     }
     
     public void publishPlayerNames() {
@@ -794,6 +824,18 @@ public class Controller {
     public void setPlayerArray(ArrayList<Player> pPlayerArray) {
         this.playerArray = pPlayerArray;
     }
+    
+    public void setPlayerCategory(String pCategoryName) {
+        for (CategoryPlayer aPlayer: categoryPlayerArray) {
+            if (aPlayer.getCategoryName().equals(pCategoryName)) {
+                // Change placeholder values
+                this.mPlaceHolderPlayer.setCategoryPlayer(aPlayer);
+
+                break;
+            }
+        }
+    }
+            
     
     // -------------------- Team --------------------
     public void setTeamName(String pTeamName) {
@@ -929,7 +971,7 @@ public class Controller {
         {
             timeViewer++;
             //The animation here
-            //this.mPlaceHolderStrategy.getFrame();
+            //this.loadedStrategy.getFrame();
         }
     }
       

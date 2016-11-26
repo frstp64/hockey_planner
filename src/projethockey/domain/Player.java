@@ -110,7 +110,7 @@ public class Player implements java.io.Serializable {
     }
 
     public void reset() {
-        this.categoryPlayer = null;
+        this.categoryPlayer = new CategoryPlayer();
         this.name = "";
     }
 }

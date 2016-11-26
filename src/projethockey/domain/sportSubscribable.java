@@ -21,9 +21,9 @@ public interface sportSubscribable {
     void publishPlayerNumber(int playerNumber);
     void publishSportIsUnlimited(boolean isUnlimited);
     void publishFieldPicture(BufferedImage thePicture);
+    
     String requestFilePath();
     void publishObjectTypeNumber(int objectTypeNumber);
-    void publishPlayerCategories(ArrayList<String> pPlayerCategoryList);
     void publishScene(BufferedImage pSceneImage);
     
     void publishCategoryPlayerName(String pCategoryPlayerName);
