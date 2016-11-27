@@ -73,6 +73,7 @@ public class Scene {
         if (!isZoomed) {
             return sceneImage;
         } else { // returns the subpicture, scaled back to full size
+            System.out.println("returned sub picture");
             return sceneImage.getSubimage(min(zoomX1, zoomX2), 
                                           min(zoomY1, zoomY2),
                                           abs(zoomX2-zoomX1),

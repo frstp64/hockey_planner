@@ -72,6 +72,7 @@ public class EditionStateMachine {
             // Button has been unpressed, we return to movement mode
             this.myController.setZoomPoint2(mousePosX, mousePosY);
             this.myController.drawCurrentFrame();
+            System.out.println("remove me pls");;
         } 
     }
     
