@@ -250,7 +250,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         this.jSpinnerSportEquipes.setValue(pTeamNames.size());
         
         // change values to our array.
-        int nRow = pTeamNames.length; // this.jTableTeamPlayers.getRowCount();
+        int nRow = pTeamNames.size(); // this.jTableTeamPlayers.getRowCount();
         for (int i = 0; i < nRow; i++) {
             this.jTableStrategyTeams.setValueAt(pTeamNames.get(i), i, 0);
         }
