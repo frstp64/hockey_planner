@@ -5,11 +5,13 @@
  */
 package projethockey.domain;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import static java.lang.Math.abs;
 import static java.lang.Math.min;
+import static java.lang.Math.sqrt;
 import java.util.ArrayList;
 
 /**
@@ -19,7 +21,7 @@ import java.util.ArrayList;
 
 public class Scene {
     
-    float ratioIdealPlayer = (float) 0.05; // The target percentage of area
+    float ratioIdealPlayer = (float) 0.02; // The target percentage of area
     private int sceneSizeX, sceneSizeY; // The size in pixels of the scene
     private boolean isZoomed;
     private int zoomX1, zoomX2, zoomY1, zoomY2; // the Coordinates in pixels of the zoom
@@ -40,7 +42,7 @@ public class Scene {
         playerCoordX1 =  new ArrayList();
         playerCoordY1 =  new ArrayList();
         playerCoordX2 =  new ArrayList();
-        playerCoordX2 =  new ArrayList();
+        playerCoordY2 =  new ArrayList();
         playerNames =  new ArrayList();
     }
     
@@ -59,19 +61,21 @@ public class Scene {
         playerCoordX1 =  new ArrayList();
         playerCoordY1 =  new ArrayList();
         playerCoordX2 =  new ArrayList();
-        playerCoordX2 =  new ArrayList();
+        playerCoordY2 =  new ArrayList();
         playerNames =  new ArrayList();
     }
     
     public void putPicture(Image itemPicture, int locX, int locY) {
         
         Graphics2D cloneG = sceneImage.createGraphics();
+        System.out.println("put image at X:" + locX + " and Y:" + locY);
         cloneG.drawImage(itemPicture, locX, locY, null); // might require some cutting
     }    
     
     public void putText(int locX, int locY, String pStringToShow) {
         
         Graphics2D cloneG = sceneImage.createGraphics();
+         cloneG.setColor(Color.RED);
          cloneG.drawString(pStringToShow, locX, locY);
     }
     
@@ -129,14 +133,21 @@ public class Scene {
         // Size computation
         int imArea = playerImage.getWidth(null) * playerImage.getHeight(null);
         int sceneArea = sceneSizeX * sceneSizeY;
-        float sideFactor = ratioIdealPlayer *sceneArea/imArea;
+        float sideFactor = (float) sqrt( (double) ratioIdealPlayer * (double) sceneArea/imArea);
         int wantedWidth  = playerImage.getWidth(null)  * (int) sideFactor;
         int wantedHeight = playerImage.getHeight(null) * (int) sideFactor;
+        
+        System.out.println("coordX rel = " + pCoordX);
+        System.out.println("coordY rel = " + pCoordY);
+        System.out.println("wantedWidth = " + wantedWidth);
+        System.out.println("wantedHeight = " + wantedHeight);
         // Position computation
-        int wantedX1 = (int) pCoordX*sceneSizeX-wantedWidth/2;
+        int wantedX1 = (int) (pCoordX*sceneSizeX)-wantedWidth/2;
         int wantedX2 = wantedX1+wantedWidth;
-        int wantedY1 = (int) pCoordY*sceneSizeY-wantedHeight/2;
+        int wantedY1 = (int) (pCoordY*sceneSizeY)-wantedHeight/2;
         int wantedY2 = wantedY1+wantedWidth;
+        System.out.println("coordX not rel = " + wantedX1);
+        System.out.println("coordY not rel = " + wantedY1);
         float wantedRelativeX1 = ((float) wantedX1)/sceneSizeX;
         float wantedRelativeX2 = ((float) wantedX2)/sceneSizeX;
         float wantedRelativeY1 = ((float) wantedY1)/sceneSizeY;

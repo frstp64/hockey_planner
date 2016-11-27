@@ -60,7 +60,8 @@ public class EditionStateMachine {
             Strategy currentStrategy = this.myController.getCurrentStrategy();
             Snapshot currentSnapshot = currentStrategy.getCurrentSnapshot(currentTime);
             Player currentPlayer = this.myController.getPlayer(currentAddedPlayer);
-            currentSnapshot.addPlayer(currentPlayer, mousePosX, mousePosY, 0);
+            currentSnapshot.addPlayer(currentPlayer, this.myController.getScene().getNormalizedX(mousePosX), this.myController.getScene().getNormalizedY(mousePosY), 0);
+            this.myController.drawCurrentFrame();
         } else if (currentState.equals(States.MOVING_PLAYER) && !mouseButtonState) {
             // Button has been unpressed in movement mode
             currentState = States.MOVEMENT;

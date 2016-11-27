@@ -1037,7 +1037,7 @@ public class Controller {
         // Draws the current frame on screen
         //this.mPlaceHolderStrategy.getFrame();
         myScene.cleanScene();
-        //this.mPlaceHolderStrategy;
+        this.mPlaceHolderStrategy.getCurrentSnapshot(timeViewer).printPlayers(myScene);
         this.mMainWindow.publishScene(myScene.getScenePicture());
         System.out.println("Just drew a frame!");
     }
@@ -1083,5 +1083,9 @@ public class Controller {
     
     public Player getPlayer(String pPlayerName) throws Exception{
         return this.mPlaceHolderStrategy.getPlayer(pPlayerName);
+    }
+    
+    public Scene getScene() {
+        return this.myScene;
     }
 }

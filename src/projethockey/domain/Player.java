@@ -78,7 +78,7 @@ public class Player implements java.io.Serializable {
     }
 
     public String getRole() {
-        return role;
+        return this.getCategoryPlayerName();
     }
 
     public void setRole(String role) {
