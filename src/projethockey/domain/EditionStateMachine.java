@@ -109,7 +109,9 @@ public class EditionStateMachine {
             float relativeMousePosX = this.myController.getScene().getNormalizedX(mousePosX);
             float relativeMousePosY = this.myController.getScene().getNormalizedY(mousePosY);
             this.myController.getCurrentStrategy().getCurrentSnapshot(this.myController.getCurrentTime()).getTransientPlayer(currentMovingPlayer).setPosition(relativeMousePosX, relativeMousePosY);
+            this.myController.getCurrentStrategy().getCurrentSnapshot(this.myController.getCurrentTime()).getTransientPlayer(currentMovingPlayer).setVisible(true);
             this.myController.drawCurrentFrame();
+            
         }
         //System.out.println("x, y");
     }
