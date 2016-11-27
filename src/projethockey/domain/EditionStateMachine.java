@@ -71,6 +71,7 @@ public class EditionStateMachine {
         } else if (currentState.equals(States.ZOOM_CLICK_2_PRESSED) && !mouseButtonState) {
             // Button has been unpressed, we return to movement mode
             this.myController.setZoomPoint2(mousePosX, mousePosY);
+            this.myController.drawCurrentFrame();
         } 
     }
     
