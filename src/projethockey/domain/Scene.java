@@ -50,7 +50,7 @@ public class Scene {
         cloneG.drawImage(backgroundPicture.getScaledInstance(sceneSizeX, sceneSizeY, 0), 0, 0, null);
     }
     
-    public void putPicture(BufferedImage itemPicture, int locX, int locY) {
+    public void putPicture(Image itemPicture, int locX, int locY) {
         
         Graphics2D cloneG = sceneImage.createGraphics();
         cloneG.drawImage(itemPicture, locX, locY, null); // might require some cutting
@@ -109,9 +109,12 @@ public class Scene {
         int imArea = playerImage.getWidth(null) * playerImage.getHeight(null);
         int sceneArea = sceneSizeX * sceneSizeY;
         float sideFactor = ratioIdealPlayer *sceneArea/imArea;
-        int wantedWidth = playerImage.getWidth(null) * (int) sideFactor;
-        
+        int wantedWidth  = playerImage.getWidth(null)  * (int) sideFactor;
         int wantedHeight = playerImage.getHeight(null) * (int) sideFactor;
-        playerImage.getScaledInstance(wantedWidth, wantedHeight, BufferedImage.SCALE_FAST);
+        int wantedX1 = pCoordX-wantedWidth/2;
+        int wantedX2 = wantedX1+wantedWidth;
+        int wantedY1 = pCoordY-wantedHeight/2;
+        int wantedY2 = wantedY1+wantedWidth;
+        this.putPicture(playerImage.getScaledInstance(wantedWidth, wantedHeight, BufferedImage.SCALE_FAST), wantedX1, wantedY1);
     }
 }
