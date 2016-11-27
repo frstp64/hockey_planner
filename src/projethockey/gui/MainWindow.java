@@ -12,6 +12,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import projethockey.domain.projetHockeyInterface;
 import javax.swing.DefaultCellEditor;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -241,8 +242,18 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }
     
     public void publishExistingStrategies(String[] plistStrategy) {
-        
         this.jListExistingStrategies.setListData(plistStrategy);
+    }
+    
+    public void publishStrategyTeams(String[] pTeamNames){
+        // edit number of columns in table (and number selector)
+        this.jSpinnerSportEquipes.setValue(pTeamNames.length);
+        
+        // change values to our array.
+        int nRow = this.jTableTeamPlayers.getRowCount();
+        for (int i = 0; i < nRow; i++) {
+            this.jTableStrategyTeams.setValueAt(pTeamNames[i], i, 0);
+        }
     }
     
     public void publishPlayerName(String pPlayerName) {
@@ -1572,6 +1583,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jListTypeModificationType.setEnabled(false);
         jListTypeModificationType.setMaximumSize(null);
         jListTypeModificationType.setMinimumSize(null);
         jListTypeModificationType.setName(""); // NOI18N
@@ -1904,6 +1916,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelStrategyEditor.add(jLabelPlayBackSpeedTitle, gridBagConstraints);
 
         jToggleButtonRotationMode.setText("mode rotation");
+        jToggleButtonRotationMode.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jToggleButtonRotationModeStateChanged(evt);
+            }
+        });
         jToggleButtonRotationMode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButtonRotationModeActionPerformed(evt);
@@ -1951,7 +1968,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         jTabbedPanePlayerCategory.addTab("Édition et visualisation de stratégie", jPanelStrategyEditor);
 
-        getContentPane().add(jTabbedPanePlayerCategory, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jTabbedPanePlayerCategory, java.awt.BorderLayout.PAGE_START);
         this.jTabbedPanePlayerCategory.setEnabledAt(4, false);
         this.jTabbedPanePlayerCategory.setEnabledAt(6, false);
 
@@ -2198,7 +2215,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jTextFieldStrategyViewerTimeActionPerformed
 
     private void jToggleButtonRotationModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonRotationModeActionPerformed
-        // TODO add your handling code here:
+        if (this.jToggleButtonRotationMode.isSelected()) {
+            this.myController.initiateRotationMode();
+        }
+        else {
+            this.myController.stopRotationMode();
+        }
     }//GEN-LAST:event_jToggleButtonRotationModeActionPerformed
 
     private void jPanelStrategyEditorLocationPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelStrategyEditorLocationPropertyChange
@@ -2378,8 +2400,13 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_formComponentResized
 
     private void jLabelStrategyEditorPictureMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelStrategyEditorPictureMouseMoved
-        double X = evt.getX();
-        double Y = evt.getY();
+        int X = evt.getX();
+        int Y = evt.getY();
+        
+        boolean mousePressed = SwingUtilities.isLeftMouseButton(evt);
+        
+        this.myController.mouseMoved(X, Y, mousePressed);
+        
         System.out.println("X: " + X + "Y: " + Y);    }//GEN-LAST:event_jLabelStrategyEditorPictureMouseMoved
 
     private void jButtonChooseCategoryPictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseCategoryPictureActionPerformed
@@ -2455,6 +2482,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jTableTeamPlayersPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableTeamPlayersPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jTableTeamPlayersPropertyChange
+
+    private void jToggleButtonRotationModeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jToggleButtonRotationModeStateChanged
+        
+    }//GEN-LAST:event_jToggleButtonRotationModeStateChanged
 
     /**
      * @param args the command line arguments
