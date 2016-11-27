@@ -1058,6 +1058,21 @@ public class Controller {
     
     public void playerAddMode(String pPlayerName) {
         //TODO!
-        this.mPlaceHolderStrategy.getCurrentSnapshot(timeViewer);
+        if (this.mPlaceHolderStrategy.doesPlayerExist(pPlayerName)) {
+            this.mMouseFSM.switchToAddMode(pPlayerName);
+            this.mPlaceHolderStrategy.getCurrentSnapshot(timeViewer);
+        }
+    }
+    
+    public Strategy getCurrentStrategy () {
+        return this.mPlaceHolderStrategy;
+    }
+    
+    public int getCurrentTime() {
+        return this.timeViewer;
+    }
+    
+    public Player getPlayer(String pPlayerName) throws Exception{
+        return this.mPlaceHolderStrategy.getPlayer(pPlayerName);
     }
 }

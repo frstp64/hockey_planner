@@ -42,7 +42,7 @@ public interface sportSubscribable {
     void publishStrategyName(String pCategoryPlayerName);
     void publishExistingStrategies(String[] plistStrategyName);
     void publishStrategyPlayers(String[] plistStrategyPlayers);
-    void publishStrategyTeams(String[] plistTeamNames);
+    void publishStrategyTeams(ArrayList<String> plistTeamNames);
     
     void publishPlayerName(String pPlayerName);
     void publishExistingPlayers(String[] plistPlayerName);
@@ -50,7 +50,7 @@ public interface sportSubscribable {
     
     void publishTeamName(String pTeamName);
     void publishExistingTeams(String[] plistTeamName);
-    void publishTeamPlayers(String[] pPlayerNames);
+    void publishTeamPlayers(ArrayList<String> pPlayerNames);
     
     //TODO
     // void publishStrategySport

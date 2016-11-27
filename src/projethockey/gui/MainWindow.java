@@ -245,14 +245,14 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         this.jListExistingStrategies.setListData(plistStrategy);
     }
     
-    public void publishStrategyTeams(String[] pTeamNames){
+    public void publishStrategyTeams(ArrayList<String> pTeamNames){
         // edit number of columns in table (and number selector)
-        this.jSpinnerSportEquipes.setValue(pTeamNames.length);
+        this.jSpinnerSportEquipes.setValue(pTeamNames.size());
         
         // change values to our array.
         int nRow = pTeamNames.length; // this.jTableTeamPlayers.getRowCount();
         for (int i = 0; i < nRow; i++) {
-            this.jTableStrategyTeams.setValueAt(pTeamNames[i], i, 0);
+            this.jTableStrategyTeams.setValueAt(pTeamNames.get(i), i, 0);
         }
     }
     
@@ -283,14 +283,14 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         this.jComboBoxStrategyTeam.setModel(new javax.swing.DefaultComboBoxModel(plistTeam));
     }
     
-    public void publishTeamPlayers(String[] pPlayerNames) {
+    public void publishTeamPlayers(ArrayList<String> pPlayerNames) {
         // edit number of columns in table (and number selector)
-        this.jSpinnerPlayerNumber1.setValue(pPlayerNames.length);
+        this.jSpinnerPlayerNumber1.setValue(pPlayerNames.size());
         
         // change values to our array.
         int nRow = this.jTableTeamPlayers.getRowCount();
         for (int i = 0; i < nRow; i++) {
-            this.jTableTeamPlayers.setValueAt(pPlayerNames[i], i, 0);
+            this.jTableTeamPlayers.setValueAt(pPlayerNames.get(i), i, 0);
         }
         
     }

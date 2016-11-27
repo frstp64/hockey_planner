@@ -5,15 +5,15 @@ package projethockey.domain;
  * @author Alexandre
  */
 public class Position {
-    private int posX;
-    private int posY;
+    private float posX;
+    private float posY;
     
     public Position() {
        this.posX = 0;
        this.posY = 0;
     }
     
-    public Position(int posX, int posY) {
+    public Position(float posX, float posY) {
        this.posX = posX;
        this.posY = posY;
     }
@@ -23,7 +23,7 @@ public class Position {
        this.posY = position.posY;
     }
         
-    public int getPositionX() {
+    public float getPositionX() {
         return this.posX;
     }
     
@@ -31,7 +31,7 @@ public class Position {
        this.posX = posX;
     }
     
-    public int getPositionY() {
+    public float getPositionY() {
         return this.posY;
     }
         
