@@ -2007,8 +2007,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         for (int i = 0; i < nRow; i++) {
             tableData[i] = (String)this.jTableStrategyTeams.getValueAt(i, 0);
         }
-        this.myController.setStrategyTeam(tableData);
         
+        this.myController.setStrategyTeam(tableData);
+        this.myController.setStrategySport(this.myController.getSportFromName(this.jComboBoxChooseStrategySport.getSelectedItem().toString()));
         this.myController.saveStrategy();
     }//GEN-LAST:event_jButtonCreateStrategyActionPerformed
 
@@ -2035,8 +2036,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jButtonLoadStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoadStrategyActionPerformed
         try {
         if (jListExistingStrategies.getSelectedValue() != null & myController != null) {
-            myController.setSelectedStrategy(jListExistingStrategies.getSelectedValue());
-            
+            myController.setSelectedStrategy(jListExistingStrategies.getSelectedValue());            
         }
         else if (myController != null) {
             String empty = "";
@@ -2050,6 +2050,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     private void jComboBoxChooseStrategySportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxChooseStrategySportActionPerformed
         this.myController.setStrategySportName((String)this.jComboBoxChooseStrategySport.getSelectedItem());
+        
+        this.myController.publishStrategyNames();
     }//GEN-LAST:event_jComboBoxChooseStrategySportActionPerformed
 
     private void jTextFieldChooseStrategyNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldChooseStrategyNameActionPerformed
@@ -2410,6 +2412,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             
             this.myController.drawCurrentFrame();
         }
+        
+        if(tabNumber == 5) //Tab strategy
+            this.myController.publishStrategyNames();
     }//GEN-LAST:event_jTabbedPanePlayerCategoryStateChanged
 
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
@@ -2496,8 +2501,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             }
         } catch (Exception Ex) {
             System.out.println("An error happened while trying to set the selected strategy!");
-
-        }
+         }
     }//GEN-LAST:event_jListExistingStrategiesMouseClicked
 
     private void jComboBoxPlayerCategoryPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jComboBoxPlayerCategoryPropertyChange

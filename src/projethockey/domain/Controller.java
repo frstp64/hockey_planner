@@ -314,6 +314,15 @@ public class Controller {
         }
     }
 
+    public Sport getSportFromName(String sportName) {
+        for(Sport aSport : this.sportArray)
+            if(sportName.equals(aSport.getName()))
+                return aSport;
+        
+        return new Sport();
+    }
+            
+    
     public void setSportImage(BufferedImage theFieldPicture) {
         this.mPlaceHolderSport.setImg(theFieldPicture);
         this.mMainWindow.publishFieldPicture(theFieldPicture);
@@ -642,7 +651,6 @@ public class Controller {
         for (Strategy aStrategy: strategyArray) {
             if (aStrategy.getName().equals(this.selectedStrategy)) {
 
-
                 // Change placeholder values
                 this.mPlaceHolderStrategy = new Strategy(aStrategy);
 
@@ -692,10 +700,11 @@ public class Controller {
 
     public void publishStrategyNames() {
         ArrayList<String> StrategyNameList = new ArrayList<String>();
-            for (Strategy aStrategy: strategyArray) {
+        for (Strategy aStrategy: strategyArray) {
+            if(this.mPlaceHolderStrategy.getSport() != null && aStrategy.getSportName().equals(this.mPlaceHolderStrategy.getSport().getName()))
                 StrategyNameList.add(aStrategy.getName());
-            }
-            this.mMainWindow.publishExistingStrategies(StrategyNameList.toArray(new String[StrategyNameList.size()]));
+        }
+        this.mMainWindow.publishExistingStrategies(StrategyNameList.toArray(new String[StrategyNameList.size()]));
     }
 
     public ArrayList<Strategy> getStrategyArray() {
@@ -711,15 +720,12 @@ public class Controller {
     }
 
     public void setStrategySportName(String sportName) {
-        
         for (Sport aSport: sportArray) {
             if (aSport.getName().equals(sportName)) {
                 setStrategySport(aSport);
-                
                 break;
             }
         }
-
     }
     
     public void setStrategyTeam(String[] pTeamList){
