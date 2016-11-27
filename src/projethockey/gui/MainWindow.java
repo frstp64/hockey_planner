@@ -2284,7 +2284,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jButtonZoomActionPerformed
 
     private void jButtonSaveStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveStrategyActionPerformed
-        // TODO add your handling code here:
+        this.myController.saveStrategy();        
     }//GEN-LAST:event_jButtonSaveStrategyActionPerformed
 
     private void jListStrategyObjectsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListStrategyObjectsPropertyChange
@@ -2498,15 +2498,16 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         try {
             if (jListExistingStrategies.getSelectedValue() != null & myController != null) {
                 myController.setSelectedStrategy(jListExistingStrategies.getSelectedValue());
+                this.jButtonSaveStrategy.setEnabled(true);
             }
             else if (myController != null) {
                 String empty = "";
                 myController.setSelectedStrategy(empty);
-                
                 System.out.println("No strategy selected from the list?");
             }
         } catch (Exception Ex) {
             System.out.println("An error happened while trying to set the selected strategy!");
+            this.jButtonSaveStrategy.setEnabled(false);
          }
     }//GEN-LAST:event_jListExistingStrategiesMouseClicked
 
