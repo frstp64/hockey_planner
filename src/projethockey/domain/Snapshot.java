@@ -1,5 +1,6 @@
 package projethockey.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 
@@ -9,13 +10,19 @@ import java.util.Date;
  */
 public class Snapshot {
     private int idChange;
-    private List<TransientPlayer> listTransientPlayer;
-    private List<Obstacle> listObstacle;
+    private ArrayList<TransientPlayer> listTransientPlayer;
+    private ArrayList<Obstacle> listObstacle;
     private boolean trashed;
     private int timeStamp;
     private String typeSnapshot;
 
-    public Snapshot() {
+    public Snapshot(int timeStamp) {
+        this.timeStamp = timeStamp;
+        this.trashed = false;
+        this.typeSnapshot = "TODOLATER";
+        this.listTransientPlayer = new ArrayList();
+        this.listObstacle = new ArrayList();
+        this.idChange = -1;
     }
 
     public Snapshot(Snapshot snapshot) {
@@ -27,7 +34,7 @@ public class Snapshot {
         this.typeSnapshot = snapshot.typeSnapshot;        
     }
     
-    public Snapshot(int idChange, List<TransientPlayer> plistTransientPlayer, List<Obstacle> listObstacle, boolean trashed, int timeStamp, String typeSnapshot) {
+    public Snapshot(int idChange, ArrayList<TransientPlayer> plistTransientPlayer, ArrayList<Obstacle> listObstacle, boolean trashed, int timeStamp, String typeSnapshot) {
         this.idChange = idChange;
         //this.listTransientPlayer = plistTransientPlayer.;
         this.listObstacle = listObstacle;
@@ -48,7 +55,7 @@ public class Snapshot {
         return listTransientPlayer;
     }
 
-    public void setListTransientPlayer(List<TransientPlayer> plistTransientPlayer) {
+    public void setListTransientPlayer(ArrayList<TransientPlayer> plistTransientPlayer) {
         this.listTransientPlayer = plistTransientPlayer;
     }
 
@@ -56,7 +63,7 @@ public class Snapshot {
         return listObstacle;
     }
 
-    public void setListObstacle(List<Obstacle> listObstacle) {
+    public void setListObstacle(ArrayList<Obstacle> listObstacle) {
         this.listObstacle = listObstacle;
     }
 

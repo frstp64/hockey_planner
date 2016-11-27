@@ -128,7 +128,15 @@ public class Strategy implements java.io.Serializable{
     }
     
     public Snapshot getOrCreate(int time) {
-        throw new UnsupportedOperationException();
+        for (Snapshot aSnapshot: this.listSnapshot) {
+            if (aSnapshot.getTimeStamp() == time) {
+                return aSnapshot;
+            }
+        }
+        
+        Snapshot newSnapshot = new Snapshot(time);
+        this.listSnapshot.add(newSnapshot);
+        return newSnapshot;
     }
             
     public boolean isStrategyValid() {
