@@ -1105,9 +1105,9 @@ public class Controller {
     }
     
     public void switchToNextFrame() {
-        Snapshot oldSnapshot = this.mPlaceHolderStrategy.getCurrentSnapshot(this.timeViewer);
         this.timeViewer += this.intervalTimeinMS;
         if (!this.mPlaceHolderStrategy.frameExistsAtTime(this.timeViewer)) {
+        Snapshot oldSnapshot = this.mPlaceHolderStrategy.getLastSnapshotBefore(this.timeViewer);
             Snapshot newSnapshot = this.mPlaceHolderStrategy.getOrCreate(this.timeViewer);
             newSnapshot.copyFromOtherSnapshot(oldSnapshot);
         }
