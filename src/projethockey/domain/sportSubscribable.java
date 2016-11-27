@@ -19,6 +19,7 @@ public interface sportSubscribable {
     void publishSportName(String pSportName);
     void publishDimensions(Float pdimX, Float pdimY);
     void publishUnits(String punits);
+    void publishMousePosition(String punits);
     void publishPlayerNumber(int playerNumber);
     void publishSportIsUnlimited(boolean isUnlimited);
     void publishFieldPicture(BufferedImage thePicture);

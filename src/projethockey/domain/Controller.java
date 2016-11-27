@@ -11,6 +11,7 @@ import projethockey.services.AppDataProxy;
 import javax.imageio.*;
 import java.awt.image.BufferedImage;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -1039,5 +1040,11 @@ public class Controller {
     
     public void unzoom() {
         this.myScene.unzoom();
+    }
+    
+    public void displayMouseCoordinates(int mousePosX, int mousePosY) {
+        DecimalFormat formatterObject = new DecimalFormat("0.00");
+        formatterObject.setMaximumFractionDigits(3);
+        this.mMainWindow.publishMousePosition("X:" + formatterObject.format(this.myScene.getNormalizedX(mousePosX)) +  " Y:" + formatterObject.format(this.myScene.getNormalizedY(mousePosY)));
     }
 }

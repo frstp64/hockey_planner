@@ -146,4 +146,21 @@ public class Scene {
     public boolean isZoomed() {
         return this.isZoomed;
     }
+    
+    
+    // Deals with the zoom too!
+    public float getNormalizedX(int pixelX) {
+        if(isZoomed) {
+        return ((((float)pixelX)/sceneSizeX)*(zoomX2-zoomX1) + zoomX1)/sceneSizeX;        
+        } else {
+            return (float)pixelX/sceneSizeX;
+        }
+    }
+    public float getNormalizedY(int pixelY) {
+        if(isZoomed) {
+            return ((((float)pixelY)/sceneSizeY)*(zoomY2-zoomY1) + zoomY1)/sceneSizeY;
+        } else {
+            return (float)pixelY/sceneSizeY;
+        }
+    }
 }

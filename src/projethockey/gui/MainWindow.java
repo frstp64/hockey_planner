@@ -464,7 +464,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
 
         jTabbedPanePlayerCategory.setMinimumSize(new java.awt.Dimension(0, 0));
-        jTabbedPanePlayerCategory.setPreferredSize(null);
         jTabbedPanePlayerCategory.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jTabbedPanePlayerCategoryStateChanged(evt);
@@ -472,7 +471,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
 
         jPanelCategories.setMinimumSize(new java.awt.Dimension(0, 0));
-        jPanelCategories.setPreferredSize(null);
         jPanelCategories.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -654,7 +652,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jTabbedPanePlayerCategory.addTab("Catégories", jPanelCategories);
 
         jPanelPlayer.setMinimumSize(new java.awt.Dimension(0, 0));
-        jPanelPlayer.setPreferredSize(null);
         jPanelPlayer.setLayout(new java.awt.GridBagLayout());
 
         jButtonNewPlayer1.setText("Nouveau");
@@ -784,9 +781,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         jTabbedPanePlayerCategory.addTab("Joueur", jPanelPlayer);
 
-        jPanelTeam.setMaximumSize(null);
-        jPanelTeam.setMinimumSize(null);
-        jPanelTeam.setPreferredSize(null);
         jPanelTeam.setLayout(new java.awt.GridBagLayout());
 
         jButtonNewTeam.setText("Nouveau");
@@ -938,7 +932,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jTabbedPanePlayerCategory.addTab("Équipe", jPanelTeam);
 
         jPanelSport.setMinimumSize(new java.awt.Dimension(0, 0));
-        jPanelSport.setPreferredSize(null);
         jPanelSport.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1214,7 +1207,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         jPanelObstacle.setEnabled(false);
         jPanelObstacle.setMinimumSize(new java.awt.Dimension(0, 0));
-        jPanelObstacle.setPreferredSize(null);
         jPanelObstacle.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1379,7 +1371,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jTabbedPanePlayerCategory.addTab("Objets de jeu", jPanelObstacle);
 
         jPanelCreateLoadStrategy.setMinimumSize(new java.awt.Dimension(0, 0));
-        jPanelCreateLoadStrategy.setPreferredSize(null);
         jPanelCreateLoadStrategy.setLayout(new java.awt.GridBagLayout());
 
         jButtonCreateStrategy.setText("Sauvegarder une nouvelle stratégie");
@@ -1573,8 +1564,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         jTabbedPanePlayerCategory.addTab("Créer/charger stratégie", jPanelCreateLoadStrategy);
 
-        jPanelStrategyEditor.setMinimumSize(null);
-        jPanelStrategyEditor.setPreferredSize(null);
         jPanelStrategyEditor.setLayout(new java.awt.GridBagLayout());
 
         jScrollPaneModificationMode.setMinimumSize(null);
@@ -1881,7 +1870,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelStrategyEditor.add(jButtonExport, gridBagConstraints);
 
-        jPanelStrategyEditorLocation.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelStrategyEditorLocation.setPreferredSize(new java.awt.Dimension(0, 0));
         jPanelStrategyEditorLocation.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -1890,6 +1878,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         jPanelStrategyEditorLocation.setLayout(new java.awt.BorderLayout());
 
+        jLabelStrategyEditorPicture.setAlignmentY(0.0F);
         jLabelStrategyEditorPicture.setMaximumSize(null);
         jLabelStrategyEditorPicture.setMinimumSize(null);
         jLabelStrategyEditorPicture.setName(""); // NOI18N
@@ -2235,10 +2224,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         }
     }//GEN-LAST:event_jToggleButtonRotationModeActionPerformed
 
-    private void jPanelStrategyEditorLocationPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelStrategyEditorLocationPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanelStrategyEditorLocationPropertyChange
-
     private void jButtonExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExportActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonExportActionPerformed
@@ -2411,8 +2396,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             this.myController.setStrategySportName((String)this.jComboBoxChooseStrategySport.getSelectedItem());
         }
         else if (tabNumber == 6) {
-            int y = this.jPanelStrategyEditor.getHeight() - 2;
-            int x = this.jPanelStrategyEditor.getWidth() - 2;
+            int y = this.jPanelStrategyEditorLocation.getHeight() - 2;
+            int x = this.jPanelStrategyEditorLocation.getWidth() - 2;
             
             this.myController.setSceneSize(x, y);
             this.myController.setSceneBackground();
@@ -2424,8 +2409,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
         System.out.println("changement de taille!");
         if (jTabbedPanePlayerCategory.getSelectedIndex() == 6) {
-            int y = this.jPanelStrategyEditor.getHeight() - 2;
-            int x = this.jPanelStrategyEditor.getWidth() - 2;
+            int y = this.jPanelStrategyEditorLocation.getHeight() - 2;
+            int x = this.jPanelStrategyEditorLocation.getWidth() - 2;
+            System.out.println("X = " + x + " y = " + y + ", lol");
             
             this.myController.setSceneSize(x, y);
             this.myController.setSceneBackground();
@@ -2441,8 +2427,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         boolean mousePressed = SwingUtilities.isLeftMouseButton(evt);
         
         this.myController.mouseMoved(X, Y, mousePressed);
-        
-        publishMousePosition("X: " + X + "Y: " + Y);
+        this.myController.displayMouseCoordinates(X, Y);
+        //publishMousePosition("X: " + X + "Y: " + Y);
         
         //System.out.println("X: " + X + "Y: " + Y);
     }//GEN-LAST:event_jLabelStrategyEditorPictureMouseMoved
@@ -2545,6 +2531,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         
         this.myController.mouseMoved(X, Y, false);
     }//GEN-LAST:event_jLabelStrategyEditorPictureMouseReleased
+
+    private void jPanelStrategyEditorLocationPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelStrategyEditorLocationPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelStrategyEditorLocationPropertyChange
 
     /**
      * @param args the command line arguments
