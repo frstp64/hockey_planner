@@ -2409,8 +2409,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             this.myController.setStrategySportName((String)this.jComboBoxChooseStrategySport.getSelectedItem());
         }
         else if (tabNumber == 6) {
-            int x = this.jPanelStrategyEditor.getHeight() + 2;
-            int y = this.jPanelStrategyEditor.getWidth() + 2;
+            int y = this.jPanelStrategyEditor.getHeight() - 2;
+            int x = this.jPanelStrategyEditor.getWidth() - 2;
             
             this.myController.setSceneSize(x, y);
             this.myController.setSceneBackground();
@@ -2422,8 +2422,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
         System.out.println("changement de taille!");
         if (jTabbedPanePlayerCategory.getSelectedIndex() == 6) {
-            int x = this.jPanelStrategyEditor.getHeight() + 2;
-            int y = this.jPanelStrategyEditor.getWidth() + 2;
+            int y = this.jPanelStrategyEditor.getHeight() - 2;
+            int x = this.jPanelStrategyEditor.getWidth() - 2;
             
             this.myController.setSceneSize(x, y);
             this.myController.setSceneBackground();
