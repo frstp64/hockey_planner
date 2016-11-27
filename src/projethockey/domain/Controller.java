@@ -785,7 +785,7 @@ public class Controller {
     
     public void savePlayer() {
         // Ensure the player is valid here.
-
+        
         // If the player exists, remove it from the list
         for (Player aPlayer: playerArray) {
             if (aPlayer.getName().equals(this.mPlaceHolderPlayer.getName())) {
@@ -795,9 +795,10 @@ public class Controller {
             }
         }
 
+        this.mPlaceHolderPlayer.setVisible(true);
         // Add the player to the list
         playerArray.add(new Player(this.mPlaceHolderPlayer));
-
+        
         //Save to permanent memory
         projethockey.services.AppDataProxy.saveData(this);
         if (!playerArray.isEmpty()) {
@@ -974,18 +975,7 @@ public class Controller {
     
     public void playStrategy() {
         
-        // test stuff
-        BufferedImage whitePic = new BufferedImage(10, 10, BufferedImage.TYPE_INT_RGB);
-        whitePic.setRGB(0, 0, 256*256*253 + 256*253 + 253);
-        whitePic.setRGB(9, 9, 256*256*253 + 256*253 + 253);
-
-        for(int i = 0; i < 3000000; i++) {
-
-        myScene.putPicture(whitePic, 150, 150);
-        this.mMainWindow.publishScene(myScene.getScenePicture());
-        }
-        
-        //viewerState = (!viewerState.equals(StrategyViewerState.Play)) ? StrategyViewerState.Play : StrategyViewerState.Pause;
+       //viewerState = (!viewerState.equals(StrategyViewerState.Play)) ? StrategyViewerState.Play : StrategyViewerState.Pause;
     }
     
     public void playStrategyNextFrame() {

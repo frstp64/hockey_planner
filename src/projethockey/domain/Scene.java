@@ -14,6 +14,7 @@ import static java.lang.Math.abs;
 import static java.lang.Math.min;
 import static java.lang.Math.sqrt;
 import java.util.ArrayList;
+import java.awt.AlphaComposite;
 
 /**
  *
@@ -68,10 +69,12 @@ public class Scene {
         playerNames =  new ArrayList();
     }
     
-    public void putPicture(Image itemPicture, int locX, int locY) {
+    public void putPicture(Image itemPicture, int locX, int locY, boolean isTransparent) {
         
         Graphics2D cloneG = sceneImage.createGraphics();
         System.out.println("put image at X:" + locX + " and Y:" + locY);
+        if(isTransparent)
+            cloneG.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5F));
         cloneG.drawImage(itemPicture, locX, locY, null); // might require some cutting
     }    
     
@@ -168,8 +171,8 @@ public class Scene {
         this.playerCoordY1.add(wantedY1);
         this.playerCoordY2.add(wantedY2);
         this.playerNames.add(playerName);
-        this.putPicture(playerImage.getScaledInstance(max(10, wantedWidth), max(10, wantedHeight), BufferedImage.SCALE_FAST), wantedX1, wantedY1);
-        
+        this.putPicture(playerImage.getScaledInstance(max(10, wantedWidth), max(10, wantedHeight), BufferedImage.SCALE_FAST), wantedX1, wantedY1, isTransparent);
+       
         // TODO: show the strings
         if(this.showTextOption) {
             

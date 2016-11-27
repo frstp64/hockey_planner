@@ -128,7 +128,7 @@ public class Snapshot {
             aTransientPlayer.getPlayer().getCategoryPlayer().getImg(),
             aTransientPlayer.getPlayer().getName(),
             aTransientPlayer.getPlayer().getRole(),
-            aTransientPlayer.isVisible()
+            !aTransientPlayer.isVisible()
             );
         }
     }
