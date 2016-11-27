@@ -643,7 +643,7 @@ public class Controller {
 
     public void setSelectedStrategy(String pSelectedStrategy) {
         // Set Strategy's data in GUI.
-
+        
         this.selectedStrategy = pSelectedStrategy;
         // Clean gui first.
         resetPlaceHolderStrategy();
@@ -673,10 +673,8 @@ public class Controller {
                 }
 
             }
-            
-            break;
         }
-        System.out.println("We should have selected an existing strategy!");
+        //System.out.println("We should have selected an existing strategy!");
     }
 
     public void removeStrategy() {
