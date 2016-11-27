@@ -10,6 +10,7 @@ package projethockey.domain;
  * @author znuxor
  */
 public class EditionStateMachine {
+
     public enum States {
         MOVEMENT,
         ROTATION,
@@ -27,10 +28,13 @@ public class EditionStateMachine {
     private States currentState;
     private int mousePosX;
     private int mousePosY;
+    private boolean plsShowStrings;
+    private String currentAddedPlayer;
     
     public EditionStateMachine(Controller pController) {
         currentState = States.MOVEMENT;
         myController = pController;
+        currentAddedPlayer = "";
     }
     
     public void switchToRotationMode() {
@@ -48,10 +52,18 @@ public class EditionStateMachine {
 
             // To switch to player movement mode, we first need to have one intersecting the mouse
             //this.myController.checkIfIntersect()
+        } else if (currentState.equals(States.ADDING_PLAYER) && mouseButtonState) {
+            // button pressed on the screen to add a player
+            currentState = States.MOVING_PLAYER;
+            int currentTime = this.myController.getCurrentTime();
+            Strategy currentStrategy = this.myController.getCurrentStrategy();
+            Snapshot currentSnapshot = currentStrategy.getCurrentSnapshot(currentTime);
+            Player currentPlayer = this.myController.getPlayer(currentAddedPlayer);
+            currentSnapshot.addPlayer(currentPlayer, mousePosX, mousePosY, 0);
         } else if (currentState.equals(States.MOVING_PLAYER) && !mouseButtonState) {
             // Button has been unpressed in movement mode
             currentState = States.MOVEMENT;
-            System.out.println("Mode mouvement en cours");
+            System.out.println("Mode mouvement en cours, vient d'être terminé");
 
             // 99% SURE THIS IS ACTUALLY DONE THX
         } else if (currentState.equals(States.ROTATION) && mouseButtonState) {
@@ -94,4 +106,17 @@ public class EditionStateMachine {
         }
     }
     
+    public void switchToAddMode(String pPlayerIdentity) {
+        this.currentState = States.ADDING_PLAYER;
+        this.currentAddedPlayer = pPlayerIdentity;
+    }
+    
+    public boolean getShowStringOption() {
+        return this.plsShowStrings;
+    }
+    
+    public void setShowStringOption(boolean newValue) {
+        this.plsShowStrings = newValue;
+        this.myController.drawCurrentFrame();
+    }
 }

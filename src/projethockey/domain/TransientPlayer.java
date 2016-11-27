@@ -10,32 +10,40 @@ package projethockey.domain;
  * @author Alexandre
  */
 public class TransientPlayer {
-    private Position postion;
+    private float posX;
+    private float posY;
     private Orientation orientation;
     private Player player;
     private boolean visible;
-
+    
+    public TransientPlayer(float posX, float posY, float pAngle, Player player, boolean visible) {
+        this.posX = posX;
+        this.posY = posY;
+        this.player = player;
+        this.visible = visible;
+    }
     
     public TransientPlayer(TransientPlayer transientPlayer) {
-        this.postion = transientPlayer.postion;
+        this.posX = transientPlayer.posX;
+        this.posY = transientPlayer.posY;
         this.orientation = transientPlayer.orientation;
         this.player = transientPlayer.player;
         this.visible = transientPlayer.visible;
     }
+
+
+    public float getPosX() {
+        return posX;
+    }
     
-    public TransientPlayer(Position postion, Orientation orientation, Player player, boolean visible) {
-        this.postion = postion;
-        this.orientation = orientation;
-        this.player = player;
-        this.visible = visible;
+    public float getPosY() {
+        return posY;
     }
 
-    public Position getPostion() {
-        return postion;
-    }
 
-    public void setPostion(Position postion) {
-        this.postion = postion;
+    public void setPosition(float posX, float posY) {
+        this.posX = posX;
+        this.posY = posY;
     }
 
     public Orientation getOrientation() {

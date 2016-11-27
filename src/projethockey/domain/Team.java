@@ -35,13 +35,13 @@ public class Team implements java.io.Serializable {
         return listPlayer;
     }
     
-    public String[] getPlayerNames() {
+    public ArrayList<String> getPlayerNames() {
         
-        String[] playerNames = new String[this.listPlayer.size()];
+        ArrayList<String> playerNames = new ArrayList();
         
         int index = 0;
         for(Player aPlayer: this.listPlayer){
-            playerNames[index] = aPlayer.getName();
+            playerNames.add(aPlayer.getName());
             index++;
         }
         return playerNames;
@@ -54,6 +54,15 @@ public class Team implements java.io.Serializable {
     public void reset(){
         this.name = "";
         this.listPlayer = new ArrayList<Player>();
+    }
+    
+    public Player getPlayer(String pPlayerName) throws Exception {
+        for (Player aPlayer: this.listPlayer) {
+            if (aPlayer.getName().equals(pPlayerName)) {
+                return aPlayer;
+            }
+        }
+        throw new Exception("should have called doesPlayerExist");
     }
     
     

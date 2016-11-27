@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class Snapshot {
     private int idChange;
-    private List<Player> listPlayer;
+    private List<TransientPlayer> listTransientPlayer;
     private List<Obstacle> listObstacle;
     private boolean trashed;
     private int timeStamp;
@@ -20,16 +20,16 @@ public class Snapshot {
 
     public Snapshot(Snapshot snapshot) {
         this.idChange = snapshot.idChange;
-        this.listPlayer = snapshot.listPlayer;
+        this.listTransientPlayer = snapshot.listTransientPlayer;
         this.listObstacle = snapshot.listObstacle;
         this.trashed = snapshot.trashed;
         this.timeStamp = snapshot.timeStamp;
         this.typeSnapshot = snapshot.typeSnapshot;        
     }
     
-    public Snapshot(int idChange, List<Player> listPlayer, List<Obstacle> listObstacle, boolean trashed, int timeStamp, String typeSnapshot) {
+    public Snapshot(int idChange, List<TransientPlayer> plistTransientPlayer, List<Obstacle> listObstacle, boolean trashed, int timeStamp, String typeSnapshot) {
         this.idChange = idChange;
-        this.listPlayer = listPlayer;
+        //this.listTransientPlayer = plistTransientPlayer.;
         this.listObstacle = listObstacle;
         this.trashed = trashed;
         this.timeStamp = timeStamp;
@@ -44,12 +44,12 @@ public class Snapshot {
         this.idChange = idChange;
     }
 
-    public List<Player> getListPlayer() {
-        return listPlayer;
+    public List<TransientPlayer> getListTransientPlayer() {
+        return listTransientPlayer;
     }
 
-    public void setListPlayer(List<Player> listPlayer) {
-        this.listPlayer = listPlayer;
+    public void setListTransientPlayer(List<TransientPlayer> plistTransientPlayer) {
+        this.listTransientPlayer = plistTransientPlayer;
     }
 
     public List<Obstacle> getListObstacle() {
@@ -93,5 +93,37 @@ public class Snapshot {
     public List<Obstacle> getOrCreateListObstacle() {
         throw new UnsupportedOperationException();
         //return listObstacle;
-    }    
+    }
+    
+    // Deals with dubloons
+    public void addPlayer(Player pPlayer, float posX, float posY, float pAngle) {
+        
+        TransientPlayer transientPlayer;
+        boolean playerAlreadyExists = false;
+        for (TransientPlayer anExistingTransientPlayer: this.listTransientPlayer) {
+            if (anExistingTransientPlayer.getPlayer().getName().equals(pPlayer.getName())) {
+                playerAlreadyExists = true;
+                break;
+            }
+        }
+        if (!playerAlreadyExists) {
+            transientPlayer = new TransientPlayer(posX, posY, pAngle, pPlayer, true);
+            this.listTransientPlayer.add(transientPlayer);
+        }
+    }
+    
+    public void printPlayers(Scene sceneReference) {
+        for (TransientPlayer aTransientPlayer: this.listTransientPlayer) {
+            sceneReference.putPlayer(
+            aTransientPlayer.getPosX(),
+            aTransientPlayer.getPosY(),
+            aTransientPlayer.getPlayer().getCategoryPlayer().getImg(),
+            true,
+            aTransientPlayer.getPlayer().getName(),
+            aTransientPlayer.getPlayer().getRole()
+            );
+            aTransientPlayer.getPosX();
+            aTransientPlayer.getPosY();
+        }
+    }
 }

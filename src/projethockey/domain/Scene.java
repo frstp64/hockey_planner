@@ -125,7 +125,7 @@ public class Scene {
         return ((float) pCoordY)/sceneSizeY;
     }
     
-    public void putPlayer(int pCoordX, int pCoordY, Image playerImage, boolean showText, String playerName, String playerRole) {
+    public void putPlayer(float pCoordX, float pCoordY, Image playerImage, boolean showText, String playerName, String playerRole) {
         // Size computation
         int imArea = playerImage.getWidth(null) * playerImage.getHeight(null);
         int sceneArea = sceneSizeX * sceneSizeY;
@@ -133,9 +133,9 @@ public class Scene {
         int wantedWidth  = playerImage.getWidth(null)  * (int) sideFactor;
         int wantedHeight = playerImage.getHeight(null) * (int) sideFactor;
         // Position computation
-        int wantedX1 = pCoordX-wantedWidth/2;
+        int wantedX1 = (int) pCoordX*sceneSizeX-wantedWidth/2;
         int wantedX2 = wantedX1+wantedWidth;
-        int wantedY1 = pCoordY-wantedHeight/2;
+        int wantedY1 = (int) pCoordY*sceneSizeY-wantedHeight/2;
         int wantedY2 = wantedY1+wantedWidth;
         float wantedRelativeX1 = ((float) wantedX1)/sceneSizeX;
         float wantedRelativeX2 = ((float) wantedX2)/sceneSizeX;

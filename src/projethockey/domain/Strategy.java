@@ -133,15 +133,33 @@ public class Strategy implements java.io.Serializable{
         return sport.isTeamListValid(listTeam);
     }
 
-    public String[] getTeamNames() {
+    public ArrayList<String> getTeamNames() {
         
-        String[] teamNames = new String[this.listTeam.size()];
+        ArrayList<String> teamNames = new ArrayList();
         
         int index = 0;
         for(Team aTeam: this.listTeam){
-            teamNames[index] = aTeam.getName();
+            teamNames.add(aTeam.getName());
             index++;
         }
         return teamNames;
+    }
+    
+    public boolean doesPlayerExist(String pPlayerName) {
+        for (Team aTeam: this.listTeam) {
+            if( aTeam.getPlayerNames().contains(pPlayerName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public Player getPlayer(String pPlayerName) throws Exception {
+        for (Team aTeam: this.listTeam) {
+            if( aTeam.getPlayerNames().contains(pPlayerName)) {
+                return aTeam.getPlayer(pPlayerName);
+            }
+        }
+        throw new Exception("should have called doesPlayerExist before!");
     }
 }
