@@ -1045,6 +1045,8 @@ public class Controller {
     public void displayMouseCoordinates(int mousePosX, int mousePosY) {
         DecimalFormat formatterObject = new DecimalFormat("0.00");
         formatterObject.setMaximumFractionDigits(3);
-        this.mMainWindow.publishMousePosition("X:" + formatterObject.format(this.myScene.getNormalizedX(mousePosX)) +  " Y:" + formatterObject.format(this.myScene.getNormalizedY(mousePosY)));
+        String xString = "X:" + formatterObject.format(this.myScene.getNormalizedX(mousePosX)*this.mPlaceHolderStrategy.getSport().getHorizontalSize()) + this.mPlaceHolderStrategy.getSport().getDimentionUnit();
+        String yString = " Y:" + formatterObject.format(this.myScene.getNormalizedY(mousePosY)*this.mPlaceHolderStrategy.getSport().getVerticalSize()) + this.mPlaceHolderStrategy.getSport().getDimentionUnit();
+        this.mMainWindow.publishMousePosition(xString+yString);
     }
 }
