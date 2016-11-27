@@ -70,6 +70,9 @@ public class Controller {
         // the FSM
         mMouseFSM = new EditionStateMachine(this);
         
+        // The scene
+        myScene = new Scene(100, 100);
+        
         // Sport
         mPlaceHolderSport = new Sport();
         sportArray = new ArrayList<Sport>();
@@ -964,7 +967,7 @@ public class Controller {
         this.mMainWindow.publishScene(myScene.getScenePicture());
         }
         
-        viewerState = (!viewerState.equals(StrategyViewerState.Play)) ? StrategyViewerState.Play : StrategyViewerState.Pause;
+        //viewerState = (!viewerState.equals(StrategyViewerState.Play)) ? StrategyViewerState.Play : StrategyViewerState.Pause;
     }
     
     public void playStrategyNextFrame() {
@@ -995,5 +998,13 @@ public class Controller {
     
     public void stopRotationMode() {
         this.mMouseFSM.switchToMovementMode();
+    }
+    
+    public void setZoomPoint1(int mousePosX, int mousePosY) {
+        this.myScene.setPoint1(mousePosX, mousePosY);
+    }
+    
+    public void setZoomPoint2(int mousePosX, int mousePosY) {
+        this.myScene.setPoint2(mousePosX, mousePosY);
     }
 }

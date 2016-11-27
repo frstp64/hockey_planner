@@ -62,13 +62,15 @@ public class EditionStateMachine {
             currentState = States.ZOOM_CLICK_1_PRESSED;
             // 99% SURE THIS IS ACTUALLY DONE THX
         } else if (currentState.equals(States.ZOOM_CLICK_1_PRESSED) && !mouseButtonState) {
-            // Button has been PRESSED
+            // Button has been unpressed
+            this.myController.setZoomPoint1(mousePosX, mousePosY);
         } else if (currentState.equals(States.ZOOM_CLICK_2_UNPRESSED) && mouseButtonState) {
             // Button has been pressed, we switch to press, nothing else to do
             currentState = States.ZOOM_CLICK_1_PRESSED;
             // 99% SURE THIS IS ACTUALLY DONE THX
         } else if (currentState.equals(States.ZOOM_CLICK_2_PRESSED) && !mouseButtonState) {
             // Button has been unpressed, we return to movement mode
+            this.myController.setZoomPoint2(mousePosX, mousePosY);
         } 
     }
     
