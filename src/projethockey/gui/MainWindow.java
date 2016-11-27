@@ -2548,7 +2548,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     private void jListStrategyPlayersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListStrategyPlayersMouseClicked
         // TODO add your handling code here:
-        String playerString = "lol";
+        String playerString = this.jListStrategyPlayers.getSelectedValue();
         this.myController.playerAddMode(playerString);
     }//GEN-LAST:event_jListStrategyPlayersMouseClicked
 

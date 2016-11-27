@@ -13,12 +13,14 @@ public class Strategy implements java.io.Serializable{
     //private var interfaceUser;
     private float playBackSpeed;
     private Date deltaTimeFrame;
-    private List<Snapshot> listSnapshot;
+    private ArrayList<Snapshot> listSnapshot;
     private String name;
     private Sport sport;
     private ArrayList<Team> listTeam;
 
     public Strategy() {
+        listSnapshot = new ArrayList();
+        listTeam = new ArrayList();
     }
     
     public Strategy(Strategy strategy) {
@@ -30,7 +32,7 @@ public class Strategy implements java.io.Serializable{
         this.listTeam = strategy.listTeam;
     }
 
-    public Strategy(float playBackSpeed, Date deltaTimeFrame, String sportName, List<Snapshot> listSnapshot, String name, Sport sport, ArrayList<Team> listTeam) {
+    public Strategy(float playBackSpeed, Date deltaTimeFrame, String sportName, ArrayList<Snapshot> listSnapshot, String name, Sport sport, ArrayList<Team> listTeam) {
         this.playBackSpeed = playBackSpeed;
         this.deltaTimeFrame = deltaTimeFrame;
         this.listSnapshot = listSnapshot;
@@ -72,7 +74,7 @@ public class Strategy implements java.io.Serializable{
         return listSnapshot;
     }
 
-    public void setListSnapshot(List<Snapshot> listSnapshot) {
+    public void setListSnapshot(ArrayList<Snapshot> listSnapshot) {
         this.listSnapshot = listSnapshot;
     }
 
@@ -122,10 +124,10 @@ public class Strategy implements java.io.Serializable{
                 return aSnapshot;
             }
         }
-        return this.listSnapshot.get(0); // SHOULD NOT HAPPEN
+        return this.getOrCreate(0); // SHOULD NOT HAPPEN
     }
     
-    public Snapshot getOrCreate(Date time) {
+    public Snapshot getOrCreate(int time) {
         throw new UnsupportedOperationException();
     }
             
@@ -146,6 +148,7 @@ public class Strategy implements java.io.Serializable{
     }
     
     public boolean doesPlayerExist(String pPlayerName) {
+        System.out.println(pPlayerName);
         for (Team aTeam: this.listTeam) {
             if( aTeam.getPlayerNames().contains(pPlayerName)) {
                 return true;
