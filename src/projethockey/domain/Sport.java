@@ -145,14 +145,14 @@ public class Sport implements java.io.Serializable{
         boolean isValid = true;
         
         //Is the number of player and the category of player alright
-        if(this.nbPlayer < listTeam.size())
+        if(!this.unlimitedPlayer && this.nbPlayer < listTeam.size())
             isValid = false;
         else {
             for(Team team : listTeam) {
                 for(Player player : team.getListPlayer()) {
-                    if(!listCatPlayer.contains(player.getCategoryPlayer())) {
-                        isValid = false;
-                    }
+//                    if(!listCatPlayer.contains(player.getCategoryPlayer())) {
+//                        isValid = false;
+//                    }
                 }                    
             }
         }     
