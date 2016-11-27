@@ -1916,6 +1916,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelStrategyEditor.add(jLabelPlayBackSpeedTitle, gridBagConstraints);
 
         jToggleButtonRotationMode.setText("mode rotation");
+        jToggleButtonRotationMode.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jToggleButtonRotationModeStateChanged(evt);
+            }
+        });
         jToggleButtonRotationMode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButtonRotationModeActionPerformed(evt);
@@ -2210,7 +2215,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jTextFieldStrategyViewerTimeActionPerformed
 
     private void jToggleButtonRotationModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonRotationModeActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jToggleButtonRotationModeActionPerformed
 
     private void jPanelStrategyEditorLocationPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelStrategyEditorLocationPropertyChange
@@ -2472,6 +2477,19 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jTableTeamPlayersPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableTeamPlayersPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jTableTeamPlayersPropertyChange
+
+    private void jToggleButtonRotationModeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jToggleButtonRotationModeStateChanged
+        
+        if (this.jToggleButtonRotationMode.isSelected()) {
+            this.myController.initiateRotationMode();
+        }
+        else {
+            this.myController.stopRotationMode();
+        }
+        
+        
+        
+    }//GEN-LAST:event_jToggleButtonRotationModeStateChanged
 
     /**
      * @param args the command line arguments

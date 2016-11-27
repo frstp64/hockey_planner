@@ -1886,6 +1886,7 @@
                 <Property name="text" type="java.lang.String" value="mode rotation"/>
               </Properties>
               <Events>
+                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jToggleButtonRotationModeStateChanged"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButtonRotationModeActionPerformed"/>
               </Events>
               <Constraints>
