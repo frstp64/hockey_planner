@@ -2215,7 +2215,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jTextFieldStrategyViewerTimeActionPerformed
 
     private void jToggleButtonRotationModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonRotationModeActionPerformed
-
+        if (this.jToggleButtonRotationMode.isSelected()) {
+            this.myController.initiateRotationMode();
+        }
+        else {
+            this.myController.stopRotationMode();
+        }
     }//GEN-LAST:event_jToggleButtonRotationModeActionPerformed
 
     private void jPanelStrategyEditorLocationPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelStrategyEditorLocationPropertyChange
@@ -2479,15 +2484,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jTableTeamPlayersPropertyChange
 
     private void jToggleButtonRotationModeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jToggleButtonRotationModeStateChanged
-        
-        if (this.jToggleButtonRotationMode.isSelected()) {
-            this.myController.initiateRotationMode();
-        }
-        else {
-            this.myController.stopRotationMode();
-        }
-        
-        
         
     }//GEN-LAST:event_jToggleButtonRotationModeStateChanged
 
