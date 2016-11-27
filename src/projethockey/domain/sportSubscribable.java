@@ -7,7 +7,6 @@ package projethockey.domain;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import java.util.List;
 /**
  *
  * @author znuxor
@@ -20,6 +19,7 @@ public interface sportSubscribable {
     void publishDimensions(Float pdimX, Float pdimY);
     void publishUnits(String punits);
     void publishMousePosition(String punits);
+    void publishTeamNumber(int number);
     void publishPlayerNumber(int playerNumber);
     void publishSportIsUnlimited(boolean isUnlimited);
     void publishFieldPicture(BufferedImage thePicture);
