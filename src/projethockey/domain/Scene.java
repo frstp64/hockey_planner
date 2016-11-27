@@ -51,6 +51,7 @@ public class Scene {
     public void setSceneSize(int pSceneSizeX, int pSceneSizeY) {
         sceneSizeX = pSceneSizeX;
         sceneSizeY = pSceneSizeY;
+        sceneImage = new BufferedImage(sceneSizeX, sceneSizeY, BufferedImage.TYPE_INT_ARGB);
     }
     public void cleanScene() {
         Graphics2D cloneG = sceneImage.createGraphics();
