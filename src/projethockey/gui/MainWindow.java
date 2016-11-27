@@ -2421,6 +2421,15 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
         System.out.println("changement de taille!");
+        if (jTabbedPanePlayerCategory.getSelectedIndex() == 6) {
+            int x = this.jPanelStrategyEditor.getHeight() + 2;
+            int y = this.jPanelStrategyEditor.getWidth() + 2;
+            
+            this.myController.setSceneSize(x, y);
+            this.myController.setSceneBackground();
+            
+            this.myController.drawCurrentFrame();
+        }
     }//GEN-LAST:event_formComponentResized
 
     private void jLabelStrategyEditorPictureMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelStrategyEditorPictureMouseMoved
