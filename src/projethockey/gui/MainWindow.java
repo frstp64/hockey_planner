@@ -2391,8 +2391,17 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jLabelCategoryPlayerIconMouseClicked
 
     private void jTabbedPanePlayerCategoryStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPanePlayerCategoryStateChanged
+        
+        int tabNumber = jTabbedPanePlayerCategory.getSelectedIndex();
         // TODO add your handling code here:
-        System.out.println("Changement de panel vers le numéro: " + jTabbedPanePlayerCategory.getSelectedIndex());
+        System.out.println("Changement de panel vers le numéro: " + tabNumber);
+        
+        if (tabNumber == 6) {
+            int x = this.jPanelStrategyEditor.getHeight() + 2;
+            int y = this.jPanelStrategyEditor.getWidth() + 2;
+            
+            this.myController.setSceneSize(x, y);
+        }
     }//GEN-LAST:event_jTabbedPanePlayerCategoryStateChanged
 
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
