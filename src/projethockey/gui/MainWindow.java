@@ -12,6 +12,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import projethockey.domain.projetHockeyInterface;
 import javax.swing.DefaultCellEditor;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -1582,6 +1583,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jListTypeModificationType.setEnabled(false);
         jListTypeModificationType.setMaximumSize(null);
         jListTypeModificationType.setMinimumSize(null);
         jListTypeModificationType.setName(""); // NOI18N
@@ -2388,8 +2390,13 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_formComponentResized
 
     private void jLabelStrategyEditorPictureMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelStrategyEditorPictureMouseMoved
-        double X = evt.getX();
-        double Y = evt.getY();
+        int X = evt.getX();
+        int Y = evt.getY();
+        
+        boolean mousePressed = SwingUtilities.isLeftMouseButton(evt);
+        
+        this.myController.mouseMoved(X, Y, mousePressed);
+        
         System.out.println("X: " + X + "Y: " + Y);    }//GEN-LAST:event_jLabelStrategyEditorPictureMouseMoved
 
     private void jButtonChooseCategoryPictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseCategoryPictureActionPerformed
