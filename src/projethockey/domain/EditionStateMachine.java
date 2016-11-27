@@ -25,6 +25,8 @@ public class EditionStateMachine {
     private Controller myController; // YES YES, VERY BAD PRACTICE, SORRY!
     
     private States currentState;
+    private int mousePosX;
+    private int mousePosY;
     
     public EditionStateMachine(Controller pController) {
         currentState = States.MOVEMENT;
@@ -39,9 +41,12 @@ public class EditionStateMachine {
         currentState = States.MOVEMENT;
     }
     
-    public void updateMouse(boolean mouseButtonState) {
+    public void updateMouse(int mousePosX, int mousePosY, boolean mouseButtonState) {
         if        (currentState.equals(States.MOVEMENT) && mouseButtonState) {
             // Button has been pressed in movement mode
+            
+            // To switch to player movement mode, we first need to have one intersecting the mouse
+            //this.myController.checkIfIntersect()
         } else if (currentState.equals(States.MOVING_PLAYER) && !mouseButtonState) {
             // Button has been unpressed in movement mode
             currentState = States.MOVEMENT;
