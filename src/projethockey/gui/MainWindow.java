@@ -299,7 +299,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         this.jLabelStrategyEditorPicture.setIcon(new ImageIcon(pSceneImage));
     }
 
-    
+    public void publishMousePosition(String position) {
+        this.jLabelCurrentPosition.setText(position);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -2406,6 +2408,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         boolean mousePressed = SwingUtilities.isLeftMouseButton(evt);
         
         this.myController.mouseMoved(X, Y, mousePressed);
+        
+        publishMousePosition("X: " + X + "Y: " + Y);
         
         System.out.println("X: " + X + "Y: " + Y);    }//GEN-LAST:event_jLabelStrategyEditorPictureMouseMoved
 
