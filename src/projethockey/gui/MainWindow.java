@@ -2402,6 +2402,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             
             this.myController.setSceneSize(x, y);
             this.myController.setSceneBackground();
+            
+            this.myController.drawCurrentFrame();
         }
     }//GEN-LAST:event_jTabbedPanePlayerCategoryStateChanged
 
