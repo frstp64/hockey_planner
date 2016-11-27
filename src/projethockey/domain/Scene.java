@@ -67,6 +67,12 @@ public class Scene {
         
         Graphics2D cloneG = sceneImage.createGraphics();
         cloneG.drawImage(itemPicture, locX, locY, null); // might require some cutting
+    }    
+    
+    public void putText(int locX, int locY, String pStringToShow) {
+        
+        Graphics2D cloneG = sceneImage.createGraphics();
+         cloneG.drawString(pStringToShow, locX, locY);
     }
     
     public Image getScenePicture() {
@@ -119,7 +125,7 @@ public class Scene {
         return ((float) pCoordY)/sceneSizeY;
     }
     
-    public void putPlayer(int pCoordX, int pCoordY, Image playerImage, String playerName) {
+    public void putPlayer(int pCoordX, int pCoordY, Image playerImage, boolean showText, String playerName, String playerRole) {
         // Size computation
         int imArea = playerImage.getWidth(null) * playerImage.getHeight(null);
         int sceneArea = sceneSizeX * sceneSizeY;
@@ -141,6 +147,13 @@ public class Scene {
         this.playerCoordY2.add(wantedRelativeY2);
         this.playerNames.add(playerName);
         this.putPicture(playerImage.getScaledInstance(wantedWidth, wantedHeight, BufferedImage.SCALE_FAST), wantedX1, wantedY1);
+        
+        // TODO: show the strings
+        if(showText) {
+            
+            this.putText(wantedX1, wantedY1+10, playerName);
+            this.putText(wantedX1, wantedY1+10, playerRole);
+        }
     }
     
     public boolean isZoomed() {

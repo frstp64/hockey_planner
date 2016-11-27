@@ -108,6 +108,8 @@ public class Controller {
               playStrategyNextFrame();
             }
           }, 1000, 1000);
+        
+        timeViewer = 0;
     }
 
     // A simple global subscriber to get a reference to the window
@@ -1054,5 +1056,10 @@ public class Controller {
         String xString = "X:" + formatterObject.format(this.myScene.getNormalizedX(mousePosX)*this.mPlaceHolderStrategy.getSport().getHorizontalSize()) + this.mPlaceHolderStrategy.getSport().getDimentionUnit();
         String yString = " Y:" + formatterObject.format(this.myScene.getNormalizedY(mousePosY)*this.mPlaceHolderStrategy.getSport().getVerticalSize()) + this.mPlaceHolderStrategy.getSport().getDimentionUnit();
         this.mMainWindow.publishMousePosition(xString+yString);
+    }
+    
+    public void playerAddMode(String pPlayerName) {
+        //TODO!
+        this.mPlaceHolderStrategy.getCurrentSnapshot(timeViewer);
     }
 }

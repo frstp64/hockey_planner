@@ -1605,6 +1605,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jListStrategyPlayers.setMaximumSize(new java.awt.Dimension(0, 0));
         jListStrategyPlayers.setMinimumSize(new java.awt.Dimension(0, 0));
         jListStrategyPlayers.setPreferredSize(new java.awt.Dimension(0, 0));
+        jListStrategyPlayers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListStrategyPlayersMouseClicked(evt);
+            }
+        });
         jListStrategyPlayers.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jListStrategyPlayersPropertyChange(evt);
@@ -2540,6 +2545,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jPanelStrategyEditorLocationPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanelStrategyEditorLocationPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanelStrategyEditorLocationPropertyChange
+
+    private void jListStrategyPlayersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListStrategyPlayersMouseClicked
+        // TODO add your handling code here:
+        String playerString = "lol";
+        this.myController.playerAddMode(playerString);
+    }//GEN-LAST:event_jListStrategyPlayersMouseClicked
 
     /**
      * @param args the command line arguments

@@ -12,7 +12,7 @@ public class Snapshot {
     private List<Player> listPlayer;
     private List<Obstacle> listObstacle;
     private boolean trashed;
-    private Date timeStamp;
+    private int timeStamp;
     private String typeSnapshot;
 
     public Snapshot() {
@@ -27,7 +27,7 @@ public class Snapshot {
         this.typeSnapshot = snapshot.typeSnapshot;        
     }
     
-    public Snapshot(int idChange, List<Player> listPlayer, List<Obstacle> listObstacle, boolean trashed, Date timeStamp, String typeSnapshot) {
+    public Snapshot(int idChange, List<Player> listPlayer, List<Obstacle> listObstacle, boolean trashed, int timeStamp, String typeSnapshot) {
         this.idChange = idChange;
         this.listPlayer = listPlayer;
         this.listObstacle = listObstacle;
@@ -68,11 +68,11 @@ public class Snapshot {
         this.trashed = trashed;
     }
 
-    public Date getTimeStamp() {
+    public int getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(Date timeStamp) {
+    public void setTimeStamp(int timeStamp) {
         this.timeStamp = timeStamp;
     }
 
