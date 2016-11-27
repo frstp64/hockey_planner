@@ -110,12 +110,15 @@ public class Scene {
     
     public String getIntersectingPlayerName(int coordX, int coordY) {
         // The iteration
+        int realCoordX = (int) (((float) this.sceneSizeX) * this.getNormalizedX(coordX));
+        int realCoordY = (int) (((float) this.sceneSizeY) * this.getNormalizedY(coordY));
+        System.out.println(realCoordX + " " + realCoordY);
         for(int j = playerNames.size() - 1; j >= 0; j--){
             //pass
-            if (coordX <= playerCoordX2.get(j)
-             && coordX >= playerCoordX1.get(j)
-             && coordY <= playerCoordY2.get(j)
-             && coordY >= playerCoordY1.get(j)) {
+            if (realCoordX <= playerCoordX2.get(j)
+             && realCoordX >= playerCoordX1.get(j)
+             && realCoordY <= playerCoordY2.get(j)
+             && realCoordY >= playerCoordY1.get(j)) {
                 System.out.println("intersection happened!");
                 return playerNames.get(j);
             }
@@ -137,7 +140,7 @@ public class Scene {
         return ((float) pCoordY)/sceneSizeY;
     }
     
-    public void putPlayer(float pCoordX, float pCoordY, Image playerImage, String playerName, String playerRole) {
+    public void putPlayer(float pCoordX, float pCoordY, Image playerImage, String playerName, String playerRole, boolean isTransparent) {
         // Size computation
         int imArea = playerImage.getWidth(null) * playerImage.getHeight(null);
         int sceneArea = sceneSizeX * sceneSizeY;

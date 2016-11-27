@@ -61,7 +61,7 @@ public class Controller {
     
     private Scene myScene;
     private Timer timer;
-    private int timeViewer;
+    private int timeViewer, intervalTimeinMS;
     public enum StrategyViewerState { Stop, Play, Pause}
     StrategyViewerState viewerState;
     
@@ -110,6 +110,7 @@ public class Controller {
           }, 1000, 1000);
         
         timeViewer = 0;
+        intervalTimeinMS = 1000;
     }
 
     // A simple global subscriber to get a reference to the window
@@ -1096,5 +1097,14 @@ public class Controller {
     
     public void setShowStringOption(boolean newValue) {
         this.mMouseFSM.setShowStringOption(newValue);
+    }
+    
+    public void setIntervalTime(float timeValueInSecond) {
+        this.intervalTimeinMS = (int) (timeValueInSecond*1000);
+    }
+    
+    public void switchToNextFrame() {
+        this.timeViewer += this.intervalTimeinMS;
+        this.drawCurrentFrame();
     }
 }

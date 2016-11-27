@@ -127,10 +127,9 @@ public class Snapshot {
             aTransientPlayer.getPosY(),
             aTransientPlayer.getPlayer().getCategoryPlayer().getImg(),
             aTransientPlayer.getPlayer().getName(),
-            aTransientPlayer.getPlayer().getRole()
+            aTransientPlayer.getPlayer().getRole(),
+            aTransientPlayer.isVisible()
             );
-            aTransientPlayer.getPosX();
-            aTransientPlayer.getPosY();
         }
     }
     

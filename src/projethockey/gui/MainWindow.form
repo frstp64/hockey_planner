@@ -1674,9 +1674,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldTimeInterval">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="1s"/>
-              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldTimeIntervalActionPerformed"/>
               </Events>
@@ -1688,7 +1685,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelTimeInterval">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Intervalle"/>
+                <Property name="text" type="java.lang.String" value="Intervalle(s)"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">

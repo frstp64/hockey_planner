@@ -1762,7 +1762,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelStrategyEditor.add(jLabelCurrentPosition, gridBagConstraints);
 
-        jTextFieldTimeInterval.setText("1s");
         jTextFieldTimeInterval.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldTimeIntervalActionPerformed(evt);
@@ -1775,7 +1774,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelStrategyEditor.add(jTextFieldTimeInterval, gridBagConstraints);
 
-        jLabelTimeInterval.setText("Intervalle");
+        jLabelTimeInterval.setText("Intervalle(s)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 7;
@@ -2269,6 +2268,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     private void jTextFieldTimeIntervalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTimeIntervalActionPerformed
         // TODO add your handling code here:
+        try {
+            this.myController.setIntervalTime(Float.parseFloat(this.jTextFieldTimeInterval.getText()));
+        } catch (Exception ex) {
+            //pass
+        }
     }//GEN-LAST:event_jTextFieldTimeIntervalActionPerformed
 
     private void jLabelCurrentPositionPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabelCurrentPositionPropertyChange
@@ -2277,6 +2281,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     private void jButtonNextFrameForImageModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextFrameForImageModeActionPerformed
         // TODO add your handling code here:
+        this.myController.switchToNextFrame();
     }//GEN-LAST:event_jButtonNextFrameForImageModeActionPerformed
 
     private void jButtonZoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZoomActionPerformed
