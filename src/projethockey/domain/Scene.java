@@ -55,7 +55,7 @@ public class Scene {
     }
     public void cleanScene() {
         Graphics2D cloneG = sceneImage.createGraphics();
-        cloneG.drawImage(backgroundPicture.getScaledInstance(sceneSizeX, sceneSizeY, 0), 0, 0, null);
+        cloneG.drawImage(backgroundPicture.getScaledInstance(sceneSizeX, sceneSizeY, BufferedImage.SCALE_FAST), 0, 0, null);
         playerCoordX1 =  new ArrayList();
         playerCoordY1 =  new ArrayList();
         playerCoordX2 =  new ArrayList();
