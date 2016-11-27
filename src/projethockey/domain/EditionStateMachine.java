@@ -64,6 +64,7 @@ public class EditionStateMachine {
             // 99% SURE THIS IS ACTUALLY DONE THX
         } else if (currentState.equals(States.ZOOM_CLICK_1_PRESSED) && !mouseButtonState) {
             // Button has been unpressed
+            currentState = States.ZOOM_CLICK_2_UNPRESSED;
             this.myController.setZoomPoint1(mousePosX, mousePosY);
             System.out.println("Set point 1 for zoom");
         } else if (currentState.equals(States.ZOOM_CLICK_2_UNPRESSED) && mouseButtonState) {
