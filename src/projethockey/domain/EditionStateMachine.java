@@ -65,6 +65,7 @@ public class EditionStateMachine {
         } else if (currentState.equals(States.ZOOM_CLICK_1_PRESSED) && !mouseButtonState) {
             // Button has been unpressed
             this.myController.setZoomPoint1(mousePosX, mousePosY);
+            System.out.println("Set point 1 for zoom");
         } else if (currentState.equals(States.ZOOM_CLICK_2_UNPRESSED) && mouseButtonState) {
             // Button has been pressed, we switch to press, nothing else to do
             currentState = States.ZOOM_CLICK_1_PRESSED;
@@ -72,6 +73,7 @@ public class EditionStateMachine {
         } else if (currentState.equals(States.ZOOM_CLICK_2_PRESSED) && !mouseButtonState) {
             // Button has been unpressed, we return to movement mode
             this.myController.setZoomPoint2(mousePosX, mousePosY);
+            System.out.println("Set point 2 for zoom");
             this.myController.drawCurrentFrame();
             System.out.println("remove me pls");;
         } 
