@@ -48,6 +48,10 @@ public class Scene {
         backgroundPicture = pbackgroundPicture;
     }
     
+    public void setSceneSize(int pSceneSizeX, int pSceneSizeY) {
+        sceneSizeX = pSceneSizeX;
+        sceneSizeY = pSceneSizeY;
+    }
     public void cleanScene() {
         Graphics2D cloneG = sceneImage.createGraphics();
         cloneG.drawImage(backgroundPicture.getScaledInstance(sceneSizeX, sceneSizeY, 0), 0, 0, null);

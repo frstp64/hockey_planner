@@ -1011,4 +1011,8 @@ public class Controller {
     public void setZoomPoint2(int mousePosX, int mousePosY) {
         this.myScene.setPoint2(mousePosX, mousePosY);
     }
+    public void setSceneSize(int pSceneSizeX, int pSceneSizeY) {
+        this.myScene.setSceneSize(pSceneSizeX, pSceneSizeY);
+    }
+        
 }
