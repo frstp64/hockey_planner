@@ -33,6 +33,7 @@ public class Scene {
     
     private BufferedImage sceneImage;
     private BufferedImage backgroundPicture;
+    private boolean showTextOption;
     
     public Scene(int pSceneSizeX, int pSceneSizeY) {
         sceneSizeX = pSceneSizeX;
@@ -44,6 +45,7 @@ public class Scene {
         playerCoordX2 =  new ArrayList();
         playerCoordY2 =  new ArrayList();
         playerNames =  new ArrayList();
+        this.showTextOption = false;
     }
     
     public void setBackground(BufferedImage pbackgroundPicture) {
@@ -134,7 +136,7 @@ public class Scene {
         return ((float) pCoordY)/sceneSizeY;
     }
     
-    public void putPlayer(float pCoordX, float pCoordY, Image playerImage, boolean showText, String playerName, String playerRole) {
+    public void putPlayer(float pCoordX, float pCoordY, Image playerImage, String playerName, String playerRole) {
         // Size computation
         int imArea = playerImage.getWidth(null) * playerImage.getHeight(null);
         int sceneArea = sceneSizeX * sceneSizeY;
@@ -165,7 +167,7 @@ public class Scene {
         this.putPicture(playerImage.getScaledInstance(wantedWidth, wantedHeight, BufferedImage.SCALE_FAST), wantedX1, wantedY1);
         
         // TODO: show the strings
-        if(showText) {
+        if(this.showTextOption) {
             
             this.putText(wantedX1, wantedY1+10, playerName);
             this.putText(wantedX1, wantedY1+30, playerRole);
@@ -191,5 +193,9 @@ public class Scene {
         } else {
             return (float)pixelY/sceneSizeY;
         }
+    }
+    
+    public void setStringShowOption(boolean newValue) {
+        this.showTextOption = newValue;
     }
 }

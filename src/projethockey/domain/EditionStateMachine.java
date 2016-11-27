@@ -136,6 +136,7 @@ public class EditionStateMachine {
     
     public void setShowStringOption(boolean newValue) {
         this.plsShowStrings = newValue;
+        this.myController.getScene().setStringShowOption(newValue);
         this.myController.drawCurrentFrame();
     }
 }
