@@ -176,6 +176,10 @@ public class Controller {
     public void setSportPlayers(ArrayList<String> typeArray, ArrayList<String> playerRoleArray) {
         this.mPlaceHolderSport.setPlayers(typeArray, playerRoleArray);
     }
+    
+    public void setTeamNumber(int number) {
+        this.mPlaceHolderSport.setNumberMaxTeam(number);
+    }
 
     
     public void setSportObjectTypeNumber(int pObjectNumber) {
@@ -239,6 +243,7 @@ public class Controller {
                 this.mMainWindow.publishSportName(this.mPlaceHolderSport.getName());
                 this.mMainWindow.publishDimensions(aSport.getHorizontalSize(), aSport.getVerticalSize());
                 this.mMainWindow.publishUnits(aSport.getDimentionUnit());
+                this.mMainWindow.publishTeamNumber(aSport.getNumberMaxTeam());
                 this.mMainWindow.publishPlayerNumber(aSport.getNbPlayer());
                 this.mMainWindow.publishSportIsUnlimited(aSport.isUnlimitedPlayer());
                 //this.mMainWindow.publishObjectTypeNumber(aSport.);

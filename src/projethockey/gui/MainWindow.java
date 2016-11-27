@@ -272,6 +272,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     }
     
+    public void publishTeamNumber(int number) {
+        this.jSpinnerSportEquipes.setValue(number);
+    }
+    
     public void publishTeamName(String pTeamName) {
         this.jTextFieldTeamName.setText(pTeamName);
     }
@@ -2422,11 +2426,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         if (jTabbedPanePlayerCategory.getSelectedIndex() == 6) {
             int y = this.jPanelStrategyEditorLocation.getHeight() - 2;
             int x = this.jPanelStrategyEditorLocation.getWidth() - 2;
-            System.out.println("X = " + x + " y = " + y + ", lol");
+            System.out.println("Mouse position : X = " + x + " y = " + y);
             
             this.myController.setSceneSize(x, y);
-            this.myController.setSceneBackground();
-            
+            this.myController.setSceneBackground();            
             this.myController.drawCurrentFrame();
         }
     }//GEN-LAST:event_formComponentResized
@@ -2486,6 +2489,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     private void jSpinnerSportEquipesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerSportEquipesStateChanged
         ((DefaultTableModel) this.jTableStrategyTeams.getModel()).setRowCount((int)this.jSpinnerSportEquipes.getValue());
+        myController.setTeamNumber((int)this.jSpinnerSportEquipes.getValue());
     }//GEN-LAST:event_jSpinnerSportEquipesStateChanged
 
     private void jListExistingStrategiesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListExistingStrategiesMouseClicked
