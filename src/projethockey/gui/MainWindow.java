@@ -1075,7 +1075,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelSport.add(jLabelPlayerNumber, gridBagConstraints);
 
         jSpinnerSportPlayerMax.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        jSpinnerSportPlayerMax.setEnabled(false);
         jSpinnerSportPlayerMax.setMinimumSize(new java.awt.Dimension(0, 0));
         jSpinnerSportPlayerMax.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -1158,7 +1157,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelSport.add(jTextFieldFieldUnits, gridBagConstraints);
 
         jCheckBoxUnlimitedPlayer.setText("Nombre de joueurs illimité");
-        jCheckBoxUnlimitedPlayer.setEnabled(false);
         jCheckBoxUnlimitedPlayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBoxUnlimitedPlayerActionPerformed(evt);
@@ -1615,6 +1613,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jListStrategyObjects.setEnabled(false);
         jListStrategyObjects.setMaximumSize(new java.awt.Dimension(0, 0));
         jListStrategyObjects.setMinimumSize(new java.awt.Dimension(0, 0));
         jListStrategyObjects.setPreferredSize(new java.awt.Dimension(0, 0));
@@ -2084,7 +2083,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         if (this.myController != null) {
             this.myController.setSportPlayerNumber((int) this.jSpinnerSportPlayerMax.getModel().getValue());
         }
-        //this.myController.setSportPlayerNumber(5);
     }//GEN-LAST:event_jSpinnerSportPlayerMaxStateChanged
 
     private void jTableStrategyTeamsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableStrategyTeamsPropertyChange

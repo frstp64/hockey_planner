@@ -845,7 +845,6 @@
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
-                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[0, 0]"/>
                 </Property>
@@ -939,7 +938,6 @@
             <Component class="javax.swing.JCheckBox" name="jCheckBoxUnlimitedPlayer">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nombre de joueurs illimit&#xe9;"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxUnlimitedPlayerActionPerformed"/>
@@ -1556,6 +1554,7 @@
                         <StringItem index="1" value="Ballon"/>
                       </StringArray>
                     </Property>
+                    <Property name="enabled" type="boolean" value="false"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[0, 0]"/>
                     </Property>
