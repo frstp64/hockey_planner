@@ -124,7 +124,7 @@ public class Strategy implements java.io.Serializable{
                 return aSnapshot;
             }
         }
-        return this.getOrCreate(0); // SHOULD NOT HAPPEN
+        return this.getOrCreate(wantedTime); // SHOULD NOT HAPPEN
     }
     
     public Snapshot getOrCreate(int time) {
@@ -172,5 +172,15 @@ public class Strategy implements java.io.Serializable{
             }
         }
         throw new Exception("should have called doesPlayerExist before!");
+    }
+    
+    public int getBiggestTime() {
+        int maxTime = 0;
+        for (Snapshot aSnapshot: this.listSnapshot) {
+            if (aSnapshot.getTimeStamp() > maxTime) {
+                maxTime = aSnapshot.getTimeStamp();
+            }
+        }
+        return maxTime;
     }
 }

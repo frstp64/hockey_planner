@@ -52,6 +52,7 @@ public interface sportSubscribable {
     void publishExistingTeams(String[] plistTeamName);
     void publishTeamPlayers(ArrayList<String> pPlayerNames);
     
+    void publishCurrentTime(float timeInSeconds);
     //TODO
     // void publishStrategySport
     // void publishStrategyPlayers
