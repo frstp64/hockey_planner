@@ -126,5 +126,17 @@ public class Strategy implements java.io.Serializable{
             
     public boolean isStrategyValid() {
         return sport.isTeamListValid(listTeam);
-    }    
+    }
+
+    public String[] getTeamNames() {
+        
+        String[] teamNames = new String[this.listTeam.size()];
+        
+        int index = 0;
+        for(Team aTeam: this.listTeam){
+            teamNames[index] = aTeam.getName();
+            index++;
+        }
+        return teamNames;
+    }
 }

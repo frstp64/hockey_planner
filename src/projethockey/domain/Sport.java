@@ -169,5 +169,23 @@ public class Sport implements java.io.Serializable{
         in.defaultReadObject();
         imgField = ImageIO.read(in);
     }
+    
+    public boolean isValid() {
+        
+        // To complete.
+        boolean checkBool = true;
+        if (this.imgField == null){
+            checkBool = false;
+        }
+        else if (this.name == null || this.name.equals("")) {
+            checkBool = false;
+        }
+        
+        if (!checkBool){
+            System.out.println("Sport is not valid");
+        }
+        
+        return checkBool;
+    }
             
 }

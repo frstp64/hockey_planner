@@ -241,8 +241,18 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }
     
     public void publishExistingStrategies(String[] plistStrategy) {
-        
         this.jListExistingStrategies.setListData(plistStrategy);
+    }
+    
+    public void publishStrategyTeams(String[] pTeamNames){
+        // edit number of columns in table (and number selector)
+        this.jSpinnerSportEquipes.setValue(pTeamNames.length);
+        
+        // change values to our array.
+        int nRow = this.jTableTeamPlayers.getRowCount();
+        for (int i = 0; i < nRow; i++) {
+            this.jTableStrategyTeams.setValueAt(pTeamNames[i], i, 0);
+        }
     }
     
     public void publishPlayerName(String pPlayerName) {
@@ -1951,7 +1961,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         jTabbedPanePlayerCategory.addTab("Édition et visualisation de stratégie", jPanelStrategyEditor);
 
-        getContentPane().add(jTabbedPanePlayerCategory, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jTabbedPanePlayerCategory, java.awt.BorderLayout.PAGE_START);
         this.jTabbedPanePlayerCategory.setEnabledAt(4, false);
         this.jTabbedPanePlayerCategory.setEnabledAt(6, false);
 

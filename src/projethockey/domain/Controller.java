@@ -186,6 +186,8 @@ public class Controller {
 
     public void saveSport() {
         // Ensure the sport is valid here.
+        
+        if (this.mPlaceHolderSport.isValid()) {
 
         // If the sport exists, remove it from the list
         for (Sport aSport: sportArray) {
@@ -203,6 +205,7 @@ public class Controller {
         projethockey.services.AppDataProxy.saveData(this);
         if (!sportArray.isEmpty()) {
             publishSportsNames();
+        }
         }
     }
 
@@ -633,6 +636,7 @@ public class Controller {
 
                 // Publish placeholder's Data to GUI fields
                 this.mMainWindow.publishStrategyName(this.mPlaceHolderStrategy.getName());
+                this.mMainWindow.publishStrategyTeams(this.mPlaceHolderStrategy.getTeamNames());
                 
                 
                 // publish all players in strategy to list.
