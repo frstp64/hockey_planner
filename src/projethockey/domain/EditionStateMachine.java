@@ -45,7 +45,7 @@ public class EditionStateMachine {
         currentState = States.MOVEMENT;
     }
     
-    public void updateMouse(int mousePosX, int mousePosY, boolean mouseButtonState) {
+    public void updateMouse(int mousePosX, int mousePosY, boolean mouseButtonState) throws Exception {
         if (currentState.equals(States.MOVEMENT) && mouseButtonState) {
             // Button has been pressed in movement mode
             System.out.println("Mode mouvement");
@@ -54,6 +54,7 @@ public class EditionStateMachine {
             //this.myController.checkIfIntersect()
         } else if (currentState.equals(States.ADDING_PLAYER) && mouseButtonState) {
             // button pressed on the screen to add a player
+            System.out.println("asked to add a player!");
             currentState = States.MOVING_PLAYER;
             int currentTime = this.myController.getCurrentTime();
             Strategy currentStrategy = this.myController.getCurrentStrategy();
@@ -109,6 +110,7 @@ public class EditionStateMachine {
     public void switchToAddMode(String pPlayerIdentity) {
         this.currentState = States.ADDING_PLAYER;
         this.currentAddedPlayer = pPlayerIdentity;
+        System.out.println("Just switched to add mode!");
     }
     
     public boolean getShowStringOption() {

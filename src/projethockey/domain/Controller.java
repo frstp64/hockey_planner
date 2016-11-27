@@ -1001,7 +1001,13 @@ public class Controller {
     }
     
     public void mouseMoved(int mousePosX, int mousePosY, boolean mousePressed) {
+        try {
         this.mMouseFSM.updateMouse(mousePosX, mousePosY, mousePressed);
+        }
+        catch (Exception Ex) {
+        System.out.println("exception in mouseMoved in Controller");
+        System.out.println(Ex);
+    }
     }
     
     public void initiateRotationMode() {
@@ -1061,6 +1067,9 @@ public class Controller {
         if (this.mPlaceHolderStrategy.doesPlayerExist(pPlayerName)) {
             this.mMouseFSM.switchToAddMode(pPlayerName);
             this.mPlaceHolderStrategy.getCurrentSnapshot(timeViewer);
+        }
+        else {
+            System.out.println("Selected player that does not exist!");
         }
     }
     
