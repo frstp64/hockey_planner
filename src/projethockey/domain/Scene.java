@@ -182,18 +182,32 @@ public class Scene {
     
     // Deals with the zoom too!
     public float getNormalizedX(int pixelX) {
+        float relativeX;
         if(isZoomed) {
-        return ((((float)pixelX)/sceneSizeX)*(zoomX2-zoomX1) + zoomX1)/sceneSizeX;        
+        relativeX = ((((float)pixelX)/sceneSizeX)*(zoomX2-zoomX1) + zoomX1)/sceneSizeX;        
         } else {
-            return (float)pixelX/sceneSizeX;
+            relativeX =  (float)pixelX/sceneSizeX;
         }
+        if (relativeX < 0) {
+            relativeX = 0;
+        } else if (relativeX > 1) {
+            relativeX = 1;
+        }
+        return relativeX;
     }
     public float getNormalizedY(int pixelY) {
+        float relativeY;
         if(isZoomed) {
-            return ((((float)pixelY)/sceneSizeY)*(zoomY2-zoomY1) + zoomY1)/sceneSizeY;
+            relativeY = ((((float)pixelY)/sceneSizeY)*(zoomY2-zoomY1) + zoomY1)/sceneSizeY;
         } else {
-            return (float)pixelY/sceneSizeY;
+            relativeY = (float)pixelY/sceneSizeY;
         }
+        if (relativeY < 0) {
+            relativeY = 0;
+        } else if (relativeY > 1) {
+            relativeY = 1;
+        }
+        return relativeY;
     }
     
     public void setStringShowOption(boolean newValue) {
