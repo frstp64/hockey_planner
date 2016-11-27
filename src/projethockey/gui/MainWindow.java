@@ -1899,6 +1899,14 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jLabelStrategyEditorPictureMouseMoved(evt);
             }
         });
+        jLabelStrategyEditorPicture.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabelStrategyEditorPictureMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabelStrategyEditorPictureMouseReleased(evt);
+            }
+        });
         jPanelStrategyEditorLocation.add(jLabelStrategyEditorPicture, java.awt.BorderLayout.CENTER);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2504,6 +2512,24 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jToggleButtonRotationModeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jToggleButtonRotationModeStateChanged
         
     }//GEN-LAST:event_jToggleButtonRotationModeStateChanged
+
+    private void jLabelStrategyEditorPictureMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelStrategyEditorPictureMousePressed
+        int X = evt.getX();
+        int Y = evt.getY();
+        
+        boolean mousePressed = SwingUtilities.isLeftMouseButton(evt);
+        
+        this.myController.mouseMoved(X, Y, mousePressed);
+    }//GEN-LAST:event_jLabelStrategyEditorPictureMousePressed
+
+    private void jLabelStrategyEditorPictureMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelStrategyEditorPictureMouseReleased
+        int X = evt.getX();
+        int Y = evt.getY();
+        
+        boolean mousePressed = SwingUtilities.isLeftMouseButton(evt);
+        
+        this.myController.mouseMoved(X, Y, mousePressed);
+    }//GEN-LAST:event_jLabelStrategyEditorPictureMouseReleased
 
     /**
      * @param args the command line arguments
