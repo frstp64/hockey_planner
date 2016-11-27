@@ -2044,7 +2044,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jButtonLoadStrategyActionPerformed
 
     private void jComboBoxChooseStrategySportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxChooseStrategySportActionPerformed
-        // TODO add your handling code here:
+        this.myController.setStrategySportName((String)this.jComboBoxChooseStrategySport.getSelectedItem());
     }//GEN-LAST:event_jComboBoxChooseStrategySportActionPerformed
 
     private void jTextFieldChooseStrategyNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldChooseStrategyNameActionPerformed
@@ -2270,7 +2270,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jButtonNextFrameForImageModeActionPerformed
 
     private void jButtonZoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZoomActionPerformed
-        // TODO add your handling code here:
+        this.myController.startZoomMode();
     }//GEN-LAST:event_jButtonZoomActionPerformed
 
     private void jButtonSaveStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveStrategyActionPerformed
@@ -2397,8 +2397,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         int tabNumber = jTabbedPanePlayerCategory.getSelectedIndex();
         // TODO add your handling code here:
         System.out.println("Changement de panel vers le numéro: " + tabNumber);
-        
-        if (tabNumber == 6) {
+        if (tabNumber == 5) {
+            this.myController.setStrategySportName((String)this.jComboBoxChooseStrategySport.getSelectedItem());
+        }
+        else if (tabNumber == 6) {
             int x = this.jPanelStrategyEditor.getHeight() + 2;
             int y = this.jPanelStrategyEditor.getWidth() + 2;
             
