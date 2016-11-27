@@ -18,12 +18,13 @@ public class AppDataProxy{
     public static void saveData(Controller pController) {      
         try (ObjectOutputStream saveObjectFile = new ObjectOutputStream(new FileOutputStream("saveFile.ser"))) {
             // Save the sport, category player, category object and strategy and players
-            saveObjectFile.writeObject(pController.getSportArray());
+            
             saveObjectFile.writeObject(pController.getCategoryPlayerArray());
             saveObjectFile.writeObject(pController.getCategoryObstacleArray());
-            saveObjectFile.writeObject(pController.getStrategyArray());
             saveObjectFile.writeObject(pController.getPlayerArray());
             saveObjectFile.writeObject(pController.getTeamArray());
+            saveObjectFile.writeObject(pController.getSportArray());
+            saveObjectFile.writeObject(pController.getStrategyArray());            
             
             saveObjectFile.close();
         }
@@ -37,12 +38,13 @@ public class AppDataProxy{
         
         try (ObjectInputStream loadImputObjectFile = new ObjectInputStream(new FileInputStream("saveFile.ser"))) {
             // load sports, categoryPlayers, load categoryObstacles, load strategy, load players
-            pController.setSportArray((ArrayList<Sport>) loadImputObjectFile.readObject());
+            
             pController.setCategoryPlayerArray((ArrayList<CategoryPlayer>) loadImputObjectFile.readObject());
             pController.setCategoryObstacleArray((ArrayList<CategoryObstacle>) loadImputObjectFile.readObject());
-            pController.setStrategyArray((ArrayList<Strategy>) loadImputObjectFile.readObject());
             pController.setPlayerArray((ArrayList<Player>) loadImputObjectFile.readObject());
             pController.setTeamArray((ArrayList<Team>) loadImputObjectFile.readObject());
+            pController.setSportArray((ArrayList<Sport>) loadImputObjectFile.readObject());
+            pController.setStrategyArray((ArrayList<Strategy>) loadImputObjectFile.readObject());
             
             loadImputObjectFile.close();
         }        
