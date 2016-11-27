@@ -1372,7 +1372,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelCreateLoadStrategy.add(jButtonCreateStrategy, gridBagConstraints);
 
         jListExistingStrategies.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Tour du chapeau", "Stratégie des Oursons" };
+            String[] strings = { "Créer d'abord une stratégie." };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
