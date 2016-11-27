@@ -1025,6 +1025,7 @@ public class Controller {
         myScene.cleanScene();
         //this.mPlaceHolderStrategy;
         this.mMainWindow.publishScene(myScene.getScenePicture());
+        System.out.println("Just drew a frame!");
     }
         
     public void startZoomMode() {
