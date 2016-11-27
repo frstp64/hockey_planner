@@ -2396,7 +2396,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         // TODO add your handling code here:
         System.out.println("Changement de panel vers le numéro: " + tabNumber);
         
-        if (tabNumber == 7) {
+        if (tabNumber == 6) {
             int x = this.jPanelStrategyEditor.getHeight() + 2;
             int y = this.jPanelStrategyEditor.getWidth() + 2;
             
