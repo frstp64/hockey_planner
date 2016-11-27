@@ -1027,4 +1027,7 @@ public class Controller {
         this.mMainWindow.publishScene(myScene.getScenePicture());
     }
         
+    public void startZoomMode() {
+        this.mMouseFSM.startZoomMode();
+    }
 }
