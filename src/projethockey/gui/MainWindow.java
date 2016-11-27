@@ -2046,8 +2046,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         else if (myController != null) {
             String empty = "";
             myController.setSelectedStrategy(empty);
+            System.out.println("The selected sport is empty");
         }
         } catch (Exception Ex) {
+            System.out.println("An error happened while trying to load the strategy with the button!");
         }
     }//GEN-LAST:event_jButtonLoadStrategyActionPerformed
 
@@ -2278,7 +2280,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jButtonNextFrameForImageModeActionPerformed
 
     private void jButtonZoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonZoomActionPerformed
-        this.myController.startZoomMode();
+        this.myController.switchZoomMode();
     }//GEN-LAST:event_jButtonZoomActionPerformed
 
     private void jButtonSaveStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveStrategyActionPerformed
@@ -2442,7 +2444,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         
         publishMousePosition("X: " + X + "Y: " + Y);
         
-        System.out.println("X: " + X + "Y: " + Y);    }//GEN-LAST:event_jLabelStrategyEditorPictureMouseMoved
+        //System.out.println("X: " + X + "Y: " + Y);
+    }//GEN-LAST:event_jLabelStrategyEditorPictureMouseMoved
 
     private void jButtonChooseCategoryPictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseCategoryPictureActionPerformed
         myController.getCategoryPlayerImage();
@@ -2496,8 +2499,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             else if (myController != null) {
                 String empty = "";
                 myController.setSelectedStrategy(empty);
+                
+                System.out.println("No strategy selected from the list?");
             }
         } catch (Exception Ex) {
+            System.out.println("An error happened while trying to set the selected strategy!");
 
         }
     }//GEN-LAST:event_jListExistingStrategiesMouseClicked
@@ -2528,7 +2534,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         
         boolean mousePressed = SwingUtilities.isLeftMouseButton(evt);
         
-        this.myController.mouseMoved(X, Y, mousePressed);
+        this.myController.mouseMoved(X, Y, true);
     }//GEN-LAST:event_jLabelStrategyEditorPictureMousePressed
 
     private void jLabelStrategyEditorPictureMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelStrategyEditorPictureMouseReleased
@@ -2537,7 +2543,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         
         boolean mousePressed = SwingUtilities.isLeftMouseButton(evt);
         
-        this.myController.mouseMoved(X, Y, mousePressed);
+        this.myController.mouseMoved(X, Y, false);
     }//GEN-LAST:event_jLabelStrategyEditorPictureMouseReleased
 
     /**

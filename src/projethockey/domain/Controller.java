@@ -665,6 +665,7 @@ public class Controller {
             
             break;
         }
+        System.out.println("We should have selected an existing strategy!");
     }
 
     public void removeStrategy() {
@@ -1028,7 +1029,15 @@ public class Controller {
         System.out.println("Just drew a frame!");
     }
         
-    public void startZoomMode() {
+    public void switchZoomMode() {
         this.mMouseFSM.startZoomMode();
+    }
+    
+    public boolean isZoomed() {
+        return this.myScene.isZoomed();
+    }
+    
+    public void unzoom() {
+        this.myScene.unzoom();
     }
 }

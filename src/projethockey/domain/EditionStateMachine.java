@@ -42,17 +42,21 @@ public class EditionStateMachine {
     }
     
     public void updateMouse(int mousePosX, int mousePosY, boolean mouseButtonState) {
-        System.out.println("updated mouse");
-        if        (currentState.equals(States.MOVEMENT) && mouseButtonState) {
+        if (currentState.equals(States.MOVEMENT) && mouseButtonState) {
             // Button has been pressed in movement mode
-            
+            System.out.println("Mode mouvement");
+
             // To switch to player movement mode, we first need to have one intersecting the mouse
             //this.myController.checkIfIntersect()
         } else if (currentState.equals(States.MOVING_PLAYER) && !mouseButtonState) {
             // Button has been unpressed in movement mode
             currentState = States.MOVEMENT;
+            System.out.println("Mode mouvement en cours");
+
             // 99% SURE THIS IS ACTUALLY DONE THX
         } else if (currentState.equals(States.ROTATION) && mouseButtonState) {
+            System.out.println("Mode rotation");
+
             // Button has been pressed in Rotation mode
         } else if (currentState.equals(States.ROTATING_PLAYER) && !mouseButtonState) {
             // We return to rotation mode since we're done rotating the thing
@@ -69,19 +73,25 @@ public class EditionStateMachine {
             System.out.println("Set point 1 for zoom");
         } else if (currentState.equals(States.ZOOM_CLICK_2_UNPRESSED) && mouseButtonState) {
             // Button has been pressed, we switch to press, nothing else to do
-            currentState = States.ZOOM_CLICK_1_PRESSED;
+            currentState = States.ZOOM_CLICK_2_PRESSED;
             // 99% SURE THIS IS ACTUALLY DONE THX
         } else if (currentState.equals(States.ZOOM_CLICK_2_PRESSED) && !mouseButtonState) {
             // Button has been unpressed, we return to movement mode
             this.myController.setZoomPoint2(mousePosX, mousePosY);
             System.out.println("Set point 2 for zoom");
             this.myController.drawCurrentFrame();
-            System.out.println("remove me pls");;
+            currentState = States.MOVEMENT;
         } 
     }
     
     public void startZoomMode() {
-        currentState = States.ZOOM_CLICK_1_UNPRESSED;
+        if (!this.myController.isZoomed()) {
+            currentState = States.ZOOM_CLICK_1_UNPRESSED;
+        }
+        else {
+            this.myController.unzoom();
+            this.myController.drawCurrentFrame();
+        }
     }
     
 }

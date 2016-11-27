@@ -142,4 +142,8 @@ public class Scene {
         this.playerNames.add(playerName);
         this.putPicture(playerImage.getScaledInstance(wantedWidth, wantedHeight, BufferedImage.SCALE_FAST), wantedX1, wantedY1);
     }
+    
+    public boolean isZoomed() {
+        return this.isZoomed;
+    }
 }
