@@ -183,4 +183,15 @@ public class Strategy implements java.io.Serializable{
         }
         return maxTime;
     }
+    
+    public boolean frameExistsAtTime(int pTime) {
+        
+        boolean doesExist = false;
+        for (Snapshot aSnapshot: this.listSnapshot) {
+            if (aSnapshot.getTimeStamp() == pTime) {
+                doesExist = true;
+            }
+        }
+        return doesExist;
+    }
 }
