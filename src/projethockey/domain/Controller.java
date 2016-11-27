@@ -14,6 +14,7 @@ import java.net.URL;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
+
 /**
  *
  * @author znuxor
@@ -52,6 +53,8 @@ public class Controller {
     private ArrayList<Team> teamArray;
     private String selectedTeam;
 
+    // The state machine that kinda controls the edition mode
+    private EditionStateMachine mMouseFSM;
 
     private projetHockeyInterface mMainWindow; // A reference to the window
     
@@ -64,6 +67,9 @@ public class Controller {
     // The constructor
     public Controller() {
 
+        // the FSM
+        mMouseFSM = new EditionStateMachine(this);
+        
         // Sport
         mPlaceHolderSport = new Sport();
         sportArray = new ArrayList<Sport>();
@@ -981,5 +987,17 @@ public class Controller {
     
     public void playStepFowardTimeFrame() {
         playStrategyNextFrame();
+    }
+    
+    public void mouseMoved(int mousePosX, int mousePosY, boolean mousePressed) {
+        this.mMouseFSM.updateMouse(mousePosX, mousePosY, mousePressed);
+    }
+    
+    public void initiateRotationMode() {
+        this.mMouseFSM.switchToRotationMode();
+    }
+    
+    public void stopRotationMode() {
+        this.mMouseFSM.switchToMovementMode();
     }
 }
