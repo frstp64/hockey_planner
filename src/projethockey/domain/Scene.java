@@ -46,8 +46,16 @@ public class Scene {
     
     public void setBackground(BufferedImage pbackgroundPicture) {
         backgroundPicture = pbackgroundPicture;
+    }
+    
+    public void cleanScene() {
         Graphics2D cloneG = sceneImage.createGraphics();
         cloneG.drawImage(backgroundPicture.getScaledInstance(sceneSizeX, sceneSizeY, 0), 0, 0, null);
+        playerCoordX1 =  new ArrayList();
+        playerCoordY1 =  new ArrayList();
+        playerCoordX2 =  new ArrayList();
+        playerCoordX2 =  new ArrayList();
+        playerNames =  new ArrayList();
     }
     
     public void putPicture(Image itemPicture, int locX, int locY) {
@@ -105,16 +113,27 @@ public class Scene {
         return ((float) pCoordY)/sceneSizeY;
     }
     
-    public void putPlayer(int pCoordX, int pCoordY, Image playerImage) {
+    public void putPlayer(int pCoordX, int pCoordY, Image playerImage, String playerName) {
+        // Size computation
         int imArea = playerImage.getWidth(null) * playerImage.getHeight(null);
         int sceneArea = sceneSizeX * sceneSizeY;
         float sideFactor = ratioIdealPlayer *sceneArea/imArea;
         int wantedWidth  = playerImage.getWidth(null)  * (int) sideFactor;
         int wantedHeight = playerImage.getHeight(null) * (int) sideFactor;
+        // Position computation
         int wantedX1 = pCoordX-wantedWidth/2;
         int wantedX2 = wantedX1+wantedWidth;
         int wantedY1 = pCoordY-wantedHeight/2;
         int wantedY2 = wantedY1+wantedWidth;
+        float wantedRelativeX1 = ((float) wantedX1)/sceneSizeX;
+        float wantedRelativeX2 = ((float) wantedX2)/sceneSizeX;
+        float wantedRelativeY1 = ((float) wantedY1)/sceneSizeY;
+        float wantedRelativeY2 = ((float) wantedY2)/sceneSizeY;
+        this.playerCoordX1.add(wantedRelativeX1);
+        this.playerCoordX2.add(wantedRelativeX2);
+        this.playerCoordY1.add(wantedRelativeY1);
+        this.playerCoordY2.add(wantedRelativeY2);
+        this.playerNames.add(playerName);
         this.putPicture(playerImage.getScaledInstance(wantedWidth, wantedHeight, BufferedImage.SCALE_FAST), wantedX1, wantedY1);
     }
 }
