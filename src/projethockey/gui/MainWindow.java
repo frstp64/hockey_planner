@@ -2422,7 +2422,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         if (jTabbedPanePlayerCategory.getSelectedIndex() == 6) {
             int y = this.jPanelStrategyEditorLocation.getHeight() - 2;
             int x = this.jPanelStrategyEditorLocation.getWidth() - 2;
-            System.out.println("X = " + x + " y = " + y + ", lol");
+            System.out.println("Mouse position : X = " + x + " y = " + y);
             
             this.myController.setSceneSize(x, y);
             this.myController.setSceneBackground();
