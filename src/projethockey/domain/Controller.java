@@ -1011,4 +1011,20 @@ public class Controller {
     public void setZoomPoint2(int mousePosX, int mousePosY) {
         this.myScene.setPoint2(mousePosX, mousePosY);
     }
+    public void setSceneSize(int pSceneSizeX, int pSceneSizeY) {
+        this.myScene.setSceneSize(pSceneSizeX, pSceneSizeY);
+    }
+    
+    public void setSceneBackground() {
+        myScene.setBackground(this.mPlaceHolderStrategy.getSport().getImg());
+    }
+    
+    public void drawCurrentFrame() {
+        // Draws the current frame on screen
+        //this.mPlaceHolderStrategy.getFrame();
+        myScene.cleanScene();
+        //this.mPlaceHolderStrategy;
+        this.mMainWindow.publishScene(myScene.getScenePicture());
+    }
+        
 }
