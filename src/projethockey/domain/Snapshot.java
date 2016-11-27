@@ -134,4 +134,13 @@ public class Snapshot {
             aTransientPlayer.getPosY();
         }
     }
+    
+    public TransientPlayer getTransientPlayer(String pPlayerName) throws Exception {
+        for (TransientPlayer aTransientPlayer: this.listTransientPlayer) {
+            if (aTransientPlayer.getPlayer().getName().equals(pPlayerName)) {
+                return aTransientPlayer;
+            }
+        }
+        throw new Exception("non-existent transient player");
+    }
 }

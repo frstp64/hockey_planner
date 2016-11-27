@@ -24,12 +24,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
      */
 
     private Controller myController;
-
+    private boolean mousePressedBool;
     public MainWindow() {
         initComponents();
 
         // A reference to the controller is given.
-
+        this.mousePressedBool = false;
         // subscription of every item that needs to be subscriber here.
     }
 
@@ -1897,6 +1897,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jLabelStrategyEditorPictureMouseMoved(evt);
             }
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jLabelStrategyEditorPictureMouseDragged(evt);
+            }
         });
         jLabelStrategyEditorPicture.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -2422,11 +2425,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jTabbedPanePlayerCategoryStateChanged
 
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
-        System.out.println("changement de taille!");
+        //System.out.println("changement de taille!");
         if (jTabbedPanePlayerCategory.getSelectedIndex() == 6) {
             int y = this.jPanelStrategyEditorLocation.getHeight() - 2;
             int x = this.jPanelStrategyEditorLocation.getWidth() - 2;
-            System.out.println("Mouse position : X = " + x + " y = " + y);
+            //System.out.println("Mouse position : X = " + x + " y = " + y);
             
             this.myController.setSceneSize(x, y);
             this.myController.setSceneBackground();            
@@ -2437,10 +2440,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jLabelStrategyEditorPictureMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelStrategyEditorPictureMouseMoved
         int X = evt.getX();
         int Y = evt.getY();
+        //System.out.println("mousemovedevent");
         
-        boolean mousePressed = SwingUtilities.isLeftMouseButton(evt);
-        
-        this.myController.mouseMoved(X, Y, mousePressed);
+        this.myController.mouseMoved(X, Y, mousePressedBool);
         this.myController.displayMouseCoordinates(X, Y);
         //publishMousePosition("X: " + X + "Y: " + Y);
         
@@ -2531,9 +2533,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jLabelStrategyEditorPictureMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelStrategyEditorPictureMousePressed
         int X = evt.getX();
         int Y = evt.getY();
-        
-        boolean mousePressed = SwingUtilities.isLeftMouseButton(evt);
-        
+        this.mousePressedBool = true;
+        //System.out.println("mousepressedevent");
         this.myController.mouseMoved(X, Y, true);
     }//GEN-LAST:event_jLabelStrategyEditorPictureMousePressed
 
@@ -2541,7 +2542,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         int X = evt.getX();
         int Y = evt.getY();
         
-        boolean mousePressed = SwingUtilities.isLeftMouseButton(evt);
+        this.mousePressedBool = false;
         
         this.myController.mouseMoved(X, Y, false);
     }//GEN-LAST:event_jLabelStrategyEditorPictureMouseReleased
@@ -2555,6 +2556,18 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         String playerString = this.jListStrategyPlayers.getSelectedValue();
         this.myController.playerAddMode(playerString);
     }//GEN-LAST:event_jListStrategyPlayersMouseClicked
+
+    private void jLabelStrategyEditorPictureMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelStrategyEditorPictureMouseDragged
+        int X = evt.getX();
+        int Y = evt.getY();
+        //System.out.println("mousemovedevent");
+        
+        this.myController.mouseMoved(X, Y, mousePressedBool);
+        this.myController.displayMouseCoordinates(X, Y);
+        //publishMousePosition("X: " + X + "Y: " + Y);
+        
+        //System.out.println("X: " + X + "Y: " + Y);
+    }//GEN-LAST:event_jLabelStrategyEditorPictureMouseDragged
 
     /**
      * @param args the command line arguments

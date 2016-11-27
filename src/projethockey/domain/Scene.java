@@ -25,10 +25,10 @@ public class Scene {
     private int sceneSizeX, sceneSizeY; // The size in pixels of the scene
     private boolean isZoomed;
     private int zoomX1, zoomX2, zoomY1, zoomY2; // the Coordinates in pixels of the zoom
-    private ArrayList<Float> playerCoordX1; //list of the X coordinates of each player, normalized
-    private ArrayList<Float> playerCoordY1; // same, Y coordinates, normalized
-    private ArrayList<Float> playerCoordX2; //list of the X coordinates of each player, normalized
-    private ArrayList<Float> playerCoordY2; // same, Y coordinates, normalized
+    private ArrayList<Integer> playerCoordX1; //list of the X coordinates of each player, normalized
+    private ArrayList<Integer> playerCoordY1; // same, Y coordinates, normalized
+    private ArrayList<Integer> playerCoordX2; //list of the X coordinates of each player, normalized
+    private ArrayList<Integer> playerCoordY2; // same, Y coordinates, normalized
     private ArrayList<String> playerNames;
     
     private BufferedImage sceneImage;
@@ -83,7 +83,7 @@ public class Scene {
         if (!isZoomed) {
             return sceneImage;
         } else { // returns the subpicture, scaled back to full size
-            System.out.println("returned sub picture");
+            //System.out.println("returned sub picture");
             return sceneImage.getSubimage(min(zoomX1, zoomX2), 
                                           min(zoomY1, zoomY2),
                                           abs(zoomX2-zoomX1),
@@ -106,19 +106,24 @@ public class Scene {
     }
     
     public String getIntersectingPlayerName(int coordX, int coordY) {
-        float relativeCoordX = 0, relativeCoordY = 0;
         // The iteration
         for(int j = playerNames.size() - 1; j >= 0; j--){
             //pass
-            if (relativeCoordX <= playerCoordX2.get(j)
-             && relativeCoordX >= playerCoordX1.get(j)
-             && relativeCoordY <= playerCoordY2.get(j)
-             && relativeCoordY >= playerCoordY1.get(j)) {
+            if (coordX <= playerCoordX2.get(j)
+             && coordX >= playerCoordX1.get(j)
+             && coordY <= playerCoordY2.get(j)
+             && coordY >= playerCoordY1.get(j)) {
                 System.out.println("intersection happened!");
                 return playerNames.get(j);
             }
+            //System.out.println(playerCoordX1.get(j));
+            //System.out.println(playerCoordX2.get(j));
+            //System.out.println(playerCoordY1.get(j));
+            //System.out.println(playerCoordY2.get(j));
     }
-        return ""; // None intersecting
+        //System.out.println("intersect x and y: " + coordX + " "+coordY);
+        
+        return "NoneIntersecting"; // None intersecting
     }
     
     private float absoluteToRelativeCoordX(int pCoordX) {
@@ -137,25 +142,25 @@ public class Scene {
         int wantedWidth  = playerImage.getWidth(null)  * (int) sideFactor;
         int wantedHeight = playerImage.getHeight(null) * (int) sideFactor;
         
-        System.out.println("coordX rel = " + pCoordX);
-        System.out.println("coordY rel = " + pCoordY);
-        System.out.println("wantedWidth = " + wantedWidth);
-        System.out.println("wantedHeight = " + wantedHeight);
+        //System.out.println("coordX rel = " + pCoordX);
+        //System.out.println("coordY rel = " + pCoordY);
+        //System.out.println("wantedWidth = " + wantedWidth);
+        //System.out.println("wantedHeight = " + wantedHeight);
         // Position computation
         int wantedX1 = (int) (pCoordX*sceneSizeX)-wantedWidth/2;
         int wantedX2 = wantedX1+wantedWidth;
         int wantedY1 = (int) (pCoordY*sceneSizeY)-wantedHeight/2;
         int wantedY2 = wantedY1+wantedWidth;
-        System.out.println("coordX not rel = " + wantedX1);
-        System.out.println("coordY not rel = " + wantedY1);
+        //System.out.println("coordX not rel = " + wantedX1);
+        //System.out.println("coordY not rel = " + wantedY1);
         float wantedRelativeX1 = ((float) wantedX1)/sceneSizeX;
         float wantedRelativeX2 = ((float) wantedX2)/sceneSizeX;
         float wantedRelativeY1 = ((float) wantedY1)/sceneSizeY;
         float wantedRelativeY2 = ((float) wantedY2)/sceneSizeY;
-        this.playerCoordX1.add(wantedRelativeX1);
-        this.playerCoordX2.add(wantedRelativeX2);
-        this.playerCoordY1.add(wantedRelativeY1);
-        this.playerCoordY2.add(wantedRelativeY2);
+        this.playerCoordX1.add(wantedX1);
+        this.playerCoordX2.add(wantedX2);
+        this.playerCoordY1.add(wantedY1);
+        this.playerCoordY2.add(wantedY2);
         this.playerNames.add(playerName);
         this.putPicture(playerImage.getScaledInstance(wantedWidth, wantedHeight, BufferedImage.SCALE_FAST), wantedX1, wantedY1);
         
@@ -163,7 +168,7 @@ public class Scene {
         if(showText) {
             
             this.putText(wantedX1, wantedY1+10, playerName);
-            this.putText(wantedX1, wantedY1+10, playerRole);
+            this.putText(wantedX1, wantedY1+30, playerRole);
         }
     }
     

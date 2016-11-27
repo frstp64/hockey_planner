@@ -29,12 +29,13 @@ public class EditionStateMachine {
     private int mousePosX;
     private int mousePosY;
     private boolean plsShowStrings;
-    private String currentAddedPlayer;
+    private String currentAddedPlayer, currentMovingPlayer;
     
     public EditionStateMachine(Controller pController) {
         currentState = States.MOVEMENT;
         myController = pController;
         currentAddedPlayer = "";
+        currentMovingPlayer = "";
     }
     
     public void switchToRotationMode() {
@@ -48,20 +49,28 @@ public class EditionStateMachine {
     public void updateMouse(int mousePosX, int mousePosY, boolean mouseButtonState) throws Exception {
         if (currentState.equals(States.MOVEMENT) && mouseButtonState) {
             // Button has been pressed in movement mode
-            System.out.println("Mode mouvement");
+            //System.out.println("Mode mouvement essayé");
 
             // To switch to player movement mode, we first need to have one intersecting the mouse
-            //this.myController.checkIfIntersect()
+            String intersectingPlayer = this.myController.getScene().getIntersectingPlayerName(mousePosX, mousePosY);
+            //System.out.println("Intersecting player is: " + intersectingPlayer);
+            
+            if (!intersectingPlayer.equals("NoneIntersecting")) {
+                currentState = States.MOVING_PLAYER;
+                this.currentMovingPlayer = intersectingPlayer;
+            }
+            
         } else if (currentState.equals(States.ADDING_PLAYER) && mouseButtonState) {
             // button pressed on the screen to add a player
-            System.out.println("asked to add a player!");
-            currentState = States.MOVING_PLAYER;
+            //System.out.println("asked to add a player!");
+            currentState = States.MOVEMENT;
             int currentTime = this.myController.getCurrentTime();
             Strategy currentStrategy = this.myController.getCurrentStrategy();
             Snapshot currentSnapshot = currentStrategy.getCurrentSnapshot(currentTime);
             Player currentPlayer = this.myController.getPlayer(currentAddedPlayer);
             currentSnapshot.addPlayer(currentPlayer, this.myController.getScene().getNormalizedX(mousePosX), this.myController.getScene().getNormalizedY(mousePosY), 0);
             this.myController.drawCurrentFrame();
+            
         } else if (currentState.equals(States.MOVING_PLAYER) && !mouseButtonState) {
             // Button has been unpressed in movement mode
             currentState = States.MOVEMENT;
@@ -95,7 +104,14 @@ public class EditionStateMachine {
             System.out.println("Set point 2 for zoom");
             this.myController.drawCurrentFrame();
             currentState = States.MOVEMENT;
-        } 
+        } else if (currentState.equals(States.MOVING_PLAYER) && mouseButtonState) {
+            //System.out.println("player location changed");
+            float relativeMousePosX = this.myController.getScene().getNormalizedX(mousePosX);
+            float relativeMousePosY = this.myController.getScene().getNormalizedY(mousePosY);
+            this.myController.getCurrentStrategy().getCurrentSnapshot(this.myController.getCurrentTime()).getTransientPlayer(currentMovingPlayer).setPosition(relativeMousePosX, relativeMousePosY);
+            this.myController.drawCurrentFrame();
+        }
+        //System.out.println("x, y");
     }
     
     public void startZoomMode() {
