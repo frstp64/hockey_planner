@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import static java.lang.Integer.max;
 import static java.lang.Math.abs;
 import static java.lang.Math.min;
 import static java.lang.Math.sqrt;
@@ -164,7 +165,7 @@ public class Scene {
         this.playerCoordY1.add(wantedY1);
         this.playerCoordY2.add(wantedY2);
         this.playerNames.add(playerName);
-        this.putPicture(playerImage.getScaledInstance(wantedWidth, wantedHeight, BufferedImage.SCALE_FAST), wantedX1, wantedY1);
+        this.putPicture(playerImage.getScaledInstance(max(10, wantedWidth), max(10, wantedHeight), BufferedImage.SCALE_FAST), wantedX1, wantedY1);
         
         // TODO: show the strings
         if(this.showTextOption) {
