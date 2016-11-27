@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import projethockey.domain.Controller;
 import projethockey.domain.sportSubscribable;
 import java.io.File;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -453,6 +454,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jTextFieldStrategyViewerTime = new javax.swing.JTextField();
         jTextFieldPlaybackSpeed = new javax.swing.JTextField();
         jLabelStrategyViewerTime = new javax.swing.JLabel();
+        jCheckBoxInfoSupp = new javax.swing.JCheckBox();
 
         jComboBoxTeamPlayer.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Créer joueur avant!" }));
 
@@ -1982,6 +1984,17 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         jPanelStrategyEditor.add(jLabelStrategyViewerTime, gridBagConstraints);
 
+        jCheckBoxInfoSupp.setText("Information supplémentaire");
+        jCheckBoxInfoSupp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxInfoSuppActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 7;
+        jPanelStrategyEditor.add(jCheckBoxInfoSupp, gridBagConstraints);
+
         jTabbedPanePlayerCategory.addTab("Édition et visualisation de stratégie", jPanelStrategyEditor);
 
         getContentPane().add(jTabbedPanePlayerCategory, java.awt.BorderLayout.CENTER);
@@ -2217,13 +2230,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jComboBoxChooseStrategySportFocusLost
 
     private void jCheckBoxUnlimitedPlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxUnlimitedPlayerActionPerformed
-        // TODO add your handling code here
-        if(jCheckBoxUnlimitedPlayer.isSelected()){
-            this.myController.setPlayerLimit(true);
-        }
-        else{
-            this.myController.setPlayerLimit(false);
-        }
+        this.myController.setPlayerLimit(jCheckBoxUnlimitedPlayer.isSelected());
     }//GEN-LAST:event_jCheckBoxUnlimitedPlayerActionPerformed
 
     private void jTextFieldPlaybackSpeedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPlaybackSpeedActionPerformed
@@ -2580,6 +2587,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         //System.out.println("X: " + X + "Y: " + Y);
     }//GEN-LAST:event_jLabelStrategyEditorPictureMouseDragged
 
+    private void jCheckBoxInfoSuppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxInfoSuppActionPerformed
+        this.myController.setShowStringOption(this.jCheckBoxInfoSupp.isSelected());
+    }//GEN-LAST:event_jCheckBoxInfoSuppActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2646,6 +2657,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JButton jButtonStepForwardTime;
     private javax.swing.JButton jButtonUndo;
     private javax.swing.JButton jButtonZoom;
+    private javax.swing.JCheckBox jCheckBoxInfoSupp;
     private javax.swing.JCheckBox jCheckBoxIsAGameObstacle;
     private javax.swing.JCheckBox jCheckBoxUnlimitedPlayer;
     private javax.swing.JComboBox<String> jComboBoxChooseStrategySport;
