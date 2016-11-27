@@ -142,8 +142,8 @@ public class Scene {
         int imArea = playerImage.getWidth(null) * playerImage.getHeight(null);
         int sceneArea = sceneSizeX * sceneSizeY;
         float sideFactor = (float) sqrt( (double) ratioIdealPlayer * (double) sceneArea/imArea);
-        int wantedWidth  = playerImage.getWidth(null)  * (int) sideFactor;
-        int wantedHeight = playerImage.getHeight(null) * (int) sideFactor;
+        int wantedWidth  = (int) (playerImage.getWidth(null)  *  sideFactor);
+        int wantedHeight = (int) (playerImage.getHeight(null) * sideFactor);
         
         //System.out.println("coordX rel = " + pCoordX);
         //System.out.println("coordY rel = " + pCoordY);
