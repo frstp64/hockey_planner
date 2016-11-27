@@ -42,6 +42,7 @@ public class EditionStateMachine {
     }
     
     public void updateMouse(int mousePosX, int mousePosY, boolean mouseButtonState) {
+        System.out.println("updated mouse");
         if        (currentState.equals(States.MOVEMENT) && mouseButtonState) {
             // Button has been pressed in movement mode
             
