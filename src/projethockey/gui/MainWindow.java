@@ -427,7 +427,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Logiciel de stratégie");
         setMinimumSize(new java.awt.Dimension(640, 480));
-        setPreferredSize(null);
         setSize(new java.awt.Dimension(0, 0));
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentResized(java.awt.event.ComponentEvent evt) {
@@ -850,7 +849,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelTeam.add(jLabelPlayerNumber1, gridBagConstraints);
 
         jSpinnerPlayerNumber1.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        jSpinnerPlayerNumber1.setEnabled(false);
         jSpinnerPlayerNumber1.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinnerPlayerNumber1StateChanged(evt);
@@ -865,11 +863,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         jTableTeamPlayers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
                 {null}
             },
             new String [] {
@@ -878,6 +871,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         ));
         jTableTeamPlayers.setCellEditor(new DefaultCellEditor(jComboBoxTeamPlayer));
         jTableTeamPlayers.setRequestFocusEnabled(false);
+        jTableTeamPlayers.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jTableTeamPlayersPropertyChange(evt);
+            }
+        });
         jScrollPane5.setViewportView(jTableTeamPlayers);
         if (jTableTeamPlayers.getColumnModel().getColumnCount() > 0) {
             jTableTeamPlayers.getColumnModel().getColumn(0).setCellEditor(new DefaultCellEditor(jComboBoxTeamPlayer));
@@ -1180,7 +1178,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHWEST;
         jPanelSport.add(jLabel7, gridBagConstraints);
 
-        jSpinnerSportEquipes.setEnabled(false);
         jSpinnerSportEquipes.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinnerSportEquipesStateChanged(evt);
@@ -1514,13 +1511,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         jTableStrategyTeams.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
-                {null},
                 {null}
             },
             new String [] {
@@ -2295,22 +2285,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     private void jSpinnerPlayerNumber1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerPlayerNumber1StateChanged
 
-        //TODO finish this
-        
-        // if table too big, remove rows
-        if (this.jTableTeamPlayers.getRowCount() > (int)this.jSpinnerPlayerNumber1.getValue())
-        {
-            while (this.jTableTeamPlayers.getRowCount() > (int)this.jSpinnerPlayerNumber1.getValue())
-            {
-                
-            }
-            
-        }
-        // if table is too small, add rows
-        else if (this.jTableTeamPlayers.getRowCount() < (int)this.jSpinnerPlayerNumber1.getValue())
-        {
-            
-        }
+        ((DefaultTableModel) this.jTableTeamPlayers.getModel()).setRowCount((int)this.jSpinnerPlayerNumber1.getValue());
         
         
     }//GEN-LAST:event_jSpinnerPlayerNumber1StateChanged
@@ -2438,7 +2413,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jListExistingTeamsMouseClicked
 
     private void jSpinnerSportEquipesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerSportEquipesStateChanged
-        // TODO add your handling code here:
+        ((DefaultTableModel) this.jTableStrategyTeams.getModel()).setRowCount((int)this.jSpinnerSportEquipes.getValue());
     }//GEN-LAST:event_jSpinnerSportEquipesStateChanged
 
     private void jListExistingStrategiesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListExistingStrategiesMouseClicked
@@ -2466,6 +2441,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jComboBoxPlayerCategoryFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBoxPlayerCategoryFocusLost
         this.myController.setPlayerCategory( (String)this.jComboBoxPlayerCategory.getSelectedItem());
     }//GEN-LAST:event_jComboBoxPlayerCategoryFocusLost
+
+    private void jTableTeamPlayersPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableTeamPlayersPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTableTeamPlayersPropertyChange
 
     /**
      * @param args the command line arguments

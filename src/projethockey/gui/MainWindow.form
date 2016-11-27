@@ -33,9 +33,6 @@
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[640, 480]"/>
     </Property>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="null"/>
-    </Property>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[0, 0]"/>
     </Property>
@@ -581,7 +578,6 @@
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="1" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSpinnerPlayerNumber1StateChanged"/>
@@ -607,7 +603,7 @@
                 <Component class="javax.swing.JTable" name="jTableTeamPlayers">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="1" rowCount="6">
+                      <Table columnCount="1" rowCount="1">
                         <Column editable="true" title="Joueur" type="java.lang.Object"/>
                       </Table>
                     </Property>
@@ -630,6 +626,9 @@
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jTableTeamPlayersPropertyChange"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -962,9 +961,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerSportEquipes">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
               <Events>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSpinnerSportEquipesStateChanged"/>
               </Events>
@@ -1394,7 +1390,7 @@
                 <Component class="javax.swing.JTable" name="jTableStrategyTeams">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="1" rowCount="8">
+                      <Table columnCount="1" rowCount="1">
                         <Column editable="true" title="&#xc9;quipe" type="java.lang.String"/>
                       </Table>
                     </Property>
