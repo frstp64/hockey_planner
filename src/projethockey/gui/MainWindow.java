@@ -1380,7 +1380,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelCreateLoadStrategy.setMinimumSize(new java.awt.Dimension(0, 0));
         jPanelCreateLoadStrategy.setLayout(new java.awt.GridBagLayout());
 
-        jButtonCreateStrategy.setText("Créer une nouvelle stratégie");
+        jButtonCreateStrategy.setText("Sauvegarder une nouvelle stratégie");
         jButtonCreateStrategy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCreateStrategyActionPerformed(evt);
@@ -2401,6 +2401,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             int y = this.jPanelStrategyEditor.getWidth() + 2;
             
             this.myController.setSceneSize(x, y);
+            this.myController.setSceneBackground();
         }
     }//GEN-LAST:event_jTabbedPanePlayerCategoryStateChanged
 
