@@ -902,7 +902,7 @@ public class Controller {
 
                 // Publish placeholder's Data to GUI fields
                 this.mMainWindow.publishTeamName(this.mPlaceHolderTeam.getName());
-
+                this.mMainWindow.publishTeamPlayers(this.mPlaceHolderTeam.getPlayerNames());
                 break;
             }
         }
@@ -915,7 +915,7 @@ public class Controller {
             }
             this.mMainWindow.publishExistingTeams(TeamNameList.toArray(new String[TeamNameList.size()]));
     }
-
+    
     public ArrayList<Team> getTeamArray() {
         return teamArray;
     }

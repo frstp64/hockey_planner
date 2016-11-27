@@ -272,6 +272,18 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         this.jComboBoxStrategyTeam.setModel(new javax.swing.DefaultComboBoxModel(plistTeam));
     }
     
+    public void publishTeamPlayers(String[] pPlayerNames) {
+        // edit number of columns in table (and number selector)
+        this.jSpinnerPlayerNumber1.setValue(pPlayerNames.length);
+        
+        // change values to our array.
+        int nRow = this.jTableTeamPlayers.getRowCount();
+        for (int i = 0; i < nRow; i++) {
+            this.jTableTeamPlayers.setValueAt(pPlayerNames[i], i, 0);
+        }
+        
+    }
+    
     public void publishScene(Image pSceneImage) {
         this.jLabelStrategyEditorPicture.setIcon(new ImageIcon(pSceneImage));
     }
@@ -1372,7 +1384,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelCreateLoadStrategy.add(jButtonCreateStrategy, gridBagConstraints);
 
         jListExistingStrategies.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Tour du chapeau", "Stratégie des Oursons" };
+            String[] strings = { "Créer d'abord une stratégie." };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });

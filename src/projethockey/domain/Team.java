@@ -34,6 +34,18 @@ public class Team implements java.io.Serializable {
     public ArrayList<Player> getListPlayer() {
         return listPlayer;
     }
+    
+    public String[] getPlayerNames() {
+        
+        String[] playerNames = new String[this.listPlayer.size()];
+        
+        int index = 0;
+        for(Player aPlayer: this.listPlayer){
+            playerNames[index] = aPlayer.getName();
+            index++;
+        }
+        return playerNames;
+    }
 
     public void setListPlayer(ArrayList<Player> listPlayer) {
         this.listPlayer = listPlayer;
