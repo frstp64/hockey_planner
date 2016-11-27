@@ -1093,4 +1093,8 @@ public class Controller {
     public Scene getScene() {
         return this.myScene;
     }
+    
+    public void setShowStringOption(boolean newValue) {
+        this.mMouseFSM.setShowStringOption(newValue);
+    }
 }
