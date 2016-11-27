@@ -26,7 +26,7 @@ public class Strategy implements java.io.Serializable{
         this.deltaTimeFrame = strategy.deltaTimeFrame;
         this.listSnapshot = strategy.listSnapshot;
         this.name = strategy.name;
-        this.sport = strategy.sport;
+        this.sport = new Sport(strategy.sport);
         this.listTeam = strategy.listTeam;
     }
 
