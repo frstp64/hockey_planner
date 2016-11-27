@@ -26,12 +26,14 @@ public class Snapshot {
     }
 
     public Snapshot(Snapshot snapshot) {
+        
         this.idChange = snapshot.idChange;
         this.listTransientPlayer = snapshot.listTransientPlayer;
         this.listObstacle = snapshot.listObstacle;
         this.trashed = snapshot.trashed;
         this.timeStamp = snapshot.timeStamp;
-        this.typeSnapshot = snapshot.typeSnapshot;        
+        this.typeSnapshot = snapshot.typeSnapshot;    
+        throw new UnsupportedOperationException(); // IL FAUT UNE COPIE SEMI-PROFONDE
     }
     
     public Snapshot(int idChange, ArrayList<TransientPlayer> plistTransientPlayer, ArrayList<Obstacle> listObstacle, boolean trashed, int timeStamp, String typeSnapshot) {
@@ -140,5 +142,15 @@ public class Snapshot {
             }
         }
         throw new Exception("non-existent transient player");
+    }
+    
+    // also deals with the visibility, makes it false
+    public void copyFromOtherSnapshot(Snapshot pSnapshot) {
+        for (TransientPlayer aTransientPlayer: pSnapshot.listTransientPlayer) {
+            TransientPlayer newTransientPlayer = new TransientPlayer(aTransientPlayer);
+            newTransientPlayer.setVisible(false);
+            this.listTransientPlayer.add(newTransientPlayer);
+        }
+            
     }
 }

@@ -102,12 +102,12 @@ public class Controller {
         viewerState = StrategyViewerState.Stop;
         //timer.scheduleAtFixedRate(task, 1000, 0);
         
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-              playStrategyNextFrame();
-            }
-          }, 1000, 1000);
+        //timer.scheduleAtFixedRate(new TimerTask() {
+        //    @Override
+        //    public void run() {
+        //      playStrategyNextFrame();
+        //    }
+        //  }, 1000, 1000);
         
         timeViewer = 0;
         intervalTimeinMS = 1000;
@@ -991,19 +991,29 @@ public class Controller {
     public void playStrategyNextFrame() {
         if(viewerState.equals(StrategyViewerState.Play))
         {
-            timeViewer++;
+            //timeViewer++;
             //The animation here
             //this.loadedStrategy.getFrame();
         }
+        this.drawCurrentFrame();
     }
       
     public void playStepBackTimeFrame() {
-        timeViewer -=2;
-        playStrategyNextFrame();
+        timeViewer -= this.intervalTimeinMS;
+        if (timeViewer < 0) {
+            timeViewer = 0;
+        }
+        //playStrategyNextFrame();
+        this.drawCurrentFrame();
     }
     
     public void playStepFowardTimeFrame() {
-        playStrategyNextFrame();
+        timeViewer += this.intervalTimeinMS;
+        int biggestTime = this.mPlaceHolderStrategy.getBiggestTime();
+        if (timeViewer > biggestTime) {
+            timeViewer = biggestTime;
+        }
+        this.drawCurrentFrame();
     }
     
     public void mouseMoved(int mousePosX, int mousePosY, boolean mousePressed) {
@@ -1045,6 +1055,7 @@ public class Controller {
         myScene.cleanScene();
         this.mPlaceHolderStrategy.getCurrentSnapshot(timeViewer).printPlayers(myScene);
         this.mMainWindow.publishScene(myScene.getScenePicture());
+        this.mMainWindow.publishCurrentTime(timeViewer/1000);
         System.out.println("Just drew a frame!");
     }
         
@@ -1104,7 +1115,10 @@ public class Controller {
     }
     
     public void switchToNextFrame() {
+        Snapshot oldSnapshot = this.mPlaceHolderStrategy.getCurrentSnapshot(this.timeViewer);
         this.timeViewer += this.intervalTimeinMS;
+        Snapshot newSnapshot = this.mPlaceHolderStrategy.getOrCreate(this.timeViewer);
+        newSnapshot.copyFromOtherSnapshot(oldSnapshot);
         this.drawCurrentFrame();
     }
 }

@@ -306,6 +306,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     public void publishMousePosition(String position) {
         this.jLabelCurrentPosition.setText(position);
     }
+    
+    public void publishCurrentTime(float timeInSeconds) {
+        this.jTextFieldStrategyViewerTime.setText(Float.toString(timeInSeconds));
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
