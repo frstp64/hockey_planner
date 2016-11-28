@@ -11,7 +11,7 @@ import java.util.Date;
 public class Snapshot {
     private int idChange;
     private ArrayList<TransientPlayer> listTransientPlayer;
-    private ArrayList<Obstacle> listObstacle;
+    //private ArrayList<Obstacle> listObstacle;
     private boolean trashed;
     private int timeStamp;
     private String typeSnapshot;
@@ -21,7 +21,7 @@ public class Snapshot {
         this.trashed = false;
         this.typeSnapshot = "TODOLATER";
         this.listTransientPlayer = new ArrayList();
-        this.listObstacle = new ArrayList();
+        //this.listObstacle = new ArrayList();
         this.idChange = -1;
     }
 
@@ -29,7 +29,7 @@ public class Snapshot {
         
         this.idChange = snapshot.idChange;
         this.listTransientPlayer = snapshot.listTransientPlayer;
-        this.listObstacle = snapshot.listObstacle;
+        //this.listObstacle = snapshot.listObstacle;
         this.trashed = snapshot.trashed;
         this.timeStamp = snapshot.timeStamp;
         this.typeSnapshot = snapshot.typeSnapshot;    
@@ -39,7 +39,7 @@ public class Snapshot {
     public Snapshot(int idChange, ArrayList<TransientPlayer> plistTransientPlayer, ArrayList<Obstacle> listObstacle, boolean trashed, int timeStamp, String typeSnapshot) {
         this.idChange = idChange;
         //this.listTransientPlayer = plistTransientPlayer.;
-        this.listObstacle = listObstacle;
+        //this.listObstacle = listObstacle;
         this.trashed = trashed;
         this.timeStamp = timeStamp;
         this.typeSnapshot = typeSnapshot;
@@ -61,13 +61,13 @@ public class Snapshot {
         this.listTransientPlayer = plistTransientPlayer;
     }
 
-    public List<Obstacle> getListObstacle() {
-        return listObstacle;
-    }
-
-    public void setListObstacle(ArrayList<Obstacle> listObstacle) {
-        this.listObstacle = listObstacle;
-    }
+//    public List<Obstacle> getListObstacle() {
+//        return listObstacle;
+//    }
+//
+//    public void setListObstacle(ArrayList<Obstacle> listObstacle) {
+//        this.listObstacle = listObstacle;
+//    }
 
     public boolean isTrashed() {
         return trashed;

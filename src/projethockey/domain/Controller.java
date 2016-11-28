@@ -447,15 +447,14 @@ public class Controller {
         String categoryPlayerImagePath = this.mMainWindow.requestFilePath();
 
         if (!categoryPlayerImagePath.equals("")) {
-        try {
-            BufferedImage myImg = ImageIO.read(new File(categoryPlayerImagePath));
-
-            setCategoryPlayerImage(myImg);
-            
-        } catch (IOException ex) {
-            System.out.println("Error happenedwhile reading image");
-            System.out.println(ex);
-        }
+            try {
+                BufferedImage myImg = ImageIO.read(new File(categoryPlayerImagePath));
+                setCategoryPlayerImage(myImg);            
+            } 
+            catch (IOException ex) {
+                System.out.println("Error happenedwhile reading image");
+                System.out.println(ex);
+            }
         }
     }
 
@@ -471,16 +470,13 @@ public class Controller {
 
     public void setCategoryObstacleHorizontalSize(Float pHorizSize) {
         this.mPlaceHolderCategoryObstacle.setHorizontalSize(pHorizSize);
-
     }
 
     public void setCategoryObstacleVerticalSize(Float pVertSize) {
         this.mPlaceHolderCategoryObstacle.setVerticalSize(pVertSize);
-
     }
 
     public void resetPlaceHolderCategoryObstacle() {
-
         // empty data
         this.mPlaceHolderCategoryObstacle.reset();
         // empty GUI values
@@ -522,8 +518,6 @@ public class Controller {
 
         for (CategoryObstacle aCategoryObstacle: categoryObstacleArray) {
             if (aCategoryObstacle.getCategoryName().equals(this.selectedCategoryObstacle)) {
-
-
                 // Change placeholder values
                 this.mPlaceHolderCategoryObstacle = new CategoryObstacle(aCategoryObstacle);
 
@@ -535,14 +529,15 @@ public class Controller {
                 // load image and publish  to GUI
                 String categoryObstacleImagePath = this.mPlaceHolderCategoryObstacle.getImgPath();
                 if (!categoryObstacleImagePath.equals("")) {
-                try {
-                    java.awt.image.BufferedImage myImg = ImageIO.read(new File(categoryObstacleImagePath));
+                    try {
+                        java.awt.image.BufferedImage myImg = ImageIO.read(new File(categoryObstacleImagePath));
 
-                    this.mMainWindow.publishCategoryObstacleIcon(myImg);
-                    //this.mPlaceHolderCategoryObstacle.setImage();
-                } catch (IOException ex) {
-                    System.out.println("Error happenedwhile reading image");
-                }
+                        this.mMainWindow.publishCategoryObstacleIcon(myImg);
+                        //this.mPlaceHolderCategoryObstacle.setImage();
+                    } 
+                    catch (IOException ex) {
+                        System.out.println("Error happenedwhile reading image");
+                    }
                 }
 
 
@@ -636,7 +631,9 @@ public class Controller {
                 break;
             }
         }
-
+        
+        
+        
         // Add the Strategy to the list
         strategyArray.add(new Strategy(this.mPlaceHolderStrategy));
 

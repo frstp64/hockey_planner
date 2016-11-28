@@ -1,5 +1,10 @@
 package projethockey.domain;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import javax.imageio.ImageIO;
+
 /**
  *
  * @author Alexandre
@@ -100,4 +105,15 @@ public class CategoryObstacle implements java.io.Serializable{
         this.imgPath = "";
         this.isGameObject = false;
     }
+    
+    
+//    private void writeObject(ObjectOutputStream out) throws IOException {
+//        out.defaultWriteObject();
+//        ImageIO.write(imgPlayer, "png", out);
+//    }
+//    
+//    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+//        in.defaultReadObject();
+//        imgPlayer = ImageIO.read(in);
+//    }
 }

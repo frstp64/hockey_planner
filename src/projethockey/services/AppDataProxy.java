@@ -20,10 +20,13 @@ public class AppDataProxy{
             // Save the sport, category player, category object and strategy and players
             
             saveObjectFile.writeObject(pController.getCategoryPlayerArray());
-            saveObjectFile.writeObject(pController.getCategoryObstacleArray());
+            //saveObjectFile.writeObject(pController.getCategoryObstacleArray());
             saveObjectFile.writeObject(pController.getPlayerArray());
             saveObjectFile.writeObject(pController.getTeamArray());
             saveObjectFile.writeObject(pController.getSportArray());
+            
+            
+            
             saveObjectFile.writeObject(pController.getStrategyArray());            
             
             saveObjectFile.close();
@@ -40,7 +43,7 @@ public class AppDataProxy{
             // load sports, categoryPlayers, load categoryObstacles, load strategy, load players
             
             pController.setCategoryPlayerArray((ArrayList<CategoryPlayer>) loadImputObjectFile.readObject());
-            pController.setCategoryObstacleArray((ArrayList<CategoryObstacle>) loadImputObjectFile.readObject());
+            //pController.setCategoryObstacleArray((ArrayList<CategoryObstacle>) loadImputObjectFile.readObject());
             pController.setPlayerArray((ArrayList<Player>) loadImputObjectFile.readObject());
             pController.setTeamArray((ArrayList<Team>) loadImputObjectFile.readObject());
             pController.setSportArray((ArrayList<Sport>) loadImputObjectFile.readObject());
