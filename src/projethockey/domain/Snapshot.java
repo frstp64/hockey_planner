@@ -28,17 +28,18 @@ public class Snapshot {
     public Snapshot(Snapshot snapshot) {
         
         this.idChange = snapshot.idChange;
-        this.listTransientPlayer = snapshot.listTransientPlayer;
-        this.listObstacle = snapshot.listObstacle;
+        for(TransientPlayer trans : snapshot.listTransientPlayer) {
+            this.listTransientPlayer.add(new TransientPlayer(trans));
+        }  
+        //this.listObstacle = snapshot.listObstacle;
         this.trashed = snapshot.trashed;
         this.timeStamp = snapshot.timeStamp;
         this.typeSnapshot = snapshot.typeSnapshot;    
-        throw new UnsupportedOperationException(); // IL FAUT UNE COPIE SEMI-PROFONDE
     }
     
     public Snapshot(int idChange, ArrayList<TransientPlayer> plistTransientPlayer, ArrayList<Obstacle> listObstacle, boolean trashed, int timeStamp, String typeSnapshot) {
         this.idChange = idChange;
-        //this.listTransientPlayer = plistTransientPlayer.;
+        this.listTransientPlayer = plistTransientPlayer;
         this.listObstacle = listObstacle;
         this.trashed = trashed;
         this.timeStamp = timeStamp;
