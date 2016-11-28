@@ -25,15 +25,16 @@ public class Snapshot implements java.io.Serializable {
         this.idChange = -1;
     }
 
-    public Snapshot(Snapshot snapshot) {
+     public Snapshot(Snapshot snapshot) {
         
         this.idChange = snapshot.idChange;
-        this.listTransientPlayer = snapshot.listTransientPlayer;
-        this.listObstacle = snapshot.listObstacle;
+        for(TransientPlayer trans : snapshot.listTransientPlayer) {
+            this.listTransientPlayer.add(new TransientPlayer(trans));
+        }  
+        //this.listObstacle = snapshot.listObstacle;
         this.trashed = snapshot.trashed;
         this.timeStamp = snapshot.timeStamp;
-        this.typeSnapshot = snapshot.typeSnapshot;    
-        throw new UnsupportedOperationException(); // IL FAUT UNE COPIE SEMI-PROFONDE
+        this.typeSnapshot = snapshot.typeSnapshot;   
     }
     
     public Snapshot(int idChange, ArrayList<TransientPlayer> plistTransientPlayer, ArrayList<Obstacle> listObstacle, boolean trashed, int timeStamp, String typeSnapshot) {
