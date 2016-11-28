@@ -19,12 +19,15 @@ public class CategoryPlayer implements java.io.Serializable{
     transient BufferedImage imgPlayer;
     
     public CategoryPlayer() {
+        this.catName = null;
+        this.imgPlayer = null;
     }
     
     public CategoryPlayer(String catName, Position positionDefault, int scale) {
         this.catName = catName;
         this.positionDefault = positionDefault;
         this.scale = scale;
+        this.imgPlayer = null;
     }
     
     public CategoryPlayer(CategoryPlayer categoryPlayer) {
@@ -92,7 +95,7 @@ public class CategoryPlayer implements java.io.Serializable{
         this.verticalSize = (float) 0;
         this.horizontalSize = (float) 0;
         this.catName = "";
-        this.imgPlayer = new BufferedImage(1,1,BufferedImage.TYPE_INT_ARGB);
+        this.imgPlayer = new BufferedImage(10,10,BufferedImage.TYPE_INT_ARGB);
     }
     
     private void writeObject(ObjectOutputStream out) throws IOException {

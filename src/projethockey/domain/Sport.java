@@ -75,7 +75,6 @@ public class Sport implements java.io.Serializable{
     }
 
     public void setNbPlayer(int nbPlayer) {
-        this.unlimitedPlayer = true;
         this.nbPlayer = nbPlayer;
     }
 

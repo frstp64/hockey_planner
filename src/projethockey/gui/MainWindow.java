@@ -249,9 +249,13 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     public void publishStrategyTeams(ArrayList<String> pTeamNames){
         // edit number of columns in table (and number selector)
         this.jSpinnerSportEquipes.setValue(pTeamNames.size());
+        System.out.println("lol");
         
         // change values to our array.
         int nRow = pTeamNames.size(); // this.jTableTeamPlayers.getRowCount();
+        ((DefaultTableModel) this.jTableStrategyTeams.getModel()).setRowCount(nRow);
+        System.out.println(nRow);
+        ((DefaultTableModel) this.jTableStrategyTeams.getModel()).setRowCount(nRow);
         for (int i = 0; i < nRow; i++) {
             this.jTableStrategyTeams.setValueAt(pTeamNames.get(i), i, 0);
         }
@@ -1498,7 +1502,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelCreateLoadStrategy.add(jComboBoxChooseStrategySport, gridBagConstraints);
 
         jButtonDeleteStrategy.setText("Supprimer");
-        jButtonDeleteStrategy.setEnabled(false);
         jButtonDeleteStrategy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDeleteStrategyActionPerformed(evt);
@@ -2017,7 +2020,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jButtonNewGameObstacleActionPerformed
 
     private void jButtonDeleteStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteStrategyActionPerformed
-        this.myController.removeStrategy();
+        this.myController.removeSelectedStrategy(this.jListExistingStrategies.getSelectedValue());
     }//GEN-LAST:event_jButtonDeleteStrategyActionPerformed
 
     private void jButtonDestroySelectedSportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDestroySelectedSportActionPerformed
@@ -2038,6 +2041,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         
         this.myController.setStrategyTeam(tableData);
         this.myController.setStrategySport(this.myController.getSportFromName(this.jComboBoxChooseStrategySport.getSelectedItem().toString()));
+        this.myController.nukeAllSnapshots();
         this.myController.saveStrategy();
     }//GEN-LAST:event_jButtonCreateStrategyActionPerformed
 

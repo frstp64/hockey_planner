@@ -366,6 +366,7 @@ public class Controller {
 
     public void saveCategoryPlayer() {
         // Ensure the categoryPlayer is valid here.
+        if (this.mPlaceHolderCategoryPlayer.getImg() != null && this.mPlaceHolderCategoryPlayer.getCategoryName() != null) {
 
         // If the categoryPlayer exists, remove it from the list
         for (CategoryPlayer aCategoryPlayer: categoryPlayerArray) {
@@ -383,6 +384,7 @@ public class Controller {
         projethockey.services.AppDataProxy.saveData(this);
         if (!categoryPlayerArray.isEmpty()) {
             publishCategoryPlayerNames();
+        }
         }
     }
 
@@ -613,7 +615,7 @@ public class Controller {
         // empty data
         //this.mPlaceHolderStrategy.reset();
         // empty GUI values
-        this.mMainWindow.publishStrategyName(this.mPlaceHolderStrategy.getName());
+        //this.mMainWindow.publishStrategyName(this.mPlaceHolderStrategy.getName());
         //TODO
         //this.mMainWindow.publishStrategySport(this.mPlaceHolderStrategy.getCategoryName());
 
@@ -681,11 +683,11 @@ public class Controller {
         //System.out.println("We should have selected an existing strategy!");
     }
 
-    public void removeStrategy() {
+    public void removeSelectedStrategy(String pStrategyName) {
         // if one is selected, remove it
-        if (!this.selectedStrategy.equals("")) {
+        if (!pStrategyName.equals("")) {
             for (Strategy aStrategy: strategyArray) {
-                if (aStrategy.getName().equals(this.selectedStrategy)) {
+                if (aStrategy.getName().equals(pStrategyName)) {
                     this.strategyArray.remove(aStrategy);
                     break;
                 }
@@ -725,6 +727,15 @@ public class Controller {
         for (Sport aSport: sportArray) {
             if (aSport.getName().equals(sportName)) {
                 setStrategySport(aSport);
+                ArrayList<String> myTeamArray = new ArrayList();
+                for (Team aTeam : this.mPlaceHolderStrategy.getListTeam()) {
+                    myTeamArray.add(aTeam.getName());
+                }
+                int missingSize = aSport.getNbPlayer() - myTeamArray.size();
+                for (int i = 0; i < missingSize; i++) {
+                    myTeamArray.add("");
+                }
+                this.mMainWindow.publishStrategyTeams(myTeamArray);
                 break;
             }
         }
@@ -1122,4 +1133,7 @@ public class Controller {
         }
         this.drawCurrentFrame();
     }
+    public void nukeAllSnapshots() {
+    this.mPlaceHolderStrategy.setListSnapshot(new ArrayList());
+}
 }
