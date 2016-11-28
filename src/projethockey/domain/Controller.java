@@ -12,6 +12,7 @@ import javax.imageio.*;
 import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.text.DecimalFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -974,7 +975,17 @@ public class Controller {
     
     
     public void playStrategy() {
+        System.out.println("playStrategy appelé");
+        long startTime = System.nanoTime();
+        int maxTime = this.mPlaceHolderStrategy.getBiggestTime();
+        while ((System.nanoTime() - startTime)/1000000 < maxTime+100) {
+            //the showing loop
+            this.timeViewer = (int) ((System.nanoTime()- startTime)/1000000);
+            System.out.println("current time in viewing is " + this.timeViewer);
+            drawCurrentFrame();
+        }
         
+        System.out.println("fin Visualisation");
        //viewerState = (!viewerState.equals(StrategyViewerState.Play)) ? StrategyViewerState.Play : StrategyViewerState.Pause;
     }
     
@@ -1043,10 +1054,11 @@ public class Controller {
         // Draws the current frame on screen
         //this.mPlaceHolderStrategy.getFrame();
         myScene.cleanScene();
-        this.mPlaceHolderStrategy.getCurrentSnapshot(timeViewer).printPlayers(myScene);
+        Snapshot snapshotToPrint = this.mPlaceHolderStrategy.getCurrentSnapshot(timeViewer);
+        snapshotToPrint.printPlayers(myScene);
         this.mMainWindow.publishScene(myScene.getScenePicture());
-        this.mMainWindow.publishCurrentTime(timeViewer/1000);
-        System.out.println("Just drew a frame!");
+        this.mMainWindow.publishCurrentTime(snapshotToPrint.getTimeStamp()/1000);
+        //System.out.println("Just drew a frame!");
     }
         
     public void switchZoomMode() {

@@ -129,7 +129,7 @@ public class EditionStateMachine {
     public void switchToAddMode(String pPlayerIdentity) {
         this.currentState = States.ADDING_PLAYER;
         this.currentAddedPlayer = pPlayerIdentity;
-        System.out.println("Just switched to add mode!");
+        //System.out.println("Just switched to add mode!");
     }
     
     public boolean getShowStringOption() {

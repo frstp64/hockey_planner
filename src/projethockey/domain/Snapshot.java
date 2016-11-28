@@ -123,7 +123,7 @@ public class Snapshot {
     
     public void printPlayers(Scene sceneReference) {
         for (TransientPlayer aTransientPlayer: this.listTransientPlayer) {
-            System.out.println("now printing " + aTransientPlayer.getPlayer().getName() + " at x=" + aTransientPlayer.getPosX() + " and y="+ aTransientPlayer.getPosY());
+            //System.out.println("now printing " + aTransientPlayer.getPlayer().getName() + " at x=" + aTransientPlayer.getPosX() + " and y="+ aTransientPlayer.getPosY());
             sceneReference.putPlayer(
             aTransientPlayer.getPosX(),
             aTransientPlayer.getPosY(),

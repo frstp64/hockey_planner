@@ -302,6 +302,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     
     public void publishScene(Image pSceneImage) {
         this.jLabelStrategyEditorPicture.setIcon(new ImageIcon(pSceneImage));
+        this.jLabelStrategyEditorPicture.revalidate();
+        this.jLabelStrategyEditorPicture.paintImmediately(0, 0, this.jLabelStrategyEditorPicture.getWidth(), this.jLabelStrategyEditorPicture.getHeight());
+        
     }
 
     public void publishMousePosition(String position) {
@@ -310,6 +313,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     
     public void publishCurrentTime(float timeInSeconds) {
         this.jTextFieldStrategyViewerTime.setText(Float.toString(timeInSeconds));
+        this.jTextFieldStrategyViewerTime.paintImmediately(0, 0, 100, 100);
     }
     
     /**

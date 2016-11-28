@@ -124,7 +124,12 @@ public class Strategy implements java.io.Serializable{
                 return aSnapshot;
             }
         }
-        return getLastSnapshotBefore(wantedTime); // SHOULD NOT HAPPEN
+        if (this.listSnapshot.size()!= 0) {
+            return getLastSnapshotBefore(wantedTime); // SHOULD NOT HAPPEN
+        } else {
+            return getOrCreate(wantedTime);
+        }
+        
     }
         public Snapshot getLastSnapshotBefore(int wantedTime) {
             int maxTimeBefore = 0;

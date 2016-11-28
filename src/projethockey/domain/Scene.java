@@ -72,7 +72,7 @@ public class Scene {
     public void putPicture(Image itemPicture, int locX, int locY, boolean isTransparent) {
         
         Graphics2D cloneG = sceneImage.createGraphics();
-        System.out.println("put image at X:" + locX + " and Y:" + locY);
+        //System.out.println("put image at X:" + locX + " and Y:" + locY);
         if(isTransparent)
             cloneG.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3F));
         cloneG.drawImage(itemPicture, locX, locY, null); // might require some cutting
