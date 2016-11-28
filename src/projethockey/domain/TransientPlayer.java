@@ -9,7 +9,7 @@ package projethockey.domain;
  *
  * @author Alexandre
  */
-public class TransientPlayer {
+public class TransientPlayer implements java.io.Serializable {
     private float posX;
     private float posY;
     private Orientation orientation;
@@ -19,7 +19,7 @@ public class TransientPlayer {
     public TransientPlayer(float posX, float posY, float pAngle, Player player, boolean visible) {
         this.posX = posX;
         this.posY = posY;
-        this.player = player;
+        this.player = new Player(player);
         this.visible = visible;
     }
     

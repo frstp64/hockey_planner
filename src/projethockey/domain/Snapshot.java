@@ -8,7 +8,7 @@ import java.util.Date;
  *
  * @author Alexandre
  */
-public class Snapshot {
+public class Snapshot implements java.io.Serializable {
     private int idChange;
     private ArrayList<TransientPlayer> listTransientPlayer;
     private ArrayList<Obstacle> listObstacle;
