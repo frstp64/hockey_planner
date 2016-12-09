@@ -54,7 +54,7 @@ public class Controller {
     private Team mPlaceHolderTeam; // Contains the parameters for the new Team
     private ArrayList<Team> teamArray;
     private String selectedTeam;
-
+    
     // The state machine that kinda controls the edition mode
     private EditionStateMachine mMouseFSM;
 
@@ -66,6 +66,11 @@ public class Controller {
     public enum StrategyViewerState { Stop, Play, Pause}
     StrategyViewerState viewerState;
     
+    // The arrays used for undo/redo
+    private ArrayList<Strategy> undoList;
+    private ArrayList<Strategy> redoList;
+    
+    int maxUndoRedo = 20; // The maximum undo/redo to be kept in array
     // The constructor
     public Controller() {
 
@@ -112,6 +117,9 @@ public class Controller {
         
         timeViewer = 0;
         intervalTimeinMS = 1000;
+        
+        undoList = new ArrayList();
+        redoList = new ArrayList();
     }
 
     // A simple global subscriber to get a reference to the window
@@ -1136,4 +1144,32 @@ public class Controller {
     public void nukeAllSnapshots() {
     this.mPlaceHolderStrategy.setListSnapshot(new ArrayList());
 }
+    // This function updates the undo/redo lists, please use BEFORE modification
+    public void actionWillHappen() {
+        redoList = new ArrayList(); // the redo list is emptied
+        undoList.add(new Strategy(this.mPlaceHolderStrategy)); //Strategy is copied in the undo array
+        if (undoList.size() > this.maxUndoRedo) {
+            undoList.remove(0);
+        }
+        
+    }
+    
+    // This function executes an "undo" on the strategy
+    public void tryUndo() {
+        //first, check if the undo list isn't empty
+        if (!undoList.isEmpty()) {
+            redoList.add(new Strategy(this.mPlaceHolderStrategy)); // add current state to redoList
+            this.mPlaceHolderStrategy = new Strategy(undoList.get(undoList.size()));
+            undoList.remove(undoList.size());
+        }
+    }
+    
+    public void tryRedo() {
+        //first, check if the redo list isn't empty
+        if (!redoList.isEmpty()) {
+            undoList.add(new Strategy(this.mPlaceHolderStrategy));
+            this.mPlaceHolderStrategy = new Strategy(redoList.get(redoList.size()));
+            redoList.remove(redoList.size());
+        }
+    }
 }
