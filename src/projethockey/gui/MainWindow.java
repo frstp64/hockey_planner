@@ -2282,7 +2282,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jButtonStepBackTimeActionPerformed
 
     private void jButtonModificationVisualizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificationVisualizeActionPerformed
-        this.myController.playStrategy();
+        Thread t1 = new Thread(new Runnable() {
+            public void run() {
+        myController.playStrategy();
+            }
+        });
+        t1.start();
     }//GEN-LAST:event_jButtonModificationVisualizeActionPerformed
 
     private void jTextFieldTimeIntervalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTimeIntervalActionPerformed
