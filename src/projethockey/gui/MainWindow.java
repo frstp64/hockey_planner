@@ -1847,7 +1847,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelStrategyEditor.add(jTextFieldStrategyName, gridBagConstraints);
 
         jButtonUndo.setText("Annuler");
-        jButtonUndo.setEnabled(false);
         jButtonUndo.setMaximumSize(new java.awt.Dimension(73, 25));
         jButtonUndo.setMinimumSize(new java.awt.Dimension(73, 25));
         jButtonUndo.addActionListener(new java.awt.event.ActionListener() {
@@ -1863,7 +1862,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelStrategyEditor.add(jButtonUndo, gridBagConstraints);
 
         jButtonRedo.setText("Refaire");
-        jButtonRedo.setEnabled(false);
         jButtonRedo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRedoActionPerformed(evt);
@@ -2264,10 +2262,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     private void jButtonRedoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRedoActionPerformed
         // TODO add your handling code here:
+        this.myController.tryRedo();
     }//GEN-LAST:event_jButtonRedoActionPerformed
 
     private void jButtonUndoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUndoActionPerformed
         // TODO add your handling code here:
+        this.myController.tryUndo();
     }//GEN-LAST:event_jButtonUndoActionPerformed
 
     private void jTextFieldStrategyNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStrategyNameActionPerformed

@@ -1074,7 +1074,7 @@ public class Controller {
         snapshotToPrint.printPlayers(myScene);
         this.mMainWindow.publishScene(myScene.getScenePicture());
         this.mMainWindow.publishCurrentTime(snapshotToPrint.getTimeStamp()/1000);
-        //System.out.println("Just drew a frame!");
+        System.out.println("Just drew a frame!");
     }
         
     public void switchZoomMode() {
@@ -1133,6 +1133,7 @@ public class Controller {
     }
     
     public void switchToNextFrame() {
+        this.actionWillHappen();
         this.timeViewer += this.intervalTimeinMS;
         if (!this.mPlaceHolderStrategy.frameExistsAtTime(this.timeViewer)) {
         Snapshot oldSnapshot = this.mPlaceHolderStrategy.getLastSnapshotBefore(this.timeViewer);
@@ -1147,10 +1148,14 @@ public class Controller {
     // This function updates the undo/redo lists, please use BEFORE modification
     public void actionWillHappen() {
         redoList = new ArrayList(); // the redo list is emptied
+        if (this.mPlaceHolderStrategy == null) {
+            System.out.println("wtf, actionWillHappen");
+        }
         undoList.add(new Strategy(this.mPlaceHolderStrategy)); //Strategy is copied in the undo array
         if (undoList.size() > this.maxUndoRedo) {
             undoList.remove(0);
         }
+        System.out.println("Action will happen!");
         
     }
     
@@ -1159,17 +1164,22 @@ public class Controller {
         //first, check if the undo list isn't empty
         if (!undoList.isEmpty()) {
             redoList.add(new Strategy(this.mPlaceHolderStrategy)); // add current state to redoList
-            this.mPlaceHolderStrategy = new Strategy(undoList.get(undoList.size()));
-            undoList.remove(undoList.size());
+            this.mPlaceHolderStrategy = new Strategy(undoList.get(undoList.size()-1));
+            undoList.remove(undoList.size()-1);
+            
+            System.out.println("Undo done!");
         }
+        this.drawCurrentFrame();
     }
     
     public void tryRedo() {
         //first, check if the redo list isn't empty
         if (!redoList.isEmpty()) {
             undoList.add(new Strategy(this.mPlaceHolderStrategy));
-            this.mPlaceHolderStrategy = new Strategy(redoList.get(redoList.size()));
-            redoList.remove(redoList.size());
+            this.mPlaceHolderStrategy = new Strategy(redoList.get(redoList.size()-1));
+            redoList.remove(redoList.size()-1);
+            System.out.println("Redo done!");
         }
+        this.drawCurrentFrame();
     }
 }

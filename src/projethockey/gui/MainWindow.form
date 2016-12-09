@@ -1744,7 +1744,6 @@
             <Component class="javax.swing.JButton" name="jButtonUndo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Annuler"/>
-                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[73, 25]"/>
                 </Property>
@@ -1764,7 +1763,6 @@
             <Component class="javax.swing.JButton" name="jButtonRedo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Refaire"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRedoActionPerformed"/>

@@ -57,6 +57,7 @@ public class EditionStateMachine {
             
             if (!intersectingPlayer.equals("NoneIntersecting")) {
                 currentState = States.MOVING_PLAYER;
+                this.myController.actionWillHappen();
                 this.currentMovingPlayer = intersectingPlayer;
             }
             
@@ -64,10 +65,14 @@ public class EditionStateMachine {
             // button pressed on the screen to add a player
             //System.out.println("asked to add a player!");
             currentState = States.MOVEMENT;
+            System.out.println("Player added in state machine 0");
+            this.myController.actionWillHappen();
+            System.out.println("Player added in state machine 1");
             int currentTime = this.myController.getCurrentTime();
             Strategy currentStrategy = this.myController.getCurrentStrategy();
             Snapshot currentSnapshot = currentStrategy.getCurrentSnapshot(currentTime);
             Player currentPlayer = this.myController.getPlayer(currentAddedPlayer);
+            System.out.println("Player added in state machine: " + currentPlayer.getName());
             currentSnapshot.addPlayer(currentPlayer, this.myController.getScene().getNormalizedX(mousePosX), this.myController.getScene().getNormalizedY(mousePosY), 0);
             this.myController.drawCurrentFrame();
             

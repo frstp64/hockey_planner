@@ -28,23 +28,31 @@ public class Snapshot implements java.io.Serializable {
      public Snapshot(Snapshot snapshot) {
         
         this.idChange = snapshot.idChange;
+        System.out.println("creating new snapshot");
+        System.out.println(snapshot.listTransientPlayer.size());
+        this.listTransientPlayer = new ArrayList();
         for(TransientPlayer trans : snapshot.listTransientPlayer) {
+            System.out.println("I'm a player and my name is "+ trans.getPlayer().getName());
             this.listTransientPlayer.add(new TransientPlayer(trans));
-        }  
+        }
+        for(TransientPlayer trans: this.listTransientPlayer) {
+            System.out.println("I'm a player and my name is "+ trans.getPlayer().getName());
+
+        }
         //this.listObstacle = snapshot.listObstacle;
         this.trashed = snapshot.trashed;
         this.timeStamp = snapshot.timeStamp;
         this.typeSnapshot = snapshot.typeSnapshot;   
     }
     
-    public Snapshot(int idChange, ArrayList<TransientPlayer> plistTransientPlayer, ArrayList<Obstacle> listObstacle, boolean trashed, int timeStamp, String typeSnapshot) {
-        this.idChange = idChange;
-        //this.listTransientPlayer = plistTransientPlayer.;
-        this.listObstacle = listObstacle;
-        this.trashed = trashed;
-        this.timeStamp = timeStamp;
-        this.typeSnapshot = typeSnapshot;
-    }
+//    public Snapshot(int idChange, ArrayList<TransientPlayer> plistTransientPlayer, ArrayList<Obstacle> listObstacle, boolean trashed, int timeStamp, String typeSnapshot) {
+//        this.idChange = idChange;
+//        //this.listTransientPlayer = plistTransientPlayer.;
+//        this.listObstacle = listObstacle;
+//        this.trashed = trashed;
+//        this.timeStamp = timeStamp;
+//        this.typeSnapshot = typeSnapshot;
+//    }
 
     public int getIdChange() {
         return idChange;
@@ -142,7 +150,8 @@ public class Snapshot implements java.io.Serializable {
                 return aTransientPlayer;
             }
         }
-        throw new Exception("non-existent transient player");
+        System.out.println("player name: " + pPlayerName);
+        throw new Exception("non-existent transient player: requested " + pPlayerName);
     }
     
     // also deals with the visibility, makes it false

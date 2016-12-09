@@ -26,20 +26,26 @@ public class Strategy implements java.io.Serializable{
     public Strategy(Strategy strategy) {
         this.playBackSpeed = strategy.playBackSpeed;
         this.deltaTimeFrame = strategy.deltaTimeFrame;
-        this.listSnapshot = strategy.listSnapshot;
+        this.listSnapshot = new ArrayList();
+        for (Snapshot aSnapshot: strategy.listSnapshot) {
+            this.listSnapshot.add(new Snapshot(aSnapshot));
+        }
         this.name = strategy.name;
         this.sport = strategy.sport;
-        this.listTeam = strategy.listTeam;
+        this.listTeam = new ArrayList();
+        for (Team aTeam: strategy.listTeam) {
+            this.listTeam.add(new Team(aTeam));
+        }
     }
 
-    public Strategy(float playBackSpeed, Date deltaTimeFrame, String sportName, ArrayList<Snapshot> listSnapshot, String name, Sport sport, ArrayList<Team> listTeam) {
-        this.playBackSpeed = playBackSpeed;
-        this.deltaTimeFrame = deltaTimeFrame;
-        this.listSnapshot = listSnapshot;
-        this.name = name;
-        this.sport = sport;
-        this.listTeam = listTeam;
-    }
+//    public Strategy(float playBackSpeed, Date deltaTimeFrame, String sportName, ArrayList<Snapshot> listSnapshot, String name, Sport sport, ArrayList<Team> listTeam) {
+//        this.playBackSpeed = playBackSpeed;
+//        this.deltaTimeFrame = deltaTimeFrame;
+//        this.listSnapshot = listSnapshot;
+//        this.name = name;
+//        this.sport = sport;
+//        this.listTeam = listTeam;
+//    }
     
     
     public String getName() {
