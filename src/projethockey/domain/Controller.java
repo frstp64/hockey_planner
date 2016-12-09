@@ -996,13 +996,14 @@ public class Controller {
             System.out.println("playStrategy appelé");
             long startTime = System.nanoTime();
             int maxTime = this.mPlaceHolderStrategy.getBiggestTime();
-            while ((System.nanoTime() - startTime)/1000000 < maxTime+100) {
+            long timeFromWhichToStartPlaying = this.timeViewer;
+            while ((System.nanoTime() - startTime)/1000000 + timeFromWhichToStartPlaying < maxTime+100) {
                 //the showing loop
                 if (!this.mMouseFSM.isPlaying()) {
                     System.out.println("broke out of playing loop");
                     break;
                 }
-                this.timeViewer = (int) ((System.nanoTime()- startTime)/1000000);
+                this.timeViewer = (int) ((System.nanoTime()- startTime)/1000000 + timeFromWhichToStartPlaying);
                 System.out.println("current time in viewing is " + this.timeViewer);
                 drawCurrentFrame();
             }
