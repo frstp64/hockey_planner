@@ -990,19 +990,29 @@ public class Controller {
     
     
     
-    public void playStrategy() {
-        System.out.println("playStrategy appelé");
-        long startTime = System.nanoTime();
-        int maxTime = this.mPlaceHolderStrategy.getBiggestTime();
-        while ((System.nanoTime() - startTime)/1000000 < maxTime+100) {
-            //the showing loop
-            this.timeViewer = (int) ((System.nanoTime()- startTime)/1000000);
-            System.out.println("current time in viewing is " + this.timeViewer);
-            drawCurrentFrame();
+    public void toggleStrategyPlay() {
+        if (!this.mMouseFSM.isPlaying()) {
+            this.mMouseFSM.startPlaying();
+            System.out.println("playStrategy appelé");
+            long startTime = System.nanoTime();
+            int maxTime = this.mPlaceHolderStrategy.getBiggestTime();
+            while ((System.nanoTime() - startTime)/1000000 < maxTime+100) {
+                //the showing loop
+                if (!this.mMouseFSM.isPlaying()) {
+                    System.out.println("broke out of playing loop");
+                    break;
+                }
+                this.timeViewer = (int) ((System.nanoTime()- startTime)/1000000);
+                System.out.println("current time in viewing is " + this.timeViewer);
+                drawCurrentFrame();
+            }
+            this.mMouseFSM.stopPlaying();
+            System.out.println("fin Visualisation");
+           //viewerState = (!viewerState.equals(StrategyViewerState.Play)) ? StrategyViewerState.Play : StrategyViewerState.Pause;
+        } else {
+            System.out.println("paused");
+            this.mMouseFSM.stopPlaying();
         }
-        
-        System.out.println("fin Visualisation");
-       //viewerState = (!viewerState.equals(StrategyViewerState.Play)) ? StrategyViewerState.Play : StrategyViewerState.Pause;
     }
     
     public void playStrategyNextFrame() {

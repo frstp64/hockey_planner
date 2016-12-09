@@ -2284,7 +2284,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jButtonModificationVisualizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificationVisualizeActionPerformed
         Thread t1 = new Thread(new Runnable() {
             public void run() {
-        myController.playStrategy();
+        myController.toggleStrategyPlay();
             }
         });
         t1.start();

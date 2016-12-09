@@ -31,6 +31,7 @@ public class EditionStateMachine {
     private boolean plsShowStrings;
     private String currentAddedPlayer, currentMovingPlayer;
     private String modificationMode;
+    private boolean isPlayingStrategy;
     
     public EditionStateMachine(Controller pController) {
         currentState = States.MOVEMENT;
@@ -160,5 +161,16 @@ public class EditionStateMachine {
     
     public String getModificationMode() {
         return this.modificationMode;
+    }
+    
+    public boolean isPlaying() {
+        return this.isPlayingStrategy;
+    }
+    
+    public void startPlaying() {
+        this.isPlayingStrategy = true;
+    }
+    public void stopPlaying() {
+        this.isPlayingStrategy = false;
     }
 }
