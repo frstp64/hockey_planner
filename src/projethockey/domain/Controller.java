@@ -1182,4 +1182,8 @@ public class Controller {
         }
         this.drawCurrentFrame();
     }
+    
+    public void setModificationMode(String pMode) {
+        this.mMouseFSM.setModificationMode(pMode);
+    }
 }

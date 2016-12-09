@@ -30,12 +30,14 @@ public class EditionStateMachine {
     private int mousePosY;
     private boolean plsShowStrings;
     private String currentAddedPlayer, currentMovingPlayer;
+    private String modificationMode;
     
     public EditionStateMachine(Controller pController) {
         currentState = States.MOVEMENT;
         myController = pController;
         currentAddedPlayer = "";
         currentMovingPlayer = "";
+        modificationMode = "Image par image";
     }
     
     public void switchToRotationMode() {
@@ -111,11 +113,15 @@ public class EditionStateMachine {
             currentState = States.MOVEMENT;
         } else if (currentState.equals(States.MOVING_PLAYER) && mouseButtonState) {
             //System.out.println("player location changed");
-            float relativeMousePosX = this.myController.getScene().getNormalizedX(mousePosX);
-            float relativeMousePosY = this.myController.getScene().getNormalizedY(mousePosY);
-            this.myController.getCurrentStrategy().getCurrentSnapshot(this.myController.getCurrentTime()).getTransientPlayer(currentMovingPlayer).setPosition(relativeMousePosX, relativeMousePosY);
-            this.myController.getCurrentStrategy().getCurrentSnapshot(this.myController.getCurrentTime()).getTransientPlayer(currentMovingPlayer).setVisible(true);
-            this.myController.drawCurrentFrame();
+            System.out.println(this.modificationMode);
+            System.out.println(this.modificationMode.equals("Image par image"));
+            if (this.modificationMode.equals("Image par image")) {
+                float relativeMousePosX = this.myController.getScene().getNormalizedX(mousePosX);
+                float relativeMousePosY = this.myController.getScene().getNormalizedY(mousePosY);
+                this.myController.getCurrentStrategy().getCurrentSnapshot(this.myController.getCurrentTime()).getTransientPlayer(currentMovingPlayer).setPosition(relativeMousePosX, relativeMousePosY);
+                this.myController.getCurrentStrategy().getCurrentSnapshot(this.myController.getCurrentTime()).getTransientPlayer(currentMovingPlayer).setVisible(true);
+                this.myController.drawCurrentFrame();
+            }
             
         }
         //System.out.println("x, y");
@@ -145,5 +151,14 @@ public class EditionStateMachine {
         this.plsShowStrings = newValue;
         this.myController.getScene().setStringShowOption(newValue);
         this.myController.drawCurrentFrame();
+    }
+    
+    public void setModificationMode(String pMode) {
+        this.modificationMode = pMode;
+        System.out.println(pMode);
+    }
+    
+    public String getModificationMode() {
+        return this.modificationMode;
     }
 }

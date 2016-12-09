@@ -32,11 +32,11 @@ public class Snapshot implements java.io.Serializable {
         System.out.println(snapshot.listTransientPlayer.size());
         this.listTransientPlayer = new ArrayList();
         for(TransientPlayer trans : snapshot.listTransientPlayer) {
-            System.out.println("I'm a player and my name is "+ trans.getPlayer().getName());
+            //System.out.println("I'm a player and my name is "+ trans.getPlayer().getName());
             this.listTransientPlayer.add(new TransientPlayer(trans));
         }
         for(TransientPlayer trans: this.listTransientPlayer) {
-            System.out.println("I'm a player and my name is "+ trans.getPlayer().getName());
+            //System.out.println("I'm a player and my name is "+ trans.getPlayer().getName());
 
         }
         //this.listObstacle = snapshot.listObstacle;

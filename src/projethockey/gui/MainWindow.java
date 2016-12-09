@@ -1592,14 +1592,13 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jListTypeModificationType.setEnabled(false);
         jListTypeModificationType.setMaximumSize(null);
         jListTypeModificationType.setMinimumSize(null);
         jListTypeModificationType.setName(""); // NOI18N
         jListTypeModificationType.setPreferredSize(null);
-        jListTypeModificationType.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jListTypeModificationTypePropertyChange(evt);
+        jListTypeModificationType.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jListTypeModificationTypeValueChanged(evt);
             }
         });
         jScrollPaneModificationMode.setViewportView(jListTypeModificationType);
@@ -2320,10 +2319,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         // TODO add your handling code here:
     }//GEN-LAST:event_jListStrategyPlayersPropertyChange
 
-    private void jListTypeModificationTypePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListTypeModificationTypePropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jListTypeModificationTypePropertyChange
-
     private void jTextFieldVerticalSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldVerticalSizeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldVerticalSizeActionPerformed
@@ -2598,6 +2593,15 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jCheckBoxInfoSuppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxInfoSuppActionPerformed
         this.myController.setShowStringOption(this.jCheckBoxInfoSupp.isSelected());
     }//GEN-LAST:event_jCheckBoxInfoSuppActionPerformed
+
+    private void jListTypeModificationTypeValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListTypeModificationTypeValueChanged
+        // TODO add your handling code here:
+        try {
+            this.myController.setModificationMode(this.jListTypeModificationType.getSelectedValue());
+        } catch (Exception Ex) {
+            System.out.println("mmmmm");
+        }
+    }//GEN-LAST:event_jListTypeModificationTypeValueChanged
 
     /**
      * @param args the command line arguments
