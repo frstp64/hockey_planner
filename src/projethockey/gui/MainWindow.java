@@ -1223,7 +1223,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         jTabbedPaneRoot.addTab("Sport", jPanelSport);
 
-        jPanelObstacle.setEnabled(false);
         jPanelObstacle.setMinimumSize(new java.awt.Dimension(0, 0));
         jPanelObstacle.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1342,7 +1341,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         jPanelObstacle.add(jLabelExistingObjects, gridBagConstraints);
 
-        jListExistingObstacle.setMinimumSize(new java.awt.Dimension(0, 0));
         jListExistingObstacle.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jListExistingObstacleMouseClicked(evt);
@@ -1639,9 +1637,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jScrollPanePlayerSelection.setMinimumSize(null);
         jScrollPanePlayerSelection.setName(""); // NOI18N
 
-        jListStrategyPlayers.setMaximumSize(new java.awt.Dimension(0, 0));
-        jListStrategyPlayers.setMinimumSize(new java.awt.Dimension(0, 0));
-        jListStrategyPlayers.setPreferredSize(new java.awt.Dimension(0, 0));
         jListStrategyPlayers.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jListStrategyPlayersMouseClicked(evt);
@@ -1666,9 +1661,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jScrollPaneObjectSelection.setPreferredSize(new java.awt.Dimension(0, 0));
 
         jListStrategyObjects.setEnabled(false);
-        jListStrategyObjects.setMaximumSize(new java.awt.Dimension(0, 0));
-        jListStrategyObjects.setMinimumSize(new java.awt.Dimension(0, 0));
-        jListStrategyObjects.setPreferredSize(new java.awt.Dimension(0, 0));
         jListStrategyObjects.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jListStrategyObjectsPropertyChange(evt);
@@ -2042,7 +2034,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jTabbedPaneRoot.addTab("Édition et visualisation de stratégie", jPanelStrategyEditor);
 
         getContentPane().add(jTabbedPaneRoot, java.awt.BorderLayout.CENTER);
-        this.jTabbedPaneRoot.setEnabledAt(4, false);
         this.jTabbedPaneRoot.setEnabledAt(6, false);
 
         pack();

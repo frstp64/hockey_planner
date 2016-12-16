@@ -529,8 +529,6 @@ public class Controller {
                         System.out.println("Error happenedwhile reading image");
                     }
                 }
-
-
                 break;
             }
         }
