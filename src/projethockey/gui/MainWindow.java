@@ -179,7 +179,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }
 
     public void publishCategoryObstacleDimensions(Float pdimX, Float pdimY){
-        this.jTextFieldObjectDimension.setText(pdimX.toString());
+        this.jTextFieldObjectDimensionX.setText(pdimX.toString());
         //this.jTextFieldObstacleSizeHorizontal.setText(pdimX.toString());
         //this.jTextFieldObstacleSizeVertical.setText(pdimY.toString());
     }
@@ -401,8 +401,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jListExistingObstacle = new javax.swing.JList<>();
         jButtonDeleteGameObstacle = new javax.swing.JButton();
         jLabelObstacleSize = new javax.swing.JLabel();
-        jTextFieldObjectDimension = new javax.swing.JTextField();
+        jTextFieldObjectDimensionX = new javax.swing.JTextField();
         jTextFieldObjectName = new javax.swing.JTextField();
+        jTextFieldObjectDimensionY = new javax.swing.JTextField();
         jPanelCreateLoadStrategy = new javax.swing.JPanel();
         jButtonCreateStrategy = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -1243,6 +1244,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelObstacle.add(jButtonSaveGameObstacle, gridBagConstraints);
@@ -1251,7 +1253,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         jPanelObstacle.add(jLabelObstacleInformation, gridBagConstraints);
 
         jLabelObstacleName.setText("Nom:");
@@ -1263,7 +1265,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         jLabelChosenObstacleImage.setText("Image d'objet choisi");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.ipady = 9;
         jPanelObstacle.add(jLabelChosenObstacleImage, gridBagConstraints);
@@ -1278,7 +1280,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelObstacleIcon.add(jLabelCategoryObstacleIcon, java.awt.BorderLayout.CENTER);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridheight = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -1296,7 +1298,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelObstacle.add(jButtonChooseObstaclePicture, gridBagConstraints);
@@ -1315,14 +1317,14 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelObstacle.add(jCheckBoxIsAGameObstacle, gridBagConstraints);
         jCheckBoxIsAGameObstacle.getAccessibleContext().setAccessibleDescription("");
 
         jLabelExistingObjects.setText("Objets existants");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         jPanelObstacle.add(jLabelExistingObjects, gridBagConstraints);
@@ -1340,7 +1342,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jScrollPane3.setViewportView(jListExistingObstacle);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -1360,11 +1362,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelObstacle.add(jButtonDeleteGameObstacle, gridBagConstraints);
 
-        jLabelObstacleSize.setText("Taille x:");
+        jLabelObstacleSize.setText("Taille:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
@@ -1373,9 +1376,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelObstacle.add(jLabelObstacleSize, gridBagConstraints);
 
-        jTextFieldObjectDimension.addFocusListener(new java.awt.event.FocusAdapter() {
+        jTextFieldObjectDimensionX.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextFieldObjectDimensionFocusLost(evt);
+                jTextFieldObjectDimensionXFocusLost(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1383,7 +1386,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelObstacle.add(jTextFieldObjectDimension, gridBagConstraints);
+        gridBagConstraints.weightx = 0.1;
+        jPanelObstacle.add(jTextFieldObjectDimensionX, gridBagConstraints);
 
         jTextFieldObjectName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -1398,8 +1402,16 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         jPanelObstacle.add(jTextFieldObjectName, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        jPanelObstacle.add(jTextFieldObjectDimensionY, gridBagConstraints);
 
         jTabbedPaneRoot.addTab("Objets de jeu", jPanelObstacle);
 
@@ -2622,9 +2634,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         myController.setCategoryObstacleName(this.jTextFieldObjectName.getText());        
     }//GEN-LAST:event_jTextFieldObjectNameFocusLost
 
-    private void jTextFieldObjectDimensionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldObjectDimensionFocusLost
-        myController.setCategoryObstacleHorizontalSize(Float.parseFloat(this.jTextFieldObjectDimension.getText()));
-    }//GEN-LAST:event_jTextFieldObjectDimensionFocusLost
+    private void jTextFieldObjectDimensionXFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldObjectDimensionXFocusLost
+        myController.setCategoryObstacleHorizontalSize(Float.parseFloat(this.jTextFieldObjectDimensionX.getText()));
+    }//GEN-LAST:event_jTextFieldObjectDimensionXFocusLost
 
     /**
      * @param args the command line arguments
@@ -2793,7 +2805,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JTextField jTextFieldChooseStrategyName;
     private javax.swing.JTextField jTextFieldFieldUnits;
     private javax.swing.JTextField jTextFieldHorizontalSize;
-    private javax.swing.JTextField jTextFieldObjectDimension;
+    private javax.swing.JTextField jTextFieldObjectDimensionX;
+    private javax.swing.JTextField jTextFieldObjectDimensionY;
     private javax.swing.JTextField jTextFieldObjectName;
     private javax.swing.JTextField jTextFieldPlaybackSpeed;
     private javax.swing.JTextField jTextFieldPlayerName;
