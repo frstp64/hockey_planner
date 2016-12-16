@@ -11,7 +11,6 @@ import java.io.IOException;
 public class CategoryPlayer implements java.io.Serializable{
     private String catName;
     private int scale;
-    private Position positionDefault;
     private Float horizontalSize;
     private Float verticalSize;
     
@@ -26,7 +25,6 @@ public class CategoryPlayer implements java.io.Serializable{
     public CategoryPlayer(CategoryPlayer categoryPlayer) {
         this.catName = categoryPlayer.catName;
         this.imgPlayer = categoryPlayer.imgPlayer;
-        this.positionDefault = categoryPlayer.positionDefault;
         this.scale = categoryPlayer.scale;
         this.horizontalSize = categoryPlayer.horizontalSize;
         this.verticalSize = categoryPlayer.verticalSize;
@@ -50,23 +48,6 @@ public class CategoryPlayer implements java.io.Serializable{
     
     public void setImg(BufferedImage playerImage) {
         this.imgPlayer = playerImage;
-    }
-    
-    
-    public Position getPositionDefault() {
-        return this.positionDefault;
-    }
-    
-    public void setPositionDefault(Position positionDefault) {
-        this.positionDefault = positionDefault;
-    }
-    
-    public int getScale() {
-        return this.scale;
-    }    
-            
-    public void setScale(int scale) {
-       this.scale = scale;
     }
     
     public void setHorizontalSize(Float pHorizontalSize) {

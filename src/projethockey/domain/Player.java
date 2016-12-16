@@ -7,8 +7,6 @@ package projethockey.domain;
 public class Player implements java.io.Serializable {
     private int objectAssocied;
     private CategoryPlayer categoryPlayer;
-    private Orientation orientation;
-    private Position position;
     private String name;
     private String role;
     private boolean visible;
@@ -22,20 +20,10 @@ public class Player implements java.io.Serializable {
     public Player(Player player) {
         this.objectAssocied = player.objectAssocied;
         this.categoryPlayer = player.categoryPlayer;
-        this.orientation = player.orientation;
-        this.position = player.position;
         this.name = player.name;
         this.role = player.role;
         this.visible = player.visible;
         this.idEquipe = player.idEquipe;        
-    }
-
-    public int getObjectAssocied() {
-        return objectAssocied;
-    }
-
-    public void setObjectAssocied(int objectAssocied) {
-        this.objectAssocied = objectAssocied;
     }
 
     public CategoryPlayer getCategoryPlayer() {
@@ -50,46 +38,13 @@ public class Player implements java.io.Serializable {
         this.categoryPlayer = categoryPlayer;
     }
 
-    public Orientation getOrientation() {
-        return orientation;
-    }
-
-    public void setOrientation(Orientation orientation) {
-        this.orientation = orientation;
-    }
-
-    public Position getPosition() {
-        return position;
-    }
-
-    public void setPosition(Position position) {
-        this.position = position;
-    }
-
     public String getRole() {
         return this.getCategoryPlayerName();
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public boolean isVisible() {
-        return visible;
     }
 
     public void setVisible(boolean visible) {
         this.visible = visible;
     }
-
-    public int getIdEquipe() {
-        return idEquipe;
-    }
-
-    public void setIdEquipe(int idEquipe) {
-        this.idEquipe = idEquipe;
-    }
-
     public String getName() {
         return name;
     }

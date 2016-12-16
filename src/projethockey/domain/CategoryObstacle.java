@@ -13,7 +13,6 @@ public class CategoryObstacle implements java.io.Serializable{
     private String catName;
     private String imgPath;
     private int scale;
-    private Position positionDefault;
     private Float horizontalSize;
     private Float verticalSize;
     private Boolean isGameObject;
@@ -24,7 +23,6 @@ public class CategoryObstacle implements java.io.Serializable{
     public CategoryObstacle(CategoryObstacle categoryObstacle) {
         this.catName = categoryObstacle.catName;
         this.imgPath = categoryObstacle.imgPath;
-        this.positionDefault = categoryObstacle.positionDefault;
         this.scale = categoryObstacle.scale;
         this.horizontalSize = categoryObstacle.horizontalSize;
         this.verticalSize = categoryObstacle.verticalSize;
@@ -50,22 +48,6 @@ public class CategoryObstacle implements java.io.Serializable{
 
     public void setImgPath(String imgPath) {
         this.imgPath = imgPath;
-    }
-
-    public Position getPositionDefault() {
-        return this.positionDefault;
-    }
-
-    public void setPositionDefault(Position positionDefault) {
-        this.positionDefault = positionDefault;
-    }
-
-    public int getScale() {
-        return this.scale;
-    }
-
-    public void setScale(int scale) {
-       this.scale = scale;
     }
 
     public void setHorizontalSize(Float pHorizontalSize) {
@@ -98,15 +80,5 @@ public class CategoryObstacle implements java.io.Serializable{
         this.imgPath = "";
         this.isGameObject = false;
     }
-    
-    
-//    private void writeObject(ObjectOutputStream out) throws IOException {
-//        out.defaultWriteObject();
-//        ImageIO.write(imgPlayer, "png", out);
-//    }
-//    
-//    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
-//        in.defaultReadObject();
-//        imgPlayer = ImageIO.read(in);
-//    }
+
 }

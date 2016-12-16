@@ -37,15 +37,6 @@ public class Strategy implements java.io.Serializable{
             this.listTeam.add(new Team(aTeam));
         }
     }
-
-//    public Strategy(float playBackSpeed, Date deltaTimeFrame, String sportName, ArrayList<Snapshot> listSnapshot, String name, Sport sport, ArrayList<Team> listTeam) {
-//        this.playBackSpeed = playBackSpeed;
-//        this.deltaTimeFrame = deltaTimeFrame;
-//        this.listSnapshot = listSnapshot;
-//        this.name = name;
-//        this.sport = sport;
-//        this.listTeam = listTeam;
-//    }
     
     
     public String getName() {

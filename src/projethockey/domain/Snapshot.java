@@ -2,7 +2,6 @@ package projethockey.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Date;
 
 /**
  *
@@ -11,7 +10,6 @@ import java.util.Date;
 public class Snapshot implements java.io.Serializable {
     private int idChange;
     private ArrayList<TransientPlayer> listTransientPlayer;
-    private ArrayList<Obstacle> listObstacle;
     private boolean trashed;
     private int timeStamp;
     private String typeSnapshot;
@@ -21,7 +19,6 @@ public class Snapshot implements java.io.Serializable {
         this.trashed = false;
         this.typeSnapshot = "TODOLATER";
         this.listTransientPlayer = new ArrayList();
-        this.listObstacle = new ArrayList();
         this.idChange = -1;
     }
 
@@ -44,15 +41,6 @@ public class Snapshot implements java.io.Serializable {
         this.timeStamp = snapshot.timeStamp;
         this.typeSnapshot = snapshot.typeSnapshot;   
     }
-    
-//    public Snapshot(int idChange, ArrayList<TransientPlayer> plistTransientPlayer, ArrayList<Obstacle> listObstacle, boolean trashed, int timeStamp, String typeSnapshot) {
-//        this.idChange = idChange;
-//        //this.listTransientPlayer = plistTransientPlayer.;
-//        this.listObstacle = listObstacle;
-//        this.trashed = trashed;
-//        this.timeStamp = timeStamp;
-//        this.typeSnapshot = typeSnapshot;
-//    }
 
     public int getIdChange() {
         return idChange;
@@ -68,14 +56,6 @@ public class Snapshot implements java.io.Serializable {
 
     public void setListTransientPlayer(ArrayList<TransientPlayer> plistTransientPlayer) {
         this.listTransientPlayer = plistTransientPlayer;
-    }
-
-    public List<Obstacle> getListObstacle() {
-        return listObstacle;
-    }
-
-    public void setListObstacle(ArrayList<Obstacle> listObstacle) {
-        this.listObstacle = listObstacle;
     }
 
     public boolean isTrashed() {
@@ -106,11 +86,6 @@ public class Snapshot implements java.io.Serializable {
     public List<Player> getOrCreateListPlayer() {
         throw new UnsupportedOperationException();
         //return listPlayer;
-    }
-
-    public List<Obstacle> getOrCreateListObstacle() {
-        throw new UnsupportedOperationException();
-        //return listObstacle;
     }
     
     // Deals with dubloons

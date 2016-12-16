@@ -17,7 +17,6 @@ public class Sport implements java.io.Serializable{
     private Float verticalSize;
     private int nbPlayer;
     private boolean unlimitedPlayer;
-    private Orientation fieldOrientation;
     private ArrayList<CategoryPlayer> listCatPlayer;
     private int numberMaxTeam;
     //private var objectAssocied;
@@ -36,7 +35,6 @@ public class Sport implements java.io.Serializable{
         this.verticalSize = sport.verticalSize;
         this.nbPlayer = sport.nbPlayer;
         this.unlimitedPlayer = sport.unlimitedPlayer;
-        this.fieldOrientation = sport.fieldOrientation;
         this.listCatPlayer = sport.listCatPlayer;
         this.numberMaxTeam = sport.numberMaxTeam;
     }
@@ -63,14 +61,6 @@ public class Sport implements java.io.Serializable{
 
     public void setNbPlayer(int nbPlayer) {
         this.nbPlayer = nbPlayer;
-    }
-
-    public Orientation getFieldOrientation() {
-        return fieldOrientation;
-    }
-
-    public void setFieldOrientation(Orientation fieldOrientation) {
-        this.fieldOrientation = fieldOrientation;
     }
     
     public void setHorizontalSize(Float pHorizontalSize) {
