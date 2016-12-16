@@ -12,12 +12,11 @@ import java.io.IOException;
  */
 public class Sport implements java.io.Serializable{ 
     private String name;
-    private String dimentionUnit;
+    private String dimensionUnit;
     private Float horizontalSize;
     private Float verticalSize;
     private int nbPlayer;
     private boolean unlimitedPlayer;
-    private ArrayList<CategoryPlayer> listCatPlayer;
     private int numberMaxTeam;
     //private var objectAssocied;
     
@@ -25,17 +24,24 @@ public class Sport implements java.io.Serializable{
     transient BufferedImage imgField;
     
     Sport() {
+        this.name = null;
+        this.imgField = null;
+        this.dimensionUnit = null;
+        this.horizontalSize = (float) 0.0;
+        this.verticalSize = (float) 0.0;
+        this.nbPlayer = 1;
+        this.unlimitedPlayer = false;
+        this.numberMaxTeam = 1;
     }
     
     public Sport(Sport sport) {
         this.name = sport.name;
         this.imgField = sport.imgField;
-        this.dimentionUnit = sport.dimentionUnit;
+        this.dimensionUnit = sport.dimensionUnit;
         this.horizontalSize = sport.horizontalSize;
         this.verticalSize = sport.verticalSize;
         this.nbPlayer = sport.nbPlayer;
         this.unlimitedPlayer = sport.unlimitedPlayer;
-        this.listCatPlayer = sport.listCatPlayer;
         this.numberMaxTeam = sport.numberMaxTeam;
     }
 
@@ -48,11 +54,11 @@ public class Sport implements java.io.Serializable{
     }
     
     public String getDimentionUnit() {
-        return dimentionUnit;
+        return dimensionUnit;
     }
 
     public void setDimentionUnit(String dimentionUnit) {
-        this.dimentionUnit = dimentionUnit;
+        this.dimensionUnit = dimentionUnit;
     }
 
     public int getNbPlayer() {
@@ -94,14 +100,6 @@ public class Sport implements java.io.Serializable{
         this.unlimitedPlayer = pUnlimitedPlayer;
     }
 
-    public ArrayList<CategoryPlayer> getListCatPlayer() {
-        return listCatPlayer;
-    }
-
-    public void setListCatPlayer(ArrayList<CategoryPlayer> listCatPlayer) {
-        this.listCatPlayer = listCatPlayer;
-    }
-
     public int getNumberMaxTeam() {
         return numberMaxTeam;
     }
@@ -115,7 +113,7 @@ public class Sport implements java.io.Serializable{
         this.horizontalSize = (float) 0;
         this.name = "";
         this.imgField = new BufferedImage(1,1,BufferedImage.TYPE_INT_ARGB);
-        this.dimentionUnit = "";
+        this.dimensionUnit = "";
         this.nbPlayer = 1;
         
     }
@@ -153,15 +151,33 @@ public class Sport implements java.io.Serializable{
         
         // To complete.
         boolean checkBool = true;
+        
+        // check if the image exists
         if (this.imgField == null){
             checkBool = false;
         }
-        else if (this.name == null || this.name.equals("")) {
+        
+        // check the validity of the name
+        if (this.name == null || this.name.isEmpty()) {
             checkBool = false;
         }
         
-        if (!checkBool){
-            System.out.println("Sport is not valid");
+        // we need dimensions
+        if (this.dimensionUnit == null || this.dimensionUnit.isEmpty()) {
+            checkBool = false;
+        }
+        
+        // The size of the field must be strictly positive
+        if (this.horizontalSize <= 0 || this.verticalSize <= 0) {
+            checkBool = false;
+        }
+        
+        if (this.nbPlayer < 1) {
+            checkBool = false;
+        }
+        
+        if (this.numberMaxTeam < 1) {
+            checkBool = false;
         }
         
         return checkBool;
