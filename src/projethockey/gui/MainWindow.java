@@ -415,6 +415,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jButtonDeleteGameObstacle = new javax.swing.JButton();
         jLabelObstacleSize = new javax.swing.JLabel();
         jTextFieldObjectDimension = new javax.swing.JTextField();
+        jTextFieldObjectName = new javax.swing.JTextField();
         jPanelCreateLoadStrategy = new javax.swing.JPanel();
         jButtonCreateStrategy = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -1391,6 +1392,17 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelObstacle.add(jTextFieldObjectDimension, gridBagConstraints);
+
+        jTextFieldObjectName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldObjectNameActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanelObstacle.add(jTextFieldObjectName, gridBagConstraints);
 
         jTabbedPaneRoot.addTab("Objets de jeu", jPanelObstacle);
 
@@ -2639,6 +2651,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         }
     }//GEN-LAST:event_jListTypeModificationTypeValueChanged
 
+    private void jTextFieldObjectNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldObjectNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldObjectNameActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2808,6 +2824,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JTextField jTextFieldFieldUnits;
     private javax.swing.JTextField jTextFieldHorizontalSize;
     private javax.swing.JTextField jTextFieldObjectDimension;
+    private javax.swing.JTextField jTextFieldObjectName;
     private javax.swing.JTextField jTextFieldPlaybackSpeed;
     private javax.swing.JTextField jTextFieldPlayerName;
     private javax.swing.JTextField jTextFieldSportName;
