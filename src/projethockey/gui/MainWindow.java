@@ -192,12 +192,13 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }
 
     public void publishCategoryObstacleDimensions(Float pdimX, Float pdimY){
+        this.jTextFieldObjectDimension.setText(pdimX.toString());
         //this.jTextFieldObstacleSizeHorizontal.setText(pdimX.toString());
         //this.jTextFieldObstacleSizeVertical.setText(pdimY.toString());
     }
 
     public void publishCategoryObstacleName(String pCategoryObstacleName) {
-        //this.jTextFieldObstacleName.setText(pCategoryObstacleName);
+        this.jTextFieldObjectName.setText(pCategoryObstacleName);
     }
 
     public void publishExistingCategoryObstacle(String[] plistCategoryObstacle) {
@@ -1379,13 +1380,20 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelObstacle.add(jButtonDeleteGameObstacle, gridBagConstraints);
 
-        jLabelObstacleSize.setText("Taille");
+        jLabelObstacleSize.setText("Taille x:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelObstacle.add(jLabelObstacleSize, gridBagConstraints);
+
+        jTextFieldObjectDimension.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldObjectDimensionFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
@@ -1393,6 +1401,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelObstacle.add(jTextFieldObjectDimension, gridBagConstraints);
 
+        jTextFieldObjectName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldObjectNameFocusLost(evt);
+            }
+        });
         jTextFieldObjectName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldObjectNameActionPerformed(evt);
@@ -2654,6 +2667,14 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jTextFieldObjectNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldObjectNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldObjectNameActionPerformed
+
+    private void jTextFieldObjectNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldObjectNameFocusLost
+        myController.setCategoryObstacleName(this.jTextFieldObjectName.getText());        
+    }//GEN-LAST:event_jTextFieldObjectNameFocusLost
+
+    private void jTextFieldObjectDimensionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldObjectDimensionFocusLost
+        myController.setCategoryObstacleHorizontalSize(Float.parseFloat(this.jTextFieldObjectDimension.getText()));
+    }//GEN-LAST:event_jTextFieldObjectDimensionFocusLost
 
     /**
      * @param args the command line arguments

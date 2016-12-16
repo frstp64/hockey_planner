@@ -106,14 +106,6 @@ public class Controller {
 
         timer = new Timer();
         viewerState = StrategyViewerState.Stop;
-        //timer.scheduleAtFixedRate(task, 1000, 0);
-        
-        //timer.scheduleAtFixedRate(new TimerTask() {
-        //    @Override
-        //    public void run() {
-        //      playStrategyNextFrame();
-        //    }
-        //  }, 1000, 1000);
         
         timeViewer = 0;
         intervalTimeinMS = 1000;
@@ -488,7 +480,7 @@ public class Controller {
                 break;
             }
         }
-
+        
         // Add the categoryObstacle to the list
         categoryObstacleArray.add(new CategoryObstacle(this.mPlaceHolderCategoryObstacle));
 
