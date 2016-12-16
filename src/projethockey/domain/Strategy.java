@@ -46,23 +46,7 @@ public class Strategy implements java.io.Serializable{
     public void setName(String name) {
         this.name = name;
     }
-
-    public float getPlayBackSpeed() {
-        return playBackSpeed;
-    }
-
-    public void setPlayBackSpeed(float playBackSpeed) {
-        this.playBackSpeed = playBackSpeed;
-    }
-
-    public Date getDeltaTimeFrame() {
-        return deltaTimeFrame;
-    }
-
-    public void setDeltaTimeFrame(Date deltaTimeFrame) {
-        this.deltaTimeFrame = deltaTimeFrame;
-    }
-
+    
     public String getSportName() {
         return this.sport.getName();
     }
