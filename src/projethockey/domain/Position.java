@@ -12,16 +12,6 @@ public class Position {
        this.posX = 0;
        this.posY = 0;
     }
-    
-    public Position(float posX, float posY) {
-       this.posX = posX;
-       this.posY = posY;
-    }
-    
-    public Position(Position position) {
-       this.posX = position.posX;
-       this.posY = position.posY;
-    }
         
     public float getPositionX() {
         return this.posX;

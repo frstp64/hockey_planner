@@ -182,10 +182,6 @@ public class Controller {
     public void setSportCategoryNumber(int pCategoryNumber) {
         this.mMainWindow.publishObjectTypeNumber(pCategoryNumber);
     }
-
-    public void setSportPlayers(ArrayList<String> typeArray, ArrayList<String> playerRoleArray) {
-        this.mPlaceHolderSport.setPlayers(typeArray, playerRoleArray);
-    }
     
     public void setTeamNumber(int number) {
         this.mPlaceHolderSport.setNumberMaxTeam(number);
@@ -195,10 +191,6 @@ public class Controller {
     public void setSportObjectTypeNumber(int pObjectNumber) {
         this.mPlaceHolderSport.setNbPlayer(pObjectNumber);
         this.mMainWindow.publishObjectTypeNumber(pObjectNumber);
-    }
-
-    public void setSportObjects(ArrayList<String> typeArray, ArrayList<Integer> numberArray) {
-        this.mPlaceHolderSport.setObjects(typeArray, numberArray);
     }
 
     public void resetPlaceHolderSport() {
@@ -286,19 +278,6 @@ public class Controller {
         // Update display
         publishSportsNames();
     }
-    
-    public void refreshSport() {
-        //if one is selected, refresh the text fields
-        for (Sport aSport: sportArray) {
-                if (aSport.getName().equals(this.selectedSport)) {
-                    //
-                    this.mMainWindow.publishSportName(aSport.getName());
-                    this.mMainWindow.publishPlayerNumber(aSport.getNbPlayer());
-                }
-            }
-            this.selectedSport = "";
-        }
-
 
     public void publishSportsNames() {
         ArrayList<String> sportNameList = new ArrayList<String>();
@@ -1015,16 +994,6 @@ public class Controller {
             this.mMouseFSM.stopPlaying();
         }
     }
-    
-    public void playStrategyNextFrame() {
-        if(viewerState.equals(StrategyViewerState.Play))
-        {
-            //timeViewer++;
-            //The animation here
-            //this.loadedStrategy.getFrame();
-        }
-        this.drawCurrentFrame();
-    }
       
     public void playStepBackTimeFrame() {
         timeViewer -= this.intervalTimeinMS;
@@ -1087,6 +1056,8 @@ public class Controller {
         this.mMainWindow.publishCurrentTime(snapshotToPrint.getTimeStamp()/1000);
         System.out.println("Just drew a frame!");
     }
+    
+    
         
     public void switchZoomMode() {
         this.mMouseFSM.startZoomMode();

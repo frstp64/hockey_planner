@@ -12,20 +12,6 @@ public class Obstacle {
 
     public Obstacle() {
     }
-
-    public Obstacle(Obstacle obstacle) {
-        this.position = obstacle.position;
-        this.orientation = obstacle.orientation;
-        this.categoryObstacle = obstacle.categoryObstacle;
-        this.visible = obstacle.visible;
-    }
-    
-    public Obstacle(Position position, Orientation orientation, CategoryObstacle categoryObstacle, boolean visible) {
-        this.position = position;
-        this.orientation = orientation;
-        this.categoryObstacle = categoryObstacle;
-        this.visible = visible;
-    }    
     
     
     public Position getPosition() {

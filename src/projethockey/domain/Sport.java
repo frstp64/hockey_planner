@@ -41,19 +41,6 @@ public class Sport implements java.io.Serializable{
         this.numberMaxTeam = sport.numberMaxTeam;
     }
 
-    public Sport(String name, BufferedImage imgField, String dimentionUnit, Float horizontalSize, Float verticalSize, int nbPlayer, boolean unlimitedPlayer, Orientation fieldOrientation, ArrayList<CategoryPlayer> listCatPlayer, int numberMaxTeam) {
-        this.name = name;
-        this.imgField = imgField;
-        this.dimentionUnit = dimentionUnit;
-        this.horizontalSize = horizontalSize;
-        this.verticalSize = verticalSize;
-        this.nbPlayer = nbPlayer;
-        this.unlimitedPlayer = unlimitedPlayer;
-        this.fieldOrientation = fieldOrientation;
-        this.listCatPlayer = listCatPlayer;
-        this.numberMaxTeam = numberMaxTeam;
-    }
-
     public String getName() {
         return name;
     }
@@ -142,14 +129,6 @@ public class Sport implements java.io.Serializable{
         this.nbPlayer = 1;
         
     }
-    
-    public void setPlayers(ArrayList<String> typeArray, ArrayList<String> playerRoleArray) {
-        // TODO
-    }
-    public void setObjects(ArrayList<String> typeArray, ArrayList<Integer> numberArray) {
-        //TODO
-    }
-    
     
     public boolean isTeamListValid(ArrayList<Team> listTeam) {
         boolean isValid = true;

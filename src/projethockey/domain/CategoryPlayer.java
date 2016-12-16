@@ -23,13 +23,6 @@ public class CategoryPlayer implements java.io.Serializable{
         this.imgPlayer = null;
     }
     
-    public CategoryPlayer(String catName, Position positionDefault, int scale) {
-        this.catName = catName;
-        this.positionDefault = positionDefault;
-        this.scale = scale;
-        this.imgPlayer = null;
-    }
-    
     public CategoryPlayer(CategoryPlayer categoryPlayer) {
         this.catName = categoryPlayer.catName;
         this.imgPlayer = categoryPlayer.imgPlayer;

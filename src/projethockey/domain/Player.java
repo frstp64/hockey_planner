@@ -29,17 +29,6 @@ public class Player implements java.io.Serializable {
         this.visible = player.visible;
         this.idEquipe = player.idEquipe;        
     }
-    
-    public Player(int objectAssocied, CategoryPlayer categoryPlayer, Orientation orientation, Position position, String name, String role, boolean visible, int idEquipe) {
-        this.objectAssocied = objectAssocied;
-        this.categoryPlayer = categoryPlayer;
-        this.orientation = orientation;
-        this.position = position;
-        this.name = name;
-        this.role = role;
-        this.visible = visible;
-        this.idEquipe = idEquipe;
-    }
 
     public int getObjectAssocied() {
         return objectAssocied;

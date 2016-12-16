@@ -17,11 +17,6 @@ public class Team implements java.io.Serializable {
         this.name = team.name;
         this.listPlayer = team.listPlayer;
     }           
-    
-    public Team(String name, ArrayList<Player> listPlayer) {
-        this.name = name;
-        this.listPlayer = listPlayer;
-    }
 
     public String getName() {
         return name;

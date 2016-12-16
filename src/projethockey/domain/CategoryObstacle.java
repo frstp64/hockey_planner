@@ -21,13 +21,6 @@ public class CategoryObstacle implements java.io.Serializable{
     public CategoryObstacle(){
     }
 
-    public CategoryObstacle(String catName, String imgPath, Position positionDefault, int scale) {
-        this.catName = catName;
-        this.imgPath = imgPath;
-        this.positionDefault = positionDefault;
-        this.scale = scale;
-    }
-
     public CategoryObstacle(CategoryObstacle categoryObstacle) {
         this.catName = categoryObstacle.catName;
         this.imgPath = categoryObstacle.imgPath;

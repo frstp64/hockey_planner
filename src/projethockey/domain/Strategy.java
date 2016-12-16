@@ -98,31 +98,7 @@ public class Strategy implements java.io.Serializable{
 
     public void setListTeam(ArrayList<Team> listTeam) {
         this.listTeam = listTeam;
-    }    
-            
-    /*
-                Public methodes
-    */
-    
-    public void getFrame() {
-        throw new UnsupportedOperationException();
-    }
-    
-    public void setFrame() {
-        throw new UnsupportedOperationException();
-    }
-    
-    public void trashFrame() {
-        throw new UnsupportedOperationException();
-    }
-    
-    public void cleanUp() {
-        throw new UnsupportedOperationException();
-    }
-    
-    public void getSnapShotAfterTime() {
-        throw new UnsupportedOperationException();
-    }
+    } 
     
     public Snapshot getCurrentSnapshot(int wantedTime) {
         for (Snapshot aSnapshot: this.listSnapshot) {
