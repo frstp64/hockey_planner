@@ -38,7 +38,8 @@ public class Controller {
     private String selectedCategoryObstacle;
 
     // Strategy
-    private Strategy mPlaceHolderStrategy; // Contains the parameters for the new Strategy
+    private Strategy mPlaceHolderStrategyCreation; // Contains the parameters for the new Strategy
+    private Strategy mStrategyInEdition; // Contains the parameters for the new Strategy
     private ArrayList<Strategy> strategyArray;
     private String selectedStrategy;
     
@@ -90,7 +91,7 @@ public class Controller {
         mPlaceHolderCategoryObstacle = new CategoryObstacle();
         categoryObstacleArray = new ArrayList<CategoryObstacle>();
         // Strategy
-        mPlaceHolderStrategy = new Strategy();
+        mPlaceHolderStrategyCreation = new Strategy();
         strategyArray = new ArrayList<Strategy>();
         // Player
         mPlaceHolderPlayer = new Player();
@@ -322,22 +323,11 @@ public class Controller {
         this.mPlaceHolderCategoryPlayer.setCategoryName(pCategoryPlayerName);
     }
 
-    public void setCategoryPlayerHorizontalSize(Float pHorizSize) {
-        this.mPlaceHolderCategoryPlayer.setHorizontalSize(pHorizSize);
-
-    }
-
-    public void setCategoryPlayerVerticalSize(Float pVertSize) {
-        this.mPlaceHolderCategoryPlayer.setVerticalSize(pVertSize);
-
-    }
-
     public void resetPlaceHolderCategoryPlayer() {
 
         // empty data
         this.mPlaceHolderCategoryPlayer.reset();
         // empty GUI values
-        this.mMainWindow.publishCategoryPlayerDimensions(this.mPlaceHolderCategoryPlayer.getHorizontalSize(), this.mPlaceHolderCategoryPlayer.getVerticalSize());
         this.mMainWindow.publishCategoryPlayerName(this.mPlaceHolderCategoryPlayer.getCategoryName());
         // empty image label
         this.mMainWindow.publishCategoryPlayerIcon(null);
@@ -345,8 +335,8 @@ public class Controller {
 
     public void saveCategoryPlayer() {
         // Ensure the categoryPlayer is valid here.
-        if (this.mPlaceHolderCategoryPlayer.getImg() != null && this.mPlaceHolderCategoryPlayer.getCategoryName() != null) {
-
+        if (this.mPlaceHolderCategoryPlayer.isValid()) {
+            System.out.println("was valid");
         // If the categoryPlayer exists, remove it from the list
         for (CategoryPlayer aCategoryPlayer: categoryPlayerArray) {
             if (aCategoryPlayer.getCategoryName().equals(this.mPlaceHolderCategoryPlayer.getCategoryName())) {
@@ -381,7 +371,6 @@ public class Controller {
 
                 // Publish placeholder's Data to GUI fields
                 this.mMainWindow.publishCategoryPlayerName(this.mPlaceHolderCategoryPlayer.getCategoryName());
-                this.mMainWindow.publishCategoryPlayerDimensions(this.mPlaceHolderCategoryPlayer.getHorizontalSize(), this.mPlaceHolderCategoryPlayer.getVerticalSize());
 
                 // load image and publish  to GUI
                 this.mMainWindow.publishCategoryPlayerIcon(this.mPlaceHolderCategoryPlayer.getImg());
@@ -584,7 +573,7 @@ public class Controller {
 
     // -------------------- Strategy --------------------
     public void setStrategyName(String pStrategyName) {
-        this.mPlaceHolderStrategy.setName(pStrategyName);
+        this.mPlaceHolderStrategyCreation.setName(pStrategyName);
     }
 
     public void resetPlaceHolderStrategy() {
@@ -602,10 +591,8 @@ public class Controller {
         // save strategy to strategy array. This is not a save snapshot.
         // Ensure the Strategy is valid here.
 
-        // TODO fix this with saving in the strategy dir, one strategy per folder.
-        // If the Strategy exists, remove it from the list
         for (Strategy aStrategy: strategyArray) {
-            if (aStrategy.getName().equals(this.mPlaceHolderStrategy.getName())) {
+            if (aStrategy.getName().equals(this.mPlaceHolderStrategyCreation.getName())) {
                 System.out.println(aStrategy.getName());
                 this.strategyArray.remove(aStrategy);
                 break;
@@ -615,7 +602,7 @@ public class Controller {
         
         
         // Add the Strategy to the list
-        strategyArray.add(new Strategy(this.mPlaceHolderStrategy));
+        strategyArray.add(new Strategy(this.mPlaceHolderStrategyCreation));
 
         //Save to permanent memory
         projethockey.services.AppDataProxy.saveData(this);
@@ -635,16 +622,16 @@ public class Controller {
             if (aStrategy.getName().equals(this.selectedStrategy)) {
 
                 // Change placeholder values
-                this.mPlaceHolderStrategy = new Strategy(aStrategy);
+                this.mPlaceHolderStrategyCreation = new Strategy(aStrategy);
 
                 // Publish placeholder's Data to GUI fields
-                this.mMainWindow.publishStrategyName(this.mPlaceHolderStrategy.getName());
-                this.mMainWindow.publishStrategyTeams(this.mPlaceHolderStrategy.getTeamNames());
+                this.mMainWindow.publishStrategyName(this.mPlaceHolderStrategyCreation.getName());
+                this.mMainWindow.publishStrategyTeams(this.mPlaceHolderStrategyCreation.getTeamNames());
                 
                 
                 // publish all players in strategy to list.
                 ArrayList<String> playerNames = new ArrayList<String>();
-                for(Team aTeam: this.mPlaceHolderStrategy.getListTeam()){
+                for(Team aTeam: this.mPlaceHolderStrategyCreation.getListTeam()){
                     for(Player aPlayer: aTeam.getListPlayer()){
                         playerNames.add(aPlayer.getName());
                     }
@@ -682,7 +669,7 @@ public class Controller {
     public void publishStrategyNames() {
         ArrayList<String> StrategyNameList = new ArrayList<String>();
         for (Strategy aStrategy: strategyArray) {
-            if(this.mPlaceHolderStrategy.getSport() != null && aStrategy.getSportName().equals(this.mPlaceHolderStrategy.getSport().getName()))
+            if(this.mPlaceHolderStrategyCreation.getSport() != null && aStrategy.getSportName().equals(this.mPlaceHolderStrategyCreation.getSport().getName()))
                 StrategyNameList.add(aStrategy.getName());
         }
         this.mMainWindow.publishExistingStrategies(StrategyNameList.toArray(new String[StrategyNameList.size()]));
@@ -697,7 +684,7 @@ public class Controller {
     
     public void setStrategySport(Sport pSport) {
         // maybe keep a selectedStrategySport pointer?
-        this.mPlaceHolderStrategy.setSport(pSport);
+        this.mPlaceHolderStrategyCreation.setSport(pSport);
     }
 
     public void setStrategySportName(String sportName) {
@@ -705,7 +692,7 @@ public class Controller {
             if (aSport.getName().equals(sportName)) {
                 setStrategySport(aSport);
                 ArrayList<String> myTeamArray = new ArrayList();
-                for (Team aTeam : this.mPlaceHolderStrategy.getListTeam()) {
+                for (Team aTeam : this.mPlaceHolderStrategyCreation.getListTeam()) {
                     myTeamArray.add(aTeam.getName());
                 }
                 int missingSize = aSport.getNbPlayer() - myTeamArray.size();
@@ -734,7 +721,7 @@ public class Controller {
             }
         }
         
-        this.mPlaceHolderStrategy.setListTeam(teamList);
+        this.mPlaceHolderStrategyCreation.setListTeam(teamList);
     }
     
     // -------------------- Player --------------------
@@ -771,7 +758,7 @@ public class Controller {
     
     public void savePlayer() {
         // Ensure the player is valid here.
-        
+        if (this.mPlaceHolderPlayer.isValid()) {
         // If the player exists, remove it from the list
         for (Player aPlayer: playerArray) {
             if (aPlayer.getName().equals(this.mPlaceHolderPlayer.getName())) {
@@ -780,15 +767,15 @@ public class Controller {
                 break;
             }
         }
-
-        this.mPlaceHolderPlayer.setVisible(true);
         // Add the player to the list
         playerArray.add(new Player(this.mPlaceHolderPlayer));
+        
         
         //Save to permanent memory
         projethockey.services.AppDataProxy.saveData(this);
         if (!playerArray.isEmpty()) {
             publishPlayerNames();
+        }
         }
     }
     
@@ -880,7 +867,7 @@ public class Controller {
 
     public void saveTeam() {
         // Ensure the team is valid here.
-
+        if(this.mPlaceHolderTeam.isValid()) {
         // If the team exists, remove it from the list
         for (Team aTeam: teamArray) {
             if (aTeam.getName().equals(this.mPlaceHolderTeam.getName())) {
@@ -897,6 +884,7 @@ public class Controller {
         projethockey.services.AppDataProxy.saveData(this);
         if (!teamArray.isEmpty()) {
             publishTeamNames();
+        }
         }
     }
 
@@ -964,7 +952,7 @@ public class Controller {
             this.mMouseFSM.startPlaying();
             System.out.println("playStrategy appelé");
             long startTime = System.nanoTime();
-            int maxTime = this.mPlaceHolderStrategy.getBiggestTime();
+            int maxTime = this.mStrategyInEdition.getBiggestTime();
             long timeFromWhichToStartPlaying = this.timeViewer;
             while ((System.nanoTime() - startTime)/1000000 + timeFromWhichToStartPlaying < maxTime+100) {
                 //the showing loop
@@ -996,7 +984,7 @@ public class Controller {
     
     public void playStepFowardTimeFrame() {
         timeViewer += this.intervalTimeinMS;
-        int biggestTime = this.mPlaceHolderStrategy.getBiggestTime();
+        int biggestTime = this.mStrategyInEdition.getBiggestTime();
         if (timeViewer > biggestTime) {
             timeViewer = biggestTime;
         }
@@ -1033,14 +1021,14 @@ public class Controller {
     }
     
     public void setSceneBackground() {
-        myScene.setBackground(this.mPlaceHolderStrategy.getSport().getImg());
+        myScene.setBackground(this.mStrategyInEdition.getSport().getImg());
     }
     
     public void drawCurrentFrame() {
         // Draws the current frame on screen
-        //this.mPlaceHolderStrategy.getFrame();
+        //this.mStrategyInEdition.getFrame();
         myScene.cleanScene();
-        Snapshot snapshotToPrint = this.mPlaceHolderStrategy.getCurrentSnapshot(timeViewer);
+        Snapshot snapshotToPrint = this.mStrategyInEdition.getCurrentSnapshot(timeViewer);
         snapshotToPrint.printPlayers(myScene);
         this.mMainWindow.publishScene(myScene.getScenePicture());
         this.mMainWindow.publishCurrentTime(snapshotToPrint.getTimeStamp()/1000);
@@ -1064,16 +1052,16 @@ public class Controller {
     public void displayMouseCoordinates(int mousePosX, int mousePosY) {
         DecimalFormat formatterObject = new DecimalFormat("0.00");
         formatterObject.setMaximumFractionDigits(3);
-        String xString = "X:" + formatterObject.format(this.myScene.getNormalizedX(mousePosX)*this.mPlaceHolderStrategy.getSport().getHorizontalSize()) + this.mPlaceHolderStrategy.getSport().getDimentionUnit();
-        String yString = " Y:" + formatterObject.format(this.myScene.getNormalizedY(mousePosY)*this.mPlaceHolderStrategy.getSport().getVerticalSize()) + this.mPlaceHolderStrategy.getSport().getDimentionUnit();
+        String xString = "X:" + formatterObject.format(this.myScene.getNormalizedX(mousePosX)*this.mStrategyInEdition.getSport().getHorizontalSize()) + this.mStrategyInEdition.getSport().getDimentionUnit();
+        String yString = " Y:" + formatterObject.format(this.myScene.getNormalizedY(mousePosY)*this.mStrategyInEdition.getSport().getVerticalSize()) + this.mStrategyInEdition.getSport().getDimentionUnit();
         this.mMainWindow.publishMousePosition(xString+yString);
     }
     
     public void playerAddMode(String pPlayerName) {
         //TODO!
-        if (this.mPlaceHolderStrategy.doesPlayerExist(pPlayerName)) {
+        if (this.mStrategyInEdition.doesPlayerExist(pPlayerName)) {
             this.mMouseFSM.switchToAddMode(pPlayerName);
-            this.mPlaceHolderStrategy.getCurrentSnapshot(timeViewer);
+            this.mStrategyInEdition.getCurrentSnapshot(timeViewer);
         }
         else {
             System.out.println("Selected player that does not exist!");
@@ -1081,7 +1069,7 @@ public class Controller {
     }
     
     public Strategy getCurrentStrategy () {
-        return this.mPlaceHolderStrategy;
+        return this.mStrategyInEdition;
     }
     
     public int getCurrentTime() {
@@ -1089,7 +1077,7 @@ public class Controller {
     }
     
     public Player getPlayer(String pPlayerName) throws Exception{
-        return this.mPlaceHolderStrategy.getPlayer(pPlayerName);
+        return this.mStrategyInEdition.getPlayer(pPlayerName);
     }
     
     public Scene getScene() {
@@ -1107,23 +1095,21 @@ public class Controller {
     public void switchToNextFrame() {
         this.actionWillHappen();
         this.timeViewer += this.intervalTimeinMS;
-        if (!this.mPlaceHolderStrategy.frameExistsAtTime(this.timeViewer)) {
-        Snapshot oldSnapshot = this.mPlaceHolderStrategy.getLastSnapshotBefore(this.timeViewer);
-            Snapshot newSnapshot = this.mPlaceHolderStrategy.getOrCreate(this.timeViewer);
+        if (!this.mStrategyInEdition.frameExistsAtTime(this.timeViewer)) {
+        Snapshot oldSnapshot = this.mStrategyInEdition.getLastSnapshotBefore(this.timeViewer);
+            Snapshot newSnapshot = this.mStrategyInEdition.getOrCreate(this.timeViewer);
             newSnapshot.copyFromOtherSnapshot(oldSnapshot);
         }
         this.drawCurrentFrame();
     }
-    public void nukeAllSnapshots() {
-    this.mPlaceHolderStrategy.setListSnapshot(new ArrayList());
-}
+    
     // This function updates the undo/redo lists, please use BEFORE modification
     public void actionWillHappen() {
         redoList = new ArrayList(); // the redo list is emptied
-        if (this.mPlaceHolderStrategy == null) {
+        if (this.mStrategyInEdition == null) {
             System.out.println("wtf, actionWillHappen");
         }
-        undoList.add(new Strategy(this.mPlaceHolderStrategy)); //Strategy is copied in the undo array
+        undoList.add(new Strategy(this.mStrategyInEdition)); //Strategy is copied in the undo array
         if (undoList.size() > this.maxUndoRedo) {
             undoList.remove(0);
         }
@@ -1135,8 +1121,8 @@ public class Controller {
     public void tryUndo() {
         //first, check if the undo list isn't empty
         if (!undoList.isEmpty()) {
-            redoList.add(new Strategy(this.mPlaceHolderStrategy)); // add current state to redoList
-            this.mPlaceHolderStrategy = new Strategy(undoList.get(undoList.size()-1));
+            redoList.add(new Strategy(this.mStrategyInEdition)); // add current state to redoList
+            this.mStrategyInEdition = new Strategy(undoList.get(undoList.size()-1));
             undoList.remove(undoList.size()-1);
             
             System.out.println("Undo done!");
@@ -1147,8 +1133,8 @@ public class Controller {
     public void tryRedo() {
         //first, check if the redo list isn't empty
         if (!redoList.isEmpty()) {
-            undoList.add(new Strategy(this.mPlaceHolderStrategy));
-            this.mPlaceHolderStrategy = new Strategy(redoList.get(redoList.size()-1));
+            undoList.add(new Strategy(this.mStrategyInEdition));
+            this.mStrategyInEdition = new Strategy(redoList.get(redoList.size()-1));
             redoList.remove(redoList.size()-1);
             System.out.println("Redo done!");
         }

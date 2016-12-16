@@ -97,14 +97,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 fieldIcon = new ImageIcon(thePicture.getScaledInstance(-1, fieldHeight-2, -1));
             }
             this.jLabelSportField.setIcon(fieldIcon);
-            //JLabel myIconLabel = new JLabel(fieldIcon);
-            //System.out.println(thePicture.getHeight());
-            //System.out.println(thePicture.getWidth());
-            //myIconLabel.s
-            //this.jPanelSport.add(myIconLabel);
-            //this.jPanelSportFieldViewer.paintComponents(this.jPanelSportFieldViewer.getGraphics());
-            //this.jPanelSportFieldViewer.getGraphics().drawImage(thePicture, 0, 0, null);
-            //this.jPanelSport.repaint();
         }
 
 
@@ -140,11 +132,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         }
 
-    }
-
-    public void publishCategoryPlayerDimensions(Float pdimX, Float pdimY){
-        //this.jTextFieldCategorySizeHorizontal.setText(pdimX.toString());
-        //this.jTextFieldCategorySizeVertical.setText(pdimY.toString());
     }
 
     public void publishCategoryPlayerName(String pCategoryPlayerName) {
@@ -227,7 +214,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     
     public void publishStrategyName(String pStrategyName) {
         this.jTextFieldChooseStrategyName.setText(pStrategyName);
-        this.jTextFieldStrategyName.setText(pStrategyName);
         
         // set tab viewer disabled or not
         if (pStrategyName != null) {
@@ -444,7 +430,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jScrollPaneObjectSelection = new javax.swing.JScrollPane();
         jListStrategyObjects = new javax.swing.JList<>();
         jLabelObjectsToSelect = new javax.swing.JLabel();
-        jLabelStrategyName = new javax.swing.JLabel();
         jLabelPlayerToSelect = new javax.swing.JLabel();
         jLabelModificationModeToSelect = new javax.swing.JLabel();
         jButtonSaveStrategy = new javax.swing.JButton();
@@ -458,7 +443,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jButtonModificationVisualize = new javax.swing.JButton();
         jButtonStepBackTime = new javax.swing.JButton();
         jButtonStepForwardTime = new javax.swing.JButton();
-        jTextFieldStrategyName = new javax.swing.JTextField();
         jButtonUndo = new javax.swing.JButton();
         jButtonRedo = new javax.swing.JButton();
         jButtonExport = new javax.swing.JButton();
@@ -1512,11 +1496,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelCreateLoadStrategy.add(jLabelAvailableStrategies, gridBagConstraints);
 
         jComboBoxChooseStrategySport.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hockey", "Hockey Spécial", "Soccer" }));
-        jComboBoxChooseStrategySport.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jComboBoxChooseStrategySportFocusLost(evt);
-            }
-        });
         jComboBoxChooseStrategySport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxChooseStrategySportActionPerformed(evt);
@@ -1710,13 +1689,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelStrategyEditor.add(jLabelObjectsToSelect, gridBagConstraints);
 
-        jLabelStrategyName.setText("Nom de la stratégie:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelStrategyEditor.add(jLabelStrategyName, gridBagConstraints);
-
         jLabelPlayerToSelect.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelPlayerToSelect.setText("Joueurs");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1864,19 +1836,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         jPanelStrategyEditor.add(jButtonStepForwardTime, gridBagConstraints);
-
-        jTextFieldStrategyName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldStrategyNameActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        jPanelStrategyEditor.add(jTextFieldStrategyName, gridBagConstraints);
 
         jButtonUndo.setText("Annuler");
         jButtonUndo.setMaximumSize(new java.awt.Dimension(73, 25));
@@ -2094,8 +2053,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         
         this.myController.setStrategyTeam(tableData);
         this.myController.setStrategySport(this.myController.getSportFromName(this.jComboBoxChooseStrategySport.getSelectedItem().toString()));
-        this.myController.nukeAllSnapshots();
-        this.myController.saveStrategy();
+        //this.myController.nukeAllSnapshots();
+        //this.myController.saveStrategy();
     }//GEN-LAST:event_jButtonCreateStrategyActionPerformed
 
     private void jButtonNewSportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewSportActionPerformed
@@ -2285,11 +2244,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         myController.setStrategyName(this.jTextFieldChooseStrategyName.getText());
     }//GEN-LAST:event_jTextFieldChooseStrategyNameFocusLost
 
-    private void jComboBoxChooseStrategySportFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBoxChooseStrategySportFocusLost
-    //TODO fix    
-    //myController.setStrategySport(this.jComboBoxChooseStrategySport.getSelectedItem());
-    }//GEN-LAST:event_jComboBoxChooseStrategySportFocusLost
-
     private void jCheckBoxUnlimitedPlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxUnlimitedPlayerActionPerformed
         this.myController.setPlayerLimit(jCheckBoxUnlimitedPlayer.isSelected());
     }//GEN-LAST:event_jCheckBoxUnlimitedPlayerActionPerformed
@@ -2324,10 +2278,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         // TODO add your handling code here:
         this.myController.tryUndo();
     }//GEN-LAST:event_jButtonUndoActionPerformed
-
-    private void jTextFieldStrategyNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStrategyNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldStrategyNameActionPerformed
 
     private void jButtonStepForwardTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStepForwardTimeActionPerformed
         this.myController.playStepFowardTimeFrame();
@@ -2787,7 +2737,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JLabel jLabelSportName;
     private javax.swing.JLabel jLabelStrategyCreationZoneTitle;
     private javax.swing.JLabel jLabelStrategyEditorPicture;
-    private javax.swing.JLabel jLabelStrategyName;
     private javax.swing.JLabel jLabelStrategyPreview;
     private javax.swing.JLabel jLabelStrategyViewerTime;
     private javax.swing.JLabel jLabelTeamToSelect;
@@ -2849,7 +2798,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JTextField jTextFieldPlaybackSpeed;
     private javax.swing.JTextField jTextFieldPlayerName;
     private javax.swing.JTextField jTextFieldSportName;
-    private javax.swing.JTextField jTextFieldStrategyName;
     private javax.swing.JTextField jTextFieldStrategyViewerTime;
     private javax.swing.JTextField jTextFieldTeamName;
     private javax.swing.JTextField jTextFieldTimeInterval;

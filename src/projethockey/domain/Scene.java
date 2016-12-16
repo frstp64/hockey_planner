@@ -143,7 +143,7 @@ public class Scene {
         return ((float) pCoordY)/sceneSizeY;
     }
     
-    public void putPlayer(float pCoordX, float pCoordY, Image playerImage, String playerName, String playerRole, boolean isTransparent) {
+    public void putPlayer(float pCoordX, float pCoordY, Image playerImage, String playerName, boolean isTransparent) {
         // Size computation
         int imArea = playerImage.getWidth(null) * playerImage.getHeight(null);
         int sceneArea = sceneSizeX * sceneSizeY;
@@ -177,7 +177,6 @@ public class Scene {
         if(this.showTextOption) {
             
             this.putText(wantedX1, wantedY1+10, playerName);
-            this.putText(wantedX1, wantedY1+30, playerRole);
         }
     }
     
