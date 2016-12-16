@@ -875,7 +875,7 @@ public class Controller {
 
     public void saveTeam() {
         // Ensure the team is valid here.
-
+        if(this.mPlaceHolderTeam.isValid()) {
         // If the team exists, remove it from the list
         for (Team aTeam: teamArray) {
             if (aTeam.getName().equals(this.mPlaceHolderTeam.getName())) {
@@ -892,6 +892,7 @@ public class Controller {
         projethockey.services.AppDataProxy.saveData(this);
         if (!teamArray.isEmpty()) {
             publishTeamNames();
+        }
         }
     }
 

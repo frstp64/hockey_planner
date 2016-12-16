@@ -97,14 +97,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 fieldIcon = new ImageIcon(thePicture.getScaledInstance(-1, fieldHeight-2, -1));
             }
             this.jLabelSportField.setIcon(fieldIcon);
-            //JLabel myIconLabel = new JLabel(fieldIcon);
-            //System.out.println(thePicture.getHeight());
-            //System.out.println(thePicture.getWidth());
-            //myIconLabel.s
-            //this.jPanelSport.add(myIconLabel);
-            //this.jPanelSportFieldViewer.paintComponents(this.jPanelSportFieldViewer.getGraphics());
-            //this.jPanelSportFieldViewer.getGraphics().drawImage(thePicture, 0, 0, null);
-            //this.jPanelSport.repaint();
         }
 
 
