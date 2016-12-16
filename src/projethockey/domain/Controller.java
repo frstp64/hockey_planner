@@ -766,7 +766,7 @@ public class Controller {
     
     public void savePlayer() {
         // Ensure the player is valid here.
-        
+        if (this.mPlaceHolderPlayer.isValid()) {
         // If the player exists, remove it from the list
         for (Player aPlayer: playerArray) {
             if (aPlayer.getName().equals(this.mPlaceHolderPlayer.getName())) {
@@ -775,15 +775,15 @@ public class Controller {
                 break;
             }
         }
-
-        this.mPlaceHolderPlayer.setVisible(true);
         // Add the player to the list
         playerArray.add(new Player(this.mPlaceHolderPlayer));
+        
         
         //Save to permanent memory
         projethockey.services.AppDataProxy.saveData(this);
         if (!playerArray.isEmpty()) {
             publishPlayerNames();
+        }
         }
     }
     
