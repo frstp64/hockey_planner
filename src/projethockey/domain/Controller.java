@@ -458,9 +458,9 @@ public class Controller {
         this.mMainWindow.publishCategoryObstacleIcon(null);
     }
 
-    public void saveCategoryObstacle() {
+    public void saveCategoryObject() {
         // Ensure the categoryObstacle is valid here.
-
+        if (this.mPlaceHolderCategoryObstacle.isValid()) {
         // If the categoryObstacle exists, remove it from the list
         for (CategoryObstacle aCategoryObstacle: categoryObstacleArray) {
             if (aCategoryObstacle.getCategoryName().equals(this.mPlaceHolderCategoryObstacle.getCategoryName())) {
@@ -477,6 +477,7 @@ public class Controller {
         projethockey.services.AppDataProxy.saveData(this);
         if (!categoryObstacleArray.isEmpty()) {
             publishCategoryObstacleNames();
+        }
         }
     }
 
@@ -498,7 +499,7 @@ public class Controller {
                 this.mMainWindow.publishCategoryObstacleIsGameObject(this.mPlaceHolderCategoryObstacle.getIsGameObject());
 
                 // load image and publish  to GUI
-                String categoryObstacleImagePath = this.mPlaceHolderCategoryObstacle.getImgPath();
+                //String categoryObstacleImagePath = this.mPlaceHolderCategoryObstacle.getImgPath();
                 if (!categoryObstacleImagePath.equals("")) {
                     try {
                         java.awt.image.BufferedImage myImg = ImageIO.read(new File(categoryObstacleImagePath));
@@ -556,7 +557,7 @@ public class Controller {
             java.awt.image.BufferedImage myImg = ImageIO.read(new File(categoryObstacleImagePath));
 
             setCategoryObstacleImage(myImg);
-            this.mPlaceHolderCategoryObstacle.setImgPath(categoryObstacleImagePath);
+            //this.mPlaceHolderCategoryObstacle.setImgPath(categoryObstacleImagePath);
         } catch (IOException ex) {
             System.out.println("Error happenedwhile reading image");
         }

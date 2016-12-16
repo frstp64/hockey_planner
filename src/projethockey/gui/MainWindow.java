@@ -2083,7 +2083,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jButtonLoadFieldImageActionPerformed
 
     private void jButtonSaveGameObstacleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveGameObstacleActionPerformed
-        this.myController.saveCategoryObstacle();
+        this.myController.saveCategoryObject();
     }//GEN-LAST:event_jButtonSaveGameObstacleActionPerformed
 
     private void jButtonChooseObstaclePictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseObstaclePictureActionPerformed
