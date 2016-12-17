@@ -72,7 +72,12 @@ public class Strategy implements java.io.Serializable{
         for (int index = 0; index < this.listSnapshot.size(); index++) {
             if (this.listSnapshot.get(index).getTimeStamp() > wantedTime) {
                 // we return the last snapshot before trespassing
+                
                 Snapshot snapshotToReturn = new Snapshot(this.listSnapshot.get(index-1));
+                snapshotToReturn.setTimeStamp(wantedTime);
+                return snapshotToReturn;
+            } else if (this.listSnapshot.get(index).getTimeStamp() == wantedTime) {
+                Snapshot snapshotToReturn = new Snapshot(this.listSnapshot.get(index));
                 snapshotToReturn.setTimeStamp(wantedTime);
                 return snapshotToReturn;
             }

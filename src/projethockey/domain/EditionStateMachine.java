@@ -66,7 +66,6 @@ public class EditionStateMachine {
             
         } else if (currentState.equals(States.ADDING_PLAYER) && mouseButtonState) {
             // button pressed on the screen to add a player
-            System.out.println("asked to add a player!");
             currentState = States.MOVEMENT;
             this.myController.actionWillHappen();
             int currentTime = this.myController.getCurrentTime();
