@@ -1012,6 +1012,25 @@ public class Controller {
         this.drawCurrentFrame();
     }
     
+    public void setTimeFromSlider(int intTime, int sliderMax) {
+        
+        
+        int biggestTime = this.mStrategyInEdition.getBiggestTime();
+        float _time;
+        
+        _time = intTime * biggestTime / sliderMax;
+        _time = _time - (_time % this.intervalTimeinMS);
+        
+       
+        this.timeViewer = Math.round(_time);
+        
+        if (timeViewer > biggestTime) {
+            timeViewer = biggestTime;
+        }
+        this.drawCurrentFrame();
+            
+    }
+    
     public void mouseMoved(int mousePosX, int mousePosY, boolean mousePressed) {
         try {
         this.mMouseFSM.updateMouse(mousePosX, mousePosY, mousePressed);

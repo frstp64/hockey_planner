@@ -292,6 +292,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     public void publishCurrentTime(float timeInSeconds) {
         this.jTextFieldStrategyViewerTime.setText(Float.toString(timeInSeconds));
         this.jTextFieldStrategyViewerTime.paintImmediately(0, 0, 100, 100);
+        
+        // TODO modify slider time with setValue(int)
     }
     
     /**
@@ -1992,6 +1994,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelStrategyEditor.add(jLabelTeamToSelect, gridBagConstraints);
+
+        jSliderStrategyTime.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jSliderStrategyTimeMouseReleased(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -2564,6 +2572,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         // TODO add your handling code here:
         myController.setStrategyName(this.jTextFieldChooseStrategyName.getText());
     }//GEN-LAST:event_jTextFieldChooseStrategyNameFocusLost
+
+    private void jSliderStrategyTimeMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSliderStrategyTimeMouseReleased
+   
+        this.myController.setTimeFromSlider(jSliderStrategyTime.getValue(), jSliderStrategyTime.getMaximum());
+        
+    }//GEN-LAST:event_jSliderStrategyTimeMouseReleased
 
     /**
      * @param args the command line arguments
