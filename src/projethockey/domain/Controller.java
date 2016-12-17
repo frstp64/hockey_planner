@@ -1018,10 +1018,11 @@ public class Controller {
         int biggestTime = this.mStrategyInEdition.getBiggestTime();
         float _time;
         
-        _time = intTime * biggestTime / sliderMax;
-        _time = _time - (_time % this.intervalTimeinMS);
-        
-       
+        if (sliderMax == 0){ _time = 0; System.out.println("Time Slider Maximum range is 0");}
+        else {
+            _time = intTime * biggestTime / sliderMax;
+            _time = _time - (_time % this.intervalTimeinMS);
+        }
         this.timeViewer = Math.round(_time);
         
         if (timeViewer > biggestTime) {

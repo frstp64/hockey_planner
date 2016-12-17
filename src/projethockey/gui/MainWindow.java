@@ -302,10 +302,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         
         int newTime = 0;
         
-        _time = currentTime * this.jSliderStrategyTime.getMaximum() / biggestTime;
-        
-        newTime = Math.round(_time);
-        
+        if (biggestTime == 0) { newTime = 0;}
+        else{
+            _time = currentTime * this.jSliderStrategyTime.getMaximum() / biggestTime;
+            newTime = Math.round(_time);
+        }
         
         this.jSliderStrategyTime.setValue(newTime);
     }
