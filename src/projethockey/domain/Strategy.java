@@ -38,7 +38,6 @@ public class Strategy implements java.io.Serializable{
         }
     }
     
-    
     public String getName() {
         return name;
     }
@@ -49,14 +48,6 @@ public class Strategy implements java.io.Serializable{
     
     public String getSportName() {
         return this.sport.getName();
-    }
-
-    public List<Snapshot> getListSnapshot() {
-        return listSnapshot;
-    }
-
-    public void setListSnapshot(ArrayList<Snapshot> listSnapshot) {
-        this.listSnapshot = listSnapshot;
     }
 
     public Sport getSport() {
@@ -78,7 +69,7 @@ public class Strategy implements java.io.Serializable{
     public Snapshot getCurrentSnapshot(int wantedTime) {
         for (Snapshot aSnapshot: this.listSnapshot) {
             if (aSnapshot.getTimeStamp() ==wantedTime) {
-                return aSnapshot;
+                return new Snapshot(aSnapshot);
             }
         }
         if (this.listSnapshot.size()!= 0) {
@@ -88,7 +79,8 @@ public class Strategy implements java.io.Serializable{
         }
         
     }
-        public Snapshot getLastSnapshotBefore(int wantedTime) {
+    
+    public Snapshot getLastSnapshotBefore(int wantedTime) {
             int maxTimeBefore = 0;
         for (Snapshot aSnapshot: this.listSnapshot) {
             if (aSnapshot.getTimeStamp() < wantedTime && aSnapshot.getTimeStamp() > maxTimeBefore) {
@@ -109,7 +101,67 @@ public class Strategy implements java.io.Serializable{
         this.listSnapshot.add(newSnapshot);
         return newSnapshot;
     }
-            
+
+    // Pulls a snapshot copy right at or before a given time
+    // REQUIREMENT: listSnapshot is sorted by time, the must be at least one snapshot
+    public Snapshot pullSnapshot(int wantedTime) {
+        for (int index = 0; index < this.listSnapshot.size(); index++) {
+            if (this.listSnapshot.get(index).getTimeStamp() > wantedTime) {
+                // we return the last snapshot before trespassing
+                Snapshot snapshotToReturn = new Snapshot(this.listSnapshot.get(index-1));
+                snapshotToReturn.setTimeStamp(wantedTime);
+                return snapshotToReturn;
+            }
+        }
+        // should never happen
+        return new Snapshot(0);
+    }
+    
+    // Pulls a snapshot copy containing every item in the background, set as semi-visible items
+    // Deals with the snapshots up to, but not including, wantedTime
+    public Snapshot pullSnapshotBG(int wantedTime) {
+        Snapshot snapshotToReturn = new Snapshot(wantedTime);
+        for (int index = 0; index < this.listSnapshot.size(); index++) {
+            // we're done
+            if (this.listSnapshot.get(index).getTimeStamp() >= wantedTime) {
+                break;
+            }
+            else {
+                //We copy the info of the current frame to the frame to send
+                snapshotToReturn.copyFromOtherSnapshot(this.listSnapshot.get(index));
+            }
+        }
+        return snapshotToReturn;
+    }
+    
+    // Inserts a snapshot at the requested time
+    public void insertSnapshot(Snapshot pSnapshot) {
+        boolean inserted = false;
+        for (int index = 0; index < this.listSnapshot.size(); index++) {
+            // we're done
+            if(this.listSnapshot.get(index).getTimeStamp()  == pSnapshot.getTimeStamp()) {
+                // This is the situation where they are both at the same time, that means we need to replace it
+                this.listSnapshot.remove(index);
+                this.listSnapshot.add(index, new Snapshot(pSnapshot));
+                inserted = true;
+                break;
+            } else if (this.listSnapshot.get(index).getTimeStamp() > pSnapshot.getTimeStamp()) {
+                // This is the situation where the new snapshot fits inbetween 2 old snapshots
+                // in this case we insert it at the right location
+                this.listSnapshot.add(index, new Snapshot(pSnapshot));
+                inserted = true;
+                break;
+            }
+        }
+        
+        if (!inserted) {
+            // We are at the end and there's no fitting position before,
+            // this means we need to insert the snapshot at the end
+            this.listSnapshot.add(new Snapshot(pSnapshot));
+        }
+        
+    }
+    
     public boolean isStrategyValid() {
         if (this.name != null && !this.name.isEmpty() && sport.isTeamListValid(listTeam)) {
             return true;
@@ -160,6 +212,7 @@ public class Strategy implements java.io.Serializable{
         return maxTime;
     }
     
+    // TO DEPRECATE AND REMOVE
     public boolean frameExistsAtTime(int pTime) {
         
         boolean doesExist = false;
