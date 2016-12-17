@@ -1054,8 +1054,19 @@ public class Controller {
         // Draws the current frame on screen
         //this.mStrategyInEdition.getFrame();
         myScene.cleanScene();
-        Snapshot snapshotToPrint = this.mStrategyInEdition.getCurrentSnapshot(timeViewer);
+        // history printing, if necessary
+        if (this.mMouseFSM.getModificationMode().equals("Image par image") && !this.mMouseFSM.isPlaying()) {
+            // if we're in image by image mode and stopped, we need to also draw the history
+            Snapshot backgroundSnapshot = this.mStrategyInEdition.pullSnapshotBG(timeViewer);
+            backgroundSnapshot.printPlayers(myScene);
+            myScene.setAsBg();
+        }
+        
+        // print the current frame
+        Snapshot snapshotToPrint = this.mStrategyInEdition.pullSnapshot(timeViewer);
         snapshotToPrint.printPlayers(myScene);
+        
+        // finally, publish the picture to the front end
         this.mMainWindow.publishScene(myScene.getScenePicture());
         this.mMainWindow.publishCurrentTime(snapshotToPrint.getTimeStamp()/1000);
         System.out.println("Just drew a frame!");
@@ -1084,10 +1095,8 @@ public class Controller {
     }
     
     public void playerAddMode(String pPlayerName) {
-        //TODO!
         if (this.mStrategyInEdition.doesPlayerExist(pPlayerName)) {
             this.mMouseFSM.switchToAddMode(pPlayerName);
-            this.mStrategyInEdition.getCurrentSnapshot(timeViewer);
         }
         else {
             System.out.println("Selected player that does not exist!");
@@ -1121,11 +1130,6 @@ public class Controller {
     public void switchToNextFrame() {
         this.actionWillHappen();
         this.timeViewer += this.intervalTimeinMS;
-        if (!this.mStrategyInEdition.frameExistsAtTime(this.timeViewer)) {
-        Snapshot oldSnapshot = this.mStrategyInEdition.getLastSnapshotBefore(this.timeViewer);
-            Snapshot newSnapshot = this.mStrategyInEdition.getOrCreate(this.timeViewer);
-            newSnapshot.copyFromOtherSnapshot(oldSnapshot);
-        }
         this.drawCurrentFrame();
     }
     

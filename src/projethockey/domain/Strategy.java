@@ -65,42 +65,6 @@ public class Strategy implements java.io.Serializable{
     public void setListTeam(ArrayList<Team> listTeam) {
         this.listTeam = listTeam;
     } 
-    
-    public Snapshot getCurrentSnapshot(int wantedTime) {
-        for (Snapshot aSnapshot: this.listSnapshot) {
-            if (aSnapshot.getTimeStamp() ==wantedTime) {
-                return new Snapshot(aSnapshot);
-            }
-        }
-        if (this.listSnapshot.size()!= 0) {
-            return getLastSnapshotBefore(wantedTime); // SHOULD NOT HAPPEN
-        } else {
-            return getOrCreate(wantedTime);
-        }
-        
-    }
-    
-    public Snapshot getLastSnapshotBefore(int wantedTime) {
-            int maxTimeBefore = 0;
-        for (Snapshot aSnapshot: this.listSnapshot) {
-            if (aSnapshot.getTimeStamp() < wantedTime && aSnapshot.getTimeStamp() > maxTimeBefore) {
-                maxTimeBefore = aSnapshot.getTimeStamp();
-            }
-        }
-        return this.getCurrentSnapshot(maxTimeBefore); // SHOULD NOT HAPPEN
-    }
-    
-    public Snapshot getOrCreate(int time) {
-        for (Snapshot aSnapshot: this.listSnapshot) {
-            if (aSnapshot.getTimeStamp() == time) {
-                return aSnapshot;
-            }
-        }
-        
-        Snapshot newSnapshot = new Snapshot(time);
-        this.listSnapshot.add(newSnapshot);
-        return newSnapshot;
-    }
 
     // Pulls a snapshot copy right at or before a given time
     // REQUIREMENT: listSnapshot is sorted by time, the must be at least one snapshot
@@ -212,17 +176,6 @@ public class Strategy implements java.io.Serializable{
         return maxTime;
     }
     
-    // TO DEPRECATE AND REMOVE
-    public boolean frameExistsAtTime(int pTime) {
-        
-        boolean doesExist = false;
-        for (Snapshot aSnapshot: this.listSnapshot) {
-            if (aSnapshot.getTimeStamp() == pTime) {
-                doesExist = true;
-            }
-        }
-        return doesExist;
-    }
     public void removeTeamByNumber(int teamNumberToRemove) {
         for (int i = teamNumberToRemove; i>0; i--) {
             this.listTeam.remove(this.listTeam.size()-1);

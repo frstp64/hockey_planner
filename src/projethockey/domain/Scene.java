@@ -218,4 +218,13 @@ public class Scene {
     public void setStringShowOption(boolean newValue) {
         this.showTextOption = newValue;
     }
+    
+    // remove the collision detection for the printed objects, they are effectively stuck to thebackground
+    public void setAsBg() {
+        playerCoordX1 = new ArrayList(); 
+        playerCoordY1 = new ArrayList();
+        playerCoordX2 = new ArrayList();
+        playerCoordY2 = new ArrayList();
+        playerNames = new ArrayList();
+    }
 }

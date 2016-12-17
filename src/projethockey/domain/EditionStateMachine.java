@@ -66,17 +66,16 @@ public class EditionStateMachine {
             
         } else if (currentState.equals(States.ADDING_PLAYER) && mouseButtonState) {
             // button pressed on the screen to add a player
-            //System.out.println("asked to add a player!");
+            System.out.println("asked to add a player!");
             currentState = States.MOVEMENT;
-            System.out.println("Player added in state machine 0");
             this.myController.actionWillHappen();
-            System.out.println("Player added in state machine 1");
             int currentTime = this.myController.getCurrentTime();
             Strategy currentStrategy = this.myController.getCurrentStrategy();
-            Snapshot currentSnapshot = currentStrategy.getCurrentSnapshot(currentTime);
+            Snapshot currentSnapshot = currentStrategy.pullSnapshot(currentTime);
             Player currentPlayer = this.myController.getPlayer(currentAddedPlayer);
             System.out.println("Player added in state machine: " + currentPlayer.getName());
             currentSnapshot.addPlayer(currentPlayer, this.myController.getScene().getNormalizedX(mousePosX), this.myController.getScene().getNormalizedY(mousePosY), 0);
+            currentStrategy.insertSnapshot(currentSnapshot);
             this.myController.drawCurrentFrame();
             
         } else if (currentState.equals(States.MOVING_PLAYER) && !mouseButtonState) {
@@ -119,8 +118,10 @@ public class EditionStateMachine {
             if (this.modificationMode.equals("Image par image")) {
                 float relativeMousePosX = this.myController.getScene().getNormalizedX(mousePosX);
                 float relativeMousePosY = this.myController.getScene().getNormalizedY(mousePosY);
-                this.myController.getCurrentStrategy().getCurrentSnapshot(this.myController.getCurrentTime()).getTransientPlayer(currentMovingPlayer).setPosition(relativeMousePosX, relativeMousePosY);
-                this.myController.getCurrentStrategy().getCurrentSnapshot(this.myController.getCurrentTime()).getTransientPlayer(currentMovingPlayer).setVisible(true);
+                Snapshot aSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
+                aSnapshot.getTransientPlayer(currentMovingPlayer).setPosition(relativeMousePosX, relativeMousePosY);
+                aSnapshot.getTransientPlayer(currentMovingPlayer).setVisible(true);
+                this.myController.getCurrentStrategy().insertSnapshot(aSnapshot);
                 this.myController.drawCurrentFrame();
             }
             
