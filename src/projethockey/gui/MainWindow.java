@@ -213,15 +213,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     
     public void publishStrategyName(String pStrategyName) {
         this.jTextFieldChooseStrategyName.setText(pStrategyName);
-        
-        // set tab viewer disabled or not
-        if (pStrategyName != null) {
-            this.jTabbedPaneRoot.setEnabledAt(6, true);
-        }
-        else
-        {
-            this.jTabbedPaneRoot.setEnabledAt(6, false);
-        }
     }
     
     public void publishStrategyPlayers(String[] plistStrategyPlayers){
@@ -404,7 +395,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jButtonCreateStrategy = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jListExistingStrategies = new javax.swing.JList<>();
-        jButtonLoadStrategy = new javax.swing.JButton();
         jLabelChooseSport = new javax.swing.JLabel();
         jLabelChooseNameStrategy = new javax.swing.JLabel();
         jSeparator11 = new javax.swing.JSeparator();
@@ -1456,20 +1446,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.weightx = 0.5;
         jPanelCreateLoadStrategy.add(jScrollPane2, gridBagConstraints);
 
-        jButtonLoadStrategy.setText("Charger une stratégie");
-        jButtonLoadStrategy.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLoadStrategyActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelCreateLoadStrategy.add(jButtonLoadStrategy, gridBagConstraints);
-
         jLabelChooseSport.setText("Sport:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1606,6 +1582,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         jPanelCreateLoadStrategy.add(jPanelStrategyPreview, gridBagConstraints);
 
@@ -1717,7 +1694,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jButtonSaveStrategy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projethockey/gui/mySaveIcon.png"))); // NOI18N
         jButtonSaveStrategy.setText("Enregistrer");
         jButtonSaveStrategy.setAlignmentY(5.0F);
-        jButtonSaveStrategy.setEnabled(false);
         jButtonSaveStrategy.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonSaveStrategy.setIconTextGap(2);
         jButtonSaveStrategy.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -1876,7 +1852,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelStrategyEditor.add(jButtonRedo, gridBagConstraints);
 
         jButtonExport.setText("Exporter");
-        jButtonExport.setEnabled(false);
         jButtonExport.setMaximumSize(null);
         jButtonExport.setMinimumSize(null);
         jButtonExport.setPreferredSize(null);
@@ -2042,6 +2017,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     private void jButtonDeleteStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteStrategyActionPerformed
         this.myController.removeSelectedStrategy(this.jListExistingStrategies.getSelectedValue());
+        this.jTabbedPaneRoot.setEnabledAt(6, false);
+        
     }//GEN-LAST:event_jButtonDeleteStrategyActionPerformed
 
     private void jButtonDestroySelectedSportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDestroySelectedSportActionPerformed
@@ -2053,17 +2030,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jButtonSaveSportActionPerformed
 
     private void jButtonCreateStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateStrategyActionPerformed
-        // save table data to placeHolder
-        int nRow = this.jTableStrategyTeams.getRowCount();
-        String[] tableData = new String[nRow];
-        for (int i = 0; i < nRow; i++) {
-            tableData[i] = (String)this.jTableStrategyTeams.getValueAt(i, 0);
-        }
-        
-        //this.myController.setStrategyTeam(tableData);
-        //this.myController.setStrategySport(this.myController.getSportFromName(this.jComboBoxChooseStrategySport.getSelectedItem().toString()));
-        //this.myController.nukeAllSnapshots();
-        //this.myController.saveStrategy();
+        this.myController.createStrategy();
     }//GEN-LAST:event_jButtonCreateStrategyActionPerformed
 
     private void jButtonNewSportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewSportActionPerformed
@@ -2085,21 +2052,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jButtonDeleteGameObstacleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteGameObstacleActionPerformed
         this.myController.removeCategoryObstacle();
     }//GEN-LAST:event_jButtonDeleteGameObstacleActionPerformed
-
-    private void jButtonLoadStrategyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoadStrategyActionPerformed
-        try {
-        if (jListExistingStrategies.getSelectedValue() != null & myController != null) {
-            myController.setSelectedStrategy(jListExistingStrategies.getSelectedValue());            
-        }
-        else if (myController != null) {
-            String empty = "";
-            myController.setSelectedStrategy(empty);
-            System.out.println("The selected sport is empty");
-        }
-        } catch (Exception Ex) {
-            System.out.println("An error happened while trying to load the strategy with the button!");
-        }
-    }//GEN-LAST:event_jButtonLoadStrategyActionPerformed
 
     private void jComboBoxChooseStrategySportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxChooseStrategySportActionPerformed
         this.myController.setStrategySportName((String)this.jComboBoxChooseStrategySport.getSelectedItem());
@@ -2512,16 +2464,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         try {
             if (jListExistingStrategies.getSelectedValue() != null & myController != null) {
                 myController.setSelectedStrategy(jListExistingStrategies.getSelectedValue());
-                this.jButtonSaveStrategy.setEnabled(true);
-            }
-            else if (myController != null) {
-                String empty = "";
-                myController.setSelectedStrategy(empty);
-                System.out.println("No strategy selected from the list?");
+                myController.loadSelectedStrategy(); // copies it into the strategyinedition object
+                this.jTabbedPaneRoot.setEnabledAt(6, true);
             }
         } catch (Exception Ex) {
             System.out.println("An error happened while trying to set the selected strategy!");
-            this.jButtonSaveStrategy.setEnabled(false);
          }
     }//GEN-LAST:event_jListExistingStrategiesMouseClicked
 
@@ -2665,7 +2612,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JButton jButtonDestroySelectedSport;
     private javax.swing.JButton jButtonExport;
     private javax.swing.JButton jButtonLoadFieldImage;
-    private javax.swing.JButton jButtonLoadStrategy;
     private javax.swing.JButton jButtonModificationVisualize;
     private javax.swing.JButton jButtonNewCategory;
     private javax.swing.JButton jButtonNewGameObstacle;

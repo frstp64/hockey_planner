@@ -111,7 +111,12 @@ public class Strategy implements java.io.Serializable{
     }
             
     public boolean isStrategyValid() {
-        return sport.isTeamListValid(listTeam);
+        if (this.name != null && !this.name.isEmpty() && sport.isTeamListValid(listTeam)) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public ArrayList<String> getTeamNames() {

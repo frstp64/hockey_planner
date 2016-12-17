@@ -43,9 +43,6 @@ public class Controller {
     private ArrayList<Strategy> strategyArray;
     private String selectedStrategy;
     
-    //viewer strategy (currently loaded strategy)
-    private Strategy loadedStrategy;
-    
     // Player (unique player)
     private Player mPlaceHolderPlayer; // Contains the parameters for the new Player
     private ArrayList<Player> playerArray;
@@ -576,21 +573,11 @@ public class Controller {
     public void setStrategyName(String pStrategyName) {
         this.mPlaceHolderStrategyCreation.setName(pStrategyName);
     }
-
-    public void resetPlaceHolderStrategy() {
-
-        // empty data
-        //this.mPlaceHolderStrategy.reset();
-        // empty GUI values
-        //this.mMainWindow.publishStrategyName(this.mPlaceHolderStrategy.getName());
-        //TODO
-        //this.mMainWindow.publishStrategySport(this.mPlaceHolderStrategy.getCategoryName());
-
-    }
-
-    public void saveStrategy() {
+    
+    public void createStrategy() {
         // save strategy to strategy array. This is not a save snapshot.
         // Ensure the Strategy is valid here.
+        if (this.mPlaceHolderStrategyCreation.isStrategyValid()) {
 
         for (Strategy aStrategy: strategyArray) {
             if (aStrategy.getName().equals(this.mPlaceHolderStrategyCreation.getName())) {
@@ -610,14 +597,33 @@ public class Controller {
         if (!strategyArray.isEmpty()) {
             publishStrategyNames();
         }
+        }
+    }
+
+    public void saveStrategy() {
+        // save an existing Edition strategy to strategy array. This is not a save snapshot.
+
+        for (Strategy aStrategy: strategyArray) {
+            if (aStrategy.getName().equals(this.mStrategyInEdition.getName())) {
+                System.out.println(aStrategy.getName());
+                this.strategyArray.remove(aStrategy);
+                break;
+            }
+        }
+        
+        
+        
+        // Add the Strategy to the list
+        strategyArray.add(new Strategy(this.mStrategyInEdition));
+
+        //Save to permanent memory
+        projethockey.services.AppDataProxy.saveData(this);
     }
 
     public void setSelectedStrategy(String pSelectedStrategy) {
         // Set Strategy's data in GUI.
         
         this.selectedStrategy = pSelectedStrategy;
-        // Clean gui first.
-        resetPlaceHolderStrategy();
 
         for (Strategy aStrategy: strategyArray) {
             if (aStrategy.getName().equals(this.selectedStrategy)) {
@@ -647,6 +653,10 @@ public class Controller {
         }
         //System.out.println("We should have selected an existing strategy!");
     }
+    public void loadSelectedStrategy() {
+        this.mStrategyInEdition = new Strategy(this.mPlaceHolderStrategyCreation);
+        //pass
+    }
 
     public void removeSelectedStrategy(String pStrategyName) {
         // if one is selected, remove it
@@ -670,10 +680,10 @@ public class Controller {
     public void publishStrategyNames() {
         ArrayList<String> StrategyNameList = new ArrayList<String>();
         for (Strategy aStrategy: strategyArray) {
-            if(aStrategy.getSportName().equals(this.mPlaceHolderStrategyCreation.getSport().getName()))
                 StrategyNameList.add(aStrategy.getName());
         }
         this.mMainWindow.publishExistingStrategies(StrategyNameList.toArray(new String[StrategyNameList.size()]));
+        
     }
 
     public ArrayList<Strategy> getStrategyArray() {
@@ -1032,7 +1042,12 @@ public class Controller {
     }
     
     public void setSceneBackground() {
+        if (this.mStrategyInEdition.getSport().getImg() != null) {
         myScene.setBackground(this.mStrategyInEdition.getSport().getImg());
+        }
+        else {
+            System.out.println("the scene background is null for some reason");
+        }
     }
     
     public void drawCurrentFrame() {
