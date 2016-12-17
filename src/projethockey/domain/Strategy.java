@@ -69,6 +69,7 @@ public class Strategy implements java.io.Serializable{
     // Pulls a snapshot copy right at or before a given time
     // REQUIREMENT: listSnapshot is sorted by time, the must be at least one snapshot
     public Snapshot pullSnapshot(int wantedTime) {
+        System.out.print("wanted pull time: "); System.out.println(wantedTime);
         for (int index = 0; index < this.listSnapshot.size(); index++) {
             if (this.listSnapshot.get(index).getTimeStamp() > wantedTime) {
                 // we return the last snapshot before trespassing
@@ -83,6 +84,7 @@ public class Strategy implements java.io.Serializable{
             }
         }
         // should never happen
+        System.out.println("no snap found");
         return new Snapshot(0);
     }
     
@@ -106,6 +108,8 @@ public class Strategy implements java.io.Serializable{
     // Inserts a snapshot at the requested time
     public void insertSnapshot(Snapshot pSnapshot) {
         boolean inserted = false;
+        System.out.print("adding snapshot at time ");
+        System.out.println(pSnapshot.getTimeStamp());
         for (int index = 0; index < this.listSnapshot.size(); index++) {
             // we're done
             if(this.listSnapshot.get(index).getTimeStamp()  == pSnapshot.getTimeStamp()) {
