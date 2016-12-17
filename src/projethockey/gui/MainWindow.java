@@ -293,7 +293,21 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         this.jTextFieldStrategyViewerTime.setText(Float.toString(timeInSeconds));
         this.jTextFieldStrategyViewerTime.paintImmediately(0, 0, 100, 100);
         
+        
         // TODO modify slider time with setValue(int)
+    }
+    
+    public void publishCurrentSliderTime(int currentTime, int biggestTime){
+        float _time;
+        
+        int newTime = 0;
+        
+        _time = currentTime * this.jSliderStrategyTime.getMaximum() / biggestTime;
+        
+        newTime = Math.round(_time);
+        
+        
+        this.jSliderStrategyTime.setValue(newTime);
     }
     
     /**
@@ -1995,6 +2009,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelStrategyEditor.add(jLabelTeamToSelect, gridBagConstraints);
 
+        jSliderStrategyTime.setSnapToTicks(true);
         jSliderStrategyTime.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 jSliderStrategyTimeMouseReleased(evt);

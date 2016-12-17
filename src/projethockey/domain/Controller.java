@@ -1077,6 +1077,7 @@ public class Controller {
         snapshotToPrint.printPlayers(myScene);
         this.mMainWindow.publishScene(myScene.getScenePicture());
         this.mMainWindow.publishCurrentTime(snapshotToPrint.getTimeStamp()/1000);
+        this.mMainWindow.publishCurrentSliderTime(snapshotToPrint.getTimeStamp(), this.mStrategyInEdition.getBiggestTime());
         System.out.println("Just drew a frame!");
     }
     
