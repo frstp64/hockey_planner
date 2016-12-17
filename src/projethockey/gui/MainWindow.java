@@ -235,12 +235,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     public void publishStrategyTeams(ArrayList<String> pTeamNames){
         // edit number of columns in table (and number selector)
         this.jSpinnerSportEquipes.setValue(pTeamNames.size());
-        System.out.println("lol");
         
         // change values to our array.
         int nRow = pTeamNames.size(); // this.jTableTeamPlayers.getRowCount();
-        ((DefaultTableModel) this.jTableStrategyTeams.getModel()).setRowCount(nRow);
-        System.out.println(nRow);
         ((DefaultTableModel) this.jTableStrategyTeams.getModel()).setRowCount(nRow);
         for (int i = 0; i < nRow; i++) {
             this.jTableStrategyTeams.setValueAt(pTeamNames.get(i), i, 0);
@@ -1545,11 +1542,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jTextFieldChooseStrategyNameFocusLost(evt);
             }
         });
-        jTextFieldChooseStrategyName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldChooseStrategyNameActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
@@ -2068,8 +2060,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
             tableData[i] = (String)this.jTableStrategyTeams.getValueAt(i, 0);
         }
         
-        this.myController.setStrategyTeam(tableData);
-        this.myController.setStrategySport(this.myController.getSportFromName(this.jComboBoxChooseStrategySport.getSelectedItem().toString()));
+        //this.myController.setStrategyTeam(tableData);
+        //this.myController.setStrategySport(this.myController.getSportFromName(this.jComboBoxChooseStrategySport.getSelectedItem().toString()));
         //this.myController.nukeAllSnapshots();
         //this.myController.saveStrategy();
     }//GEN-LAST:event_jButtonCreateStrategyActionPerformed
@@ -2114,10 +2106,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         
         this.myController.publishStrategyNames();
     }//GEN-LAST:event_jComboBoxChooseStrategySportActionPerformed
-
-    private void jTextFieldChooseStrategyNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldChooseStrategyNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldChooseStrategyNameActionPerformed
 
     private void jListExistingObstaclePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListExistingObstaclePropertyChange
         // TODO add your handling code here:
@@ -2185,46 +2173,28 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jSpinnerSportPlayerMaxStateChanged
 
     private void jTableStrategyTeamsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTableStrategyTeamsPropertyChange
-        /*
-        ArrayList<String> typeArray = new ArrayList();
-        ArrayList<String> playerRoleArray = new ArrayList();
-        int rowNumber = tableSportPlayers.getModel().getRowCount();
+        
+        // we get the  teams
+        ArrayList<String> tmpTeamArray = new ArrayList();
+        int rowNumber = jTableStrategyTeams.getModel().getRowCount();
         Boolean allCorrect = true;
         for (int i = 0; i < rowNumber; i++) {
-            Object theType = tableSportPlayers.getModel().getValueAt(i, 0);
-            Object theName = tableSportPlayers.getModel().getValueAt(i, 1);
-            Object theTeam = tableSportPlayers.getModel().getValueAt(i, 2);
-            if (theType != null & theName != null) {
-
-                typeArray.add(theType.toString());
-                playerRoleArray.add(theName.toString());
+            String theTeamName = (String) jTableStrategyTeams.getModel().getValueAt(i, 0);
+            if (theTeamName != null && !theTeamName.equals("")) {
+                tmpTeamArray.add(theTeamName);
             }
-
-            if (theType == null || theType.toString().equals("")) {
+            else {
                 allCorrect = false;
             }
-            if (theName == null || theName.toString().equals("")) {
-                allCorrect = false;
-            }
-            if (theTeam == null || theTeam.toString().equals("")) {
-                allCorrect = false;
-            }
-
-            //playerRoleArray.add(tableSportPlayers.getModel().getValueAt(i+1, 1).toString);
-            //typeArray.add(tableSportPlayers.getModel().getValueAt(i, 0).toString());
 
         }
+        
+        // if everything is ok, we set the teams
         if (allCorrect == true) {
-            tableSportPlayers.getCellRenderer(0, 0).getTableCellRendererComponent(tableSportPlayers, null, false, true, 0, 0).setBackground(Color.WHITE);
-        } else {
-            tableSportPlayers.getCellRenderer(0, 0).getTableCellRendererComponent(tableSportPlayers, null, false, true, 0, 0).setBackground(Color.RED);
-        }
-
-
         if (this.myController != null) {
-            this.myController.setSportPlayers(typeArray, playerRoleArray);
+            this.myController.setStrategyTeam(tmpTeamArray);
         }
-        */
+        }
     }//GEN-LAST:event_jTableStrategyTeamsPropertyChange
 
     private void jTextFieldSportNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSportNameActionPerformed
@@ -2256,10 +2226,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jCheckBoxIsAGameObstacleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jCheckBoxIsAGameObstacleFocusLost
         this.myController.setObstacleIsGameObject(this.jCheckBoxIsAGameObstacle.isSelected());
     }//GEN-LAST:event_jCheckBoxIsAGameObstacleFocusLost
-
-    private void jTextFieldChooseStrategyNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldChooseStrategyNameFocusLost
-        myController.setStrategyName(this.jTextFieldChooseStrategyName.getText());
-    }//GEN-LAST:event_jTextFieldChooseStrategyNameFocusLost
 
     private void jCheckBoxUnlimitedPlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxUnlimitedPlayerActionPerformed
         this.myController.setPlayerLimit(jCheckBoxUnlimitedPlayer.isSelected());
@@ -2646,6 +2612,11 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jTextFieldObjectDimensionYFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldObjectDimensionYFocusLost
         myController.setCategoryObstacleVerticalSize(Float.parseFloat(this.jTextFieldObjectDimensionY.getText()));
     }//GEN-LAST:event_jTextFieldObjectDimensionYFocusLost
+
+    private void jTextFieldChooseStrategyNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldChooseStrategyNameFocusLost
+        // TODO add your handling code here:
+        myController.setStrategyName(this.jTextFieldChooseStrategyName.getText());
+    }//GEN-LAST:event_jTextFieldChooseStrategyNameFocusLost
 
     /**
      * @param args the command line arguments

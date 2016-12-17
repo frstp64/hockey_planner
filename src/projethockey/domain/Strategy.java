@@ -165,4 +165,9 @@ public class Strategy implements java.io.Serializable{
         }
         return doesExist;
     }
+    public void removeTeamByNumber(int teamNumberToRemove) {
+        for (int i = teamNumberToRemove; i>0; i--) {
+            this.listTeam.remove(this.listTeam.size()-1);
+        }
+    }
 }

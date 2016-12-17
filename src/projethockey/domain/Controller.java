@@ -499,18 +499,18 @@ public class Controller {
                 this.mMainWindow.publishCategoryObstacleIsGameObject(this.mPlaceHolderCategoryObstacle.getIsGameObject());
 
                 // load image and publish  to GUI
-                //String categoryObstacleImagePath = this.mPlaceHolderCategoryObstacle.getImgPath();
-                if (!categoryObstacleImagePath.equals("")) {
-                    try {
-                        java.awt.image.BufferedImage myImg = ImageIO.read(new File(categoryObstacleImagePath));
-
-                        this.mMainWindow.publishCategoryObstacleIcon(myImg);
-                        //this.mPlaceHolderCategoryObstacle.setImage();
-                    } 
-                    catch (IOException ex) {
-                        System.out.println("Error happenedwhile reading image");
-                    }
-                }
+//                String categoryObstacleImagePath = this.mPlaceHolderCategoryObstacle.getImgPath();
+//                if (!categoryObstacleImagePath.equals("")) {
+//                    try {
+//                        java.awt.image.BufferedImage myImg = ImageIO.read(new File(categoryObstacleImagePath));
+//
+//                        this.mMainWindow.publishCategoryObstacleIcon(myImg);
+//                        //this.mPlaceHolderCategoryObstacle.setImage();
+//                    } 
+//                    catch (IOException ex) {
+//                        System.out.println("Error happenedwhile reading image");
+//                    }
+//                }
                 break;
             }
         }
@@ -670,7 +670,7 @@ public class Controller {
     public void publishStrategyNames() {
         ArrayList<String> StrategyNameList = new ArrayList<String>();
         for (Strategy aStrategy: strategyArray) {
-            if(this.mPlaceHolderStrategyCreation.getSport() != null && aStrategy.getSportName().equals(this.mPlaceHolderStrategyCreation.getSport().getName()))
+            if(aStrategy.getSportName().equals(this.mPlaceHolderStrategyCreation.getSport().getName()))
                 StrategyNameList.add(aStrategy.getName());
         }
         this.mMainWindow.publishExistingStrategies(StrategyNameList.toArray(new String[StrategyNameList.size()]));
@@ -688,15 +688,26 @@ public class Controller {
         this.mPlaceHolderStrategyCreation.setSport(pSport);
     }
 
+    // sets the sport in the placeholderstrategycreation
     public void setStrategySportName(String sportName) {
         for (Sport aSport: sportArray) {
-            if (aSport.getName().equals(sportName)) {
-                setStrategySport(aSport);
+            if (aSport.getName().equals(sportName)) { // there's a matching sport
+                setStrategySport(aSport); // we set the sport for the current placeholder strategy
+                
+                // we set the length of the list to the sport's length (and we show the teams of the current placeholder sport)
                 ArrayList<String> myTeamArray = new ArrayList();
                 for (Team aTeam : this.mPlaceHolderStrategyCreation.getListTeam()) {
                     myTeamArray.add(aTeam.getName());
+                    if (aSport.getNbPlayer() == myTeamArray.size()) {
+                        break;
+                    }
                 }
-                int missingSize = aSport.getNbPlayer() - myTeamArray.size();
+                // if there's too many teams in the sport, we remove the superfluous ones
+                int superFluousTeamNumber = this.mPlaceHolderStrategyCreation.getListTeam().size() - myTeamArray.size();
+                this.mPlaceHolderStrategyCreation.removeTeamByNumber(superFluousTeamNumber);
+                
+                // if there's not enough, we add empty ones
+                int missingSize = aSport.getNumberMaxTeam() - myTeamArray.size();
                 for (int i = 0; i < missingSize; i++) {
                     myTeamArray.add("");
                 }
@@ -706,7 +717,7 @@ public class Controller {
         }
     }
     
-    public void setStrategyTeam(String[] pTeamList){
+    public void setStrategyTeam(ArrayList<String> pTeamList){
         // takes list of team names and adds Team list to placeHolderStrategy.
         
         ArrayList<Team> teamList = new ArrayList<Team>();
@@ -716,7 +727,6 @@ public class Controller {
                 if (aTeam.getName().equals(aTeamName)) {
                     // Change placeholder values
                     teamList.add( new Team(aTeam) );
-                    
                     break;
                 }
             }
