@@ -314,7 +314,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }
     
     public void publishPreview(Image previewImage) {
-        this.jLabelStrategyPreview.setIcon(new ImageIcon(previewImage));
+        this.jLabelStrategyPreview.setIcon(new ImageIcon(previewImage.getScaledInstance(this.jPanelStrategyPreview.getWidth()-2, this.jPanelStrategyPreview.getHeight()-2, -1)));
     }
     
     /**
@@ -1598,7 +1598,13 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelCreateLoadStrategy.add(jScrollPanePlayers, gridBagConstraints);
 
         jPanelStrategyPreview.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelStrategyPreview.setPreferredSize(new java.awt.Dimension(0, 0));
         jPanelStrategyPreview.setLayout(new java.awt.BorderLayout());
+
+        jLabelStrategyPreview.setAlignmentY(0.0F);
+        jLabelStrategyPreview.setMaximumSize(null);
+        jLabelStrategyPreview.setMinimumSize(null);
+        jLabelStrategyPreview.setOpaque(true);
         jPanelStrategyPreview.add(jLabelStrategyPreview, java.awt.BorderLayout.CENTER);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1607,6 +1613,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.6;
         jPanelCreateLoadStrategy.add(jPanelStrategyPreview, gridBagConstraints);
 
         jLabel8.setText("Aperçu de la stratégie");

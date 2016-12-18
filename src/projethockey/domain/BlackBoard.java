@@ -18,5 +18,7 @@ public class BlackBoard extends Scene {
         // We start by drawing the players at their starting position
         Snapshot starterSnapshot = pStrategy.pullStarterSnapshot();
         starterSnapshot.printPlayers(this);
+        
+        // we then draw the lines
     }
 }
