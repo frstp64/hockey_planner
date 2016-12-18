@@ -29,7 +29,9 @@ public class EditionStateMachine {
     private int mousePosX;
     private int mousePosY;
     private boolean plsShowStrings;
-    private String currentAddedPlayer, currentMovingPlayer;
+    private String currentAddedPlayer, currentMovingPlayer, currentRotatingPlayer;
+    private int initialRotationPosX, initialRotationPosY;
+    private int intialTimeRealTime; // the initial time for real time modifications
     private String modificationMode;
     private boolean isPlayingStrategy;
     
@@ -85,10 +87,22 @@ public class EditionStateMachine {
             // 99% SURE THIS IS ACTUALLY DONE THX
         } else if (currentState.equals(States.ROTATION) && mouseButtonState) {
             System.out.println("Mode rotation");
+            // To switch to player movement mode, we first need to have one intersecting the mouse
+            String intersectingPlayer = this.myController.getScene().getIntersectingPlayerName(mousePosX, mousePosY);
+            //System.out.println("Intersecting player is: " + intersectingPlayer);
+            
+            if (!intersectingPlayer.equals("NoneIntersecting")) {
+                currentState = States.ROTATING_PLAYER;
+                this.myController.actionWillHappen();
+                this.currentRotatingPlayer = intersectingPlayer;
+                this.initialRotationPosX = mousePosX;
+                this.initialRotationPosY = mousePosY;
+            }
 
             // Button has been pressed in Rotation mode
         } else if (currentState.equals(States.ROTATING_PLAYER) && !mouseButtonState) {
             // We return to rotation mode since we're done rotating the thing
+            
             currentState = States.ROTATION;
             // 99% SURE THIS IS ACTUALLY DONE THX
         } else if (currentState.equals(States.ZOOM_CLICK_1_UNPRESSED) && mouseButtonState) {
@@ -111,9 +125,6 @@ public class EditionStateMachine {
             this.myController.drawCurrentFrame();
             currentState = States.MOVEMENT;
         } else if (currentState.equals(States.MOVING_PLAYER) && mouseButtonState) {
-            //System.out.println("player location changed");
-            //System.out.println(this.modificationMode);
-            //System.out.println(this.modificationMode.equals("Image par image"));
             if (this.modificationMode.equals("Image par image")) {
                 float relativeMousePosX = this.myController.getScene().getNormalizedX(mousePosX);
                 float relativeMousePosY = this.myController.getScene().getNormalizedY(mousePosY);
@@ -124,6 +135,16 @@ public class EditionStateMachine {
                 this.myController.drawCurrentFrame();
             }
             
+        } else if (currentState.equals(States.ROTATING_PLAYER) && mouseButtonState) {
+            if (this.modificationMode.equals("Image par image")) {
+                Snapshot aSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
+                float computedAngle = (float) Math.atan2(mousePosY-this.initialRotationPosY, mousePosX-this.initialRotationPosX);
+
+                aSnapshot.getTransientPlayer(currentRotatingPlayer).setAngle(computedAngle);
+                aSnapshot.getTransientPlayer(currentRotatingPlayer).setVisible(true);
+                this.myController.getCurrentStrategy().insertSnapshot(aSnapshot);
+                this.myController.drawCurrentFrame();
+            }
         }
         //System.out.println("x, y");
     }

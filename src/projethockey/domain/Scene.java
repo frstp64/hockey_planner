@@ -15,6 +15,8 @@ import static java.lang.Math.min;
 import static java.lang.Math.sqrt;
 import java.util.ArrayList;
 import java.awt.AlphaComposite;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
 
 /**
  *
@@ -135,7 +137,7 @@ public class Scene {
         return ((float) pCoordY)/sceneSizeY;
     }
     
-    public void putPlayer(float pCoordX, float pCoordY, Image playerImage, String playerName, boolean isTransparent) {
+    public void putPlayer(float pCoordX, float pCoordY, Image playerImage, String playerName, boolean isTransparent, float pAngle) {
         // Size computation
         int imArea = playerImage.getWidth(null) * playerImage.getHeight(null);
         int sceneArea = sceneSizeX * sceneSizeY;
@@ -157,7 +159,14 @@ public class Scene {
         this.playerCoordY1.add(wantedY1);
         this.playerCoordY2.add(wantedY2);
         this.playerNames.add(playerName);
-        this.putPicture(playerImage.getScaledInstance(max(10, wantedWidth), max(10, wantedHeight), BufferedImage.SCALE_FAST), wantedX1, wantedY1, isTransparent);
+        
+        AffineTransform myTransform = new AffineTransform();
+        myTransform.rotate(pAngle, playerImage.getWidth(null)/2, playerImage.getHeight(null)/2);
+        AffineTransformOp myOp = new AffineTransformOp(myTransform, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
+        Image playerImageToShow = myOp.filter((BufferedImage) playerImage, null);
+
+
+        this.putPicture(playerImageToShow.getScaledInstance(max(10, wantedWidth), max(10, wantedHeight), BufferedImage.SCALE_FAST), wantedX1, wantedY1, isTransparent);
        
         // TODO: show the strings
         if(this.showTextOption) {

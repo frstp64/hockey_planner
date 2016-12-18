@@ -54,4 +54,12 @@ public class TransientPlayer implements java.io.Serializable {
     public void setVisible(boolean visible) {
         this.visible = visible;
     }
+    
+    public void setAngle(float pAngle) {
+        this.rotationRadians = pAngle;
+    }
+    
+    public float getAngle() {
+        return this.rotationRadians;
+    }
 }

@@ -111,7 +111,9 @@ public class Snapshot implements java.io.Serializable {
             aTransientPlayer.getPosY(),
             aTransientPlayer.getPlayer().getCategoryPlayer().getImg(),
             aTransientPlayer.getPlayer().getName(),
-            !aTransientPlayer.isVisible()
+            !aTransientPlayer.isVisible(),
+            aTransientPlayer.getAngle()
+                    
             );
         }
     }
