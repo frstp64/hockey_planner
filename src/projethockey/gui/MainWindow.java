@@ -299,7 +299,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         // TODO modify slider time with setValue(int)
     }
     
-    public void publishCurrentSliderTime(int currentTime, int biggestTime){
+    public void publishCurrentSliderTime(long currentTime, long biggestTime){
         float _time;
         
         int newTime = 0;
