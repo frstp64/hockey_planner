@@ -2053,12 +2053,24 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelStrategyEditor.add(jLabelExportationSize, gridBagConstraints);
+
+        jTextFieldExportSizeX.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldExportSizeXFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelStrategyEditor.add(jTextFieldExportSizeX, gridBagConstraints);
+
+        jTextFieldExportSizeY.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldExportSizeYFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 3;
@@ -2283,6 +2295,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
     private void jButtonExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExportActionPerformed
         // TODO add your handling code here:
+        String pathToUse = requestFilePath();
+        this.myController.exportStrategy(pathToUse);
     }//GEN-LAST:event_jButtonExportActionPerformed
 
     private void jButtonRedoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRedoActionPerformed
@@ -2658,6 +2672,24 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         this.myController.setTime(0);
         this.myController.drawCurrentFrame();
     }//GEN-LAST:event_jButtonRewindActionPerformed
+
+    private void jTextFieldExportSizeXFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldExportSizeXFocusLost
+        // TODO add your handling code here:
+        try {
+        this.myController.setExportSizeX(Integer.parseInt(this.jTextFieldExportSizeX.getText()));
+        } catch (Exception e) {
+                // badly formatted, do nothing
+                }
+    }//GEN-LAST:event_jTextFieldExportSizeXFocusLost
+
+    private void jTextFieldExportSizeYFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldExportSizeYFocusLost
+        // TODO add your handling code here:
+        try {
+        this.myController.setExportSizeY(Integer.parseInt(this.jTextFieldExportSizeY.getText()));
+        } catch (Exception e) {
+                // badly formatted, do nothing
+                }
+    }//GEN-LAST:event_jTextFieldExportSizeYFocusLost
 
     /**
      * @param args the command line arguments

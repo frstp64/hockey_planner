@@ -1,5 +1,6 @@
 package projethockey.domain;
 
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -53,6 +54,9 @@ public class Controller {
     private ArrayList<Team> teamArray;
     private String selectedTeam;
     
+    // the size of the export picture in pixels
+    private int exportSizeX, exportSizeY;
+    
     // The state machine that kinda controls the edition mode
     private EditionStateMachine mMouseFSM;
 
@@ -76,6 +80,9 @@ public class Controller {
     private Controller() {
         // Singleton
 
+        this.setExportSizeX(10);
+        this.setExportSizeY(10);
+        
         // the FSM
         mMouseFSM = new EditionStateMachine(this);
         
@@ -1200,5 +1207,33 @@ public class Controller {
         myBlackBoard.cleanScene();
         myBlackBoard.drawStrategy(this.mPlaceHolderStrategyCreation);
         this.mMainWindow.publishPreview(myBlackBoard.getScenePicture());
+    }
+    
+    public void setExportSizeX(int pX) {
+        if (pX > 0) {
+            this.exportSizeX = pX;
+        }
+    }
+    
+    public void setExportSizeY(int pY) {
+        if (pY > 0) {
+            this.exportSizeY = pY;
+        }
+    }
+    
+    public void exportStrategy(String exportPath) {
+        System.out.println(this.exportSizeX);
+        System.out.println(this.exportSizeY);
+        BlackBoard myBlackBoard = new BlackBoard(this.exportSizeX, this.exportSizeY);
+        myBlackBoard.setBackground(this.mStrategyInEdition.getSport().getImg());
+        myBlackBoard.cleanScene();
+        myBlackBoard.drawStrategy(this.mStrategyInEdition);
+        BufferedImage thePicture = (BufferedImage) myBlackBoard.getScenePicture();
+        File outputfile = new File(exportPath);
+        try {
+            ImageIO.write(thePicture, "png", outputfile);
+        } catch (IOException e) {
+            System.out.println("An error happened while trying to export the image to the file system");
+        }
     }
 }
