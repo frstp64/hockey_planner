@@ -144,6 +144,9 @@ public class Scene {
     }
     
     public void putPlayer(float pCoordX, float pCoordY, Image playerImage, String playerName, boolean isTransparent) {
+        System.out.println(pCoordX);
+        System.out.println(pCoordY);
+        System.out.println(isTransparent);
         // Size computation
         int imArea = playerImage.getWidth(null) * playerImage.getHeight(null);
         int sceneArea = sceneSizeX * sceneSizeY;

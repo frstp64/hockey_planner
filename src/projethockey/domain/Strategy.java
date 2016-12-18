@@ -69,8 +69,17 @@ public class Strategy implements java.io.Serializable{
     // Pulls a snapshot copy right at or before a given time
     // REQUIREMENT: listSnapshot is sorted by time, the must be at least one snapshot
     public Snapshot pullSnapshot(int wantedTime) {
-        System.out.print("wanted pull time: "); System.out.println(wantedTime);
+        
+        if (this.listSnapshot.size() == 0) {
+            return new Snapshot(0);
+        } else if (this.getBiggestTime() < wantedTime) {
+            Snapshot aSnapshot = new Snapshot(this.listSnapshot.get(this.listSnapshot.size()-1));
+            aSnapshot.setTimeStamp(wantedTime);
+            return aSnapshot;
+        }
+        
         for (int index = 0; index < this.listSnapshot.size(); index++) {
+            
             if (this.listSnapshot.get(index).getTimeStamp() > wantedTime) {
                 // we return the last snapshot before trespassing
                 
@@ -83,8 +92,8 @@ public class Strategy implements java.io.Serializable{
                 return snapshotToReturn;
             }
         }
+        
         // should never happen
-        System.out.println("no snap found");
         return new Snapshot(0);
     }
     
@@ -99,6 +108,8 @@ public class Strategy implements java.io.Serializable{
             }
             else {
                 //We copy the info of the current frame to the frame to send
+                System.out.println("boopremoveme");
+                System.out.println(wantedTime);
                 snapshotToReturn.copyFromOtherSnapshot(this.listSnapshot.get(index));
             }
         }
@@ -108,8 +119,6 @@ public class Strategy implements java.io.Serializable{
     // Inserts a snapshot at the requested time
     public void insertSnapshot(Snapshot pSnapshot) {
         boolean inserted = false;
-        System.out.print("adding snapshot at time ");
-        System.out.println(pSnapshot.getTimeStamp());
         for (int index = 0; index < this.listSnapshot.size(); index++) {
             // we're done
             if(this.listSnapshot.get(index).getTimeStamp()  == pSnapshot.getTimeStamp()) {
@@ -132,6 +141,10 @@ public class Strategy implements java.io.Serializable{
             // this means we need to insert the snapshot at the end
             this.listSnapshot.add(new Snapshot(pSnapshot));
         }
+        System.out.println("number of snapshots");
+        System.out.println(this.listSnapshot.size());
+        System.out.println("time of snapshot");
+        System.out.println(pSnapshot.getTimeStamp());
         
     }
     
@@ -157,7 +170,6 @@ public class Strategy implements java.io.Serializable{
     }
     
     public boolean doesPlayerExist(String pPlayerName) {
-        System.out.println(pPlayerName);
         for (Team aTeam: this.listTeam) {
             if( aTeam.getPlayerNames().contains(pPlayerName)) {
                 return true;

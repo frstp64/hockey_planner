@@ -112,14 +112,17 @@ public class EditionStateMachine {
             currentState = States.MOVEMENT;
         } else if (currentState.equals(States.MOVING_PLAYER) && mouseButtonState) {
             //System.out.println("player location changed");
-            System.out.println(this.modificationMode);
-            System.out.println(this.modificationMode.equals("Image par image"));
+            //System.out.println(this.modificationMode);
+            //System.out.println(this.modificationMode.equals("Image par image"));
             if (this.modificationMode.equals("Image par image")) {
                 float relativeMousePosX = this.myController.getScene().getNormalizedX(mousePosX);
                 float relativeMousePosY = this.myController.getScene().getNormalizedY(mousePosY);
                 Snapshot aSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
                 aSnapshot.getTransientPlayer(currentMovingPlayer).setPosition(relativeMousePosX, relativeMousePosY);
                 aSnapshot.getTransientPlayer(currentMovingPlayer).setVisible(true);
+                System.out.println(this.myController.getCurrentTime());
+                System.out.println(aSnapshot.getTimeStamp());
+                System.out.println("wowowowow");
                 this.myController.getCurrentStrategy().insertSnapshot(aSnapshot);
                 this.myController.drawCurrentFrame();
             }

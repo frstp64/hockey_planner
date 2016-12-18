@@ -25,8 +25,6 @@ public class Snapshot implements java.io.Serializable {
      public Snapshot(Snapshot snapshot) {
         
         this.idChange = snapshot.idChange;
-        System.out.println("creating new snapshot");
-        System.out.println(snapshot.listTransientPlayer.size());
         this.listTransientPlayer = new ArrayList();
         for(TransientPlayer trans : snapshot.listTransientPlayer) {
             //System.out.println("I'm a player and my name is "+ trans.getPlayer().getName());
@@ -106,8 +104,6 @@ public class Snapshot implements java.io.Serializable {
     }
     
     public void printPlayers(Scene sceneReference) {
-        System.out.println("Drawing number of player: ");
-        System.out.println(this.listTransientPlayer.size());
         for (TransientPlayer aTransientPlayer: this.listTransientPlayer) {
             //System.out.println("now printing " + aTransientPlayer.getPlayer().getName() + " at x=" + aTransientPlayer.getPosX() + " and y="+ aTransientPlayer.getPosY());
             sceneReference.putPlayer(
