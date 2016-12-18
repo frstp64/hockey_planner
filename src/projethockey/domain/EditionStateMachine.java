@@ -18,6 +18,7 @@ public class EditionStateMachine {
         DELETING,
         ADDING_PLAYER,
         MOVING_PLAYER,
+        ADDING_OBJECT,
         ROTATING_PLAYER,
         ZOOM_CLICK_1_UNPRESSED,
         ZOOM_CLICK_1_PRESSED,
@@ -197,6 +198,11 @@ public class EditionStateMachine {
         this.currentState = States.ADDING_PLAYER;
         this.currentAddedPlayer = pPlayerIdentity;
         //System.out.println("Just switched to add mode!");
+    }
+    
+    public void switchtoAddModeObject(String pObjectName) {
+        this.currentState = States.ADDING_OBJECT;
+        this.currentAddedPlayer = pObjectName;
     }
     
     public boolean getShowStringOption() {

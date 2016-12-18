@@ -219,6 +219,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         this.jListStrategyPlayers.setListData(plistStrategyPlayers);
     }
     
+    public void publishStrategyObjects(String[] plistStrategyObjects) {
+        this.jListStrategyObjects.setListData(plistStrategyObjects);
+    }
+    
     public void publishExistingStrategies(String[] plistStrategy) {
         this.jListExistingStrategies.setListData(plistStrategy);
     }
@@ -1680,10 +1684,9 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jScrollPaneObjectSelection.setMinimumSize(new java.awt.Dimension(0, 0));
         jScrollPaneObjectSelection.setPreferredSize(new java.awt.Dimension(0, 0));
 
-        jListStrategyObjects.setEnabled(false);
-        jListStrategyObjects.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jListStrategyObjectsPropertyChange(evt);
+        jListStrategyObjects.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListStrategyObjectsMouseClicked(evt);
             }
         });
         jScrollPaneObjectSelection.setViewportView(jListStrategyObjects);
@@ -2340,10 +2343,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         this.myController.saveStrategy();        
     }//GEN-LAST:event_jButtonSaveStrategyActionPerformed
 
-    private void jListStrategyObjectsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListStrategyObjectsPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jListStrategyObjectsPropertyChange
-
     private void jTextFieldVerticalSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldVerticalSizeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldVerticalSizeActionPerformed
@@ -2679,6 +2678,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jButtonSwitchToRemovalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSwitchToRemovalActionPerformed
         this.myController.toggleRemovalMode();
     }//GEN-LAST:event_jButtonSwitchToRemovalActionPerformed
+
+    private void jListStrategyObjectsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListStrategyObjectsMouseClicked
+        // TODO add your handling code here:
+        String objectString = this.jListStrategyObjects.getSelectedValue();
+        this.myController.objectAddMode(objectString);
+    }//GEN-LAST:event_jListStrategyObjectsMouseClicked
 
     /**
      * @param args the command line arguments

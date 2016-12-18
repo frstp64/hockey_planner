@@ -647,9 +647,17 @@ public class Controller {
                 }
                 try{
                     this.mMainWindow.publishStrategyPlayers(playerIdentities.toArray(new String[playerIdentities.size()]));
+                
                 } catch (Exception Ex) {
                     this.selectedStrategy = "";
                 }
+                
+                // publish all objects in strategy to list.
+                ArrayList<String> objectNames = new ArrayList<String>();
+                for(CategoryObstacle anObject : this.categoryObstacleArray) {
+                    objectNames.add(anObject.getCategoryName());
+                }
+                this.mMainWindow.publishStrategyObjects(objectNames.toArray(new String[objectNames.size()]));
 
             }
         }
@@ -1135,6 +1143,11 @@ public class Controller {
             System.out.println("Selected player that does not exist!");
         }
     }
+    
+    public void objectAddMode(String pObjectName) {
+        this.mMouseFSM.switchToAddMode(pObjectName);
+    }    
+    
     
     public Strategy getCurrentStrategy () {
         return this.mStrategyInEdition;
