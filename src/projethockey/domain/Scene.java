@@ -72,7 +72,6 @@ public class Scene {
     public void putPicture(Image itemPicture, int locX, int locY, boolean isTransparent) {
         
         Graphics2D cloneG = sceneImage.createGraphics();
-        //System.out.println("put image at X:" + locX + " and Y:" + locY);
         if(isTransparent)
             cloneG.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3F));
         cloneG.drawImage(itemPicture, locX, locY, null); // might require some cutting
@@ -89,7 +88,6 @@ public class Scene {
         if (!isZoomed) {
             return sceneImage;
         } else { // returns the subpicture, scaled back to full size
-            //System.out.println("returned sub picture");
             return sceneImage.getSubimage(min(zoomX1, zoomX2), 
                                           min(zoomY1, zoomY2),
                                           abs(zoomX2-zoomX1),
@@ -115,7 +113,6 @@ public class Scene {
         // The iteration
         int realCoordX = (int) (((float) this.sceneSizeX) * this.getNormalizedX(coordX));
         int realCoordY = (int) (((float) this.sceneSizeY) * this.getNormalizedY(coordY));
-        System.out.println(realCoordX + " " + realCoordY);
         for(int j = playerNames.size() - 1; j >= 0; j--){
             //pass
             if (realCoordX <= playerCoordX2.get(j)
@@ -125,12 +122,7 @@ public class Scene {
                 System.out.println("intersection happened!");
                 return playerNames.get(j);
             }
-            //System.out.println(playerCoordX1.get(j));
-            //System.out.println(playerCoordX2.get(j));
-            //System.out.println(playerCoordY1.get(j));
-            //System.out.println(playerCoordY2.get(j));
     }
-        //System.out.println("intersect x and y: " + coordX + " "+coordY);
         
         return "NoneIntersecting"; // None intersecting
     }
@@ -144,9 +136,6 @@ public class Scene {
     }
     
     public void putPlayer(float pCoordX, float pCoordY, Image playerImage, String playerName, boolean isTransparent) {
-        System.out.println(pCoordX);
-        System.out.println(pCoordY);
-        System.out.println(isTransparent);
         // Size computation
         int imArea = playerImage.getWidth(null) * playerImage.getHeight(null);
         int sceneArea = sceneSizeX * sceneSizeY;
@@ -154,17 +143,11 @@ public class Scene {
         int wantedWidth  = (int) (playerImage.getWidth(null)  *  sideFactor);
         int wantedHeight = (int) (playerImage.getHeight(null) * sideFactor);
         
-        //System.out.println("coordX rel = " + pCoordX);
-        //System.out.println("coordY rel = " + pCoordY);
-        //System.out.println("wantedWidth = " + wantedWidth);
-        //System.out.println("wantedHeight = " + wantedHeight);
         // Position computation
         int wantedX1 = (int) (pCoordX*sceneSizeX)-wantedWidth/2;
         int wantedX2 = wantedX1+wantedWidth;
         int wantedY1 = (int) (pCoordY*sceneSizeY)-wantedHeight/2;
         int wantedY2 = wantedY1+wantedWidth;
-        //System.out.println("coordX not rel = " + wantedX1);
-        //System.out.println("coordY not rel = " + wantedY1);
         float wantedRelativeX1 = ((float) wantedX1)/sceneSizeX;
         float wantedRelativeX2 = ((float) wantedX2)/sceneSizeX;
         float wantedRelativeY1 = ((float) wantedY1)/sceneSizeY;

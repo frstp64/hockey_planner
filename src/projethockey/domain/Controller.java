@@ -212,7 +212,6 @@ public class Controller {
         // If the sport exists, remove it from the list
         for (Sport aSport: sportArray) {
             if (aSport.getName().equals(this.mPlaceHolderSport.getName())) {
-                System.out.println(aSport.getName());
                 this.sportArray.remove(aSport);
                 break;
             }
@@ -345,11 +344,9 @@ public class Controller {
     public void saveCategoryPlayer() {
         // Ensure the categoryPlayer is valid here.
         if (this.mPlaceHolderCategoryPlayer.isValid()) {
-            System.out.println("was valid");
         // If the categoryPlayer exists, remove it from the list
         for (CategoryPlayer aCategoryPlayer: categoryPlayerArray) {
             if (aCategoryPlayer.getCategoryName().equals(this.mPlaceHolderCategoryPlayer.getCategoryName())) {
-                System.out.println(aCategoryPlayer.getCategoryName());
                 this.categoryPlayerArray.remove(aCategoryPlayer);
                 break;
             }
@@ -473,7 +470,6 @@ public class Controller {
         // If the categoryObstacle exists, remove it from the list
         for (CategoryObstacle aCategoryObstacle: categoryObstacleArray) {
             if (aCategoryObstacle.getCategoryName().equals(this.mPlaceHolderCategoryObstacle.getCategoryName())) {
-                System.out.println(aCategoryObstacle.getCategoryName());
                 this.categoryObstacleArray.remove(aCategoryObstacle);
                 break;
             }
@@ -506,20 +502,6 @@ public class Controller {
                 this.mMainWindow.publishCategoryObstacleName(this.mPlaceHolderCategoryObstacle.getCategoryName());
                 this.mMainWindow.publishCategoryObstacleDimensions(this.mPlaceHolderCategoryObstacle.getHorizontalSize(), this.mPlaceHolderCategoryObstacle.getVerticalSize());
                 this.mMainWindow.publishCategoryObstacleIsGameObject(this.mPlaceHolderCategoryObstacle.getIsGameObject());
-
-                // load image and publish  to GUI
-//                String categoryObstacleImagePath = this.mPlaceHolderCategoryObstacle.getImgPath();
-//                if (!categoryObstacleImagePath.equals("")) {
-//                    try {
-//                        java.awt.image.BufferedImage myImg = ImageIO.read(new File(categoryObstacleImagePath));
-//
-//                        this.mMainWindow.publishCategoryObstacleIcon(myImg);
-//                        //this.mPlaceHolderCategoryObstacle.setImage();
-//                    } 
-//                    catch (IOException ex) {
-//                        System.out.println("Error happenedwhile reading image");
-//                    }
-//                }
                 break;
             }
         }
@@ -593,7 +575,6 @@ public class Controller {
 
         for (Strategy aStrategy: strategyArray) {
             if (aStrategy.getName().equals(this.mPlaceHolderStrategyCreation.getName())) {
-                System.out.println(aStrategy.getName());
                 this.strategyArray.remove(aStrategy);
                 break;
             }
@@ -617,7 +598,6 @@ public class Controller {
 
         for (Strategy aStrategy: strategyArray) {
             if (aStrategy.getName().equals(this.mStrategyInEdition.getName())) {
-                System.out.println(aStrategy.getName());
                 this.strategyArray.remove(aStrategy);
                 break;
             }
@@ -663,7 +643,6 @@ public class Controller {
 
             }
         }
-        //System.out.println("We should have selected an existing strategy!");
     }
     public void loadSelectedStrategy() {
         this.mStrategyInEdition = new Strategy(this.mPlaceHolderStrategyCreation);
@@ -795,7 +774,6 @@ public class Controller {
         // If the player exists, remove it from the list
         for (Player aPlayer: playerArray) {
             if (aPlayer.getName().equals(this.mPlaceHolderPlayer.getName())) {
-                System.out.println(aPlayer.getName());
                 this.playerArray.remove(aPlayer);
                 break;
             }
@@ -904,7 +882,6 @@ public class Controller {
         // If the team exists, remove it from the list
         for (Team aTeam: teamArray) {
             if (aTeam.getName().equals(this.mPlaceHolderTeam.getName())) {
-                System.out.println(aTeam.getName());
                 this.teamArray.remove(aTeam);
                 break;
             }
@@ -983,18 +960,15 @@ public class Controller {
     public void toggleStrategyPlay() {
         if (!this.mMouseFSM.isPlaying()) {
             this.mMouseFSM.startPlaying();
-            System.out.println("playStrategy appelé");
             long startTime = System.nanoTime();
             int maxTime = this.mStrategyInEdition.getBiggestTime();
             long timeFromWhichToStartPlaying = this.timeViewer;
             while ((System.nanoTime() - startTime)/1000000 + timeFromWhichToStartPlaying < maxTime+100) {
                 //the showing loop
                 if (!this.mMouseFSM.isPlaying()) {
-                    System.out.println("broke out of playing loop");
                     break;
                 }
                 this.timeViewer = (int) ((System.nanoTime()- startTime)/1000000 + timeFromWhichToStartPlaying);
-                System.out.println("current time in viewing is " + this.timeViewer);
                 drawCurrentFrame();
             }
             this.mMouseFSM.stopPlaying();
@@ -1159,7 +1133,6 @@ public class Controller {
     
     public void setIntervalTime(float timeValueInSecond) {
         this.intervalTimeinMS = (int) (timeValueInSecond*1000);
-        System.out.print("set interval to");
         System.out.println(this.intervalTimeinMS);
     }
     
@@ -1174,14 +1147,11 @@ public class Controller {
     public void actionWillHappen() {
         redoList = new ArrayList(); // the redo list is emptied
         if (this.mStrategyInEdition == null) {
-            System.out.println("wtf, actionWillHappen");
         }
         undoList.add(new Strategy(this.mStrategyInEdition)); //Strategy is copied in the undo array
         if (undoList.size() > this.maxUndoRedo) {
             undoList.remove(0);
         }
-        System.out.println("Action will happen!");
-        
     }
     
     // This function executes an "undo" on the strategy
@@ -1191,8 +1161,6 @@ public class Controller {
             redoList.add(new Strategy(this.mStrategyInEdition)); // add current state to redoList
             this.mStrategyInEdition = new Strategy(undoList.get(undoList.size()-1));
             undoList.remove(undoList.size()-1);
-            
-            System.out.println("Undo done!");
         }
         this.drawCurrentFrame();
     }
@@ -1203,12 +1171,12 @@ public class Controller {
             undoList.add(new Strategy(this.mStrategyInEdition));
             this.mStrategyInEdition = new Strategy(redoList.get(redoList.size()-1));
             redoList.remove(redoList.size()-1);
-            System.out.println("Redo done!");
         }
         this.drawCurrentFrame();
     }
     
     public void setModificationMode(String pMode) {
         this.mMouseFSM.setModificationMode(pMode);
+        drawCurrentFrame();
     }
 }

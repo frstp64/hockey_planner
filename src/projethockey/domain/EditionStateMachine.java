@@ -120,9 +120,6 @@ public class EditionStateMachine {
                 Snapshot aSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
                 aSnapshot.getTransientPlayer(currentMovingPlayer).setPosition(relativeMousePosX, relativeMousePosY);
                 aSnapshot.getTransientPlayer(currentMovingPlayer).setVisible(true);
-                System.out.println(this.myController.getCurrentTime());
-                System.out.println(aSnapshot.getTimeStamp());
-                System.out.println("wowowowow");
                 this.myController.getCurrentStrategy().insertSnapshot(aSnapshot);
                 this.myController.drawCurrentFrame();
             }

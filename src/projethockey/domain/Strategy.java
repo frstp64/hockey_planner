@@ -14,6 +14,8 @@ public class Strategy implements java.io.Serializable{
     private float playBackSpeed;
     private Date deltaTimeFrame;
     private ArrayList<Snapshot> listSnapshot;
+    private Snapshot obstaclePlane;
+    
     private String name;
     private Sport sport;
     private ArrayList<Team> listTeam;
@@ -108,8 +110,6 @@ public class Strategy implements java.io.Serializable{
             }
             else {
                 //We copy the info of the current frame to the frame to send
-                System.out.println("boopremoveme");
-                System.out.println(wantedTime);
                 snapshotToReturn.copyFromOtherSnapshot(this.listSnapshot.get(index));
             }
         }
@@ -141,10 +141,6 @@ public class Strategy implements java.io.Serializable{
             // this means we need to insert the snapshot at the end
             this.listSnapshot.add(new Snapshot(pSnapshot));
         }
-        System.out.println("number of snapshots");
-        System.out.println(this.listSnapshot.size());
-        System.out.println("time of snapshot");
-        System.out.println(pSnapshot.getTimeStamp());
         
     }
     
