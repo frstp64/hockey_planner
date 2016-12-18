@@ -93,6 +93,7 @@ public class EditionStateMachine {
             //System.out.println("Intersecting player is: " + intersectingPlayer);
             
             if (!intersectingPlayer.equals("NoneIntersecting")) {
+                this.initialTimeRealTime = System.nanoTime()/1000000 - this.myController.getCurrentTime();
                 currentState = States.ROTATING_PLAYER;
                 this.myController.actionWillHappen();
                 this.currentRotatingPlayer = intersectingPlayer;
@@ -128,11 +129,13 @@ public class EditionStateMachine {
         } else if (currentState.equals(States.MOVING_PLAYER) && mouseButtonState) {
                 float relativeMousePosX = this.myController.getScene().getNormalizedX(mousePosX);
                 float relativeMousePosY = this.myController.getScene().getNormalizedY(mousePosY);
+                
             if (this.modificationMode.equals("Image par image")) {
                 Snapshot aSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
                 aSnapshot.getTransientPlayer(currentMovingPlayer).setPosition(relativeMousePosX, relativeMousePosY);
                 aSnapshot.getTransientPlayer(currentMovingPlayer).setVisible(true);
                 this.myController.getCurrentStrategy().insertSnapshot(aSnapshot);
+                
             } else if (this.modificationMode.equals("Temps réel")) {
                 Snapshot previousSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
                 this.myController.setTime(System.nanoTime()/1000000 - this.initialTimeRealTime);
@@ -141,20 +144,28 @@ public class EditionStateMachine {
                 TransientPlayer theTransientPlayer = previousSnapshot.getTransientPlayer(currentMovingPlayer);
                 nextSnapshot.tryAddPlayer(theTransientPlayer.getPlayer(), relativeMousePosX, relativeMousePosY, theTransientPlayer.getAngle());
                 this.myController.getCurrentStrategy().insertSnapshot(nextSnapshot);
-            //currentSnapshot.tryAddPlayer(currentPlayer, this.myController.getScene().getNormalizedX(mousePosX), this.myController.getScene().getNormalizedY(mousePosY), 0);
             }
+            
             this.myController.drawCurrentFrame();
             
         } else if (currentState.equals(States.ROTATING_PLAYER) && mouseButtonState) {
+            float computedAngle = (float) Math.atan2(mousePosY-this.initialRotationPosY, mousePosX-this.initialRotationPosX);
             if (this.modificationMode.equals("Image par image")) {
                 Snapshot aSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
-                float computedAngle = (float) Math.atan2(mousePosY-this.initialRotationPosY, mousePosX-this.initialRotationPosX);
 
                 aSnapshot.getTransientPlayer(currentRotatingPlayer).setAngle(computedAngle);
                 aSnapshot.getTransientPlayer(currentRotatingPlayer).setVisible(true);
                 this.myController.getCurrentStrategy().insertSnapshot(aSnapshot);
-                this.myController.drawCurrentFrame();
+            } else if (this.modificationMode.equals("Temps réel")) {
+                Snapshot previousSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
+                this.myController.setTime(System.nanoTime()/1000000 - this.initialTimeRealTime);
+                Snapshot nextSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
+                // we want to take the player and insert it in the new snapshot
+                TransientPlayer theTransientPlayer = previousSnapshot.getTransientPlayer(currentMovingPlayer);
+                nextSnapshot.tryAddPlayer(theTransientPlayer.getPlayer(), theTransientPlayer.getPosX(), theTransientPlayer.getPosY(), computedAngle);
+                this.myController.getCurrentStrategy().insertSnapshot(nextSnapshot);
             }
+            this.myController.drawCurrentFrame();
         }
         //System.out.println("x, y");
     }
