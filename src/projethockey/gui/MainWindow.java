@@ -468,6 +468,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jListStrategyTeams = new javax.swing.JList<>();
         jLabelTeamToSelect = new javax.swing.JLabel();
         jSliderStrategyTime = new javax.swing.JSlider();
+        jLabelExportationSize = new javax.swing.JLabel();
+        jTextFieldExportSizeX = new javax.swing.JTextField();
+        jTextFieldExportSizeY = new javax.swing.JTextField();
+        jButtonRewind = new javax.swing.JButton();
 
         jComboBoxTeamPlayer.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Créer joueur avant!" }));
 
@@ -1650,6 +1654,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.33;
@@ -1673,6 +1678,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.16;
@@ -1692,6 +1698,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.33;
@@ -1741,7 +1748,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jPanelStrategyEditor.add(jButtonSaveStrategy, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         jPanelStrategyEditor.add(jSeparator2, gridBagConstraints);
@@ -1755,7 +1762,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelStrategyEditor.add(jButtonZoom, gridBagConstraints);
@@ -1769,7 +1776,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -1779,7 +1786,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jLabelCursorPosition.setText("position du curseur: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelStrategyEditor.add(jLabelCursorPosition, gridBagConstraints);
 
@@ -1791,7 +1798,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelStrategyEditor.add(jLabelCurrentPosition, gridBagConstraints);
@@ -1803,7 +1810,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelStrategyEditor.add(jTextFieldTimeInterval, gridBagConstraints);
@@ -1811,7 +1818,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jLabelTimeInterval.setText("Intervalle(s)");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         jPanelStrategyEditor.add(jLabelTimeInterval, gridBagConstraints);
 
         jButtonModificationVisualize.setText("Visualiser");
@@ -1822,7 +1829,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelStrategyEditor.add(jButtonModificationVisualize, gridBagConstraints);
@@ -1835,7 +1842,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelStrategyEditor.add(jButtonStepBackTime, gridBagConstraints);
@@ -1848,7 +1855,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
         jPanelStrategyEditor.add(jButtonStepForwardTime, gridBagConstraints);
@@ -1863,7 +1870,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -1877,7 +1884,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelStrategyEditor.add(jButtonRedo, gridBagConstraints);
@@ -1931,7 +1938,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -1942,7 +1949,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jLabelPlayBackSpeedTitle.setText("Vitesse de jeu: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 9;
         jPanelStrategyEditor.add(jLabelPlayBackSpeedTitle, gridBagConstraints);
 
         jToggleButtonRotationMode.setText("mode rotation");
@@ -1958,7 +1965,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelStrategyEditor.add(jToggleButtonRotationMode, gridBagConstraints);
@@ -1971,7 +1978,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -1985,7 +1992,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelStrategyEditor.add(jTextFieldPlaybackSpeed, gridBagConstraints);
@@ -1993,7 +2000,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jLabelStrategyViewerTime.setText("Temps (s):");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         jPanelStrategyEditor.add(jLabelStrategyViewerTime, gridBagConstraints);
 
@@ -2005,7 +2012,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         jPanelStrategyEditor.add(jCheckBoxInfoSupp, gridBagConstraints);
 
         jScrollPane6.setViewportView(jListStrategyTeams);
@@ -2013,6 +2020,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridheight = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.16;
         jPanelStrategyEditor.add(jScrollPane6, gridBagConstraints);
@@ -2032,10 +2040,44 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         jPanelStrategyEditor.add(jSliderStrategyTime, gridBagConstraints);
+
+        jLabelExportationSize.setText("Taille de l'exportation (pixels)");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanelStrategyEditor.add(jLabelExportationSize, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanelStrategyEditor.add(jTextFieldExportSizeX, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanelStrategyEditor.add(jTextFieldExportSizeY, gridBagConstraints);
+
+        jButtonRewind.setText("Aller au début");
+        jButtonRewind.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRewindActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanelStrategyEditor.add(jButtonRewind, gridBagConstraints);
 
         jTabbedPaneRoot.addTab("Édition et visualisation de stratégie", jPanelStrategyEditor);
 
@@ -2226,7 +2268,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }//GEN-LAST:event_jTextFieldPlaybackSpeedActionPerformed
 
     private void jTextFieldStrategyViewerTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStrategyViewerTimeActionPerformed
-        // TODO add your handling code here:
+        this.myController.setTime((long) (Float.parseFloat(this.jTextFieldStrategyViewerTime.getText())*1000));
+        this.myController.drawCurrentFrame();
     }//GEN-LAST:event_jTextFieldStrategyViewerTimeActionPerformed
 
     private void jToggleButtonRotationModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonRotationModeActionPerformed
@@ -2610,6 +2653,12 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         
     }//GEN-LAST:event_jSliderStrategyTimeMouseReleased
 
+    private void jButtonRewindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRewindActionPerformed
+        // TODO add your handling code here:
+        this.myController.setTime(0);
+        this.myController.drawCurrentFrame();
+    }//GEN-LAST:event_jButtonRewindActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2665,6 +2714,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JButton jButtonNewTeam;
     private javax.swing.JButton jButtonNextFrameForImageMode;
     private javax.swing.JButton jButtonRedo;
+    private javax.swing.JButton jButtonRewind;
     private javax.swing.JButton jButtonSaveCategory;
     private javax.swing.JButton jButtonSaveGameObstacle;
     private javax.swing.JButton jButtonSavePlayer1;
@@ -2704,6 +2754,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JLabel jLabelExistingCategories;
     private javax.swing.JLabel jLabelExistingObjects;
     private javax.swing.JLabel jLabelExistingSportTitle;
+    private javax.swing.JLabel jLabelExportationSize;
     private javax.swing.JLabel jLabelFieldSize;
     private javax.swing.JLabel jLabelFieldText;
     private javax.swing.JLabel jLabelModificationModeToSelect;
@@ -2774,6 +2825,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JTable jTableTeamPlayers;
     private javax.swing.JTextField jTextFieldCategoryName;
     private javax.swing.JTextField jTextFieldChooseStrategyName;
+    private javax.swing.JTextField jTextFieldExportSizeX;
+    private javax.swing.JTextField jTextFieldExportSizeY;
     private javax.swing.JTextField jTextFieldFieldUnits;
     private javax.swing.JTextField jTextFieldHorizontalSize;
     private javax.swing.JTextField jTextFieldObjectDimensionX;
