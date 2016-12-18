@@ -38,7 +38,7 @@ public class Team implements java.io.Serializable {
 
         int index = 0;
         for (Player aPlayer : this.listPlayer) {
-            playerNames.add(aPlayer.getName());
+            playerNames.add(aPlayer.getIdentity());
             index++;
         }
         return playerNames;
@@ -53,9 +53,9 @@ public class Team implements java.io.Serializable {
         this.listPlayer = new ArrayList<Player>();
     }
 
-    public Player getPlayer(String pPlayerName) throws Exception {
+    public Player getPlayer(String pPlayerIdentity) throws Exception {
         for (Player aPlayer : this.listPlayer) {
-            if (aPlayer.getName().equals(pPlayerName)) {
+            if (aPlayer.getIdentity().equals(pPlayerIdentity)) {
                 return aPlayer;
             }
         }

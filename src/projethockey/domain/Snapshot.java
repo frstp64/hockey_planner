@@ -27,11 +27,9 @@ public class Snapshot implements java.io.Serializable {
         this.idChange = snapshot.idChange;
         this.listTransientPlayer = new ArrayList();
         for(TransientPlayer trans : snapshot.listTransientPlayer) {
-            //System.out.println("I'm a player and my name is "+ trans.getPlayer().getName());
             this.listTransientPlayer.add(new TransientPlayer(trans));
         }
         for(TransientPlayer trans: this.listTransientPlayer) {
-            //System.out.println("I'm a player and my name is "+ trans.getPlayer().getName());
 
         }
         //this.listObstacle = snapshot.listObstacle;
@@ -92,7 +90,7 @@ public class Snapshot implements java.io.Serializable {
         TransientPlayer transientPlayer;
         boolean playerAlreadyExists = false;
         for (TransientPlayer anExistingTransientPlayer: this.listTransientPlayer) {
-            if (anExistingTransientPlayer.getPlayer().getName().equals(pPlayer.getName())) {
+            if (anExistingTransientPlayer.getPlayer().getIdentity().equals(pPlayer.getIdentity())) {
                 playerAlreadyExists = true;
                 anExistingTransientPlayer.setPosition(posX, posY);
                 anExistingTransientPlayer.setAngle(pAngle);
@@ -107,12 +105,11 @@ public class Snapshot implements java.io.Serializable {
     
     public void printPlayers(Scene sceneReference) {
         for (TransientPlayer aTransientPlayer: this.listTransientPlayer) {
-            //System.out.println("now printing " + aTransientPlayer.getPlayer().getName() + " at x=" + aTransientPlayer.getPosX() + " and y="+ aTransientPlayer.getPosY());
             sceneReference.putPlayer(
             aTransientPlayer.getPosX(),
             aTransientPlayer.getPosY(),
             aTransientPlayer.getPlayer().getCategoryPlayer().getImg(),
-            aTransientPlayer.getPlayer().getName(),
+            aTransientPlayer.getPlayer().getIdentity(),
             !aTransientPlayer.isVisible(),
             aTransientPlayer.getAngle()
                     
@@ -120,14 +117,14 @@ public class Snapshot implements java.io.Serializable {
         }
     }
     
-    public TransientPlayer getTransientPlayer(String pPlayerName) throws Exception {
+    public TransientPlayer getTransientPlayer(String pPlayerIdentity) throws Exception {
         for (TransientPlayer aTransientPlayer: this.listTransientPlayer) {
-            if (aTransientPlayer.getPlayer().getName().equals(pPlayerName)) {
+            if (aTransientPlayer.getPlayer().getIdentity().equals(pPlayerIdentity)) {
                 return aTransientPlayer;
             }
         }
-        System.out.println("player name: " + pPlayerName);
-        throw new Exception("non-existent transient player: requested " + pPlayerName);
+        System.out.println("player identity: " + pPlayerIdentity);
+        throw new Exception("non-existent transient player: requested " + pPlayerIdentity);
     }
     
     // also deals with the visibility, makes it false

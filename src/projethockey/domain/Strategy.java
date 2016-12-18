@@ -126,7 +126,7 @@ public class Strategy implements java.io.Serializable{
             Snapshot currentSnapshot = this.listSnapshot.get(index);
             for(TransientPlayer aTransientPlayer: currentSnapshot.getListTransientPlayer()) {
                 boolean containsIt = false;
-                String theName = aTransientPlayer.getPlayer().getName();
+                String theName = aTransientPlayer.getPlayer().getIdentity();
                 if (!addedPlayers.contains(theName)) {
                     // a new player!
                     snapshotToReturn.tryAddPlayer(aTransientPlayer.getPlayer(), aTransientPlayer.getPosX(), aTransientPlayer.getPosY(), aTransientPlayer.getAngle());
@@ -235,7 +235,7 @@ public class Strategy implements java.io.Serializable{
             Float playerLastAngle = null;
             for (Snapshot aSnapshot : this.listSnapshot) {
                 try {
-                    TransientPlayer tmpTransientPlayer = aSnapshot.getTransientPlayer(aTransientPlayer.getPlayer().getName());
+                    TransientPlayer tmpTransientPlayer = aSnapshot.getTransientPlayer(aTransientPlayer.getPlayer().getIdentity());
                     // it exists, we record it's position
                     playerLastX = tmpTransientPlayer.getPosX();
                     playerLastY = tmpTransientPlayer.getPosY();
@@ -260,7 +260,7 @@ public class Strategy implements java.io.Serializable{
             ArrayList<Float> thePlayerPosYList = new ArrayList();
             for (Snapshot aSnapshot : this.listSnapshot) {
                 try {
-                    TransientPlayer tmpTransientPlayer = aSnapshot.getTransientPlayer(aTransientPlayer.getPlayer().getName());
+                    TransientPlayer tmpTransientPlayer = aSnapshot.getTransientPlayer(aTransientPlayer.getPlayer().getIdentity());
                     thePlayerPosXList.add(tmpTransientPlayer.getPosX());
                     thePlayerPosYList.add(tmpTransientPlayer.getPosY());
                 } catch (Exception e) {
@@ -270,7 +270,6 @@ public class Strategy implements java.io.Serializable{
             
             // now we draw the lines
             for (int i = 0; i<thePlayerPosXList.size()-1; i++) {
-                System.out.println("boop");
                 pScene.drawLine(thePlayerPosXList.get(i), thePlayerPosYList.get(i), thePlayerPosXList.get(i+1), thePlayerPosYList.get(i+1));
             }
         }
@@ -289,7 +288,7 @@ public class Strategy implements java.io.Serializable{
                 List<TransientPlayer> transientPlayerList = aSnapshot.getListTransientPlayer();
                 for (int aPlayerIndex = 0; aPlayerIndex < transientPlayerList.size(); aPlayerIndex++) {
                     TransientPlayer aTransientPlayer = transientPlayerList.get(aPlayerIndex);
-                    if (aTransientPlayer.getPlayer().getName().equals(pPlayerIdentity)) {
+                    if (aTransientPlayer.getPlayer().getIdentity().equals(pPlayerIdentity)) {
                         transientPlayerList.remove(aPlayerIndex);
                         break;
                     }

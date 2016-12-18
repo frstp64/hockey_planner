@@ -88,7 +88,7 @@ public class EditionStateMachine {
             Strategy currentStrategy = this.myController.getCurrentStrategy();
             Snapshot currentSnapshot = currentStrategy.pullSnapshot(currentTime);
             Player currentPlayer = this.myController.getPlayer(currentAddedPlayer);
-            System.out.println("Player added in state machine: " + currentPlayer.getName());
+            System.out.println("Player added in state machine: " + currentPlayer.getIdentity());
             currentSnapshot.tryAddPlayer(currentPlayer, this.myController.getScene().getNormalizedX(mousePosX), this.myController.getScene().getNormalizedY(mousePosY), 0);
             currentStrategy.insertSnapshot(currentSnapshot);
             this.myController.drawCurrentFrame();

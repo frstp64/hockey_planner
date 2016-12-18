@@ -637,14 +637,14 @@ public class Controller {
                 
                 
                 // publish all players in strategy to list.
-                ArrayList<String> playerNames = new ArrayList<String>();
+                ArrayList<String> playerIdentities = new ArrayList<String>();
                 for(Team aTeam: this.mPlaceHolderStrategyCreation.getListTeam()){
                     for(Player aPlayer: aTeam.getListPlayer()){
-                        playerNames.add(aPlayer.getName());
+                        playerIdentities.add(aPlayer.getIdentity());
                     }
                 }
                 try{
-                    this.mMainWindow.publishStrategyPlayers(playerNames.toArray(new String[playerNames.size()]));
+                    this.mMainWindow.publishStrategyPlayers(playerIdentities.toArray(new String[playerIdentities.size()]));
                 } catch (Exception Ex) {
                     this.selectedStrategy = "";
                 }
@@ -904,6 +904,7 @@ public class Controller {
             publishTeamNames();
         }
         }
+        System.out.println("removemefromcontroller");
     }
 
     public void setSelectedTeam(String pSelectedTeam) {
@@ -952,7 +953,9 @@ public class Controller {
             for (Player aPlayer: playerArray) {
                 if (aPlayer.getName().equals(aPlayerName)) {
                     // Change placeholder values
-                    playerList.add( new Player(aPlayer) );
+                    Player playerToAdd = new Player(aPlayer);
+                    playerToAdd.setTeamName(this.mPlaceHolderTeam.getName());
+                    playerList.add(playerToAdd);
 
                     break;
                 }
@@ -1122,9 +1125,9 @@ public class Controller {
         this.mMainWindow.publishMousePosition(xString+yString);
     }
     
-    public void playerAddMode(String pPlayerName) {
-        if (this.mStrategyInEdition.doesPlayerExist(pPlayerName)) {
-            this.mMouseFSM.switchToAddMode(pPlayerName);
+    public void playerAddMode(String pPlayerIdentity) {
+        if (this.mStrategyInEdition.doesPlayerExist(pPlayerIdentity)) {
+            this.mMouseFSM.switchToAddMode(pPlayerIdentity);
         }
         else {
             System.out.println("Selected player that does not exist!");

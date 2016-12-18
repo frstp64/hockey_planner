@@ -7,18 +7,21 @@ package projethockey.domain;
 public class Player implements java.io.Serializable {
     private CategoryPlayer categoryPlayer;
     private String name;
+    private String nomEquipe;
     
     //private var gestion;
 
     public Player() {
         this.categoryPlayer = null;
         this.name = null;
+        this.nomEquipe = "";
         
     }
 
     public Player(Player player) {
         this.categoryPlayer = player.categoryPlayer;
         this.name = player.name;     
+        this.nomEquipe = player.nomEquipe;
     }
 
     public CategoryPlayer getCategoryPlayer() {
@@ -53,6 +56,15 @@ public class Player implements java.io.Serializable {
         else {
             return false;
         }
-}
+    }
+    
+    // The identity of a player, lets us have a player in multiple teams
+    public String getIdentity() {
+        return this.name + " " + this.nomEquipe;
+    }
+    
+    public void setTeamName(String pTeamName) {
+        this.nomEquipe = pTeamName;
+    }
 }
     

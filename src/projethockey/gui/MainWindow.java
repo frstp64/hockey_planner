@@ -1669,11 +1669,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 jListStrategyPlayersMouseClicked(evt);
             }
         });
-        jListStrategyPlayers.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jListStrategyPlayersPropertyChange(evt);
-            }
-        });
         jScrollPanePlayerSelection.setViewportView(jListStrategyPlayers);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2369,10 +2364,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         // TODO add your handling code here:
     }//GEN-LAST:event_jListStrategyObjectsPropertyChange
 
-    private void jListStrategyPlayersPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jListStrategyPlayersPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jListStrategyPlayersPropertyChange
-
     private void jTextFieldVerticalSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldVerticalSizeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldVerticalSizeActionPerformed
@@ -2559,6 +2550,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 myController.setSelectedTeam(empty);
             }
         } catch (Exception Ex) {
+            System.out.println("something wrong happened while trying to set the teams");
 
         }
     }//GEN-LAST:event_jListExistingTeamsMouseClicked

@@ -16,7 +16,6 @@ public class TransientPlayer implements java.io.Serializable {
     }
     
     public TransientPlayer(TransientPlayer transientPlayer) {
-        //System.out.println("copied a player: " + transientPlayer.getPlayer().getName());
         this.posX = transientPlayer.posX;
         this.posY = transientPlayer.posY;
         this.player = transientPlayer.player;
