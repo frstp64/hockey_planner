@@ -464,9 +464,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jTextFieldPlaybackSpeed = new javax.swing.JTextField();
         jLabelStrategyViewerTime = new javax.swing.JLabel();
         jCheckBoxInfoSupp = new javax.swing.JCheckBox();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jListStrategyTeams = new javax.swing.JList<>();
-        jLabelTeamToSelect = new javax.swing.JLabel();
         jSliderStrategyTime = new javax.swing.JSlider();
         jLabelExportationSize = new javax.swing.JLabel();
         jTextFieldExportSizeX = new javax.swing.JTextField();
@@ -2011,23 +2008,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.gridy = 10;
         jPanelStrategyEditor.add(jCheckBoxInfoSupp, gridBagConstraints);
 
-        jScrollPane6.setViewportView(jListStrategyTeams);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.16;
-        jPanelStrategyEditor.add(jScrollPane6, gridBagConstraints);
-
-        jLabelTeamToSelect.setText("Équipes");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelStrategyEditor.add(jLabelTeamToSelect, gridBagConstraints);
-
         jSliderStrategyTime.setSnapToTicks(true);
         jSliderStrategyTime.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -2815,7 +2795,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JLabel jLabelStrategyEditorPicture;
     private javax.swing.JLabel jLabelStrategyPreview;
     private javax.swing.JLabel jLabelStrategyViewerTime;
-    private javax.swing.JLabel jLabelTeamToSelect;
     private javax.swing.JLabel jLabelTimeInterval;
     private javax.swing.JList<String> jListExistingCategories;
     private javax.swing.JList<String> jListExistingObstacle;
@@ -2825,7 +2804,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JList<String> jListExistingTeams;
     private javax.swing.JList<String> jListStrategyObjects;
     private javax.swing.JList<String> jListStrategyPlayers;
-    private javax.swing.JList<String> jListStrategyTeams;
     private javax.swing.JList<String> jListTypeModificationType;
     private javax.swing.JPanel jPanelCategories;
     private javax.swing.JPanel jPanelCategoryPicture;
@@ -2844,7 +2822,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPaneModificationMode;
