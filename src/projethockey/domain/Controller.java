@@ -60,7 +60,8 @@ public class Controller {
     
     private Scene myScene;
     private Timer timer;
-    private int timeViewer, intervalTimeinMS;
+    private long timeViewer;
+    private int intervalTimeinMS;
     public enum StrategyViewerState { Stop, Play, Pause}
     StrategyViewerState viewerState;
     
@@ -961,7 +962,7 @@ public class Controller {
         if (!this.mMouseFSM.isPlaying()) {
             this.mMouseFSM.startPlaying();
             long startTime = System.nanoTime();
-            int maxTime = this.mStrategyInEdition.getBiggestTime();
+            long maxTime = this.mStrategyInEdition.getBiggestTime();
             long timeFromWhichToStartPlaying = this.timeViewer;
             boolean stillTimeToPlay = true;
             while (stillTimeToPlay) {
@@ -998,17 +999,21 @@ public class Controller {
     
     public void playStepFowardTimeFrame() {
         timeViewer += this.intervalTimeinMS;
-        int biggestTime = this.mStrategyInEdition.getBiggestTime();
+        long biggestTime = this.mStrategyInEdition.getBiggestTime();
         if (timeViewer > biggestTime) {
             timeViewer = biggestTime;
         }
         this.drawCurrentFrame();
     }
     
+    public void setTime(long pTimeInMS) {
+        this.timeViewer = pTimeInMS;
+    }
+    
     public void setTimeFromSlider(int intTime, int sliderMax) {
         
         
-        int biggestTime = this.mStrategyInEdition.getBiggestTime();
+        long biggestTime = this.mStrategyInEdition.getBiggestTime();
         float _time;
         
         if (sliderMax == 0){ _time = 0; System.out.println("Time Slider Maximum range is 0");}
@@ -1122,7 +1127,7 @@ public class Controller {
         return this.mStrategyInEdition;
     }
     
-    public int getCurrentTime() {
+    public long getCurrentTime() {
         return this.timeViewer;
     }
     

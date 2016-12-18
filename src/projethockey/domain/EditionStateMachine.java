@@ -31,7 +31,7 @@ public class EditionStateMachine {
     private boolean plsShowStrings;
     private String currentAddedPlayer, currentMovingPlayer, currentRotatingPlayer;
     private int initialRotationPosX, initialRotationPosY;
-    private int intialTimeRealTime; // the initial time for real time modifications
+    private long initialTimeRealTime; // the initial time for real time modifications
     private String modificationMode;
     private boolean isPlayingStrategy;
     
@@ -61,6 +61,7 @@ public class EditionStateMachine {
             //System.out.println("Intersecting player is: " + intersectingPlayer);
             
             if (!intersectingPlayer.equals("NoneIntersecting")) {
+                this.initialTimeRealTime = System.nanoTime()/1000000 - this.myController.getCurrentTime();
                 currentState = States.MOVING_PLAYER;
                 this.myController.actionWillHappen();
                 this.currentMovingPlayer = intersectingPlayer;
@@ -70,7 +71,7 @@ public class EditionStateMachine {
             // button pressed on the screen to add a player
             currentState = States.MOVEMENT;
             this.myController.actionWillHappen();
-            int currentTime = this.myController.getCurrentTime();
+            long currentTime = this.myController.getCurrentTime();
             Strategy currentStrategy = this.myController.getCurrentStrategy();
             Snapshot currentSnapshot = currentStrategy.pullSnapshot(currentTime);
             Player currentPlayer = this.myController.getPlayer(currentAddedPlayer);
@@ -125,14 +126,20 @@ public class EditionStateMachine {
             this.myController.drawCurrentFrame();
             currentState = States.MOVEMENT;
         } else if (currentState.equals(States.MOVING_PLAYER) && mouseButtonState) {
-            if (this.modificationMode.equals("Image par image")) {
                 float relativeMousePosX = this.myController.getScene().getNormalizedX(mousePosX);
                 float relativeMousePosY = this.myController.getScene().getNormalizedY(mousePosY);
+            if (this.modificationMode.equals("Image par image")) {
                 Snapshot aSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
                 aSnapshot.getTransientPlayer(currentMovingPlayer).setPosition(relativeMousePosX, relativeMousePosY);
                 aSnapshot.getTransientPlayer(currentMovingPlayer).setVisible(true);
                 this.myController.getCurrentStrategy().insertSnapshot(aSnapshot);
                 this.myController.drawCurrentFrame();
+            } else if (this.modificationMode.equals("Temps réel")) {
+                Snapshot previousSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
+                this.myController.setTime(System.nanoTime()/1000000 - this.initialTimeRealTime);
+                Snapshot nextSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
+                this.myController.getCurrentStrategy().insertSnapshot(nextSnapshot);
+            //currentSnapshot.addPlayer(currentPlayer, this.myController.getScene().getNormalizedX(mousePosX), this.myController.getScene().getNormalizedY(mousePosY), 0);
             }
             
         } else if (currentState.equals(States.ROTATING_PLAYER) && mouseButtonState) {

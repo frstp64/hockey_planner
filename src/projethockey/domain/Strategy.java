@@ -70,7 +70,7 @@ public class Strategy implements java.io.Serializable{
 
     // Pulls a snapshot copy right at or before a given time
     // REQUIREMENT: listSnapshot is sorted by time, the must be at least one snapshot
-    public Snapshot pullSnapshot(int wantedTime) {
+    public Snapshot pullSnapshot(long wantedTime) {
         
         if (this.listSnapshot.size() == 0) {
             return new Snapshot(0);
@@ -101,7 +101,7 @@ public class Strategy implements java.io.Serializable{
     
     // Pulls a snapshot copy containing every item in the background, set as semi-visible items
     // Deals with the snapshots up to, but not including, wantedTime
-    public Snapshot pullSnapshotBG(int wantedTime) {
+    public Snapshot pullSnapshotBG(long wantedTime) {
         Snapshot snapshotToReturn = new Snapshot(wantedTime);
         for (int index = 0; index < this.listSnapshot.size(); index++) {
             // we're done
@@ -188,8 +188,8 @@ public class Strategy implements java.io.Serializable{
         throw new Exception("should have called doesPlayerExist before!");
     }
     
-    public int getBiggestTime() {
-        int maxTime = 0;
+    public long getBiggestTime() {
+        long maxTime = 0;
         for (Snapshot aSnapshot: this.listSnapshot) {
             if (aSnapshot.getTimeStamp() > maxTime) {
                 maxTime = aSnapshot.getTimeStamp();

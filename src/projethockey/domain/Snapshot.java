@@ -11,10 +11,10 @@ public class Snapshot implements java.io.Serializable {
     private int idChange;
     private ArrayList<TransientPlayer> listTransientPlayer;
     private boolean trashed;
-    private int timeStamp;
+    private long timeStamp;
     private String typeSnapshot;
 
-    public Snapshot(int timeStamp) {
+    public Snapshot(long timeStamp) {
         this.timeStamp = timeStamp;
         this.trashed = false;
         this.typeSnapshot = "TODOLATER";
@@ -64,11 +64,11 @@ public class Snapshot implements java.io.Serializable {
         this.trashed = trashed;
     }
 
-    public int getTimeStamp() {
+    public long getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(int timeStamp) {
+    public void setTimeStamp(long timeStamp) {
         this.timeStamp = timeStamp;
     }
 
