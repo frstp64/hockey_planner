@@ -69,8 +69,11 @@ public class Controller {
     private ArrayList<Strategy> redoList;
     
     int maxUndoRedo = 20; // The maximum undo/redo to be kept in array
+    
     // The constructor
-    public Controller() {
+    private static Controller instance = null;
+    private Controller() {
+        // Singleton
 
         // the FSM
         mMouseFSM = new EditionStateMachine(this);
@@ -111,6 +114,15 @@ public class Controller {
         undoList = new ArrayList();
         redoList = new ArrayList();
     }
+    
+    // Classic singleton
+    // This method is the only way to retreive the Controller class' single instance
+    public static Controller getInstance() {
+      if(instance == null) {
+         instance = new Controller();
+      }
+      return instance;
+   }
 
     // A simple global subscriber to get a reference to the window
     public void subscribeWindow(MainWindow pMainWindow)
