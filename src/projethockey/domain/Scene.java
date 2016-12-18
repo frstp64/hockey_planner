@@ -26,7 +26,7 @@ import java.awt.image.AffineTransformOp;
 public class Scene {
     
     float ratioIdealPlayer = (float) 0.02; // The target percentage of area
-    private int sceneSizeX, sceneSizeY; // The size in pixels of the scene
+    protected int sceneSizeX, sceneSizeY; // The size in pixels of the scene
     private boolean isZoomed;
     private int zoomX1, zoomX2, zoomY1, zoomY2; // the Coordinates in pixels of the zoom
     private ArrayList<Integer> playerCoordX1; //list of the X coordinates of each player, normalized
@@ -35,7 +35,7 @@ public class Scene {
     private ArrayList<Integer> playerCoordY2; // same, Y coordinates, normalized
     private ArrayList<String> playerNames;
     
-    private BufferedImage sceneImage;
+    protected BufferedImage sceneImage;
     private BufferedImage backgroundPicture;
     private boolean showTextOption;
     

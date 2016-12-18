@@ -224,4 +224,29 @@ public class Strategy implements java.io.Serializable{
             this.listTeam.remove(this.listTeam.size()-1);
         }
     }
+    
+    public void printPlayerLines(BlackBoard pScene) {
+        Snapshot starterSnapshot = this.pullStarterSnapshot(); // used to find all the players
+        // we iterate over all the players, to find all of their positions, and then we draw the lines
+        for(TransientPlayer aTransientPlayer : starterSnapshot.getListTransientPlayer()) {
+            ArrayList<Float> thePlayerPosXList = new ArrayList();
+            ArrayList<Float> thePlayerPosYList = new ArrayList();
+            for (Snapshot aSnapshot : this.listSnapshot) {
+                try {
+                    TransientPlayer tmpTransientPlayer = aSnapshot.getTransientPlayer(aTransientPlayer.getPlayer().getName());
+                    thePlayerPosXList.add(tmpTransientPlayer.getPosX());
+                    thePlayerPosYList.add(tmpTransientPlayer.getPosY());
+                } catch (Exception e) {
+                    // we do nothing, the player just doesn't exist in that particular frame
+                }
+            }
+            
+            // now we draw the lines
+            for (int i = 0; i<thePlayerPosXList.size()-1; i++) {
+                System.out.println("boop");
+                pScene.drawLine(thePlayerPosXList.get(i), thePlayerPosYList.get(i), thePlayerPosXList.get(i+1), thePlayerPosYList.get(i+1));
+            }
+        }
+        
+    }
 }
