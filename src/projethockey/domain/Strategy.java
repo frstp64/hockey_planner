@@ -116,6 +116,29 @@ public class Strategy implements java.io.Serializable{
         return snapshotToReturn;
     }
     
+    // use with preview only!!!!!!
+    public Snapshot pullStarterSnapshot() {
+        Snapshot snapshotToReturn = new Snapshot(0);
+        
+        ArrayList<String> addedPlayers = new ArrayList();
+        
+        for (int index = 0; index < this.listSnapshot.size(); index++) {
+            Snapshot currentSnapshot = this.listSnapshot.get(index);
+            for(TransientPlayer aTransientPlayer: currentSnapshot.getListTransientPlayer()) {
+                boolean containsIt = false;
+                String theName = aTransientPlayer.getPlayer().getName();
+                if (!addedPlayers.contains(theName)) {
+                    // a new player!
+                    snapshotToReturn.tryAddPlayer(aTransientPlayer.getPlayer(), aTransientPlayer.getPosX(), aTransientPlayer.getPosY(), aTransientPlayer.getAngle());
+                    addedPlayers.add(theName);
+                }
+            }
+        }
+        
+        
+        return snapshotToReturn;
+    }
+    
     // Inserts a snapshot at the requested time
     public void insertSnapshot(Snapshot pSnapshot) {
         boolean inserted = false;

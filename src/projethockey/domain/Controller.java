@@ -1191,4 +1191,13 @@ public class Controller {
         this.mMouseFSM.setModificationMode(pMode);
         drawCurrentFrame();
     }
+    
+    // creates a preview and publishes it to the frontend
+    public void showPreview(int wantedSizeX, int wantedSizeY) {
+        BlackBoard myBlackBoard = new BlackBoard(wantedSizeX, wantedSizeY);
+        myBlackBoard.setBackground(this.mPlaceHolderStrategyCreation.getSport().getImg());
+        myBlackBoard.cleanScene();
+        myBlackBoard.drawStrategy(this.mPlaceHolderStrategyCreation);
+        this.mMainWindow.publishPreview(myBlackBoard.getScenePicture());
+    }
 }

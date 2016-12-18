@@ -53,9 +53,8 @@ public interface sportSubscribable {
     
     void publishCurrentTime(float timeInSeconds);
     void publishCurrentSliderTime(long currentTime, long maxTime);
-    //TODO
-    // void publishStrategySport
-    // void publishStrategyPlayers
-    // void publishStrategyObjects
+    
+    void publishPreview(Image previewImage);
+    
     
 }
