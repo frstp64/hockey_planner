@@ -14,6 +14,8 @@ public class EditionStateMachine {
     public enum States {
         MOVEMENT,
         ROTATION,
+        DELETION,
+        DELETING,
         ADDING_PLAYER,
         MOVING_PLAYER,
         ROTATING_PLAYER,
@@ -66,6 +68,17 @@ public class EditionStateMachine {
                 this.myController.actionWillHappen();
                 this.currentMovingPlayer = intersectingPlayer;
             }
+        } else if (currentState.equals(States.DELETION) && mouseButtonState) {
+            // Butthon has been pressed in deletion mode
+            // we try to delete an object, then return to movement mode
+            String intersectingPlayer = this.myController.getScene().getIntersectingPlayerName(mousePosX, mousePosY);
+            if (!intersectingPlayer.equals("NoneIntersecting")) {
+                currentState = States.MOVEMENT;
+                this.myController.actionWillHappen();
+                this.myController.getCurrentStrategy().erasePlayerAll(intersectingPlayer);
+                this.myController.drawCurrentFrame();
+            }
+            
             
         } else if (currentState.equals(States.ADDING_PLAYER) && mouseButtonState) {
             // button pressed on the screen to add a player
@@ -214,5 +227,14 @@ public class EditionStateMachine {
     }
     public void stopPlaying() {
         this.isPlayingStrategy = false;
+    }
+    
+    public void toggleRemovalMode() {
+        if (!this.currentState.equals(States.DELETION)) {
+            this.currentState = States.DELETION;
+        }
+        else {
+            this.currentState = States.MOVEMENT;
+        }
     }
 }

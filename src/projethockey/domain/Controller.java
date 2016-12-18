@@ -1236,4 +1236,8 @@ public class Controller {
             System.out.println("An error happened while trying to export the image to the file system");
         }
     }
+    
+    public void toggleRemovalMode() {
+        this.mMouseFSM.toggleRemovalMode();
+    }
 }

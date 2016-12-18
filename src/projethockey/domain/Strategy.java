@@ -276,4 +276,25 @@ public class Strategy implements java.io.Serializable{
         }
         
     }
+    
+    public void erasePlayerAll(String pPlayerIdentity) {
+        // Erases the player from all the snapshots
+        erasePlayerFromFuture(pPlayerIdentity, -1);
+    }
+    
+    public void erasePlayerFromFuture(String pPlayerIdentity, long timeToStartErasing) {
+        //Erases the player from a point in time until the end
+        for (Snapshot aSnapshot : this.listSnapshot) {
+            if(aSnapshot.getTimeStamp() >= timeToStartErasing) {
+                List<TransientPlayer> transientPlayerList = aSnapshot.getListTransientPlayer();
+                for (int aPlayerIndex = 0; aPlayerIndex < transientPlayerList.size(); aPlayerIndex++) {
+                    TransientPlayer aTransientPlayer = transientPlayerList.get(aPlayerIndex);
+                    if (aTransientPlayer.getPlayer().getName().equals(pPlayerIdentity)) {
+                        transientPlayerList.remove(aPlayerIndex);
+                        break;
+                    }
+                }
+            }
+        }
+    }
 }

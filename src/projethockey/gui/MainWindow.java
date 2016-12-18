@@ -472,6 +472,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jTextFieldExportSizeX = new javax.swing.JTextField();
         jTextFieldExportSizeY = new javax.swing.JTextField();
         jButtonRewind = new javax.swing.JButton();
+        jButtonSwitchToRemoval = new javax.swing.JButton();
 
         jComboBoxTeamPlayer.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Créer joueur avant!" }));
 
@@ -2091,6 +2092,18 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelStrategyEditor.add(jButtonRewind, gridBagConstraints);
 
+        jButtonSwitchToRemoval.setText("Enlever un objet/joueur");
+        jButtonSwitchToRemoval.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSwitchToRemovalActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        jPanelStrategyEditor.add(jButtonSwitchToRemoval, gridBagConstraints);
+
         jTabbedPaneRoot.addTab("Édition et visualisation de stratégie", jPanelStrategyEditor);
 
         getContentPane().add(jTabbedPaneRoot, java.awt.BorderLayout.CENTER);
@@ -2691,6 +2704,10 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
                 }
     }//GEN-LAST:event_jTextFieldExportSizeYFocusLost
 
+    private void jButtonSwitchToRemovalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSwitchToRemovalActionPerformed
+        this.myController.toggleRemovalMode();
+    }//GEN-LAST:event_jButtonSwitchToRemovalActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2755,6 +2772,7 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JButton jButtonSaveTeam;
     private javax.swing.JButton jButtonStepBackTime;
     private javax.swing.JButton jButtonStepForwardTime;
+    private javax.swing.JButton jButtonSwitchToRemoval;
     private javax.swing.JButton jButtonUndo;
     private javax.swing.JButton jButtonZoom;
     private javax.swing.JCheckBox jCheckBoxInfoSupp;
