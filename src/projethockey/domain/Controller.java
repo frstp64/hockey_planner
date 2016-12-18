@@ -510,6 +510,7 @@ public class Controller {
                 this.mMainWindow.publishCategoryObstacleName(this.mPlaceHolderCategoryObstacle.getCategoryName());
                 this.mMainWindow.publishCategoryObstacleDimensions(this.mPlaceHolderCategoryObstacle.getHorizontalSize(), this.mPlaceHolderCategoryObstacle.getVerticalSize());
                 this.mMainWindow.publishCategoryObstacleIsGameObject(this.mPlaceHolderCategoryObstacle.getIsGameObject());
+                this.mMainWindow.publishCategoryObstacleIcon(this.mPlaceHolderCategoryObstacle.getImg());
                 break;
             }
         }
@@ -564,6 +565,7 @@ public class Controller {
     }
 
     public void setCategoryObstacleImage(BufferedImage thePicture) {
+        this.mPlaceHolderCategoryObstacle.setImg(thePicture);
         this.mMainWindow.publishCategoryObstacleIcon(thePicture);
     }
 
