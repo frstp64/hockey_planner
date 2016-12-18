@@ -225,6 +225,33 @@ public class Strategy implements java.io.Serializable{
         }
     }
     
+    // Completes the frames so there isn't any frame where a player "disappears"
+    public void completeFrames() {
+        //TODO
+        Snapshot starterSnapshot = this.pullStarterSnapshot();
+        for(TransientPlayer aTransientPlayer : starterSnapshot.getListTransientPlayer()) {
+            Float playerLastX = null;
+            Float playerLastY = null;
+            Float playerLastAngle = null;
+            for (Snapshot aSnapshot : this.listSnapshot) {
+                try {
+                    TransientPlayer tmpTransientPlayer = aSnapshot.getTransientPlayer(aTransientPlayer.getPlayer().getName());
+                    // it exists, we record it's position
+                    playerLastX = tmpTransientPlayer.getPosX();
+                    playerLastY = tmpTransientPlayer.getPosY();
+                    playerLastAngle = tmpTransientPlayer.getAngle();
+                } catch (Exception e) {
+                    // This means the player does not exist
+                    // If it has been seen before, we add it
+                    if (playerLastX != null) {
+                    aSnapshot.tryAddPlayer(aTransientPlayer.getPlayer(), playerLastX, playerLastY, playerLastAngle);
+                    }
+                }
+            }
+        }
+        
+    }
+    
     public void printPlayerLines(BlackBoard pScene) {
         Snapshot starterSnapshot = this.pullStarterSnapshot(); // used to find all the players
         // we iterate over all the players, to find all of their positions, and then we draw the lines

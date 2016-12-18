@@ -960,6 +960,7 @@ public class Controller {
     
     public void toggleStrategyPlay() {
         if (!this.mMouseFSM.isPlaying()) {
+            this.mStrategyInEdition.completeFrames();
             this.mMouseFSM.startPlaying();
             long startTime = System.nanoTime();
             long maxTime = this.mStrategyInEdition.getBiggestTime();
