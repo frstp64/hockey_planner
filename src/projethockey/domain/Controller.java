@@ -963,7 +963,9 @@ public class Controller {
             long startTime = System.nanoTime();
             int maxTime = this.mStrategyInEdition.getBiggestTime();
             long timeFromWhichToStartPlaying = this.timeViewer;
-            while ((System.nanoTime() - startTime)/1000000 + timeFromWhichToStartPlaying < maxTime) {
+            boolean stillTimeToPlay = true;
+            while (stillTimeToPlay) {
+                stillTimeToPlay = (System.nanoTime() - startTime)/1000000 + timeFromWhichToStartPlaying < maxTime;
                 //the showing loop
                 if (!this.mMouseFSM.isPlaying()) {
                     break;
@@ -973,7 +975,10 @@ public class Controller {
             }
             this.mMouseFSM.stopPlaying();
             System.out.println("fin Visualisation");
-            this.timeViewer = maxTime;
+            if (this.timeViewer > maxTime) {
+                this.timeViewer = maxTime;
+            }
+            System.out.println(this.timeViewer);
             this.drawCurrentFrame();
            //viewerState = (!viewerState.equals(StrategyViewerState.Play)) ? StrategyViewerState.Play : StrategyViewerState.Pause;
         } else {

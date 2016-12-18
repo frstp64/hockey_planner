@@ -3,6 +3,7 @@ package projethockey.domain;
 public class TransientPlayer implements java.io.Serializable {
     private float posX;
     private float posY;
+    private float rotationRadians;
     private Player player;
     private boolean visible;
     
@@ -11,14 +12,16 @@ public class TransientPlayer implements java.io.Serializable {
         this.posY = posY;
         this.player = new Player(player);
         this.visible = visible;
+        this.rotationRadians = pAngle;
     }
     
     public TransientPlayer(TransientPlayer transientPlayer) {
         //System.out.println("copied a player: " + transientPlayer.getPlayer().getName());
         this.posX = transientPlayer.posX;
         this.posY = transientPlayer.posY;
-        this.player = new Player(transientPlayer.player);
+        this.player = transientPlayer.player;
         this.visible = transientPlayer.visible;
+        this.rotationRadians = transientPlayer.rotationRadians;
     }
 
 
