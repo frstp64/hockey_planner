@@ -290,6 +290,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     }
     
     public void publishCurrentTime(float timeInSeconds) {
+        System.out.println("time in secs");
+        System.out.println(timeInSeconds);
         this.jTextFieldStrategyViewerTime.setText(Float.toString(timeInSeconds));
         this.jTextFieldStrategyViewerTime.paintImmediately(0, 0, 100, 100);
         

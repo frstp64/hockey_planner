@@ -1077,7 +1077,7 @@ public class Controller {
         
         // finally, publish the picture to the front end
         this.mMainWindow.publishScene(myScene.getScenePicture());
-        this.mMainWindow.publishCurrentTime(timeViewer/1000);
+        this.mMainWindow.publishCurrentTime(((float)timeViewer)/1000);
         this.mMainWindow.publishCurrentSliderTime(snapshotToPrint.getTimeStamp(), this.mStrategyInEdition.getBiggestTime());
         System.out.println("Just drew a frame!");
     }
