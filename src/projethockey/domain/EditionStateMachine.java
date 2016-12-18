@@ -76,7 +76,7 @@ public class EditionStateMachine {
             Snapshot currentSnapshot = currentStrategy.pullSnapshot(currentTime);
             Player currentPlayer = this.myController.getPlayer(currentAddedPlayer);
             System.out.println("Player added in state machine: " + currentPlayer.getName());
-            currentSnapshot.addPlayer(currentPlayer, this.myController.getScene().getNormalizedX(mousePosX), this.myController.getScene().getNormalizedY(mousePosY), 0);
+            currentSnapshot.tryAddPlayer(currentPlayer, this.myController.getScene().getNormalizedX(mousePosX), this.myController.getScene().getNormalizedY(mousePosY), 0);
             currentStrategy.insertSnapshot(currentSnapshot);
             this.myController.drawCurrentFrame();
             
@@ -133,14 +133,17 @@ public class EditionStateMachine {
                 aSnapshot.getTransientPlayer(currentMovingPlayer).setPosition(relativeMousePosX, relativeMousePosY);
                 aSnapshot.getTransientPlayer(currentMovingPlayer).setVisible(true);
                 this.myController.getCurrentStrategy().insertSnapshot(aSnapshot);
-                this.myController.drawCurrentFrame();
             } else if (this.modificationMode.equals("Temps réel")) {
                 Snapshot previousSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
                 this.myController.setTime(System.nanoTime()/1000000 - this.initialTimeRealTime);
                 Snapshot nextSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
+                // we want to take the player and insert it in the new snapshot
+                TransientPlayer theTransientPlayer = previousSnapshot.getTransientPlayer(currentMovingPlayer);
+                nextSnapshot.tryAddPlayer(theTransientPlayer.getPlayer(), relativeMousePosX, relativeMousePosY, theTransientPlayer.getAngle());
                 this.myController.getCurrentStrategy().insertSnapshot(nextSnapshot);
-            //currentSnapshot.addPlayer(currentPlayer, this.myController.getScene().getNormalizedX(mousePosX), this.myController.getScene().getNormalizedY(mousePosY), 0);
+            //currentSnapshot.tryAddPlayer(currentPlayer, this.myController.getScene().getNormalizedX(mousePosX), this.myController.getScene().getNormalizedY(mousePosY), 0);
             }
+            this.myController.drawCurrentFrame();
             
         } else if (currentState.equals(States.ROTATING_PLAYER) && mouseButtonState) {
             if (this.modificationMode.equals("Image par image")) {

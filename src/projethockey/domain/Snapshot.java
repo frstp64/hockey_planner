@@ -86,14 +86,16 @@ public class Snapshot implements java.io.Serializable {
         //return listPlayer;
     }
     
-    // Deals with dubloons
-    public void addPlayer(Player pPlayer, float posX, float posY, float pAngle) {
+    // Deals with dubloons, will just override it
+    public void tryAddPlayer(Player pPlayer, float posX, float posY, float pAngle) {
         
         TransientPlayer transientPlayer;
         boolean playerAlreadyExists = false;
         for (TransientPlayer anExistingTransientPlayer: this.listTransientPlayer) {
             if (anExistingTransientPlayer.getPlayer().getName().equals(pPlayer.getName())) {
                 playerAlreadyExists = true;
+                anExistingTransientPlayer.setPosition(posX, posY);
+                anExistingTransientPlayer.setAngle(pAngle);
                 break;
             }
         }
