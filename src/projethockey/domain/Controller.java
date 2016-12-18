@@ -971,7 +971,7 @@ public class Controller {
                 if (!this.mMouseFSM.isPlaying()) {
                     break;
                 }
-                this.timeViewer = (int) ((System.nanoTime()- startTime)/1000000 + timeFromWhichToStartPlaying);
+                this.setTime((int) ((System.nanoTime()- startTime)/1000000 + timeFromWhichToStartPlaying));
                 drawCurrentFrame();
             }
             this.mMouseFSM.stopPlaying();
@@ -979,7 +979,6 @@ public class Controller {
             if (this.timeViewer > maxTime) {
                 this.timeViewer = maxTime;
             }
-            System.out.println(this.timeViewer);
             this.drawCurrentFrame();
            //viewerState = (!viewerState.equals(StrategyViewerState.Play)) ? StrategyViewerState.Play : StrategyViewerState.Pause;
         } else {
@@ -1007,7 +1006,8 @@ public class Controller {
     }
     
     public void setTime(long pTimeInMS) {
-        this.timeViewer = pTimeInMS;
+        // we round to 25 FPS
+        this.timeViewer = (pTimeInMS/40)*40;
     }
     
     public void setTimeFromSlider(int intTime, int sliderMax) {
@@ -1021,7 +1021,7 @@ public class Controller {
             _time = intTime * biggestTime / sliderMax;
             _time = _time - (_time % this.intervalTimeinMS);
         }
-        this.timeViewer = Math.round(_time);
+        this.setTime(Math.round(_time));
         
         if (timeViewer > biggestTime) {
             timeViewer = biggestTime;
