@@ -1090,17 +1090,20 @@ public class Controller {
         if (this.mMouseFSM.getModificationMode().equals("Image par image") && !this.mMouseFSM.isPlaying()) {
             // if we're in image by image mode and stopped, we need to also draw the history
             Snapshot backgroundSnapshot = this.mStrategyInEdition.pullSnapshotBG(timeViewer);
+            backgroundSnapshot.opacify();
             backgroundSnapshot.printPlayers(myScene);
             myScene.setAsBg();
         }
         
         // print the current frame
         Snapshot snapshotToPrint = this.mStrategyInEdition.pullSnapshot(timeViewer);
+        System.out.println("boop1");
         snapshotToPrint.printPlayers(myScene);
+        System.out.println("boop2");
         
         // finally, publish the picture to the front end
         this.mMainWindow.publishScene(myScene.getScenePicture());
-        this.mMainWindow.publishCurrentTime(snapshotToPrint.getTimeStamp()/1000);
+        this.mMainWindow.publishCurrentTime(timeViewer/1000);
         this.mMainWindow.publishCurrentSliderTime(snapshotToPrint.getTimeStamp(), this.mStrategyInEdition.getBiggestTime());
         System.out.println("Just drew a frame!");
     }
@@ -1158,11 +1161,14 @@ public class Controller {
     
     public void setIntervalTime(float timeValueInSecond) {
         this.intervalTimeinMS = (int) (timeValueInSecond*1000);
+        System.out.print("set interval to");
+        System.out.println(this.intervalTimeinMS);
     }
     
     public void switchToNextFrame() {
         this.actionWillHappen();
         this.timeViewer += this.intervalTimeinMS;
+        System.out.println(this.intervalTimeinMS);
         this.drawCurrentFrame();
     }
     

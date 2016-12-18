@@ -106,6 +106,8 @@ public class Snapshot implements java.io.Serializable {
     }
     
     public void printPlayers(Scene sceneReference) {
+        System.out.println("Drawing number of player: ");
+        System.out.println(this.listTransientPlayer.size());
         for (TransientPlayer aTransientPlayer: this.listTransientPlayer) {
             //System.out.println("now printing " + aTransientPlayer.getPlayer().getName() + " at x=" + aTransientPlayer.getPosX() + " and y="+ aTransientPlayer.getPosY());
             sceneReference.putPlayer(
@@ -132,9 +134,15 @@ public class Snapshot implements java.io.Serializable {
     public void copyFromOtherSnapshot(Snapshot pSnapshot) {
         for (TransientPlayer aTransientPlayer: pSnapshot.listTransientPlayer) {
             TransientPlayer newTransientPlayer = new TransientPlayer(aTransientPlayer);
-            newTransientPlayer.setVisible(false);
+            //newTransientPlayer.setVisible(false);
             this.listTransientPlayer.add(newTransientPlayer);
         }
             
+    }
+    
+    public void opacify() {
+        for (TransientPlayer aTransientPlayer: this.listTransientPlayer) {
+            aTransientPlayer.setVisible(false);
+        }
     }
 }
