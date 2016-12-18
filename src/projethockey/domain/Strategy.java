@@ -120,9 +120,14 @@ public class Strategy implements java.io.Serializable{
     public void insertSnapshot(Snapshot pSnapshot) {
         boolean inserted = false;
         for (int index = 0; index < this.listSnapshot.size(); index++) {
+            System.out.print("there is a snapshot at time ");
+            System.out.println(this.listSnapshot.get(index).getTimeStamp());
+        }
+        for (int index = 0; index < this.listSnapshot.size(); index++) {
             // we're done
             if(this.listSnapshot.get(index).getTimeStamp()  == pSnapshot.getTimeStamp()) {
                 // This is the situation where they are both at the same time, that means we need to replace it
+                System.out.println("removed a frame!");
                 this.listSnapshot.remove(index);
                 this.listSnapshot.add(index, new Snapshot(pSnapshot));
                 inserted = true;
