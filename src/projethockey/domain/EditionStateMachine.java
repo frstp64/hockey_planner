@@ -128,7 +128,7 @@ public class EditionStateMachine {
             // Button has been unpressed in movement mode
             currentState = States.MOVEMENT;
             System.out.println("Mode mouvement en cours, vient d'être terminé");
-        } else if (currentState.equals(States.MOVING_PLAYER) && !mouseButtonState) {
+        } else if (currentState.equals(States.MOVING_OBJECT) && !mouseButtonState) {
             currentState = States.MOVEMENT;
 
         } else if (currentState.equals(States.ROTATION) && mouseButtonState) {
