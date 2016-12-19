@@ -6,6 +6,7 @@ public class TransientPlayer implements java.io.Serializable {
     private float rotationRadians;
     private Player player;
     private boolean visible;
+    private TransientObject gameObj;
     
     public TransientPlayer(float posX, float posY, float pAngle, Player player, boolean visible) {
         this.posX = posX;
@@ -21,6 +22,7 @@ public class TransientPlayer implements java.io.Serializable {
         this.player = transientPlayer.player;
         this.visible = transientPlayer.visible;
         this.rotationRadians = transientPlayer.rotationRadians;
+        this.gameObj = new TransientObject(transientPlayer.gameObj);
     }
 
 
@@ -61,4 +63,15 @@ public class TransientPlayer implements java.io.Serializable {
     public float getAngle() {
         return this.rotationRadians;
     }
+    
+//    public void setGameObj(TransientObject aTransientObject) {
+//        this.gameObj = aTransientObject;
+//    }
+//    
+//    public boolean hasAGameObj() {
+//        return this.gameObj == null;
+//    }
+//    public TransientObject getGameObj() {
+//        return this.gameObj;
+//    }
 }

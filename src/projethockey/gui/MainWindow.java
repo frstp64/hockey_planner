@@ -460,10 +460,8 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         jButtonExport = new javax.swing.JButton();
         jPanelStrategyEditorLocation = new javax.swing.JPanel();
         jLabelStrategyEditorPicture = new javax.swing.JLabel();
-        jLabelPlayBackSpeedTitle = new javax.swing.JLabel();
         jToggleButtonRotationMode = new javax.swing.JToggleButton();
         jTextFieldStrategyViewerTime = new javax.swing.JTextField();
-        jTextFieldPlaybackSpeed = new javax.swing.JTextField();
         jLabelStrategyViewerTime = new javax.swing.JLabel();
         jCheckBoxInfoSupp = new javax.swing.JCheckBox();
         jSliderStrategyTime = new javax.swing.JSlider();
@@ -1940,12 +1938,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.weighty = 1.0;
         jPanelStrategyEditor.add(jPanelStrategyEditorLocation, gridBagConstraints);
 
-        jLabelPlayBackSpeedTitle.setText("Vitesse de jeu: ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 9;
-        jPanelStrategyEditor.add(jLabelPlayBackSpeedTitle, gridBagConstraints);
-
         jToggleButtonRotationMode.setText("mode rotation");
         jToggleButtonRotationMode.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -1977,19 +1969,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelStrategyEditor.add(jTextFieldStrategyViewerTime, gridBagConstraints);
-
-        jTextFieldPlaybackSpeed.setToolTipText("Multiple de la vitessse normale, de 0.01 à 10");
-        jTextFieldPlaybackSpeed.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPlaybackSpeedActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelStrategyEditor.add(jTextFieldPlaybackSpeed, gridBagConstraints);
 
         jLabelStrategyViewerTime.setText("Temps (s):");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2263,10 +2242,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private void jCheckBoxUnlimitedPlayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxUnlimitedPlayerActionPerformed
         this.myController.setPlayerLimit(jCheckBoxUnlimitedPlayer.isSelected());
     }//GEN-LAST:event_jCheckBoxUnlimitedPlayerActionPerformed
-
-    private void jTextFieldPlaybackSpeedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPlaybackSpeedActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldPlaybackSpeedActionPerformed
 
     private void jTextFieldStrategyViewerTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldStrategyViewerTimeActionPerformed
         this.myController.setTime((long) (Float.parseFloat(this.jTextFieldStrategyViewerTime.getText())*1000));
@@ -2787,7 +2762,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JLabel jLabelObstacleInformation;
     private javax.swing.JLabel jLabelObstacleName;
     private javax.swing.JLabel jLabelObstacleSize;
-    private javax.swing.JLabel jLabelPlayBackSpeedTitle;
     private javax.swing.JLabel jLabelPlayerNumber;
     private javax.swing.JLabel jLabelPlayerNumber1;
     private javax.swing.JLabel jLabelPlayerToSelect;
@@ -2854,7 +2828,6 @@ public class MainWindow extends javax.swing.JFrame implements projetHockeyInterf
     private javax.swing.JTextField jTextFieldObjectDimensionX;
     private javax.swing.JTextField jTextFieldObjectDimensionY;
     private javax.swing.JTextField jTextFieldObjectName;
-    private javax.swing.JTextField jTextFieldPlaybackSpeed;
     private javax.swing.JTextField jTextFieldPlayerName;
     private javax.swing.JTextField jTextFieldSportName;
     private javax.swing.JTextField jTextFieldStrategyViewerTime;
