@@ -169,7 +169,9 @@ public class EditionStateMachine {
                 Snapshot aSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
                 aSnapshot.getTransientPlayer(currentMovingPlayer).setPosition(relativeMousePosX, relativeMousePosY);
                 aSnapshot.getTransientPlayer(currentMovingPlayer).setVisible(true);
-                this.myController.getCurrentStrategy().insertSnapshot(aSnapshot);
+                if (this.myController.getScene().getIntersectingObstacleUID(mousePosX, mousePosY) == -1) {
+                    this.myController.getCurrentStrategy().insertSnapshot(aSnapshot);
+                }
                 
             } else if (this.modificationMode.equals("Temps réel")) {
                 Snapshot previousSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
