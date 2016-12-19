@@ -147,6 +147,24 @@ public class Scene {
         return "NoneIntersecting"; // None intersecting
     }
     
+    public int getIntersectingObstacleUID(int coordX, int coordY) {
+        // The iteration
+        int realCoordX = (int) (((float) this.sceneSizeX) * this.getNormalizedX(coordX));
+        int realCoordY = (int) (((float) this.sceneSizeY) * this.getNormalizedY(coordY));
+        for(int j = objectUIDs.size() - 1; j >= 0; j--){
+            //pass
+            if (realCoordX <= objectCoordX2.get(j)
+             && realCoordX >= objectCoordX1.get(j)
+             && realCoordY <= objectCoordY2.get(j)
+             && realCoordY >= objectCoordY1.get(j)) {
+                System.out.println("intersection happened!");
+                return objectUIDs.get(j);
+            }
+    }
+        
+        return -1; // None intersecting
+    }
+    
     private float absoluteToRelativeCoordX(int pCoordX) {
         return ((float) pCoordX)/sceneSizeX;
     }

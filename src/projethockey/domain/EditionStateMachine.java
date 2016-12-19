@@ -72,13 +72,19 @@ public class EditionStateMachine {
         } else if (currentState.equals(States.DELETION) && mouseButtonState) {
             // Butthon has been pressed in deletion mode
             // we try to delete an object, then return to movement mode
+            int intersectingObstacle = this.myController.getScene().getIntersectingObstacleUID(mousePosX, mousePosY);
             String intersectingPlayer = this.myController.getScene().getIntersectingPlayerName(mousePosX, mousePosY);
-            if (!intersectingPlayer.equals("NoneIntersecting")) {
+            if (intersectingObstacle != -1) {
+                currentState = States.MOVEMENT;
+                this.myController.actionWillHappen();
+                this.myController.getCurrentStrategy().eraseObstacle(intersectingObstacle);
+            }
+            else if (!intersectingPlayer.equals("NoneIntersecting")) {
                 currentState = States.MOVEMENT;
                 this.myController.actionWillHappen();
                 this.myController.getCurrentStrategy().erasePlayerAll(intersectingPlayer);
-                this.myController.drawCurrentFrame();
             }
+                this.myController.drawCurrentFrame();
             
             
         } else if (currentState.equals(States.ADDING_PLAYER) && mouseButtonState) {

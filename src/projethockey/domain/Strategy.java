@@ -278,6 +278,10 @@ public class Strategy implements java.io.Serializable{
         
     }
     
+    public void eraseObstacle(int pObstacleUID) {
+        this.obstaclePlane.removeObject(pObstacleUID);
+    }
+    
     public void erasePlayerAll(String pPlayerIdentity) {
         // Erases the player from all the snapshots
         erasePlayerFromFuture(pPlayerIdentity, -1);

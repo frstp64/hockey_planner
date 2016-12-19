@@ -158,4 +158,13 @@ public class Snapshot implements java.io.Serializable {
             aTransientPlayer.setVisible(false);
         }
     }
+
+    void removeObject(int pObstacleUID) {
+        for(int i = 0; i < this.listTransientObject.size(); i++) {
+            if (this.listTransientObject.get(i).getUID() == pObstacleUID) {
+                this.listTransientObject.remove(i);
+                break;
+            }
+        }
+    }
 }
