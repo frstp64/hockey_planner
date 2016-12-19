@@ -157,7 +157,7 @@ public class Scene {
              && realCoordX >= objectCoordX1.get(j)
              && realCoordY <= objectCoordY2.get(j)
              && realCoordY >= objectCoordY1.get(j)) {
-                System.out.println("intersection happened!");
+                System.out.println("intersection obstacle happened!");
                 return objectUIDs.get(j);
             }
     }
@@ -231,11 +231,6 @@ public class Scene {
         this.objectCoordY1.add(wantedY1);
         this.objectCoordY2.add(wantedY2);
         this.objectUIDs.add(pObject.getUID());
-
-        System.out.println("objectinfo");
-        System.out.println(pObject.getPosX());
-        System.out.println(wantedX1);
-        System.out.println(wantedY1);
 
         this.putPicture(pObject.getObject().getImg().getScaledInstance(max(10, objectWidth), max(10, objectHeight), BufferedImage.SCALE_FAST), wantedX1, wantedY1, false);
        

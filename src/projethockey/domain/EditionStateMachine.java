@@ -59,12 +59,10 @@ public class EditionStateMachine {
     public void updateMouse(int mousePosX, int mousePosY, boolean mouseButtonState) throws Exception {
         if (currentState.equals(States.MOVEMENT) && mouseButtonState) {
             // Button has been pressed in movement mode
-            //System.out.println("Mode mouvement essayé");
 
             // To switch to player movement mode, we first need to have one intersecting the mouse
             String intersectingPlayer = this.myController.getScene().getIntersectingPlayerName(mousePosX, mousePosY);
             int intersectingObject = this.myController.getScene().getIntersectingObstacleUID(mousePosX, mousePosY);
-            //System.out.println("Intersecting player is: " + intersectingPlayer);
             
             long currentTime = this.myController.getCurrentTime();
             Strategy currentStrategy = this.myController.getCurrentStrategy();
@@ -108,7 +106,6 @@ public class EditionStateMachine {
             Strategy currentStrategy = this.myController.getCurrentStrategy();
             Snapshot currentSnapshot = currentStrategy.pullSnapshot(currentTime);
             Player currentPlayer = this.myController.getPlayer(currentAddedPlayer);
-            System.out.println("Player added in state machine: " + currentPlayer.getIdentity());
             currentSnapshot.tryAddPlayer(currentPlayer, this.myController.getScene().getNormalizedX(mousePosX), this.myController.getScene().getNormalizedY(mousePosY), 0);
             currentStrategy.insertSnapshot(currentSnapshot);
             this.myController.drawCurrentFrame();
@@ -127,15 +124,12 @@ public class EditionStateMachine {
         } else if (currentState.equals(States.MOVING_PLAYER) && !mouseButtonState) {
             // Button has been unpressed in movement mode
             currentState = States.MOVEMENT;
-            System.out.println("Mode mouvement en cours, vient d'être terminé");
         } else if (currentState.equals(States.MOVING_OBJECT) && !mouseButtonState) {
             currentState = States.MOVEMENT;
 
         } else if (currentState.equals(States.ROTATION) && mouseButtonState) {
-            System.out.println("Mode rotation");
             // To switch to player movement mode, we first need to have one intersecting the mouse
             String intersectingPlayer = this.myController.getScene().getIntersectingPlayerName(mousePosX, mousePosY);
-            //System.out.println("Intersecting player is: " + intersectingPlayer);
             
             if (!intersectingPlayer.equals("NoneIntersecting")) {
                 this.initialTimeRealTime = System.nanoTime()/1000000 - this.myController.getCurrentTime();
@@ -158,7 +152,6 @@ public class EditionStateMachine {
             // Button has been unpressed
             currentState = States.ZOOM_CLICK_2_UNPRESSED;
             this.myController.setZoomPoint1(mousePosX, mousePosY);
-            System.out.println("Set point 1 for zoom");
         } else if (currentState.equals(States.ZOOM_CLICK_2_UNPRESSED) && mouseButtonState) {
             // Button has been pressed, we switch to press, nothing else to do
             currentState = States.ZOOM_CLICK_2_PRESSED;
@@ -166,7 +159,6 @@ public class EditionStateMachine {
         } else if (currentState.equals(States.ZOOM_CLICK_2_PRESSED) && !mouseButtonState) {
             // Button has been unpressed, we return to movement mode
             this.myController.setZoomPoint2(mousePosX, mousePosY);
-            System.out.println("Set point 2 for zoom");
             this.myController.drawCurrentFrame();
             currentState = States.MOVEMENT;
         } else if (currentState.equals(States.MOVING_PLAYER) && mouseButtonState) {
@@ -185,8 +177,12 @@ public class EditionStateMachine {
                 Snapshot nextSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
                 // we want to take the player and insert it in the new snapshot
                 TransientPlayer theTransientPlayer = previousSnapshot.getTransientPlayer(currentMovingPlayer);
-                nextSnapshot.tryAddPlayer(theTransientPlayer.getPlayer(), relativeMousePosX, relativeMousePosY, theTransientPlayer.getAngle());
-                this.myController.getCurrentStrategy().insertSnapshot(nextSnapshot);
+                
+                //we check if there is an obstacle on the way. if so, we don't move the player
+                if (this.myController.getScene().getIntersectingObstacleUID(mousePosX, mousePosY) == -1) {
+                    nextSnapshot.tryAddPlayer(theTransientPlayer.getPlayer(), relativeMousePosX, relativeMousePosY, theTransientPlayer.getAngle());
+                    this.myController.getCurrentStrategy().insertSnapshot(nextSnapshot);
+                }
             }
             
             this.myController.drawCurrentFrame();
@@ -203,6 +199,7 @@ public class EditionStateMachine {
             } else if (this.modificationMode.equals("Temps réel")) {
                 Snapshot previousSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
                 this.myController.setTime(System.nanoTime()/1000000 - this.initialTimeRealTime);
+                
                 Snapshot nextSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
                 // we want to take the player and insert it in the new snapshot
                 TransientObject theTransientObject = previousSnapshot.getTransientObject(currentMovingObject);
@@ -231,7 +228,6 @@ public class EditionStateMachine {
             }
             this.myController.drawCurrentFrame();
         }
-        //System.out.println("x, y");
     }
     
     public void startZoomMode() {
@@ -247,7 +243,6 @@ public class EditionStateMachine {
     public void switchToAddMode(String pPlayerIdentity) {
         this.currentState = States.ADDING_PLAYER;
         this.currentAddedPlayer = pPlayerIdentity;
-        //System.out.println("Just switched to add mode!");
     }
     
     public void switchtoAddModeObject(String pObjectName) {
@@ -267,7 +262,6 @@ public class EditionStateMachine {
     
     public void setModificationMode(String pMode) {
         this.modificationMode = pMode;
-        System.out.println(pMode);
     }
     
     public String getModificationMode() {

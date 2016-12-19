@@ -157,7 +157,6 @@ public class Snapshot implements java.io.Serializable {
                 return aTransientPlayer;
             }
         }
-        System.out.println("player identity: " + pPlayerIdentity);
         throw new Exception("non-existent transient player: requested " + pPlayerIdentity);
     }
     
