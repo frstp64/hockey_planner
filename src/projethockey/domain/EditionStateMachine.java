@@ -78,6 +78,8 @@ public class EditionStateMachine {
                 currentState = States.MOVEMENT;
                 this.myController.actionWillHappen();
                 this.myController.getCurrentStrategy().eraseObstacle(intersectingObstacle);
+                long currentTime = this.myController.getCurrentTime();
+                this.myController.getCurrentStrategy().eraseGameObject(intersectingObstacle);
             }
             else if (!intersectingPlayer.equals("NoneIntersecting")) {
                 currentState = States.MOVEMENT;

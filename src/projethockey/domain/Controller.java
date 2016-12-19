@@ -1108,6 +1108,7 @@ public class Controller {
         
         // print the current frame
         Snapshot snapshotToPrint = this.mStrategyInEdition.pullSnapshot(timeViewer);
+        snapshotToPrint.printObjects(myScene);
         snapshotToPrint.printPlayers(myScene);
         
         // finally, publish the picture to the front end

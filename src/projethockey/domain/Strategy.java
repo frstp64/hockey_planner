@@ -287,6 +287,20 @@ public class Strategy implements java.io.Serializable{
         erasePlayerFromFuture(pPlayerIdentity, -1);
     }
     
+    public void eraseGameObject(int pObjectUID) {
+        for (Snapshot aSnapshot : this.listSnapshot) {
+            List<TransientObject> transientObjectList = aSnapshot.getListTransientObject();
+            for (int anObjIndex = 0; anObjIndex < transientObjectList.size(); anObjIndex++) {
+                TransientObject aTransientObject = transientObjectList.get(anObjIndex);
+                if (aTransientObject.getUID() == pObjectUID) {
+                    transientObjectList.remove(anObjIndex);
+                    break;
+                }
+            }
+        }
+
+    }
+    
     public void erasePlayerFromFuture(String pPlayerIdentity, long timeToStartErasing) {
         //Erases the player from a point in time until the end
         for (Snapshot aSnapshot : this.listSnapshot) {
@@ -310,9 +324,13 @@ public class Strategy implements java.io.Serializable{
             // first, we instantiate a transient object
             TransientObject obstacleToAdd = new TransientObject(pPosX, pPosY, currentObject, true);
             // then, we add it to the obstacle plane. it's all automatic!
-        System.out.println("addnewobject in strategy2");
         this.obstaclePlane.addObject(obstacleToAdd);
-        System.out.println("addnewobject in strategy3");
+        } else {
+            // It is a game object, it should be stored in a normal frame because it is supposed to be here
+            TransientObject gameObjectToAdd = new TransientObject(pPosX, pPosY, currentObject, true);
+            Snapshot aSnapshot = this.pullSnapshot(currentTime);
+            aSnapshot.addObject(gameObjectToAdd);
+            this.insertSnapshot(aSnapshot);
         }
     }
 

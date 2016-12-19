@@ -167,4 +167,8 @@ public class Snapshot implements java.io.Serializable {
             }
         }
     }
+
+    List<TransientObject> getListTransientObject() {
+        return this.listTransientObject;
+    }
 }
