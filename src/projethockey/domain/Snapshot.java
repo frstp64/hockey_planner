@@ -143,6 +143,15 @@ public class Snapshot implements java.io.Serializable {
         throw new Exception("non-existent transient player: requested " + pPlayerIdentity);
     }
     
+    public TransientObject getTransientObject(int pUID) throws Exception {
+        for (TransientObject aTransientObject: this.listTransientObject) {
+            if (aTransientObject.getUID() == pUID ) {
+                return aTransientObject;
+            }
+        }
+        throw new Exception("non-existent transient object");
+    }
+    
     // also deals with the visibility, makes it false
     public void copyFromOtherSnapshot(Snapshot pSnapshot) {
         for (TransientPlayer aTransientPlayer: pSnapshot.listTransientPlayer) {
@@ -171,4 +180,5 @@ public class Snapshot implements java.io.Serializable {
     List<TransientObject> getListTransientObject() {
         return this.listTransientObject;
     }
+
 }

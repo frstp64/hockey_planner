@@ -337,4 +337,13 @@ public class Strategy implements java.io.Serializable{
     public Snapshot getObstaclePlane() {
         return this.obstaclePlane;
     }
+
+    boolean isAnObstacle(int intersectingObjectUID) {
+        for(TransientObject aTransientObject : this.obstaclePlane.getListTransientObject()) {
+            if (aTransientObject.getUID() == intersectingObjectUID) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

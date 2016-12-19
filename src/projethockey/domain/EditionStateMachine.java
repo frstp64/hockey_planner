@@ -18,6 +18,7 @@ public class EditionStateMachine {
         DELETING,
         ADDING_PLAYER,
         MOVING_PLAYER,
+        MOVING_OBJECT,
         ADDING_OBJECT,
         ROTATING_PLAYER,
         ZOOM_CLICK_1_UNPRESSED,
@@ -33,6 +34,7 @@ public class EditionStateMachine {
     private int mousePosY;
     private boolean plsShowStrings;
     private String currentAddedPlayer, currentMovingPlayer, currentRotatingPlayer, currentAddedObject;
+    private int currentMovingObject;
     private int initialRotationPosX, initialRotationPosY;
     private long initialTimeRealTime; // the initial time for real time modifications
     private String modificationMode;
@@ -61,9 +63,18 @@ public class EditionStateMachine {
 
             // To switch to player movement mode, we first need to have one intersecting the mouse
             String intersectingPlayer = this.myController.getScene().getIntersectingPlayerName(mousePosX, mousePosY);
+            int intersectingObject = this.myController.getScene().getIntersectingObstacleUID(mousePosX, mousePosY);
             //System.out.println("Intersecting player is: " + intersectingPlayer);
             
-            if (!intersectingPlayer.equals("NoneIntersecting")) {
+            long currentTime = this.myController.getCurrentTime();
+            Strategy currentStrategy = this.myController.getCurrentStrategy();
+            if (intersectingObject != -1 && !currentStrategy.isAnObstacle(intersectingObject)) {
+                this.initialTimeRealTime = System.nanoTime()/1000000 - this.myController.getCurrentTime();
+                currentState = States.MOVING_OBJECT;
+                this.myController.actionWillHappen();
+                this.currentMovingObject = intersectingObject;
+            }
+            else if (!intersectingPlayer.equals("NoneIntersecting")) {
                 this.initialTimeRealTime = System.nanoTime()/1000000 - this.myController.getCurrentTime();
                 currentState = States.MOVING_PLAYER;
                 this.myController.actionWillHappen();
@@ -117,8 +128,9 @@ public class EditionStateMachine {
             // Button has been unpressed in movement mode
             currentState = States.MOVEMENT;
             System.out.println("Mode mouvement en cours, vient d'être terminé");
+        } else if (currentState.equals(States.MOVING_PLAYER) && !mouseButtonState) {
+            currentState = States.MOVEMENT;
 
-            // 99% SURE THIS IS ACTUALLY DONE THX
         } else if (currentState.equals(States.ROTATION) && mouseButtonState) {
             System.out.println("Mode rotation");
             // To switch to player movement mode, we first need to have one intersecting the mouse
@@ -133,8 +145,6 @@ public class EditionStateMachine {
                 this.initialRotationPosX = mousePosX;
                 this.initialRotationPosY = mousePosY;
             }
-
-            // Button has been pressed in Rotation mode
         } else if (currentState.equals(States.ROTATING_PLAYER) && !mouseButtonState) {
             // We return to rotation mode since we're done rotating the thing
             
@@ -167,6 +177,27 @@ public class EditionStateMachine {
                 Snapshot aSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
                 aSnapshot.getTransientPlayer(currentMovingPlayer).setPosition(relativeMousePosX, relativeMousePosY);
                 aSnapshot.getTransientPlayer(currentMovingPlayer).setVisible(true);
+                this.myController.getCurrentStrategy().insertSnapshot(aSnapshot);
+                
+            } else if (this.modificationMode.equals("Temps réel")) {
+                Snapshot previousSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
+                this.myController.setTime(System.nanoTime()/1000000 - this.initialTimeRealTime);
+                Snapshot nextSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
+                // we want to take the player and insert it in the new snapshot
+                TransientPlayer theTransientPlayer = previousSnapshot.getTransientPlayer(currentMovingPlayer);
+                nextSnapshot.tryAddPlayer(theTransientPlayer.getPlayer(), relativeMousePosX, relativeMousePosY, theTransientPlayer.getAngle());
+                this.myController.getCurrentStrategy().insertSnapshot(nextSnapshot);
+            }
+            
+            this.myController.drawCurrentFrame();
+            
+        } else if (currentState.equals(States.MOVING_OBJECT) && mouseButtonState) {
+                float relativeMousePosX = this.myController.getScene().getNormalizedX(mousePosX);
+                float relativeMousePosY = this.myController.getScene().getNormalizedY(mousePosY);
+            if (this.modificationMode.equals("Image par image")) {
+                Snapshot aSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
+                aSnapshot.getTransientObject(currentMovingObject).setPosition(relativeMousePosX, relativeMousePosY);
+                //aSnapshot.getTransientPlayer(currentMovingObject).setVisible(true);
                 this.myController.getCurrentStrategy().insertSnapshot(aSnapshot);
                 
             } else if (this.modificationMode.equals("Temps réel")) {
