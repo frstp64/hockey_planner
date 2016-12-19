@@ -108,6 +108,24 @@ public class Snapshot implements java.io.Serializable {
             this.listTransientPlayer.add(transientPlayer);
         }
     }
+    // Deals with dubloons, will just override it
+    public void tryAddObject(TransientObject pObj, float posX, float posY) {
+        
+        TransientObject transientObject;
+        boolean objAlreadyExists = false;
+        for (TransientObject anExistingTransientObject: this.listTransientObject) {
+            if (anExistingTransientObject.getUID() == pObj.getUID()) {
+                objAlreadyExists = true;
+                anExistingTransientObject.setPosition(posX, posY);
+                break;
+            }
+        }
+        if (!objAlreadyExists) {
+            transientObject = new TransientObject(pObj);
+            transientObject.setPosition(posX, posY);
+            this.listTransientObject.add(transientObject);
+        }
+    }
     
     public void addObject(TransientObject pObject) {
         this.listTransientObject.add(pObject);

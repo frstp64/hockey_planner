@@ -205,8 +205,8 @@ public class EditionStateMachine {
                 this.myController.setTime(System.nanoTime()/1000000 - this.initialTimeRealTime);
                 Snapshot nextSnapshot = this.myController.getCurrentStrategy().pullSnapshot(this.myController.getCurrentTime());
                 // we want to take the player and insert it in the new snapshot
-                TransientPlayer theTransientPlayer = previousSnapshot.getTransientPlayer(currentMovingPlayer);
-                nextSnapshot.tryAddPlayer(theTransientPlayer.getPlayer(), relativeMousePosX, relativeMousePosY, theTransientPlayer.getAngle());
+                TransientObject theTransientObject = previousSnapshot.getTransientObject(currentMovingObject);
+                nextSnapshot.tryAddObject(theTransientObject, relativeMousePosX, relativeMousePosY);
                 this.myController.getCurrentStrategy().insertSnapshot(nextSnapshot);
             }
             
