@@ -14,8 +14,8 @@ import java.awt.Graphics2D;
  * @author znuxor
  */
 public class BlackBoard extends Scene {
-    public BlackBoard(int pSceneSizeX, int pSceneSizeY) {
-        super(pSceneSizeX, pSceneSizeY);
+    public BlackBoard(int pSceneSizeX, int pSceneSizeY, Sport pSport) {
+        super(pSceneSizeX, pSceneSizeY, pSport);
     }
     
     public void drawStrategy(Strategy pStrategy) {

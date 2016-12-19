@@ -34,12 +34,19 @@ public class Scene {
     private ArrayList<Integer> playerCoordX2; //list of the X coordinates of each player, normalized
     private ArrayList<Integer> playerCoordY2; // same, Y coordinates, normalized
     private ArrayList<String> playerNames;
+    private ArrayList<Integer> objectCoordX1; //list of the X coordinates of each player, normalized
+    private ArrayList<Integer> objectCoordY1; // same, Y coordinates, normalized
+    private ArrayList<Integer> objectCoordX2; //list of the X coordinates of each player, normalized
+    private ArrayList<Integer> objectCoordY2; // same, Y coordinates, normalized
+    private ArrayList<Integer> objectUIDs;
     
     protected BufferedImage sceneImage;
     private BufferedImage backgroundPicture;
     private boolean showTextOption;
     
-    public Scene(int pSceneSizeX, int pSceneSizeY) {
+    private Sport sport;
+    
+    public Scene(int pSceneSizeX, int pSceneSizeY, Sport pSport) {
         sceneSizeX = pSceneSizeX;
         sceneSizeY = pSceneSizeY;
         isZoomed = false;
@@ -49,7 +56,13 @@ public class Scene {
         playerCoordX2 =  new ArrayList();
         playerCoordY2 =  new ArrayList();
         playerNames =  new ArrayList();
+        objectCoordX1 =  new ArrayList();
+        objectCoordY1 =  new ArrayList();
+        objectCoordX2 =  new ArrayList();
+        objectCoordY2 =  new ArrayList();
+        objectUIDs =  new ArrayList();
         this.showTextOption = false;
+        this.sport = pSport;
     }
     
     public void setBackground(BufferedImage pbackgroundPicture) {
@@ -69,6 +82,11 @@ public class Scene {
         playerCoordX2 =  new ArrayList();
         playerCoordY2 =  new ArrayList();
         playerNames =  new ArrayList();
+        objectCoordX1 =  new ArrayList();
+        objectCoordY1 =  new ArrayList();
+        objectCoordX2 =  new ArrayList();
+        objectCoordY2 =  new ArrayList();
+        objectUIDs =  new ArrayList();
     }
     
     public void putPicture(Image itemPicture, int locX, int locY, boolean isTransparent) {
@@ -173,6 +191,36 @@ public class Scene {
             
             this.putText(wantedX1, wantedY1+10, playerName);
         }
+    }
+    
+    public void putObject(TransientObject pObject) {
+        // Size computation (pixels
+        int objectWidth = (int) (pObject.getObject().getHorizontalSize() / this.sport.getHorizontalSize() * this.sceneSizeX);
+        int objectHeight = (int) (pObject.getObject().getVerticalSize() / this.sport.getVerticalSize() * this.sceneSizeY);
+        
+        
+        // Position computation
+        int wantedX1 = (int) (pObject.getPosX()*this.sceneSizeX)-objectWidth/2;
+        int wantedX2 = wantedX1+objectWidth;
+        int wantedY1 = (int) (pObject.getPosY()*this.sceneSizeY)-objectHeight/2;
+        int wantedY2 = wantedY1+objectHeight;
+        float wantedRelativeX1 = ((float) wantedX1)/sceneSizeX;
+        float wantedRelativeX2 = ((float) wantedX2)/sceneSizeX;
+        float wantedRelativeY1 = ((float) wantedY1)/sceneSizeY;
+        float wantedRelativeY2 = ((float) wantedY2)/sceneSizeY;
+        this.objectCoordX1.add(wantedX1);
+        this.objectCoordX2.add(wantedX2);
+        this.objectCoordY1.add(wantedY1);
+        this.objectCoordY2.add(wantedY2);
+        this.objectUIDs.add(pObject.getUID());
+
+        System.out.println("objectinfo");
+        System.out.println(pObject.getPosX());
+        System.out.println(wantedX1);
+        System.out.println(wantedY1);
+
+        this.putPicture(pObject.getObject().getImg().getScaledInstance(max(10, objectWidth), max(10, objectHeight), BufferedImage.SCALE_FAST), wantedX1, wantedY1, false);
+       
     }
     
     public boolean isZoomed() {

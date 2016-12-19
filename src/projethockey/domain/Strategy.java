@@ -23,6 +23,7 @@ public class Strategy implements java.io.Serializable{
     public Strategy() {
         listSnapshot = new ArrayList();
         listTeam = new ArrayList();
+        this.obstaclePlane = new Snapshot(0);
     }
     
     public Strategy(Strategy strategy) {
@@ -38,6 +39,7 @@ public class Strategy implements java.io.Serializable{
         for (Team aTeam: strategy.listTeam) {
             this.listTeam.add(new Team(aTeam));
         }
+        this.obstaclePlane = new Snapshot(strategy.obstaclePlane);
     }
     
     public String getName() {
@@ -295,5 +297,22 @@ public class Strategy implements java.io.Serializable{
                 }
             }
         }
+    }
+    
+    public void addNewObject(CategoryObstacle currentObject, long currentTime, float pPosX, float pPosY) {
+        // adds a new object according to its type
+        if (!currentObject.getIsGameObject()) {
+            // It is an obstacle, it should be stored in the obstacle plane because it won't move
+            // first, we instantiate a transient object
+            TransientObject obstacleToAdd = new TransientObject(pPosX, pPosY, currentObject, true);
+            // then, we add it to the obstacle plane. it's all automatic!
+        System.out.println("addnewobject in strategy2");
+        this.obstaclePlane.addObject(obstacleToAdd);
+        System.out.println("addnewobject in strategy3");
+        }
+    }
+
+    public Snapshot getObstaclePlane() {
+        return this.obstaclePlane;
     }
 }

@@ -10,6 +10,7 @@ import java.util.List;
 public class Snapshot implements java.io.Serializable {
     private int idChange;
     private ArrayList<TransientPlayer> listTransientPlayer;
+    private ArrayList<TransientObject> listTransientObject;
     private boolean trashed;
     private long timeStamp;
     private String typeSnapshot;
@@ -19,6 +20,7 @@ public class Snapshot implements java.io.Serializable {
         this.trashed = false;
         this.typeSnapshot = "TODOLATER";
         this.listTransientPlayer = new ArrayList();
+        this.listTransientObject = new ArrayList();
         this.idChange = -1;
     }
 
@@ -31,6 +33,10 @@ public class Snapshot implements java.io.Serializable {
         }
         for(TransientPlayer trans: this.listTransientPlayer) {
 
+        }
+        this.listTransientObject = new ArrayList();
+        for(TransientObject trans : snapshot.listTransientObject) {
+            this.listTransientObject.add(new TransientObject(trans));
         }
         //this.listObstacle = snapshot.listObstacle;
         this.trashed = snapshot.trashed;
@@ -103,6 +109,10 @@ public class Snapshot implements java.io.Serializable {
         }
     }
     
+    public void addObject(TransientObject pObject) {
+        this.listTransientObject.add(pObject);
+    }
+    
     public void printPlayers(Scene sceneReference) {
         for (TransientPlayer aTransientPlayer: this.listTransientPlayer) {
             sceneReference.putPlayer(
@@ -114,6 +124,12 @@ public class Snapshot implements java.io.Serializable {
             aTransientPlayer.getAngle()
                     
             );
+        }
+    }
+    
+    public void printObjects(Scene sceneReference) {
+        for (TransientObject aTransientObject: this.listTransientObject) {
+            sceneReference.putObject(aTransientObject);
         }
     }
     

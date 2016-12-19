@@ -32,7 +32,7 @@ public class EditionStateMachine {
     private int mousePosX;
     private int mousePosY;
     private boolean plsShowStrings;
-    private String currentAddedPlayer, currentMovingPlayer, currentRotatingPlayer;
+    private String currentAddedPlayer, currentMovingPlayer, currentRotatingPlayer, currentAddedObject;
     private int initialRotationPosX, initialRotationPosY;
     private long initialTimeRealTime; // the initial time for real time modifications
     private String modificationMode;
@@ -92,6 +92,17 @@ public class EditionStateMachine {
             System.out.println("Player added in state machine: " + currentPlayer.getIdentity());
             currentSnapshot.tryAddPlayer(currentPlayer, this.myController.getScene().getNormalizedX(mousePosX), this.myController.getScene().getNormalizedY(mousePosY), 0);
             currentStrategy.insertSnapshot(currentSnapshot);
+            this.myController.drawCurrentFrame();
+            
+        } else if (currentState.equals(States.ADDING_OBJECT) && mouseButtonState) {
+            currentState = States.MOVEMENT;
+            this.myController.actionWillHappen();
+            long currentTime = this.myController.getCurrentTime();
+            Strategy currentStrategy = this.myController.getCurrentStrategy();
+            Snapshot currentSnapshot = currentStrategy.pullSnapshot(currentTime);
+            CategoryObstacle currentObject = this.myController.getObject(currentAddedObject);
+            currentStrategy.addNewObject(currentObject, currentTime, this.myController.getScene().getNormalizedX(mousePosX), this.myController.getScene().getNormalizedY(mousePosY));
+            
             this.myController.drawCurrentFrame();
             
         } else if (currentState.equals(States.MOVING_PLAYER) && !mouseButtonState) {
@@ -202,7 +213,7 @@ public class EditionStateMachine {
     
     public void switchtoAddModeObject(String pObjectName) {
         this.currentState = States.ADDING_OBJECT;
-        this.currentAddedPlayer = pObjectName;
+        this.currentAddedObject = pObjectName;
     }
     
     public boolean getShowStringOption() {

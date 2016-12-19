@@ -86,11 +86,12 @@ public class Controller {
         // the FSM
         mMouseFSM = new EditionStateMachine(this);
         
-        // The scene
-        myScene = new Scene(100, 100);
         
         // Sport
         mPlaceHolderSport = new Sport();
+        // The scene
+        
+        myScene = new Scene(100, 100, mPlaceHolderSport);
         sportArray = new ArrayList<Sport>();
         // CategoryPlayer
         mPlaceHolderCategoryPlayer = new CategoryPlayer();
@@ -108,8 +109,6 @@ public class Controller {
         // Team
         mPlaceHolderTeam = new Team();
         teamArray = new ArrayList<Team>();
-        
-        myScene = new Scene(300, 300);
 
         AppDataProxy.loadData(this);
 
@@ -664,6 +663,7 @@ public class Controller {
     }
     public void loadSelectedStrategy() {
         this.mStrategyInEdition = new Strategy(this.mPlaceHolderStrategyCreation);
+        myScene = new Scene(100, 100, this.getCurrentStrategy().getSport());
         //pass
     }
 
@@ -1093,6 +1093,10 @@ public class Controller {
         // Draws the current frame on screen
         //this.mStrategyInEdition.getFrame();
         myScene.cleanScene();
+        
+        // prints the background
+        this.mStrategyInEdition.getObstaclePlane().printObjects(myScene);
+        
         // history printing, if necessary
         if (this.mMouseFSM.getModificationMode().equals("Image par image") && !this.mMouseFSM.isPlaying()) {
             // if we're in image by image mode and stopped, we need to also draw the history
@@ -1145,7 +1149,7 @@ public class Controller {
     }
     
     public void objectAddMode(String pObjectName) {
-        this.mMouseFSM.switchToAddMode(pObjectName);
+        this.mMouseFSM.switchtoAddModeObject(pObjectName);
     }    
     
     
@@ -1159,6 +1163,15 @@ public class Controller {
     
     public Player getPlayer(String pPlayerName) throws Exception{
         return this.mStrategyInEdition.getPlayer(pPlayerName);
+    }
+    
+    public CategoryObstacle getObject(String pObjectName) throws Exception{
+        for (CategoryObstacle anObject : categoryObstacleArray) {
+            if (anObject.getCategoryName().equals(pObjectName)) {
+                return anObject;
+            }
+        }
+        throw new Exception("object does not exist");
     }
     
     public Scene getScene() {
@@ -1220,7 +1233,7 @@ public class Controller {
     
     // creates a preview and publishes it to the frontend
     public void showPreview(int wantedSizeX, int wantedSizeY) {
-        BlackBoard myBlackBoard = new BlackBoard(wantedSizeX, wantedSizeY);
+        BlackBoard myBlackBoard = new BlackBoard(wantedSizeX, wantedSizeY, this.mPlaceHolderStrategyCreation.getSport());
         myBlackBoard.setBackground(this.mPlaceHolderStrategyCreation.getSport().getImg());
         myBlackBoard.cleanScene();
         myBlackBoard.drawStrategy(this.mPlaceHolderStrategyCreation);
@@ -1242,7 +1255,7 @@ public class Controller {
     public void exportStrategy(String exportPath) {
         System.out.println(this.exportSizeX);
         System.out.println(this.exportSizeY);
-        BlackBoard myBlackBoard = new BlackBoard(this.exportSizeX, this.exportSizeY);
+        BlackBoard myBlackBoard = new BlackBoard(this.exportSizeX, this.exportSizeY, this.getCurrentStrategy().getSport());
         myBlackBoard.setBackground(this.mStrategyInEdition.getSport().getImg());
         myBlackBoard.cleanScene();
         myBlackBoard.drawStrategy(this.mStrategyInEdition);
