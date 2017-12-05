@@ -7,7 +7,7 @@ package projethockey.domain;
 
 /**
  *
- * @author znuxor
+ * @author Frederic St-Pierre
  */
 public interface projetHockeyInterface extends sportSubscribable{
     // NOTHING SHOULD BE PUT HERE

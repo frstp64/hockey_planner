@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author znuxor
+ * @author Frederic St-Pierre
  */
 // This class deals with the application's main data, excluding strategies
 public class AppDataProxy{

@@ -20,7 +20,7 @@ import java.util.TimerTask;
 
 /**
  *
- * @author znuxor
+ * @author Frederic St-Pierre
  */
 public class Controller {
     // Sport

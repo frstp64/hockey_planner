@@ -17,7 +17,7 @@ import javax.swing.SwingUtilities;
 
 /**
  *
- * @author znuxor
+ * @author Frederic St-Pierre
  */
 public class MainWindow extends javax.swing.JFrame implements projetHockeyInterface {
     /**

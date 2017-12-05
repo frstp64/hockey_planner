@@ -8,7 +8,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 /**
  *
- * @author znuxor
+ * @author Frederic St-Pierre
  */
 public class TransientObject implements java.io.Serializable {
     private float posX;

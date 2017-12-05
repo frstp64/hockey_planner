@@ -11,7 +11,7 @@ import java.awt.Graphics2D;
 
 /**
  *
- * @author znuxor
+ * @author Frederic St-Pierre
  */
 public class BlackBoard extends Scene {
     public BlackBoard(int pSceneSizeX, int pSceneSizeY, Sport pSport) {

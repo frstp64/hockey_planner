@@ -7,7 +7,7 @@ package projethockey.domain;
 
 /**
  *
- * @author znuxor
+ * @author Frederic St-Pierre
  */
 public class EditionStateMachine {
 

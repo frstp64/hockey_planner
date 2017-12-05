@@ -20,7 +20,7 @@ import java.awt.image.AffineTransformOp;
 
 /**
  *
- * @author znuxor
+ * @author Frederic St-Pierre
  */
 
 public class Scene {

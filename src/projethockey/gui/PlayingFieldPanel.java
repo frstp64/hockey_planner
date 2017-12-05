@@ -16,7 +16,7 @@ import java.awt.Graphics2D;
 
 /**
  *
- * @author znuxor
+ * @author Frederic St-Pierre
  */
 public class PlayingFieldPanel extends javax.swing.JPanel
 {

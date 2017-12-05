@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 /**
  *
- * @author znuxor
+ * @author Frederic St-Pierre
  */
 public interface sportSubscribable {
 

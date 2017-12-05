@@ -8,7 +8,7 @@ import projethockey.domain.Controller;
 import projethockey.gui.MainWindow;
 /**
  *
- * @author znuxor
+ * @author Frederic St-Pierre
  */
 public class ProjetHockey {
     
